@@ -1,16 +1,14 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LibraryManagement;
 
-namespace LibraryManageUnitTest
+namespace LibraryManageUnitTest.Periodical
 {
     [TestClass]
-    public class UnitTest1
+    public class PeriodicalUnitTest
     {
         [TestMethod]
         public void TestMethod1()
         {
-
         }
     }
 }
