@@ -1,20 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagement.Periodical
 {
     public partial class PeriodicalForm : Form
     {
-        public PeriodicalForm()
+        Form parentForm;
+        public PeriodicalForm(Form form)
         {
             InitializeComponent();
+            parentForm = form;
+        }
+
+        private void orderButton_Click(object sender, EventArgs e)
+        {
+            var form = new PeriodicalOrderForm(this);
+            form.Show();
+            Hide();
         }
     }
 }
