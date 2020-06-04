@@ -1,11 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Dal
 {
@@ -18,7 +14,7 @@ namespace LibraryManagement.Dal
         {
             conn = new MySqlConnection(sqlConnect);
         }
-        
+
         public SQLHelper()
         {
             conn = new MySqlConnection("server=152.136.73.240;port=1733;database=db_LibraryManagement;user id=Lsa;password=llfllf;Charset=utf8;");

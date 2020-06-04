@@ -18,5 +18,11 @@ namespace LibraryManagement.Periodical
             form.Show();
             Hide();
         }
+
+        private void PeriodicalForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Show();
+            Hide();
+        }
     }
 }

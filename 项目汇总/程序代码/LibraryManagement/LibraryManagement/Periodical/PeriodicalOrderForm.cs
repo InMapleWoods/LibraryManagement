@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace LibraryManagement.Periodical
 {
@@ -12,5 +11,10 @@ namespace LibraryManagement.Periodical
             parentForm = form;
         }
 
+        private void PeriodicalOrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Show();
+            Hide();
+        }
     }
 }

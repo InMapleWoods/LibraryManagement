@@ -39,59 +39,68 @@
             // comboBox_Dictionary
             // 
             this.comboBox_Dictionary.FormattingEnabled = true;
-            this.comboBox_Dictionary.Location = new System.Drawing.Point(609, 37);
+            this.comboBox_Dictionary.Location = new System.Drawing.Point(812, 46);
+            this.comboBox_Dictionary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_Dictionary.Name = "comboBox_Dictionary";
-            this.comboBox_Dictionary.Size = new System.Drawing.Size(121, 20);
+            this.comboBox_Dictionary.Size = new System.Drawing.Size(160, 23);
             this.comboBox_Dictionary.TabIndex = 0;
             // 
             // dataGV_DictionaryShow
             // 
             this.dataGV_DictionaryShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGV_DictionaryShow.Location = new System.Drawing.Point(13, 37);
+            this.dataGV_DictionaryShow.Location = new System.Drawing.Point(17, 46);
+            this.dataGV_DictionaryShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGV_DictionaryShow.Name = "dataGV_DictionaryShow";
+            this.dataGV_DictionaryShow.RowHeadersWidth = 51;
             this.dataGV_DictionaryShow.RowTemplate.Height = 23;
-            this.dataGV_DictionaryShow.Size = new System.Drawing.Size(575, 358);
+            this.dataGV_DictionaryShow.Size = new System.Drawing.Size(767, 448);
             this.dataGV_DictionaryShow.TabIndex = 1;
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(609, 90);
+            this.btn_Add.Location = new System.Drawing.Point(812, 112);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(130, 35);
+            this.btn_Add.Size = new System.Drawing.Size(173, 44);
             this.btn_Add.TabIndex = 2;
             this.btn_Add.Text = "增加";
             this.btn_Add.UseVisualStyleBackColor = true;
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(609, 143);
+            this.btn_Delete.Location = new System.Drawing.Point(812, 179);
+            this.btn_Delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(130, 35);
+            this.btn_Delete.Size = new System.Drawing.Size(173, 44);
             this.btn_Delete.TabIndex = 3;
             this.btn_Delete.Text = "删除";
             this.btn_Delete.UseVisualStyleBackColor = true;
             // 
             // btn_Change
             // 
-            this.btn_Change.Location = new System.Drawing.Point(609, 194);
+            this.btn_Change.Location = new System.Drawing.Point(812, 242);
+            this.btn_Change.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Change.Name = "btn_Change";
-            this.btn_Change.Size = new System.Drawing.Size(130, 35);
+            this.btn_Change.Size = new System.Drawing.Size(173, 44);
             this.btn_Change.TabIndex = 4;
             this.btn_Change.Text = "删除";
             this.btn_Change.UseVisualStyleBackColor = true;
             // 
             // DictionaryEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Controls.Add(this.btn_Change);
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.dataGV_DictionaryShow);
             this.Controls.Add(this.comboBox_Dictionary);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DictionaryEditForm";
             this.Text = "DictionaryEditForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DictionaryEditForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_DictionaryShow)).EndInit();
             this.ResumeLayout(false);
 
