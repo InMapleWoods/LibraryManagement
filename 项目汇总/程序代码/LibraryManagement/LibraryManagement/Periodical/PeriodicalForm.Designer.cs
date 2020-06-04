@@ -43,6 +43,7 @@
             this.orderButton.TabIndex = 0;
             this.orderButton.Text = "期刊订购";
             this.orderButton.UseVisualStyleBackColor = true;
+            this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
             // arriveButton
             // 
