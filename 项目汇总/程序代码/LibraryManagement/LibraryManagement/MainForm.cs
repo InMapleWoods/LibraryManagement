@@ -37,5 +37,12 @@ namespace LibraryManagement
             form.Show();
             Hide();
         }
+
+        private void catalogSystemBtn_Click(object sender, EventArgs e)
+        {
+            var form = new Catalog.CatalogForm();
+            form.Show();
+            Hide();
+        }
     }
 }

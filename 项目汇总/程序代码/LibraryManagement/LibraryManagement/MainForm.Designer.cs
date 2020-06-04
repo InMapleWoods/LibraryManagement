@@ -32,13 +32,15 @@
             this.statisticalSystemButton = new System.Windows.Forms.Button();
             this.interviewSystemButton = new System.Windows.Forms.Button();
             this.maintainaceSystemButton = new System.Windows.Forms.Button();
+            this.catalogSystemBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // periodicalSystemButton
             // 
-            this.periodicalSystemButton.Location = new System.Drawing.Point(548, 91);
+            this.periodicalSystemButton.Location = new System.Drawing.Point(616, 109);
+            this.periodicalSystemButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.periodicalSystemButton.Name = "periodicalSystemButton";
-            this.periodicalSystemButton.Size = new System.Drawing.Size(106, 75);
+            this.periodicalSystemButton.Size = new System.Drawing.Size(119, 90);
             this.periodicalSystemButton.TabIndex = 0;
             this.periodicalSystemButton.Text = "期刊子系统";
             this.periodicalSystemButton.UseVisualStyleBackColor = true;
@@ -46,9 +48,10 @@
             // 
             // statisticalSystemButton
             // 
-            this.statisticalSystemButton.Location = new System.Drawing.Point(548, 210);
+            this.statisticalSystemButton.Location = new System.Drawing.Point(616, 252);
+            this.statisticalSystemButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.statisticalSystemButton.Name = "statisticalSystemButton";
-            this.statisticalSystemButton.Size = new System.Drawing.Size(106, 75);
+            this.statisticalSystemButton.Size = new System.Drawing.Size(119, 90);
             this.statisticalSystemButton.TabIndex = 0;
             this.statisticalSystemButton.Text = "统计子系统";
             this.statisticalSystemButton.UseVisualStyleBackColor = true;
@@ -56,9 +59,10 @@
             // 
             // interviewSystemButton
             // 
-            this.interviewSystemButton.Location = new System.Drawing.Point(65, 91);
+            this.interviewSystemButton.Location = new System.Drawing.Point(73, 109);
+            this.interviewSystemButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.interviewSystemButton.Name = "interviewSystemButton";
-            this.interviewSystemButton.Size = new System.Drawing.Size(106, 75);
+            this.interviewSystemButton.Size = new System.Drawing.Size(119, 90);
             this.interviewSystemButton.TabIndex = 0;
             this.interviewSystemButton.Text = "采访子系统";
             this.interviewSystemButton.UseVisualStyleBackColor = true;
@@ -66,23 +70,36 @@
             // 
             // maintainaceSystemButton
             // 
-            this.maintainaceSystemButton.Location = new System.Drawing.Point(65, 210);
+            this.maintainaceSystemButton.Location = new System.Drawing.Point(73, 252);
+            this.maintainaceSystemButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.maintainaceSystemButton.Name = "maintainaceSystemButton";
-            this.maintainaceSystemButton.Size = new System.Drawing.Size(106, 75);
+            this.maintainaceSystemButton.Size = new System.Drawing.Size(119, 90);
             this.maintainaceSystemButton.TabIndex = 0;
             this.maintainaceSystemButton.Text = "系统维护子系统";
             this.maintainaceSystemButton.UseVisualStyleBackColor = true;
             this.maintainaceSystemButton.Click += new System.EventHandler(this.maintainaceSystemButton_Click);
             // 
+            // catalogSystemBtn
+            // 
+            this.catalogSystemBtn.Location = new System.Drawing.Point(361, 149);
+            this.catalogSystemBtn.Name = "catalogSystemBtn";
+            this.catalogSystemBtn.Size = new System.Drawing.Size(75, 23);
+            this.catalogSystemBtn.TabIndex = 1;
+            this.catalogSystemBtn.Text = "button1";
+            this.catalogSystemBtn.UseVisualStyleBackColor = true;
+            this.catalogSystemBtn.Click += new System.EventHandler(this.catalogSystemBtn_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(900, 540);
+            this.Controls.Add(this.catalogSystemBtn);
             this.Controls.Add(this.maintainaceSystemButton);
             this.Controls.Add(this.statisticalSystemButton);
             this.Controls.Add(this.interviewSystemButton);
             this.Controls.Add(this.periodicalSystemButton);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.Text = "MainForm";
@@ -96,5 +113,6 @@
         private System.Windows.Forms.Button statisticalSystemButton;
         private System.Windows.Forms.Button interviewSystemButton;
         private System.Windows.Forms.Button maintainaceSystemButton;
+        private System.Windows.Forms.Button catalogSystemBtn;
     }
 }

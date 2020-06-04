@@ -89,6 +89,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalog\CatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\CatalogForm.Designer.cs">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\CreateCatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\CreateCatalogForm.Designer.cs">
+      <DependentUpon>CreateCatalogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interview\InterviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +170,9 @@
     <Compile Include="UserManagement\UserManagementForm.Designer.cs">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Catalog\CatalogForm.resx">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interview\InterviewForm.resx">
       <DependentUpon>InterviewForm.cs</DependentUpon>
     </EmbeddedResource>
