@@ -79,6 +79,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Controls.Add(this.maintainaceSystemButton);
             this.Controls.Add(this.statisticalSystemButton);
             this.Controls.Add(this.interviewSystemButton);
