@@ -16,5 +16,26 @@ namespace LibraryManagement
             form.Show();
             Hide();
         }
+
+        private void statisticalSystemButton_Click(object sender, EventArgs e)
+        {
+            var form = new Statistical.StatisticalForm(this);
+            form.Show();
+            Hide();
+        }
+
+        private void interviewSystemButton_Click(object sender, EventArgs e)
+        {
+            var form = new Interview.InterviewForm(this);
+            form.Show();
+            Hide();
+        }
+
+        private void maintainaceSystemButton_Click(object sender, EventArgs e)
+        {
+            var form = new Maintainace.MaitainanceForm(this);
+            form.Show();
+            Hide();
+        }
     }
 }

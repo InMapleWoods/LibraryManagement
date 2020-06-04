@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace LibraryManagement.Interview
 {
     public partial class InterviewForm : Form
     {
-        public InterviewForm()
+        Form parentForm;
+        public InterviewForm(Form form)
         {
             InitializeComponent();
+            parentForm = form;
+        }
+
+        private void InterviewForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Show();
+            Hide();
         }
     }
 }

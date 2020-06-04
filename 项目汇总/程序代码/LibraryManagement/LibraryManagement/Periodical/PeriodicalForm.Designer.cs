@@ -86,6 +86,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Controls.Add(this.orderModificationButton);
             this.Controls.Add(this.reportFormButton);
             this.Controls.Add(this.bindiButton);
@@ -94,6 +95,7 @@
             this.Name = "PeriodicalForm";
             this.ShowIcon = false;
             this.Text = "期刊子系统";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PeriodicalForm_FormClosing);
             this.ResumeLayout(false);
 
         }
