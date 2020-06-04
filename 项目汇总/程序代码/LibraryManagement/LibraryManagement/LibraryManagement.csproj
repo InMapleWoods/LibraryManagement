@@ -207,7 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bll\" />
-    <Folder Include="Dal\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

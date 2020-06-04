@@ -13,7 +13,6 @@ namespace LibraryManagement.Dal
     {
         private readonly MySqlConnection conn = null;
         private MySqlCommand cmd = null;
-        private readonly MySqlDataReader sdr = null;
 
         public SQLHelper(string sqlConnect)
         {
