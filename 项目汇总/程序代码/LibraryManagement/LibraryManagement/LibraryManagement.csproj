@@ -52,6 +52,36 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maintainace\DictionaryAdd\DictionaryBookmanAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintainace\DictionaryAdd\DictionaryBookmanAdd.Designer.cs">
+      <DependentUpon>DictionaryBookmanAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintainace\DictionaryAdd\DictionaryPrintingHouseAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintainace\DictionaryAdd\DictionaryPrintingHouseAdd.Designer.cs">
+      <DependentUpon>DictionaryPrintingHouseAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintainace\DictionaryAdd\DictionaryPublishingHouseAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintainace\DictionaryAdd\DictionaryPublishingHouseAdd.Designer.cs">
+      <DependentUpon>DictionaryPublishingHouseAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintainace\DictionaryEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintainace\DictionaryEditForm.Designer.cs">
+      <DependentUpon>DictionaryEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintainace\MaitainanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintainace\MaitainanceForm.Designer.cs">
+      <DependentUpon>MaitainanceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Periodical\PeriodicalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +96,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Statistical\StatisticalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistical\StatisticalForm.Designer.cs">
+      <DependentUpon>StatisticalForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Maintainace\DictionaryAdd\DictionaryBookmanAdd.resx">
+      <DependentUpon>DictionaryBookmanAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintainace\DictionaryAdd\DictionaryPrintingHouseAdd.resx">
+      <DependentUpon>DictionaryPrintingHouseAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintainace\DictionaryAdd\DictionaryPublishingHouseAdd.resx">
+      <DependentUpon>DictionaryPublishingHouseAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintainace\DictionaryEditForm.resx">
+      <DependentUpon>DictionaryEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintainace\MaitainanceForm.resx">
+      <DependentUpon>MaitainanceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Periodical\PeriodicalForm.resx">
       <DependentUpon>PeriodicalForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +132,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Statistical\StatisticalForm.resx">
+      <DependentUpon>StatisticalForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
