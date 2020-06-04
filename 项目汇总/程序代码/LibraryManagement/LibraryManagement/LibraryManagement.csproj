@@ -89,6 +89,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interview\InterviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interview\InterviewForm.Designer.cs">
+      <DependentUpon>InterviewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dal\SqlHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -146,6 +152,9 @@
     <Compile Include="Statistical\StatisticalForm.Designer.cs">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Interview\InterviewForm.resx">
+      <DependentUpon>InterviewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bll\" />
+    <Folder Include="Dal\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
