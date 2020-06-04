@@ -45,6 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.createCatalogBtn);
             this.Name = "CatalogForm";
