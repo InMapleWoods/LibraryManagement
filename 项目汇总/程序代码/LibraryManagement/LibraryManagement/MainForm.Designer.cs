@@ -34,6 +34,7 @@
             this.maintainaceSystemButton = new System.Windows.Forms.Button();
             this.catalogSystemBtn = new System.Windows.Forms.Button();
             this.circulationSystemButton = new System.Windows.Forms.Button();
+            this.userManagementSystemButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // periodicalSystemButton
@@ -97,11 +98,22 @@
             this.circulationSystemButton.UseVisualStyleBackColor = true;
             this.circulationSystemButton.Click += new System.EventHandler(this.circulationSystemButton_Click);
             // 
+            // userManagementSystemButton
+            // 
+            this.userManagementSystemButton.Location = new System.Drawing.Point(221, 210);
+            this.userManagementSystemButton.Name = "userManagementSystemButton";
+            this.userManagementSystemButton.Size = new System.Drawing.Size(100, 75);
+            this.userManagementSystemButton.TabIndex = 2;
+            this.userManagementSystemButton.Text = "用户管理子系统";
+            this.userManagementSystemButton.UseVisualStyleBackColor = true;
+            this.userManagementSystemButton.Click += new System.EventHandler(this.userManagementSystemButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 375);
+            this.Controls.Add(this.userManagementSystemButton);
             this.Controls.Add(this.catalogSystemBtn);
             this.Controls.Add(this.maintainaceSystemButton);
             this.Controls.Add(this.statisticalSystemButton);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.Button maintainaceSystemButton;
         private System.Windows.Forms.Button catalogSystemBtn;
         private System.Windows.Forms.Button circulationSystemButton;
+        private System.Windows.Forms.Button userManagementSystemButton;
     }
 }

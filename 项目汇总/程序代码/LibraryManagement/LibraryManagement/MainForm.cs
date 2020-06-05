@@ -51,5 +51,12 @@ namespace LibraryManagement
             form.Show();
             Hide();
         }
+
+        private void userManagementSystemButton_Click(object sender, EventArgs e)
+        {
+            var form = new UserManagement.UserManagementForm(this);
+            form.Show();
+            Hide();
+        }
     }
 }
