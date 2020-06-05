@@ -79,12 +79,12 @@
             this.OrderButton.TabIndex = 4;
             this.OrderButton.Text = "订购新书";
             this.OrderButton.UseVisualStyleBackColor = true;
+            this.OrderButton.Click += new System.EventHandler(this.OrderButton_Click);
             // 
             // InterviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.OrderButton);
             this.Controls.Add(this.OrderInformationButton);
@@ -93,6 +93,7 @@
             this.Controls.Add(this.InterviewListButton);
             this.Name = "InterviewForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "采访子系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InterviewForm_FormClosing);
             this.ResumeLayout(false);

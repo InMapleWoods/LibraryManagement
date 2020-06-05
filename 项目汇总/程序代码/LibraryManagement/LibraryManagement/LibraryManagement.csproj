@@ -113,6 +113,12 @@
     <Compile Include="Circulation\CirculationForm.Designer.cs">
       <DependentUpon>CirculationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interview\BookOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interview\BookOrderForm.Designer.cs">
+      <DependentUpon>BookOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interview\InterviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     <Compile Include="Statistical\StatisticalForm.Designer.cs">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Interview\BookOrderForm.resx">
+      <DependentUpon>BookOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maintainace\BackUpForm.resx">
       <DependentUpon>BackUpForm.cs</DependentUpon>
     </EmbeddedResource>
