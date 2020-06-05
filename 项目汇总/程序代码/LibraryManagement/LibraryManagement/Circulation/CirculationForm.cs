@@ -27,7 +27,7 @@ namespace LibraryManagement.Circulation
 
         private void bookBorrowButton_Click(object sender, EventArgs e)
         {
-            var form = new BookBorrowForm(this);
+            var form = new BookCirculationForm(this);
             form.Show();
             Hide();
         }

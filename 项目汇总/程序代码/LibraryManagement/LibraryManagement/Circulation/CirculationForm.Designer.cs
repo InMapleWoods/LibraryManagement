@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.bookBorrowButton = new System.Windows.Forms.Button();
-            this.bookReturnButton = new System.Windows.Forms.Button();
-            this.bookAppointmentButton = new System.Windows.Forms.Button();
             this.defaultHandleButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -43,26 +41,6 @@
             this.bookBorrowButton.Text = "图书借阅";
             this.bookBorrowButton.UseVisualStyleBackColor = true;
             this.bookBorrowButton.Click += new System.EventHandler(this.bookBorrowButton_Click);
-            // 
-            // bookReturnButton
-            // 
-            this.bookReturnButton.Location = new System.Drawing.Point(237, 149);
-            this.bookReturnButton.Name = "bookReturnButton";
-            this.bookReturnButton.Size = new System.Drawing.Size(75, 75);
-            this.bookReturnButton.TabIndex = 0;
-            this.bookReturnButton.Text = "图书归还";
-            this.bookReturnButton.UseVisualStyleBackColor = true;
-            this.bookReturnButton.Click += new System.EventHandler(this.bookBorrowButton_Click);
-            // 
-            // bookAppointmentButton
-            // 
-            this.bookAppointmentButton.Location = new System.Drawing.Point(376, 149);
-            this.bookAppointmentButton.Name = "bookAppointmentButton";
-            this.bookAppointmentButton.Size = new System.Drawing.Size(75, 75);
-            this.bookAppointmentButton.TabIndex = 0;
-            this.bookAppointmentButton.Text = "图书预约";
-            this.bookAppointmentButton.UseVisualStyleBackColor = true;
-            this.bookAppointmentButton.Click += new System.EventHandler(this.bookBorrowButton_Click);
             // 
             // defaultHandleButton
             // 
@@ -80,8 +58,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.defaultHandleButton);
-            this.Controls.Add(this.bookAppointmentButton);
-            this.Controls.Add(this.bookReturnButton);
             this.Controls.Add(this.bookBorrowButton);
             this.Name = "CirculationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -94,8 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Button bookBorrowButton;
-        private System.Windows.Forms.Button bookReturnButton;
-        private System.Windows.Forms.Button bookAppointmentButton;
         private System.Windows.Forms.Button defaultHandleButton;
     }
 }
