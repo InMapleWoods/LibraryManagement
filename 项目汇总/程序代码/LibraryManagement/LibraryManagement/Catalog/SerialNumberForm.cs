@@ -10,28 +10,30 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.Catalog
 {
-    public partial class CatalogForm : Form
+    public partial class SerialNumberForm : Form
     {
-        public CatalogForm()
+        public SerialNumberForm()
         {
             InitializeComponent();
         }
 
-        private void createCatalogBtn_Click(object sender, EventArgs e)
+        private void getInterviewBookBtn_Click(object sender, EventArgs e)
         {
             var form = new CreateCatalogForm();
             form.Show();
             Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cnkiBtn_Click(object sender, EventArgs e)
         {
-            
+            var form = new CreateCatalogForm();
+            form.Show();
+            Hide();
         }
 
-        private void cancelBookBtn_Click(object sender, EventArgs e)
+        private void classificationoBtn_Click(object sender, EventArgs e)
         {
-            var form = new CancelBookForm();
+            var form = new CreateCatalogForm();
             form.Show();
             Hide();
         }

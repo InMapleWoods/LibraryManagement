@@ -81,11 +81,11 @@
             // 
             // catalogSystemBtn
             // 
-            this.catalogSystemBtn.Location = new System.Drawing.Point(361, 149);
+            this.catalogSystemBtn.Location = new System.Drawing.Point(327, 109);
             this.catalogSystemBtn.Name = "catalogSystemBtn";
-            this.catalogSystemBtn.Size = new System.Drawing.Size(75, 23);
+            this.catalogSystemBtn.Size = new System.Drawing.Size(119, 90);
             this.catalogSystemBtn.TabIndex = 1;
-            this.catalogSystemBtn.Text = "button1";
+            this.catalogSystemBtn.Text = "编目子系统";
             this.catalogSystemBtn.UseVisualStyleBackColor = true;
             this.catalogSystemBtn.Click += new System.EventHandler(this.catalogSystemBtn_Click);
             // 
@@ -94,7 +94,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Controls.Add(this.catalogSystemBtn);
             this.Controls.Add(this.maintainaceSystemButton);
             this.Controls.Add(this.statisticalSystemButton);
@@ -103,6 +102,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.ResumeLayout(false);
 
