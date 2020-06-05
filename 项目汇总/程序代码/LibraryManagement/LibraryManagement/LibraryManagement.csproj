@@ -101,6 +101,12 @@
     <Compile Include="Catalog\CreateCatalogForm.Designer.cs">
       <DependentUpon>CreateCatalogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Circulation\CirculationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\CirculationForm.Designer.cs">
+      <DependentUpon>CirculationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interview\InterviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
