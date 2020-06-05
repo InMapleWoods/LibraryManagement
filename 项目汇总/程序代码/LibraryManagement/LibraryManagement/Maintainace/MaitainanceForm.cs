@@ -29,5 +29,10 @@ namespace LibraryManagement.Maintainace
             parentForm.Show();
             Hide();
         }
+
+        private void MaitainanceForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

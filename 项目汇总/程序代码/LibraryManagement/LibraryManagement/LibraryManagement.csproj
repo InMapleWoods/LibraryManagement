@@ -126,6 +126,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maintainace\BackUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintainace\BackUpForm.Designer.cs">
+      <DependentUpon>BackUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maintainace\DictionaryAdd\DictionaryBookmanAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     <Compile Include="Statistical\StatisticalForm.Designer.cs">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Maintainace\BackUpForm.resx">
+      <DependentUpon>BackUpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Tools\MyUserControl\ScriptUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
