@@ -89,6 +89,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalog\CancelBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\CancelBookForm.Designer.cs">
+      <DependentUpon>CancelBookForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Catalog\CatalogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     </Compile>
     <Compile Include="Circulation\BookCirculationForm.Designer.cs">
       <DependentUpon>BookCirculationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\SerialNumberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\SerialNumberForm.Designer.cs">
+      <DependentUpon>SerialNumberForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Circulation\CirculationForm.cs">
       <SubType>Form</SubType>
@@ -218,6 +230,9 @@
     <Compile Include="UserManagement\UserManagementForm.Designer.cs">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Catalog\CancelBookForm.resx">
+      <DependentUpon>CancelBookForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalog\CatalogForm.resx">
       <DependentUpon>CatalogForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +244,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Circulation\CirculationForm.resx">
       <DependentUpon>CirculationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\CreateCatalogForm.resx">
+      <DependentUpon>CreateCatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\SerialNumberForm.resx">
+      <DependentUpon>SerialNumberForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\InterviewForm.resx">
       <DependentUpon>InterviewForm.cs</DependentUpon>
