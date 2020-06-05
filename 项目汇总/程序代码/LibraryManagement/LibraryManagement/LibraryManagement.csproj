@@ -101,6 +101,12 @@
     <Compile Include="Catalog\CreateCatalogForm.Designer.cs">
       <DependentUpon>CreateCatalogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Circulation\BookBorrowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\BookBorrowForm.Designer.cs">
+      <DependentUpon>BookBorrowForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Circulation\CirculationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,12 @@
     <Compile Include="Statistical\StatisticalForm.Designer.cs">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\MyUserControl\ScriptUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\MyUserControl\ScriptUserControl.Designer.cs">
+      <DependentUpon>ScriptUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\UserManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +190,15 @@
     </Compile>
     <EmbeddedResource Include="Catalog\CatalogForm.resx">
       <DependentUpon>CatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\CreateCatalogForm.resx">
+      <DependentUpon>CreateCatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\BookBorrowForm.resx">
+      <DependentUpon>BookBorrowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\CirculationForm.resx">
+      <DependentUpon>CirculationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\InterviewForm.resx">
       <DependentUpon>InterviewForm.cs</DependentUpon>

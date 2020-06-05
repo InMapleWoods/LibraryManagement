@@ -1,6 +1,6 @@
-﻿namespace LibraryManagement.Catalog
+﻿namespace LibraryManagement.Circulation
 {
-    partial class CreateCatalogForm
+    partial class BookBorrowForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // CreateCatalogForm
+            // BookBorrowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "CreateCatalogForm";
+            this.Name = "BookBorrowForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateCatalogForm_FormClosing);
+            this.Text = "图书借阅";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookBorrowForm_FormClosing);
             this.ResumeLayout(false);
 
         }

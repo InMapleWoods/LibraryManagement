@@ -8,16 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagement.Catalog
+namespace LibraryManagement.Circulation
 {
-    public partial class CreateCatalogForm : Form
+    public partial class BookBorrowForm : Form
     {
-        public CreateCatalogForm()
+        Form parentForm;
+        public BookBorrowForm(Form form)
         {
             InitializeComponent();
+            parentForm = form;
         }
 
-        private void CreateCatalogForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void BookBorrowForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
             Hide();

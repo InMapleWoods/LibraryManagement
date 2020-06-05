@@ -12,9 +12,24 @@ namespace LibraryManagement.Circulation
 {
     public partial class CirculationForm : Form
     {
-        public CirculationForm()
+        Form parentForm;
+        public CirculationForm(Form form)
         {
             InitializeComponent();
+            parentForm = form;
+        }
+
+        private void CirculationForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Show();
+            Hide();
+        }
+
+        private void bookBorrowButton_Click(object sender, EventArgs e)
+        {
+            var form = new BookBorrowForm(this);
+            form.Show();
+            Hide();
         }
     }
 }

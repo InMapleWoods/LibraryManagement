@@ -40,7 +40,14 @@ namespace LibraryManagement
 
         private void catalogSystemBtn_Click(object sender, EventArgs e)
         {
-            var form = new Catalog.CatalogForm();
+            var form = new Catalog.CatalogForm(this);
+            form.Show();
+            Hide();
+        }
+
+        private void circulationSystemButton_Click(object sender, EventArgs e)
+        {
+            var form = new Circulation.CirculationForm(this);
             form.Show();
             Hide();
         }
