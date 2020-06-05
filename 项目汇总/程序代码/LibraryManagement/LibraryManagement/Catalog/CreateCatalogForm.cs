@@ -12,9 +12,11 @@ namespace LibraryManagement.Catalog
 {
     public partial class CreateCatalogForm : Form
     {
-        public CreateCatalogForm()
+        Form parentForm;
+        public CreateCatalogForm(Form form)
         {
             InitializeComponent();
+            parentForm = form;
         }
 
         private void CreateCatalogForm_FormClosing(object sender, FormClosingEventArgs e)

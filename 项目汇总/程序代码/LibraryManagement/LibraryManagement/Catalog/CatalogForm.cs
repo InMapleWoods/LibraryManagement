@@ -21,7 +21,7 @@ namespace LibraryManagement.Catalog
 
         private void createCatalogBtn_Click(object sender, EventArgs e)
         {
-            var form = new CreateCatalogForm();
+            var form = new CreateCatalogForm(this);
             form.Show();
             Hide();
         }
