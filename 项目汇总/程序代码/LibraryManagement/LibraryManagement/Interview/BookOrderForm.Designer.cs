@@ -182,6 +182,9 @@
             // literatureTypeComboBox
             // 
             this.literatureTypeComboBox.FormattingEnabled = true;
+            this.literatureTypeComboBox.Items.AddRange(new object[] {
+            "期刊",
+            "专著"});
             this.literatureTypeComboBox.Location = new System.Drawing.Point(102, 377);
             this.literatureTypeComboBox.Name = "literatureTypeComboBox";
             this.literatureTypeComboBox.Size = new System.Drawing.Size(641, 23);
