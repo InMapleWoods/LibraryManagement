@@ -239,6 +239,9 @@
     <EmbeddedResource Include="Statistical\StatisticalForm.resx">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tools\MyUserControl\ScriptUserControl.resx">
+      <DependentUpon>ScriptUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
