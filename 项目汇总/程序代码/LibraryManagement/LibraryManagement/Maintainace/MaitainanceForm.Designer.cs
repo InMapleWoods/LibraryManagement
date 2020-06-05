@@ -35,7 +35,7 @@
             // 
             // Btn_dictionaryEdit
             // 
-            this.Btn_dictionaryEdit.Location = new System.Drawing.Point(168, 142);
+            this.Btn_dictionaryEdit.Location = new System.Drawing.Point(109, 96);
             this.Btn_dictionaryEdit.Name = "Btn_dictionaryEdit";
             this.Btn_dictionaryEdit.Size = new System.Drawing.Size(100, 100);
             this.Btn_dictionaryEdit.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // Btn_statisticalEdit
             // 
-            this.Btn_statisticalEdit.Location = new System.Drawing.Point(337, 142);
+            this.Btn_statisticalEdit.Location = new System.Drawing.Point(278, 96);
             this.Btn_statisticalEdit.Name = "Btn_statisticalEdit";
             this.Btn_statisticalEdit.Size = new System.Drawing.Size(100, 100);
             this.Btn_statisticalEdit.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             // Btn_backups
             // 
-            this.Btn_backups.Location = new System.Drawing.Point(531, 142);
+            this.Btn_backups.Location = new System.Drawing.Point(472, 96);
             this.Btn_backups.Name = "Btn_backups";
             this.Btn_backups.Size = new System.Drawing.Size(100, 100);
             this.Btn_backups.TabIndex = 2;
@@ -65,12 +65,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(690, 331);
             this.Controls.Add(this.Btn_backups);
             this.Controls.Add(this.Btn_statisticalEdit);
             this.Controls.Add(this.Btn_dictionaryEdit);
             this.Name = "MaitainanceForm";
             this.Text = "MaitainanceForm";
+            this.Load += new System.EventHandler(this.MaitainanceForm_Load);
             this.ResumeLayout(false);
 
         }
