@@ -29,53 +29,43 @@
         private void InitializeComponent()
         {
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.operatePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.createButton = new System.Windows.Forms.Button();
-            this.changeButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
-            this.emptyButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.previousButton = new System.Windows.Forms.Button();
-            this.nextButton = new System.Windows.Forms.Button();
-            this.helpButton = new System.Windows.Forms.Button();
-            this.exitButton = new System.Windows.Forms.Button();
+            this.currencyTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.publishingHouseComboBox = new System.Windows.Forms.ComboBox();
+            this.cycleComboBox = new System.Windows.Forms.ComboBox();
+            this.documentTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.ordererComboBox = new System.Windows.Forms.ComboBox();
+            this.booksellerComboBox = new System.Windows.Forms.ComboBox();
+            this.sizeComboBox = new System.Windows.Forms.ComboBox();
+            this.chooseOrderDateButton = new System.Windows.Forms.Button();
+            this.officialTitleTextBox = new System.Windows.Forms.TextBox();
+            this.responsibleTextBox = new System.Windows.Forms.TextBox();
+            this.orderDateTextBox = new System.Windows.Forms.TextBox();
+            this.orderPriceTextBox = new System.Windows.Forms.TextBox();
+            this.IsbnTextBox = new System.Windows.Forms.TextBox();
+            this.supplementTitleTextBox = new System.Windows.Forms.TextBox();
+            this.remarkTextBox = new System.Windows.Forms.TextBox();
+            this.orderNumTextBox = new System.Windows.Forms.TextBox();
+            this.sizeLabel = new System.Windows.Forms.Label();
             this.orderPriceLabel = new System.Windows.Forms.Label();
             this.responsibleLabel = new System.Windows.Forms.Label();
             this.supplementTitleLabel = new System.Windows.Forms.Label();
             this.officialTitleLabel = new System.Windows.Forms.Label();
+            this.ordererLabel = new System.Windows.Forms.Label();
             this.IsbnLabel = new System.Windows.Forms.Label();
+            this.remarkLabel = new System.Windows.Forms.Label();
+            this.currencyTypeLabel = new System.Windows.Forms.Label();
+            this.publishingHouseLabel = new System.Windows.Forms.Label();
+            this.cycleLabel = new System.Windows.Forms.Label();
+            this.documentTypeLabel = new System.Windows.Forms.Label();
+            this.booksellerLabel = new System.Windows.Forms.Label();
             this.orderDateLabel = new System.Windows.Forms.Label();
             this.orderNumLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sizeLabel = new System.Windows.Forms.Label();
-            this.orderNumTextBox = new System.Windows.Forms.TextBox();
-            this.orderDateTextBox = new System.Windows.Forms.TextBox();
-            this.IsbnTextBox = new System.Windows.Forms.TextBox();
-            this.officialTitleTextBox = new System.Windows.Forms.TextBox();
-            this.supplementTitleTextBox = new System.Windows.Forms.TextBox();
-            this.orderPriceTextBox = new System.Windows.Forms.TextBox();
-            this.responsibleTextBox = new System.Windows.Forms.TextBox();
-            this.chooseOrderDateButton = new System.Windows.Forms.Button();
-            this.sizeComboBox = new System.Windows.Forms.ComboBox();
-            this.booksellerLabel = new System.Windows.Forms.Label();
-            this.ordererLabel = new System.Windows.Forms.Label();
-            this.documentTypeLabel = new System.Windows.Forms.Label();
-            this.cycleLabel = new System.Windows.Forms.Label();
-            this.publishingHouseLabel = new System.Windows.Forms.Label();
-            this.currencyTypeLabel = new System.Windows.Forms.Label();
-            this.remarkLabel = new System.Windows.Forms.Label();
-            this.booksellerComboBox = new System.Windows.Forms.ComboBox();
-            this.ordererComboBox = new System.Windows.Forms.ComboBox();
-            this.documentTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.cycleComboBox = new System.Windows.Forms.ComboBox();
-            this.publishingHouseComboBox = new System.Windows.Forms.ComboBox();
-            this.currencyTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.remarkTextBox = new System.Windows.Forms.TextBox();
+            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
             this.mainSplitContainer.SuspendLayout();
-            this.operatePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +78,7 @@
             // 
             // mainSplitContainer.Panel1
             // 
-            this.mainSplitContainer.Panel1.Controls.Add(this.operatePanel);
+            this.mainSplitContainer.Panel1.Controls.Add(this.scriptUserControl1);
             // 
             // mainSplitContainer.Panel2
             // 
@@ -128,124 +118,152 @@
             this.mainSplitContainer.SplitterDistance = 81;
             this.mainSplitContainer.TabIndex = 3;
             // 
-            // operatePanel
+            // currencyTypeComboBox
             // 
-            this.operatePanel.ColumnCount = 9;
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.operatePanel.Controls.Add(this.createButton, 0, 0);
-            this.operatePanel.Controls.Add(this.changeButton, 2, 0);
-            this.operatePanel.Controls.Add(this.addButton, 1, 0);
-            this.operatePanel.Controls.Add(this.emptyButton, 3, 0);
-            this.operatePanel.Controls.Add(this.saveButton, 4, 0);
-            this.operatePanel.Controls.Add(this.previousButton, 5, 0);
-            this.operatePanel.Controls.Add(this.nextButton, 6, 0);
-            this.operatePanel.Controls.Add(this.helpButton, 7, 0);
-            this.operatePanel.Controls.Add(this.exitButton, 8, 0);
-            this.operatePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.operatePanel.Location = new System.Drawing.Point(0, 0);
-            this.operatePanel.Name = "operatePanel";
-            this.operatePanel.RowCount = 1;
-            this.operatePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.operatePanel.Size = new System.Drawing.Size(1056, 81);
-            this.operatePanel.TabIndex = 0;
+            this.currencyTypeComboBox.FormattingEnabled = true;
+            this.currencyTypeComboBox.Items.AddRange(new object[] {
+            "人民币 (RMB)",
+            "美元     (USD)"});
+            this.currencyTypeComboBox.Location = new System.Drawing.Point(620, 175);
+            this.currencyTypeComboBox.Name = "currencyTypeComboBox";
+            this.currencyTypeComboBox.Size = new System.Drawing.Size(270, 23);
+            this.currencyTypeComboBox.TabIndex = 12;
             // 
-            // createButton
+            // publishingHouseComboBox
             // 
-            this.createButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.createButton.Location = new System.Drawing.Point(3, 3);
-            this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(99, 75);
-            this.createButton.TabIndex = 0;
-            this.createButton.Text = "新增";
-            this.createButton.UseVisualStyleBackColor = true;
+            this.publishingHouseComboBox.FormattingEnabled = true;
+            this.publishingHouseComboBox.Location = new System.Drawing.Point(620, 145);
+            this.publishingHouseComboBox.Name = "publishingHouseComboBox";
+            this.publishingHouseComboBox.Size = new System.Drawing.Size(270, 23);
+            this.publishingHouseComboBox.TabIndex = 12;
             // 
-            // changeButton
+            // cycleComboBox
             // 
-            this.changeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.changeButton.Location = new System.Drawing.Point(213, 3);
-            this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(99, 75);
-            this.changeButton.TabIndex = 2;
-            this.changeButton.Text = "修改记录";
-            this.changeButton.UseVisualStyleBackColor = true;
+            this.cycleComboBox.FormattingEnabled = true;
+            this.cycleComboBox.Items.AddRange(new object[] {
+            "周刊",
+            "半月刊",
+            "月刊",
+            "季刊",
+            "年刊"});
+            this.cycleComboBox.Location = new System.Drawing.Point(620, 115);
+            this.cycleComboBox.Name = "cycleComboBox";
+            this.cycleComboBox.Size = new System.Drawing.Size(270, 23);
+            this.cycleComboBox.TabIndex = 12;
             // 
-            // addButton
+            // documentTypeComboBox
             // 
-            this.addButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addButton.Location = new System.Drawing.Point(108, 3);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(99, 75);
-            this.addButton.TabIndex = 1;
-            this.addButton.Text = "增加";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.documentTypeComboBox.FormattingEnabled = true;
+            this.documentTypeComboBox.Items.AddRange(new object[] {
+            "期刊",
+            "专著"});
+            this.documentTypeComboBox.Location = new System.Drawing.Point(620, 85);
+            this.documentTypeComboBox.Name = "documentTypeComboBox";
+            this.documentTypeComboBox.Size = new System.Drawing.Size(270, 23);
+            this.documentTypeComboBox.TabIndex = 12;
             // 
-            // emptyButton
+            // ordererComboBox
             // 
-            this.emptyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emptyButton.Location = new System.Drawing.Point(318, 3);
-            this.emptyButton.Name = "emptyButton";
-            this.emptyButton.Size = new System.Drawing.Size(99, 75);
-            this.emptyButton.TabIndex = 3;
-            this.emptyButton.Text = "清空记录";
-            this.emptyButton.UseVisualStyleBackColor = true;
+            this.ordererComboBox.FormattingEnabled = true;
+            this.ordererComboBox.Location = new System.Drawing.Point(620, 55);
+            this.ordererComboBox.Name = "ordererComboBox";
+            this.ordererComboBox.Size = new System.Drawing.Size(270, 23);
+            this.ordererComboBox.TabIndex = 12;
             // 
-            // saveButton
+            // booksellerComboBox
             // 
-            this.saveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveButton.Location = new System.Drawing.Point(423, 3);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(99, 75);
-            this.saveButton.TabIndex = 4;
-            this.saveButton.Text = "保存记录";
-            this.saveButton.UseVisualStyleBackColor = true;
+            this.booksellerComboBox.FormattingEnabled = true;
+            this.booksellerComboBox.Location = new System.Drawing.Point(620, 25);
+            this.booksellerComboBox.Name = "booksellerComboBox";
+            this.booksellerComboBox.Size = new System.Drawing.Size(270, 23);
+            this.booksellerComboBox.TabIndex = 12;
             // 
-            // previousButton
+            // sizeComboBox
             // 
-            this.previousButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.previousButton.Location = new System.Drawing.Point(528, 3);
-            this.previousButton.Name = "previousButton";
-            this.previousButton.Size = new System.Drawing.Size(99, 75);
-            this.previousButton.TabIndex = 5;
-            this.previousButton.Text = "上一条";
-            this.previousButton.UseVisualStyleBackColor = true;
+            this.sizeComboBox.FormattingEnabled = true;
+            this.sizeComboBox.Items.AddRange(new object[] {
+            "A4",
+            "A3",
+            "16开"});
+            this.sizeComboBox.Location = new System.Drawing.Point(115, 235);
+            this.sizeComboBox.Name = "sizeComboBox";
+            this.sizeComboBox.Size = new System.Drawing.Size(270, 23);
+            this.sizeComboBox.TabIndex = 11;
             // 
-            // nextButton
+            // chooseOrderDateButton
             // 
-            this.nextButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nextButton.Location = new System.Drawing.Point(633, 3);
-            this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(99, 75);
-            this.nextButton.TabIndex = 6;
-            this.nextButton.Text = "下一条";
-            this.nextButton.UseVisualStyleBackColor = true;
+            this.chooseOrderDateButton.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chooseOrderDateButton.Location = new System.Drawing.Point(349, 55);
+            this.chooseOrderDateButton.Name = "chooseOrderDateButton";
+            this.chooseOrderDateButton.Size = new System.Drawing.Size(36, 25);
+            this.chooseOrderDateButton.TabIndex = 10;
+            this.chooseOrderDateButton.Text = "...";
+            this.chooseOrderDateButton.UseVisualStyleBackColor = true;
             // 
-            // helpButton
+            // officialTitleTextBox
             // 
-            this.helpButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.helpButton.Location = new System.Drawing.Point(738, 3);
-            this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(99, 75);
-            this.helpButton.TabIndex = 7;
-            this.helpButton.Text = "帮助";
-            this.helpButton.UseVisualStyleBackColor = true;
+            this.officialTitleTextBox.Location = new System.Drawing.Point(115, 115);
+            this.officialTitleTextBox.Name = "officialTitleTextBox";
+            this.officialTitleTextBox.Size = new System.Drawing.Size(270, 25);
+            this.officialTitleTextBox.TabIndex = 9;
             // 
-            // exitButton
+            // responsibleTextBox
             // 
-            this.exitButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exitButton.Location = new System.Drawing.Point(843, 3);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(210, 75);
-            this.exitButton.TabIndex = 8;
-            this.exitButton.Text = "退出";
-            this.exitButton.UseVisualStyleBackColor = true;
+            this.responsibleTextBox.Location = new System.Drawing.Point(115, 175);
+            this.responsibleTextBox.Name = "responsibleTextBox";
+            this.responsibleTextBox.Size = new System.Drawing.Size(270, 25);
+            this.responsibleTextBox.TabIndex = 9;
+            // 
+            // orderDateTextBox
+            // 
+            this.orderDateTextBox.Location = new System.Drawing.Point(115, 55);
+            this.orderDateTextBox.Name = "orderDateTextBox";
+            this.orderDateTextBox.Size = new System.Drawing.Size(228, 25);
+            this.orderDateTextBox.TabIndex = 9;
+            // 
+            // orderPriceTextBox
+            // 
+            this.orderPriceTextBox.Location = new System.Drawing.Point(115, 205);
+            this.orderPriceTextBox.Name = "orderPriceTextBox";
+            this.orderPriceTextBox.Size = new System.Drawing.Size(270, 25);
+            this.orderPriceTextBox.TabIndex = 9;
+            // 
+            // IsbnTextBox
+            // 
+            this.IsbnTextBox.Location = new System.Drawing.Point(115, 85);
+            this.IsbnTextBox.Name = "IsbnTextBox";
+            this.IsbnTextBox.Size = new System.Drawing.Size(270, 25);
+            this.IsbnTextBox.TabIndex = 9;
+            // 
+            // supplementTitleTextBox
+            // 
+            this.supplementTitleTextBox.Location = new System.Drawing.Point(115, 145);
+            this.supplementTitleTextBox.Name = "supplementTitleTextBox";
+            this.supplementTitleTextBox.Size = new System.Drawing.Size(270, 25);
+            this.supplementTitleTextBox.TabIndex = 9;
+            // 
+            // remarkTextBox
+            // 
+            this.remarkTextBox.Location = new System.Drawing.Point(620, 205);
+            this.remarkTextBox.Name = "remarkTextBox";
+            this.remarkTextBox.Size = new System.Drawing.Size(270, 25);
+            this.remarkTextBox.TabIndex = 9;
+            // 
+            // orderNumTextBox
+            // 
+            this.orderNumTextBox.Location = new System.Drawing.Point(115, 25);
+            this.orderNumTextBox.Name = "orderNumTextBox";
+            this.orderNumTextBox.Size = new System.Drawing.Size(270, 25);
+            this.orderNumTextBox.TabIndex = 9;
+            // 
+            // sizeLabel
+            // 
+            this.sizeLabel.AutoSize = true;
+            this.sizeLabel.Location = new System.Drawing.Point(35, 240);
+            this.sizeLabel.Name = "sizeLabel";
+            this.sizeLabel.Size = new System.Drawing.Size(37, 15);
+            this.sizeLabel.TabIndex = 8;
+            this.sizeLabel.Text = "尺寸";
             // 
             // orderPriceLabel
             // 
@@ -283,6 +301,15 @@
             this.officialTitleLabel.TabIndex = 4;
             this.officialTitleLabel.Text = "正刊名";
             // 
+            // ordererLabel
+            // 
+            this.ordererLabel.AutoSize = true;
+            this.ordererLabel.Location = new System.Drawing.Point(540, 60);
+            this.ordererLabel.Name = "ordererLabel";
+            this.ordererLabel.Size = new System.Drawing.Size(52, 15);
+            this.ordererLabel.TabIndex = 1;
+            this.ordererLabel.Text = "订购人";
+            // 
             // IsbnLabel
             // 
             this.IsbnLabel.AutoSize = true;
@@ -291,6 +318,60 @@
             this.IsbnLabel.Size = new System.Drawing.Size(63, 15);
             this.IsbnLabel.TabIndex = 3;
             this.IsbnLabel.Text = "I S B N";
+            // 
+            // remarkLabel
+            // 
+            this.remarkLabel.AutoSize = true;
+            this.remarkLabel.Location = new System.Drawing.Point(540, 210);
+            this.remarkLabel.Name = "remarkLabel";
+            this.remarkLabel.Size = new System.Drawing.Size(37, 15);
+            this.remarkLabel.TabIndex = 2;
+            this.remarkLabel.Text = "备注";
+            // 
+            // currencyTypeLabel
+            // 
+            this.currencyTypeLabel.AutoSize = true;
+            this.currencyTypeLabel.Location = new System.Drawing.Point(540, 180);
+            this.currencyTypeLabel.Name = "currencyTypeLabel";
+            this.currencyTypeLabel.Size = new System.Drawing.Size(37, 15);
+            this.currencyTypeLabel.TabIndex = 2;
+            this.currencyTypeLabel.Text = "币种";
+            // 
+            // publishingHouseLabel
+            // 
+            this.publishingHouseLabel.AutoSize = true;
+            this.publishingHouseLabel.Location = new System.Drawing.Point(540, 150);
+            this.publishingHouseLabel.Name = "publishingHouseLabel";
+            this.publishingHouseLabel.Size = new System.Drawing.Size(52, 15);
+            this.publishingHouseLabel.TabIndex = 2;
+            this.publishingHouseLabel.Text = "出版社";
+            // 
+            // cycleLabel
+            // 
+            this.cycleLabel.AutoSize = true;
+            this.cycleLabel.Location = new System.Drawing.Point(540, 120);
+            this.cycleLabel.Name = "cycleLabel";
+            this.cycleLabel.Size = new System.Drawing.Size(67, 15);
+            this.cycleLabel.TabIndex = 2;
+            this.cycleLabel.Text = "出版周期";
+            // 
+            // documentTypeLabel
+            // 
+            this.documentTypeLabel.AutoSize = true;
+            this.documentTypeLabel.Location = new System.Drawing.Point(540, 91);
+            this.documentTypeLabel.Name = "documentTypeLabel";
+            this.documentTypeLabel.Size = new System.Drawing.Size(67, 15);
+            this.documentTypeLabel.TabIndex = 2;
+            this.documentTypeLabel.Text = "文献类型";
+            // 
+            // booksellerLabel
+            // 
+            this.booksellerLabel.AutoSize = true;
+            this.booksellerLabel.Location = new System.Drawing.Point(540, 30);
+            this.booksellerLabel.Name = "booksellerLabel";
+            this.booksellerLabel.Size = new System.Drawing.Size(37, 15);
+            this.booksellerLabel.TabIndex = 1;
+            this.booksellerLabel.Text = "书商";
             // 
             // orderDateLabel
             // 
@@ -324,215 +405,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(1056, 332);
             this.dataGridView1.TabIndex = 0;
             // 
-            // sizeLabel
+            // scriptUserControl1
             // 
-            this.sizeLabel.AutoSize = true;
-            this.sizeLabel.Location = new System.Drawing.Point(35, 240);
-            this.sizeLabel.Name = "sizeLabel";
-            this.sizeLabel.Size = new System.Drawing.Size(37, 15);
-            this.sizeLabel.TabIndex = 8;
-            this.sizeLabel.Text = "尺寸";
-            // 
-            // orderNumTextBox
-            // 
-            this.orderNumTextBox.Location = new System.Drawing.Point(115, 25);
-            this.orderNumTextBox.Name = "orderNumTextBox";
-            this.orderNumTextBox.Size = new System.Drawing.Size(270, 25);
-            this.orderNumTextBox.TabIndex = 9;
-            // 
-            // orderDateTextBox
-            // 
-            this.orderDateTextBox.Location = new System.Drawing.Point(115, 55);
-            this.orderDateTextBox.Name = "orderDateTextBox";
-            this.orderDateTextBox.Size = new System.Drawing.Size(228, 25);
-            this.orderDateTextBox.TabIndex = 9;
-            // 
-            // IsbnTextBox
-            // 
-            this.IsbnTextBox.Location = new System.Drawing.Point(115, 85);
-            this.IsbnTextBox.Name = "IsbnTextBox";
-            this.IsbnTextBox.Size = new System.Drawing.Size(270, 25);
-            this.IsbnTextBox.TabIndex = 9;
-            // 
-            // officialTitleTextBox
-            // 
-            this.officialTitleTextBox.Location = new System.Drawing.Point(115, 115);
-            this.officialTitleTextBox.Name = "officialTitleTextBox";
-            this.officialTitleTextBox.Size = new System.Drawing.Size(270, 25);
-            this.officialTitleTextBox.TabIndex = 9;
-            // 
-            // supplementTitleTextBox
-            // 
-            this.supplementTitleTextBox.Location = new System.Drawing.Point(115, 145);
-            this.supplementTitleTextBox.Name = "supplementTitleTextBox";
-            this.supplementTitleTextBox.Size = new System.Drawing.Size(270, 25);
-            this.supplementTitleTextBox.TabIndex = 9;
-            // 
-            // orderPriceTextBox
-            // 
-            this.orderPriceTextBox.Location = new System.Drawing.Point(115, 205);
-            this.orderPriceTextBox.Name = "orderPriceTextBox";
-            this.orderPriceTextBox.Size = new System.Drawing.Size(270, 25);
-            this.orderPriceTextBox.TabIndex = 9;
-            // 
-            // responsibleTextBox
-            // 
-            this.responsibleTextBox.Location = new System.Drawing.Point(115, 175);
-            this.responsibleTextBox.Name = "responsibleTextBox";
-            this.responsibleTextBox.Size = new System.Drawing.Size(270, 25);
-            this.responsibleTextBox.TabIndex = 9;
-            // 
-            // chooseOrderDateButton
-            // 
-            this.chooseOrderDateButton.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.chooseOrderDateButton.Location = new System.Drawing.Point(349, 55);
-            this.chooseOrderDateButton.Name = "chooseOrderDateButton";
-            this.chooseOrderDateButton.Size = new System.Drawing.Size(36, 25);
-            this.chooseOrderDateButton.TabIndex = 10;
-            this.chooseOrderDateButton.Text = "...";
-            this.chooseOrderDateButton.UseVisualStyleBackColor = true;
-            // 
-            // sizeComboBox
-            // 
-            this.sizeComboBox.FormattingEnabled = true;
-            this.sizeComboBox.Items.AddRange(new object[] {
-            "A4",
-            "A3",
-            "16开"});
-            this.sizeComboBox.Location = new System.Drawing.Point(115, 235);
-            this.sizeComboBox.Name = "sizeComboBox";
-            this.sizeComboBox.Size = new System.Drawing.Size(270, 23);
-            this.sizeComboBox.TabIndex = 11;
-            // 
-            // booksellerLabel
-            // 
-            this.booksellerLabel.AutoSize = true;
-            this.booksellerLabel.Location = new System.Drawing.Point(540, 30);
-            this.booksellerLabel.Name = "booksellerLabel";
-            this.booksellerLabel.Size = new System.Drawing.Size(37, 15);
-            this.booksellerLabel.TabIndex = 1;
-            this.booksellerLabel.Text = "书商";
-            // 
-            // ordererLabel
-            // 
-            this.ordererLabel.AutoSize = true;
-            this.ordererLabel.Location = new System.Drawing.Point(540, 60);
-            this.ordererLabel.Name = "ordererLabel";
-            this.ordererLabel.Size = new System.Drawing.Size(52, 15);
-            this.ordererLabel.TabIndex = 1;
-            this.ordererLabel.Text = "订购人";
-            // 
-            // documentTypeLabel
-            // 
-            this.documentTypeLabel.AutoSize = true;
-            this.documentTypeLabel.Location = new System.Drawing.Point(540, 91);
-            this.documentTypeLabel.Name = "documentTypeLabel";
-            this.documentTypeLabel.Size = new System.Drawing.Size(67, 15);
-            this.documentTypeLabel.TabIndex = 2;
-            this.documentTypeLabel.Text = "文献类型";
-            // 
-            // cycleLabel
-            // 
-            this.cycleLabel.AutoSize = true;
-            this.cycleLabel.Location = new System.Drawing.Point(540, 120);
-            this.cycleLabel.Name = "cycleLabel";
-            this.cycleLabel.Size = new System.Drawing.Size(67, 15);
-            this.cycleLabel.TabIndex = 2;
-            this.cycleLabel.Text = "出版周期";
-            // 
-            // publishingHouseLabel
-            // 
-            this.publishingHouseLabel.AutoSize = true;
-            this.publishingHouseLabel.Location = new System.Drawing.Point(540, 150);
-            this.publishingHouseLabel.Name = "publishingHouseLabel";
-            this.publishingHouseLabel.Size = new System.Drawing.Size(52, 15);
-            this.publishingHouseLabel.TabIndex = 2;
-            this.publishingHouseLabel.Text = "出版社";
-            // 
-            // currencyTypeLabel
-            // 
-            this.currencyTypeLabel.AutoSize = true;
-            this.currencyTypeLabel.Location = new System.Drawing.Point(540, 180);
-            this.currencyTypeLabel.Name = "currencyTypeLabel";
-            this.currencyTypeLabel.Size = new System.Drawing.Size(37, 15);
-            this.currencyTypeLabel.TabIndex = 2;
-            this.currencyTypeLabel.Text = "币种";
-            // 
-            // remarkLabel
-            // 
-            this.remarkLabel.AutoSize = true;
-            this.remarkLabel.Location = new System.Drawing.Point(540, 210);
-            this.remarkLabel.Name = "remarkLabel";
-            this.remarkLabel.Size = new System.Drawing.Size(37, 15);
-            this.remarkLabel.TabIndex = 2;
-            this.remarkLabel.Text = "备注";
-            // 
-            // booksellerComboBox
-            // 
-            this.booksellerComboBox.FormattingEnabled = true;
-            this.booksellerComboBox.Location = new System.Drawing.Point(620, 25);
-            this.booksellerComboBox.Name = "booksellerComboBox";
-            this.booksellerComboBox.Size = new System.Drawing.Size(270, 23);
-            this.booksellerComboBox.TabIndex = 12;
-            // 
-            // ordererComboBox
-            // 
-            this.ordererComboBox.FormattingEnabled = true;
-            this.ordererComboBox.Location = new System.Drawing.Point(620, 55);
-            this.ordererComboBox.Name = "ordererComboBox";
-            this.ordererComboBox.Size = new System.Drawing.Size(270, 23);
-            this.ordererComboBox.TabIndex = 12;
-            // 
-            // documentTypeComboBox
-            // 
-            this.documentTypeComboBox.FormattingEnabled = true;
-            this.documentTypeComboBox.Items.AddRange(new object[] {
-            "期刊",
-            "专著"});
-            this.documentTypeComboBox.Location = new System.Drawing.Point(620, 85);
-            this.documentTypeComboBox.Name = "documentTypeComboBox";
-            this.documentTypeComboBox.Size = new System.Drawing.Size(270, 23);
-            this.documentTypeComboBox.TabIndex = 12;
-            // 
-            // cycleComboBox
-            // 
-            this.cycleComboBox.FormattingEnabled = true;
-            this.cycleComboBox.Items.AddRange(new object[] {
-            "周刊",
-            "半月刊",
-            "月刊",
-            "季刊",
-            "年刊"});
-            this.cycleComboBox.Location = new System.Drawing.Point(620, 115);
-            this.cycleComboBox.Name = "cycleComboBox";
-            this.cycleComboBox.Size = new System.Drawing.Size(270, 23);
-            this.cycleComboBox.TabIndex = 12;
-            // 
-            // publishingHouseComboBox
-            // 
-            this.publishingHouseComboBox.FormattingEnabled = true;
-            this.publishingHouseComboBox.Location = new System.Drawing.Point(620, 145);
-            this.publishingHouseComboBox.Name = "publishingHouseComboBox";
-            this.publishingHouseComboBox.Size = new System.Drawing.Size(270, 23);
-            this.publishingHouseComboBox.TabIndex = 12;
-            // 
-            // currencyTypeComboBox
-            // 
-            this.currencyTypeComboBox.FormattingEnabled = true;
-            this.currencyTypeComboBox.Items.AddRange(new object[] {
-            "人民币 (RMB)",
-            "美元     (USD)"});
-            this.currencyTypeComboBox.Location = new System.Drawing.Point(620, 175);
-            this.currencyTypeComboBox.Name = "currencyTypeComboBox";
-            this.currencyTypeComboBox.Size = new System.Drawing.Size(270, 23);
-            this.currencyTypeComboBox.TabIndex = 12;
-            // 
-            // remarkTextBox
-            // 
-            this.remarkTextBox.Location = new System.Drawing.Point(620, 205);
-            this.remarkTextBox.Name = "remarkTextBox";
-            this.remarkTextBox.Size = new System.Drawing.Size(270, 25);
-            this.remarkTextBox.TabIndex = 9;
+            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.scriptUserControl1.Name = "scriptUserControl1";
+            this.scriptUserControl1.Size = new System.Drawing.Size(1056, 81);
+            this.scriptUserControl1.TabIndex = 0;
             // 
             // PeriodicalOrderForm
             // 
@@ -542,13 +421,14 @@
             this.Controls.Add(this.mainSplitContainer);
             this.Name = "PeriodicalOrderForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "期刊订购";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PeriodicalOrderForm_FormClosing);
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel2.ResumeLayout(false);
             this.mainSplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
-            this.operatePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -557,16 +437,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer mainSplitContainer;
-        private System.Windows.Forms.TableLayoutPanel operatePanel;
-        private System.Windows.Forms.Button createButton;
-        private System.Windows.Forms.Button changeButton;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button emptyButton;
-        private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button previousButton;
-        private System.Windows.Forms.Button nextButton;
-        private System.Windows.Forms.Button helpButton;
-        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label orderPriceLabel;
         private System.Windows.Forms.Label responsibleLabel;
@@ -599,5 +469,6 @@
         private System.Windows.Forms.ComboBox documentTypeComboBox;
         private System.Windows.Forms.ComboBox ordererComboBox;
         private System.Windows.Forms.TextBox remarkTextBox;
+        private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
     }
 }

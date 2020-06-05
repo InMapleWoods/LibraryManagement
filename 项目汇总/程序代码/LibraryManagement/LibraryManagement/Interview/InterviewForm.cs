@@ -1,17 +1,17 @@
 ﻿using System.Windows.Forms;
 
-namespace LibraryManagement.Statistical
+namespace LibraryManagement.Interview
 {
-    public partial class StatisticalForm : Form
+    public partial class InterviewForm : Form
     {
         Form parentForm;
-        public StatisticalForm(Form form)
+        public InterviewForm(Form form)
         {
             InitializeComponent();
             parentForm = form;
         }
 
-        private void StatisticalForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void InterviewForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
             Hide();
