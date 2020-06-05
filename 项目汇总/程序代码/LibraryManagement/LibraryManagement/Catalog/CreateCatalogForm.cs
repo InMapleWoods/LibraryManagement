@@ -34,21 +34,21 @@ namespace LibraryManagement.Catalog
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            var form = new CreateCatalogForm();
+            var form = new CreateCatalogForm(this);
             form.Show();
             Hide();
         }
 
         private void pringBtn_Click(object sender, EventArgs e)
         {
-            var form = new CreateCatalogForm();
+            var form = new CreateCatalogForm(this);
             form.Show();
             Hide();
         }
 
         private void catalogQueryBtn_Click(object sender, EventArgs e)
         {
-            var form = new CreateCatalogForm();
+            var form = new CreateCatalogForm(this);
             form.Show();
             Hide();
         }

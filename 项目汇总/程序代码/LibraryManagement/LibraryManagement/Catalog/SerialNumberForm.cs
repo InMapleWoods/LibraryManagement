@@ -19,21 +19,21 @@ namespace LibraryManagement.Catalog
 
         private void getInterviewBookBtn_Click(object sender, EventArgs e)
         {
-            var form = new CreateCatalogForm();
+            var form = new CreateCatalogForm(this);
             form.Show();
             Hide();
         }
 
         private void cnkiBtn_Click(object sender, EventArgs e)
         {
-            var form = new CreateCatalogForm();
+            var form = new CreateCatalogForm(this);
             form.Show();
             Hide();
         }
 
         private void classificationoBtn_Click(object sender, EventArgs e)
         {
-            var form = new CreateCatalogForm();
+            var form = new CreateCatalogForm(this);
             form.Show();
             Hide();
         }

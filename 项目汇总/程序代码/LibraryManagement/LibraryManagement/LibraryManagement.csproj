@@ -245,9 +245,6 @@
     <EmbeddedResource Include="Circulation\CirculationForm.resx">
       <DependentUpon>CirculationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Catalog\CreateCatalogForm.resx">
-      <DependentUpon>CreateCatalogForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Catalog\SerialNumberForm.resx">
       <DependentUpon>SerialNumberForm.cs</DependentUpon>
     </EmbeddedResource>
