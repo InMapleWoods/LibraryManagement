@@ -10,23 +10,23 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.UserManagement
 {
-    public partial class UserManagementForm : Form
+    public partial class AdminOperationForm : Form
     {
         Form parentForm;
-        public UserManagementForm(Form form)
+        public AdminOperationForm(Form form)
         {
             InitializeComponent();
             parentForm = form;
         }
 
-        private void adminLoginButton_Click(object sender, EventArgs e)
+        private void addNewReaderButton_Click(object sender, EventArgs e)
         {
-            var form = new AdminOperationForm(this);
+            var form = new AddReaderForm(this);
             form.Show();
             Hide();
         }
 
-        private void UserManagementForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void AdminOperationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
             Hide();
