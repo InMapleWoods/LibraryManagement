@@ -87,7 +87,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "新书编目";
             this.ResumeLayout(false);
-
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateCatalogForm_FormClosing);
         }
 
         #endregion

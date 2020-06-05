@@ -10,25 +10,18 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.Circulation
 {
-    public partial class CirculationForm : Form
+    public partial class BookCirculationForm : Form
     {
         Form parentForm;
-        public CirculationForm(Form form)
+        public BookCirculationForm(Form form)
         {
             InitializeComponent();
             parentForm = form;
         }
 
-        private void CirculationForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void BookCirculationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
-            Hide();
-        }
-
-        private void bookBorrowButton_Click(object sender, EventArgs e)
-        {
-            var form = new BookCirculationForm(this);
-            form.Show();
             Hide();
         }
     }

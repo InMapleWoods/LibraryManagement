@@ -35,7 +35,8 @@
             // 
             // createCatalogBtn
             // 
-            this.createCatalogBtn.Location = new System.Drawing.Point(151, 96);
+            this.createCatalogBtn.Location = new System.Drawing.Point(283, 95);
+            this.createCatalogBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createCatalogBtn.Name = "createCatalogBtn";
             this.createCatalogBtn.Size = new System.Drawing.Size(100, 75);
             this.createCatalogBtn.TabIndex = 0;
@@ -65,15 +66,17 @@
             // 
             // CatalogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cancelBookBtn);
             this.Controls.Add(this.newBookBtn);
             this.Controls.Add(this.createCatalogBtn);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CatalogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CatalogForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CatalogForm_FormClosing);
             this.ResumeLayout(false);
 
         }

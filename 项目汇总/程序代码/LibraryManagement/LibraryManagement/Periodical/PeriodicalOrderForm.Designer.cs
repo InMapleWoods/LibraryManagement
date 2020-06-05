@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.operatePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.createButton = new System.Windows.Forms.Button();
-            this.changeButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
-            this.emptyButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.previousButton = new System.Windows.Forms.Button();
-            this.nextButton = new System.Windows.Forms.Button();
-            this.helpButton = new System.Windows.Forms.Button();
-            this.exitButton = new System.Windows.Forms.Button();
             this.currencyTypeComboBox = new System.Windows.Forms.ComboBox();
             this.publishingHouseComboBox = new System.Windows.Forms.ComboBox();
             this.cycleComboBox = new System.Windows.Forms.ComboBox();
@@ -71,11 +61,11 @@
             this.orderDateLabel = new System.Windows.Forms.Label();
             this.orderNumLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
             this.mainSplitContainer.SuspendLayout();
-            this.operatePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +78,7 @@
             // 
             // mainSplitContainer.Panel1
             // 
-            this.mainSplitContainer.Panel1.Controls.Add(this.operatePanel);
+            this.mainSplitContainer.Panel1.Controls.Add(this.scriptUserControl1);
             // 
             // mainSplitContainer.Panel2
             // 
@@ -127,125 +117,6 @@
             this.mainSplitContainer.Size = new System.Drawing.Size(1056, 687);
             this.mainSplitContainer.SplitterDistance = 81;
             this.mainSplitContainer.TabIndex = 3;
-            // 
-            // operatePanel
-            // 
-            this.operatePanel.ColumnCount = 9;
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.operatePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.operatePanel.Controls.Add(this.createButton, 0, 0);
-            this.operatePanel.Controls.Add(this.changeButton, 2, 0);
-            this.operatePanel.Controls.Add(this.addButton, 1, 0);
-            this.operatePanel.Controls.Add(this.emptyButton, 3, 0);
-            this.operatePanel.Controls.Add(this.saveButton, 4, 0);
-            this.operatePanel.Controls.Add(this.previousButton, 5, 0);
-            this.operatePanel.Controls.Add(this.nextButton, 6, 0);
-            this.operatePanel.Controls.Add(this.helpButton, 7, 0);
-            this.operatePanel.Controls.Add(this.exitButton, 8, 0);
-            this.operatePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.operatePanel.Location = new System.Drawing.Point(0, 0);
-            this.operatePanel.Name = "operatePanel";
-            this.operatePanel.RowCount = 1;
-            this.operatePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.operatePanel.Size = new System.Drawing.Size(1056, 81);
-            this.operatePanel.TabIndex = 0;
-            // 
-            // createButton
-            // 
-            this.createButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.createButton.Location = new System.Drawing.Point(3, 3);
-            this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(99, 75);
-            this.createButton.TabIndex = 0;
-            this.createButton.Text = "新增";
-            this.createButton.UseVisualStyleBackColor = true;
-            // 
-            // changeButton
-            // 
-            this.changeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.changeButton.Location = new System.Drawing.Point(213, 3);
-            this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(99, 75);
-            this.changeButton.TabIndex = 2;
-            this.changeButton.Text = "修改记录";
-            this.changeButton.UseVisualStyleBackColor = true;
-            // 
-            // addButton
-            // 
-            this.addButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addButton.Location = new System.Drawing.Point(108, 3);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(99, 75);
-            this.addButton.TabIndex = 1;
-            this.addButton.Text = "增加";
-            this.addButton.UseVisualStyleBackColor = true;
-            // 
-            // emptyButton
-            // 
-            this.emptyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emptyButton.Location = new System.Drawing.Point(318, 3);
-            this.emptyButton.Name = "emptyButton";
-            this.emptyButton.Size = new System.Drawing.Size(99, 75);
-            this.emptyButton.TabIndex = 3;
-            this.emptyButton.Text = "清空记录";
-            this.emptyButton.UseVisualStyleBackColor = true;
-            // 
-            // saveButton
-            // 
-            this.saveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveButton.Location = new System.Drawing.Point(423, 3);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(99, 75);
-            this.saveButton.TabIndex = 4;
-            this.saveButton.Text = "保存记录";
-            this.saveButton.UseVisualStyleBackColor = true;
-            // 
-            // previousButton
-            // 
-            this.previousButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.previousButton.Location = new System.Drawing.Point(528, 3);
-            this.previousButton.Name = "previousButton";
-            this.previousButton.Size = new System.Drawing.Size(99, 75);
-            this.previousButton.TabIndex = 5;
-            this.previousButton.Text = "上一条";
-            this.previousButton.UseVisualStyleBackColor = true;
-            // 
-            // nextButton
-            // 
-            this.nextButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nextButton.Location = new System.Drawing.Point(633, 3);
-            this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(99, 75);
-            this.nextButton.TabIndex = 6;
-            this.nextButton.Text = "下一条";
-            this.nextButton.UseVisualStyleBackColor = true;
-            // 
-            // helpButton
-            // 
-            this.helpButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.helpButton.Location = new System.Drawing.Point(738, 3);
-            this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(99, 75);
-            this.helpButton.TabIndex = 7;
-            this.helpButton.Text = "帮助";
-            this.helpButton.UseVisualStyleBackColor = true;
-            // 
-            // exitButton
-            // 
-            this.exitButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exitButton.Location = new System.Drawing.Point(843, 3);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(210, 75);
-            this.exitButton.TabIndex = 8;
-            this.exitButton.Text = "退出";
-            this.exitButton.UseVisualStyleBackColor = true;
             // 
             // currencyTypeComboBox
             // 
@@ -534,6 +405,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(1056, 332);
             this.dataGridView1.TabIndex = 0;
             // 
+            // scriptUserControl1
+            // 
+            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.scriptUserControl1.Name = "scriptUserControl1";
+            this.scriptUserControl1.Size = new System.Drawing.Size(1056, 81);
+            this.scriptUserControl1.TabIndex = 0;
+            // 
             // PeriodicalOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -550,7 +429,6 @@
             this.mainSplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
-            this.operatePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -559,16 +437,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer mainSplitContainer;
-        private System.Windows.Forms.TableLayoutPanel operatePanel;
-        private System.Windows.Forms.Button createButton;
-        private System.Windows.Forms.Button changeButton;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button emptyButton;
-        private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button previousButton;
-        private System.Windows.Forms.Button nextButton;
-        private System.Windows.Forms.Button helpButton;
-        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label orderPriceLabel;
         private System.Windows.Forms.Label responsibleLabel;
@@ -601,5 +469,6 @@
         private System.Windows.Forms.ComboBox documentTypeComboBox;
         private System.Windows.Forms.ComboBox ordererComboBox;
         private System.Windows.Forms.TextBox remarkTextBox;
+        private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
     }
 }

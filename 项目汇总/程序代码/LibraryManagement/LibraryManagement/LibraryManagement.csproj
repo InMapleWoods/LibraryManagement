@@ -107,6 +107,12 @@
     <Compile Include="Catalog\CreateCatalogForm.Designer.cs">
       <DependentUpon>CreateCatalogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Circulation\BookCirculationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\BookCirculationForm.Designer.cs">
+      <DependentUpon>BookCirculationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Catalog\SerialNumberForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,12 @@
     </Compile>
     <Compile Include="Circulation\CirculationForm.Designer.cs">
       <DependentUpon>CirculationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interview\BookOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interview\BookOrderForm.Designer.cs">
+      <DependentUpon>BookOrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interview\InterviewForm.cs">
       <SubType>Form</SubType>
@@ -131,6 +143,12 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintainace\BackUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintainace\BackUpForm.Designer.cs">
+      <DependentUpon>BackUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Maintainace\DictionaryAdd\DictionaryBookmanAdd.cs">
       <SubType>Form</SubType>
@@ -182,6 +200,30 @@
     <Compile Include="Statistical\StatisticalForm.Designer.cs">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Interview\BookOrderForm.resx">
+      <DependentUpon>BookOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintainace\BackUpForm.resx">
+      <DependentUpon>BackUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Tools\MyUserControl\ScriptUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\MyUserControl\ScriptUserControl.Designer.cs">
+      <DependentUpon>ScriptUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\AddReaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement\AddReaderForm.Designer.cs">
+      <DependentUpon>AddReaderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\AdminOperationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement\AdminOperationForm.Designer.cs">
+      <DependentUpon>AdminOperationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\UserManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +235,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalog\CatalogForm.resx">
       <DependentUpon>CatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\CreateCatalogForm.resx">
+      <DependentUpon>CreateCatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\BookCirculationForm.resx">
+      <DependentUpon>BookCirculationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\CirculationForm.resx">
+      <DependentUpon>CirculationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalog\CreateCatalogForm.resx">
       <DependentUpon>CreateCatalogForm.cs</DependentUpon>
@@ -238,6 +289,18 @@
     </Compile>
     <EmbeddedResource Include="Statistical\StatisticalForm.resx">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\MyUserControl\ScriptUserControl.resx">
+      <DependentUpon>ScriptUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\AddReaderForm.resx">
+      <DependentUpon>AddReaderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\AdminOperationForm.resx">
+      <DependentUpon>AdminOperationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\UserManagementForm.resx">
+      <DependentUpon>UserManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
