@@ -93,6 +93,9 @@
             // cbb_Gender
             // 
             this.cbb_Gender.FormattingEnabled = true;
+            this.cbb_Gender.Items.AddRange(new object[] {
+            "男",
+            "女"});
             this.cbb_Gender.Location = new System.Drawing.Point(185, 116);
             this.cbb_Gender.Name = "cbb_Gender";
             this.cbb_Gender.Size = new System.Drawing.Size(91, 23);
