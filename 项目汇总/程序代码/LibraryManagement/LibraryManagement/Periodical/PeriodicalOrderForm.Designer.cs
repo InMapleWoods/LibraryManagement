@@ -29,17 +29,15 @@
         private void InitializeComponent()
         {
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             this.currencyTypeComboBox = new System.Windows.Forms.ComboBox();
             this.publishingHouseComboBox = new System.Windows.Forms.ComboBox();
             this.cycleComboBox = new System.Windows.Forms.ComboBox();
             this.documentTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.ordererComboBox = new System.Windows.Forms.ComboBox();
             this.booksellerComboBox = new System.Windows.Forms.ComboBox();
             this.sizeComboBox = new System.Windows.Forms.ComboBox();
-            this.chooseOrderDateButton = new System.Windows.Forms.Button();
             this.officialTitleTextBox = new System.Windows.Forms.TextBox();
             this.responsibleTextBox = new System.Windows.Forms.TextBox();
-            this.orderDateTextBox = new System.Windows.Forms.TextBox();
             this.orderPriceTextBox = new System.Windows.Forms.TextBox();
             this.IsbnTextBox = new System.Windows.Forms.TextBox();
             this.supplementTitleTextBox = new System.Windows.Forms.TextBox();
@@ -61,7 +59,8 @@
             this.orderDateLabel = new System.Windows.Forms.Label();
             this.orderNumLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
+            this.ordererTextBox = new System.Windows.Forms.TextBox();
+            this.orderDatePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -82,21 +81,20 @@
             // 
             // mainSplitContainer.Panel2
             // 
+            this.mainSplitContainer.Panel2.Controls.Add(this.orderDatePicker);
             this.mainSplitContainer.Panel2.Controls.Add(this.currencyTypeComboBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.publishingHouseComboBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.cycleComboBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.documentTypeComboBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.ordererComboBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.booksellerComboBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.sizeComboBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.chooseOrderDateButton);
             this.mainSplitContainer.Panel2.Controls.Add(this.officialTitleTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.responsibleTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.orderDateTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.orderPriceTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.IsbnTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.supplementTitleTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.remarkTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.ordererTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.orderNumTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.sizeLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.orderPriceLabel);
@@ -117,6 +115,14 @@
             this.mainSplitContainer.Size = new System.Drawing.Size(1056, 687);
             this.mainSplitContainer.SplitterDistance = 81;
             this.mainSplitContainer.TabIndex = 3;
+            // 
+            // scriptUserControl1
+            // 
+            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.scriptUserControl1.Name = "scriptUserControl1";
+            this.scriptUserControl1.Size = new System.Drawing.Size(1056, 81);
+            this.scriptUserControl1.TabIndex = 0;
             // 
             // currencyTypeComboBox
             // 
@@ -162,14 +168,6 @@
             this.documentTypeComboBox.Size = new System.Drawing.Size(270, 23);
             this.documentTypeComboBox.TabIndex = 12;
             // 
-            // ordererComboBox
-            // 
-            this.ordererComboBox.FormattingEnabled = true;
-            this.ordererComboBox.Location = new System.Drawing.Point(620, 55);
-            this.ordererComboBox.Name = "ordererComboBox";
-            this.ordererComboBox.Size = new System.Drawing.Size(270, 23);
-            this.ordererComboBox.TabIndex = 12;
-            // 
             // booksellerComboBox
             // 
             this.booksellerComboBox.FormattingEnabled = true;
@@ -190,16 +188,6 @@
             this.sizeComboBox.Size = new System.Drawing.Size(270, 23);
             this.sizeComboBox.TabIndex = 11;
             // 
-            // chooseOrderDateButton
-            // 
-            this.chooseOrderDateButton.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.chooseOrderDateButton.Location = new System.Drawing.Point(349, 55);
-            this.chooseOrderDateButton.Name = "chooseOrderDateButton";
-            this.chooseOrderDateButton.Size = new System.Drawing.Size(36, 25);
-            this.chooseOrderDateButton.TabIndex = 10;
-            this.chooseOrderDateButton.Text = "...";
-            this.chooseOrderDateButton.UseVisualStyleBackColor = true;
-            // 
             // officialTitleTextBox
             // 
             this.officialTitleTextBox.Location = new System.Drawing.Point(115, 115);
@@ -213,13 +201,6 @@
             this.responsibleTextBox.Name = "responsibleTextBox";
             this.responsibleTextBox.Size = new System.Drawing.Size(270, 25);
             this.responsibleTextBox.TabIndex = 9;
-            // 
-            // orderDateTextBox
-            // 
-            this.orderDateTextBox.Location = new System.Drawing.Point(115, 55);
-            this.orderDateTextBox.Name = "orderDateTextBox";
-            this.orderDateTextBox.Size = new System.Drawing.Size(228, 25);
-            this.orderDateTextBox.TabIndex = 9;
             // 
             // orderPriceTextBox
             // 
@@ -400,18 +381,25 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 270);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(1056, 332);
             this.dataGridView1.TabIndex = 0;
             // 
-            // scriptUserControl1
+            // ordererTextBox
             // 
-            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(1056, 81);
-            this.scriptUserControl1.TabIndex = 0;
+            this.ordererTextBox.Location = new System.Drawing.Point(620, 55);
+            this.ordererTextBox.Name = "ordererTextBox";
+            this.ordererTextBox.Size = new System.Drawing.Size(270, 25);
+            this.ordererTextBox.TabIndex = 9;
+            // 
+            // orderDatePicker
+            // 
+            this.orderDatePicker.Location = new System.Drawing.Point(115, 55);
+            this.orderDatePicker.Name = "orderDatePicker";
+            this.orderDatePicker.Size = new System.Drawing.Size(270, 25);
+            this.orderDatePicker.TabIndex = 13;
             // 
             // PeriodicalOrderForm
             // 
@@ -424,6 +412,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "期刊订购";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PeriodicalOrderForm_FormClosing);
+            this.Load += new System.EventHandler(this.PeriodicalOrderForm_Load);
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel2.ResumeLayout(false);
             this.mainSplitContainer.Panel2.PerformLayout();
@@ -448,13 +437,11 @@
         private System.Windows.Forms.Label sizeLabel;
         private System.Windows.Forms.TextBox officialTitleTextBox;
         private System.Windows.Forms.TextBox responsibleTextBox;
-        private System.Windows.Forms.TextBox orderDateTextBox;
         private System.Windows.Forms.TextBox orderPriceTextBox;
         private System.Windows.Forms.TextBox IsbnTextBox;
         private System.Windows.Forms.TextBox supplementTitleTextBox;
         private System.Windows.Forms.TextBox orderNumTextBox;
         private System.Windows.Forms.ComboBox sizeComboBox;
-        private System.Windows.Forms.Button chooseOrderDateButton;
         private System.Windows.Forms.ComboBox booksellerComboBox;
         private System.Windows.Forms.Label ordererLabel;
         private System.Windows.Forms.Label remarkLabel;
@@ -467,8 +454,9 @@
         private System.Windows.Forms.ComboBox publishingHouseComboBox;
         private System.Windows.Forms.ComboBox cycleComboBox;
         private System.Windows.Forms.ComboBox documentTypeComboBox;
-        private System.Windows.Forms.ComboBox ordererComboBox;
         private System.Windows.Forms.TextBox remarkTextBox;
         private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
+        private System.Windows.Forms.TextBox ordererTextBox;
+        private System.Windows.Forms.DateTimePicker orderDatePicker;
     }
 }

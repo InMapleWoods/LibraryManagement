@@ -89,6 +89,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bll\PeriodicalBll.cs" />
+    <Compile Include="Bll\UtilBll.cs" />
     <Compile Include="Catalog\CancelBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +127,8 @@
     <Compile Include="Circulation\CirculationForm.Designer.cs">
       <DependentUpon>CirculationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dal\PeriodicalDal.cs" />
+    <Compile Include="Dal\UtilDal.cs" />
     <Compile Include="Interview\BookOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +184,7 @@
     <Compile Include="Maintainace\MaitainanceForm.Designer.cs">
       <DependentUpon>MaitainanceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\PeriodicalOrder.cs" />
     <Compile Include="Periodical\PeriodicalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,9 +318,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Bll\" />
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
