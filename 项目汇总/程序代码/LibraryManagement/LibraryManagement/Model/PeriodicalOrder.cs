@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LibraryManagement.Model
@@ -75,5 +76,120 @@ namespace LibraryManagement.Model
         /// 尺寸
         /// </summary>
         public string Size = "";
+
+        /// <summary>
+        /// 判断订单是否有空项
+        /// </summary>
+        /// <param name="order">待判断订单</param>
+        /// <returns>是否有空项</returns>
+        public static bool isNull(PeriodicalOrder order)
+        {
+            if (order.BookSellerId == 0)
+            {
+                return true;
+            }
+            if (order.OrdererId == 0)
+            {
+                return true;
+            }
+            if (order.ISBN == "")
+            {
+                return true;
+            }
+            if (order.DocumentType == "")
+            {
+                return true;
+            }
+            if (order.PublishCycle == "")
+            {
+                return true;
+            }
+            if (order.OfficialTitle == "")
+            {
+                return true;
+            }
+            if (order.SupplementTitle == "")
+            {
+                return true;
+            }
+            if (order.PublishingHouseId == 0)
+            {
+                return true;
+            }
+            if (order.OrderPrice == 0.0)
+            {
+                return true;
+            }
+            if (order.CurrencyType == "")
+            {
+                return true;
+            }
+            if (order.Size == "")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 判断订单是否规范
+        /// </summary>
+        /// <param name="order">待判断订单</param>
+        /// <returns>是否规范</returns>
+        public static bool isNormative(PeriodicalOrder order)
+        {
+            if (order.BookSellerId <= 0)
+            {
+                throw new Exception("BookSellerId Error");
+            }
+            if (order.OrdererId <= 0)
+            {
+                throw new Exception("OrdererId Error");
+            }
+            Match matchISBN = Regex.Match(order.ISBN, @"^(\d{10})$");
+            if (!matchISBN.Success)
+            {
+                throw new Exception("ISBN Error");
+            }
+            Match matchDocumentType = Regex.Match(order.DocumentType, @"\b(期刊|专著)\b");
+            if (!matchDocumentType.Success)
+            {
+                throw new Exception("DocumentType Error");
+            }
+            Match matchPublishCycle = Regex.Match(order.PublishCycle, @"\b(周刊|半月刊|月刊|季刊|年刊)\b");
+            if (!matchPublishCycle.Success)
+            {
+                throw new Exception("PublishCycle Error");
+            }
+            Match matchOfficialTitle = Regex.Match(order.OfficialTitle, @"(.*)");
+            if (!matchOfficialTitle.Success)
+            {
+                throw new Exception("OfficialTitle Error");
+            }
+            Match matchSupplementTitle = Regex.Match(order.SupplementTitle, @"(.*)");
+            if (!matchSupplementTitle.Success)
+            {
+                throw new Exception("SupplementTitle Error");
+            }
+            if (order.PublishingHouseId <= 0)
+            {
+                throw new Exception("PublishingHouseId Error");
+            }
+            if (Math.Sign(order.OrderPrice) != 1)
+            {
+                throw new Exception("OrderPrice Error");
+            }
+            Match matchCurrencyType = Regex.Match(order.CurrencyType, @"\b(人民币\(RMB\))|(美元\(USD\))\b");
+            if (!matchCurrencyType.Success)
+            {
+                throw new Exception("CurrencyType Error");
+            }
+            Match matchSize = Regex.Match(order.Size, @"\b(A4|A3|16开)\b");
+            if (!matchSize.Success)
+            {
+                throw new Exception("Size Error");
+            }
+            return true;
+        }
     }
 }

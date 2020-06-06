@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using LibraryManagement.Bll;
 using LibraryManagement.Model;
@@ -27,14 +28,21 @@ namespace LibraryManagement.Periodical
 
         private void AddLog_Click(object sender, EventArgs e)
         {
-            PeriodicalOrder order = GetPeriodicalOrder();
-            if (periodicalBll.AddPeriodicalOrder(order))
+            try
             {
-                MessageBox.Show("添加成功");
+                PeriodicalOrder order = GetPeriodicalOrder();
+                if (periodicalBll.AddPeriodicalOrder(order))
+                {
+                    MessageBox.Show("添加成功");
+                }
+                else
+                {
+                    MessageBox.Show("添加失败");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("添加失败");
+                MessageBox.Show(ex.Message);
             }
             DataBind();
         }
@@ -43,7 +51,17 @@ namespace LibraryManagement.Periodical
         {
             int booksellerId = ((KeyValuePair<int, string>)booksellerComboBox.SelectedItem).Key;
             int publishingHouseId = ((KeyValuePair<int, string>)publishingHouseComboBox.SelectedItem).Key;
+            Match matchOrderer = Regex.Match(ordererTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
+            if (!matchOrderer.Success)
+            {
+                throw new Exception("OrdererNumber Error");
+            }
             int ordererId = utilBll.GetUserIdFormNumber(ordererTextBox.Text);
+            double price;
+            if (!double.TryParse(orderPriceTextBox.Text, out price))
+            {
+                throw new Exception("OrderPrice Error");
+            }
             PeriodicalOrder order = new PeriodicalOrder()
             {
                 BookSellerId = booksellerId,
@@ -55,7 +73,7 @@ namespace LibraryManagement.Periodical
                 OfficialTitle = officialTitleTextBox.Text,
                 SupplementTitle = supplementTitleTextBox.Text,
                 PublishingHouseId = publishingHouseId,
-                OrderPrice = double.Parse(orderPriceTextBox.Text),
+                OrderPrice = price,
                 CurrencyType = currencyTypeComboBox.Text,
                 Size = sizeComboBox.Text,
             };

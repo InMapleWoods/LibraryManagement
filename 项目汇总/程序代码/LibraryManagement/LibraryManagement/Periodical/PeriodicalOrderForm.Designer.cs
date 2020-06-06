@@ -30,6 +30,7 @@
         {
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
+            this.orderDatePicker = new System.Windows.Forms.DateTimePicker();
             this.currencyTypeComboBox = new System.Windows.Forms.ComboBox();
             this.publishingHouseComboBox = new System.Windows.Forms.ComboBox();
             this.cycleComboBox = new System.Windows.Forms.ComboBox();
@@ -42,6 +43,7 @@
             this.IsbnTextBox = new System.Windows.Forms.TextBox();
             this.supplementTitleTextBox = new System.Windows.Forms.TextBox();
             this.remarkTextBox = new System.Windows.Forms.TextBox();
+            this.ordererTextBox = new System.Windows.Forms.TextBox();
             this.orderNumTextBox = new System.Windows.Forms.TextBox();
             this.sizeLabel = new System.Windows.Forms.Label();
             this.orderPriceLabel = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@
             this.orderDateLabel = new System.Windows.Forms.Label();
             this.orderNumLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ordererTextBox = new System.Windows.Forms.TextBox();
-            this.orderDatePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -124,12 +124,20 @@
             this.scriptUserControl1.Size = new System.Drawing.Size(1056, 81);
             this.scriptUserControl1.TabIndex = 0;
             // 
+            // orderDatePicker
+            // 
+            this.orderDatePicker.Location = new System.Drawing.Point(115, 55);
+            this.orderDatePicker.Name = "orderDatePicker";
+            this.orderDatePicker.Size = new System.Drawing.Size(270, 25);
+            this.orderDatePicker.TabIndex = 13;
+            // 
             // currencyTypeComboBox
             // 
+            this.currencyTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.currencyTypeComboBox.FormattingEnabled = true;
             this.currencyTypeComboBox.Items.AddRange(new object[] {
-            "人民币 (RMB)",
-            "美元     (USD)"});
+            "人民币(RMB)",
+            "美元(USD)"});
             this.currencyTypeComboBox.Location = new System.Drawing.Point(620, 175);
             this.currencyTypeComboBox.Name = "currencyTypeComboBox";
             this.currencyTypeComboBox.Size = new System.Drawing.Size(270, 23);
@@ -137,6 +145,7 @@
             // 
             // publishingHouseComboBox
             // 
+            this.publishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.publishingHouseComboBox.FormattingEnabled = true;
             this.publishingHouseComboBox.Location = new System.Drawing.Point(620, 145);
             this.publishingHouseComboBox.Name = "publishingHouseComboBox";
@@ -145,6 +154,7 @@
             // 
             // cycleComboBox
             // 
+            this.cycleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cycleComboBox.FormattingEnabled = true;
             this.cycleComboBox.Items.AddRange(new object[] {
             "周刊",
@@ -159,6 +169,7 @@
             // 
             // documentTypeComboBox
             // 
+            this.documentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.documentTypeComboBox.FormattingEnabled = true;
             this.documentTypeComboBox.Items.AddRange(new object[] {
             "期刊",
@@ -170,6 +181,7 @@
             // 
             // booksellerComboBox
             // 
+            this.booksellerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.booksellerComboBox.FormattingEnabled = true;
             this.booksellerComboBox.Location = new System.Drawing.Point(620, 25);
             this.booksellerComboBox.Name = "booksellerComboBox";
@@ -178,6 +190,7 @@
             // 
             // sizeComboBox
             // 
+            this.sizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sizeComboBox.FormattingEnabled = true;
             this.sizeComboBox.Items.AddRange(new object[] {
             "A4",
@@ -229,6 +242,13 @@
             this.remarkTextBox.Name = "remarkTextBox";
             this.remarkTextBox.Size = new System.Drawing.Size(270, 25);
             this.remarkTextBox.TabIndex = 9;
+            // 
+            // ordererTextBox
+            // 
+            this.ordererTextBox.Location = new System.Drawing.Point(620, 55);
+            this.ordererTextBox.Name = "ordererTextBox";
+            this.ordererTextBox.Size = new System.Drawing.Size(270, 25);
+            this.ordererTextBox.TabIndex = 9;
             // 
             // orderNumTextBox
             // 
@@ -386,20 +406,6 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(1056, 332);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // ordererTextBox
-            // 
-            this.ordererTextBox.Location = new System.Drawing.Point(620, 55);
-            this.ordererTextBox.Name = "ordererTextBox";
-            this.ordererTextBox.Size = new System.Drawing.Size(270, 25);
-            this.ordererTextBox.TabIndex = 9;
-            // 
-            // orderDatePicker
-            // 
-            this.orderDatePicker.Location = new System.Drawing.Point(115, 55);
-            this.orderDatePicker.Name = "orderDatePicker";
-            this.orderDatePicker.Size = new System.Drawing.Size(270, 25);
-            this.orderDatePicker.TabIndex = 13;
             // 
             // PeriodicalOrderForm
             // 

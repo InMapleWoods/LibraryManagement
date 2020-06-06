@@ -19,7 +19,13 @@ namespace LibraryManagement.Bll
             bool result = false;
             try
             {
-                result = periodicalDal.AddPeriodicalOrder(order);
+                if (!PeriodicalOrder.isNull(order))//是否有空项
+                {
+                    if (PeriodicalOrder.isNormative(order))//是否符合规范
+                    {
+                        result = periodicalDal.AddPeriodicalOrder(order);
+                    }
+                }
             }
             catch (Exception e)
             {
