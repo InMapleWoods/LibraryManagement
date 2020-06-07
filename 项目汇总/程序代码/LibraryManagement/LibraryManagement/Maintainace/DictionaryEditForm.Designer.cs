@@ -30,7 +30,6 @@
         {
             this.comboBox_Dictionary = new System.Windows.Forms.ComboBox();
             this.dataGV_DictionaryShow = new System.Windows.Forms.DataGridView();
-            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             this.lab_Name = new System.Windows.Forms.Label();
             this.textBox_Name = new System.Windows.Forms.TextBox();
             this.textBox_Adress = new System.Windows.Forms.TextBox();
@@ -45,11 +44,13 @@
             this.lab_BankName = new System.Windows.Forms.Label();
             this.lab_Remark = new System.Windows.Forms.Label();
             this.textBox_Remark = new System.Windows.Forms.TextBox();
+            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_DictionaryShow)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox_Dictionary
             // 
+            this.comboBox_Dictionary.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Dictionary.FormattingEnabled = true;
             this.comboBox_Dictionary.Items.AddRange(new object[] {
             "书商字典",
@@ -66,19 +67,11 @@
             this.dataGV_DictionaryShow.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGV_DictionaryShow.Location = new System.Drawing.Point(0, 319);
             this.dataGV_DictionaryShow.Name = "dataGV_DictionaryShow";
+            this.dataGV_DictionaryShow.ReadOnly = true;
             this.dataGV_DictionaryShow.RowHeadersWidth = 51;
             this.dataGV_DictionaryShow.RowTemplate.Height = 23;
             this.dataGV_DictionaryShow.Size = new System.Drawing.Size(800, 131);
             this.dataGV_DictionaryShow.TabIndex = 1;
-            // 
-            // scriptUserControl1
-            // 
-            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.scriptUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(800, 83);
-            this.scriptUserControl1.TabIndex = 2;
             // 
             // lab_Name
             // 
@@ -193,6 +186,15 @@
             this.textBox_Remark.Size = new System.Drawing.Size(336, 21);
             this.textBox_Remark.TabIndex = 15;
             // 
+            // scriptUserControl1
+            // 
+            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.scriptUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scriptUserControl1.Name = "scriptUserControl1";
+            this.scriptUserControl1.Size = new System.Drawing.Size(800, 83);
+            this.scriptUserControl1.TabIndex = 2;
+            // 
             // DictionaryEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -219,6 +221,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DictionaryEditForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DictionaryEditForm_FormClosing);
+            this.Load += new System.EventHandler(this.DictionaryEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_DictionaryShow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

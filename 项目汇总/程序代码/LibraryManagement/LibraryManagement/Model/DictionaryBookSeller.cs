@@ -50,10 +50,7 @@ namespace LibraryManagement.Model
         /// <returns></returns>
         public static bool isNull(DictionaryBookSeller bookseller)
         {
-            if (bookseller.Id == 0)
-            {
-                return true;
-            }
+            
             if (bookseller.BookSeller == "")
             {
                 return true;
@@ -82,7 +79,7 @@ namespace LibraryManagement.Model
         }
         public static bool isNormative(DictionaryBookSeller bookseller, ref List<string> errorMsg)
         {
-            return true;//待做
+            return false;//待做
         }
     }
 }
