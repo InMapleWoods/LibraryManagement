@@ -31,7 +31,6 @@
             this.orderNumberLabel = new System.Windows.Forms.Label();
             this.orderNumTextBox = new System.Windows.Forms.TextBox();
             this.orderDateLabel = new System.Windows.Forms.Label();
-            this.orderDateTextBox = new System.Windows.Forms.TextBox();
             this.ISBNlabel = new System.Windows.Forms.Label();
             this.ISBNtextBox = new System.Windows.Forms.TextBox();
             this.subscriberLabel = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.literatureTypeComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,13 +73,6 @@
             this.orderDateLabel.Size = new System.Drawing.Size(67, 15);
             this.orderDateLabel.TabIndex = 3;
             this.orderDateLabel.Text = "订购日期";
-            // 
-            // orderDateTextBox
-            // 
-            this.orderDateTextBox.Location = new System.Drawing.Point(102, 143);
-            this.orderDateTextBox.Name = "orderDateTextBox";
-            this.orderDateTextBox.Size = new System.Drawing.Size(641, 25);
-            this.orderDateTextBox.TabIndex = 4;
             // 
             // ISBNlabel
             // 
@@ -206,11 +199,19 @@
             this.scriptUserControl1.Size = new System.Drawing.Size(795, 83);
             this.scriptUserControl1.TabIndex = 20;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(102, 144);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(641, 25);
+            this.dateTimePicker1.TabIndex = 21;
+            // 
             // BookOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 609);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.scriptUserControl1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.literatureTypeComboBox);
@@ -225,13 +226,14 @@
             this.Controls.Add(this.subscriberLabel);
             this.Controls.Add(this.ISBNtextBox);
             this.Controls.Add(this.ISBNlabel);
-            this.Controls.Add(this.orderDateTextBox);
             this.Controls.Add(this.orderDateLabel);
             this.Controls.Add(this.orderNumTextBox);
             this.Controls.Add(this.orderNumberLabel);
             this.Name = "BookOrderForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "订购新书";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookOrderForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -242,7 +244,6 @@
         private System.Windows.Forms.Label orderNumberLabel;
         private System.Windows.Forms.TextBox orderNumTextBox;
         private System.Windows.Forms.Label orderDateLabel;
-        private System.Windows.Forms.TextBox orderDateTextBox;
         private System.Windows.Forms.Label ISBNlabel;
         private System.Windows.Forms.TextBox ISBNtextBox;
         private System.Windows.Forms.Label subscriberLabel;
@@ -257,5 +258,6 @@
         private System.Windows.Forms.ComboBox literatureTypeComboBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

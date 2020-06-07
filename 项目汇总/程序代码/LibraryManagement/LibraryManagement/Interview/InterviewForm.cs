@@ -19,7 +19,9 @@ namespace LibraryManagement.Interview
 
         private void OrderButton_Click(object sender, System.EventArgs e)
         {
-
+            var form = new BookOrderForm(this);
+            form.Show();
+            Hide();
         }
     }
 }

@@ -12,9 +12,11 @@ namespace LibraryManagement.Interview
 {
     public partial class BookOrderForm : Form
     {
-        public BookOrderForm()
+        Form parentForm;
+        public BookOrderForm(Form form)
         {
             InitializeComponent();
+            parentForm = form;
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -25,6 +27,12 @@ namespace LibraryManagement.Interview
         private void AddOrderButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BookOrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Show();
+            Hide();
         }
     }
 }
