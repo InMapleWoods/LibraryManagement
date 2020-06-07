@@ -30,14 +30,21 @@ namespace LibraryManagement.Periodical
         {
             try
             {
-                PeriodicalOrder order = GetPeriodicalOrder();
-                if (periodicalBll.AddPeriodicalOrder(order))
+                List<string> errorList = new List<string>();//创建一个错误列表
+                //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
+                PeriodicalOrder order = GetPeriodicalOrder(ref errorList);
+                //判断是否添加订单成功
+                if (periodicalBll.AddPeriodicalOrder(order, ref errorList))
                 {
                     MessageBox.Show("添加成功");
                 }
                 else
                 {
                     MessageBox.Show("添加失败");
+                    foreach (var i in errorList)
+                    {
+                        MessageBox.Show(i);//逐条显示错误信息
+                    }
                 }
             }
             catch (Exception ex)
@@ -47,21 +54,28 @@ namespace LibraryManagement.Periodical
             DataBind();
         }
 
-        private PeriodicalOrder GetPeriodicalOrder()
+        private PeriodicalOrder GetPeriodicalOrder(ref List<string> error)
         {
+            List<string> errorList = new List<string>();//错误列表
+            //书商Id
             int booksellerId = ((KeyValuePair<int, string>)booksellerComboBox.SelectedItem).Key;
+            //出版社Id
             int publishingHouseId = ((KeyValuePair<int, string>)publishingHouseComboBox.SelectedItem).Key;
+            //判断订购人账号是否符合要求
             Match matchOrderer = Regex.Match(ordererTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
             if (!matchOrderer.Success)
             {
-                throw new Exception("OrdererNumber Error");
+                errorList.Add("OrdererNumber Error");
             }
+            //通过订购人账号获取id
             int ordererId = utilBll.GetUserIdFormNumber(ordererTextBox.Text);
             double price;
+            //判断价格是否能被转换为浮点型
             if (!double.TryParse(orderPriceTextBox.Text, out price))
             {
-                throw new Exception("OrderPrice Error");
+                errorList.Add("OrderPrice Error");
             }
+            //根据页面内容构造订单
             PeriodicalOrder order = new PeriodicalOrder()
             {
                 BookSellerId = booksellerId,
@@ -77,7 +91,8 @@ namespace LibraryManagement.Periodical
                 CurrencyType = currencyTypeComboBox.Text,
                 Size = sizeComboBox.Text,
             };
-            return order;
+            error = errorList;//返回错误列表
+            return order;//返回订单
         }
 
         private void PeriodicalOrderForm_Load(object sender, EventArgs e)

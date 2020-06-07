@@ -1,12 +1,19 @@
 ﻿using LibraryManagement.Dal;
 using LibraryManagement.Model;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace LibraryManagement.Bll
 {
+    /// <summary>
+    /// 期刊用户操作类
+    /// </summary>
     public class PeriodicalBll
     {
+        /// <summary>
+        /// 期刊数据操作对象
+        /// </summary>
         PeriodicalDal periodicalDal = new PeriodicalDal();
 
         /// <summary>
@@ -14,14 +21,14 @@ namespace LibraryManagement.Bll
         /// </summary>
         /// <param name="order">期刊订单</param>
         /// <returns>增加成功与否</returns>
-        public bool AddPeriodicalOrder(PeriodicalOrder order)
+        public bool AddPeriodicalOrder(PeriodicalOrder order, ref List<string> errorMsg)
         {
             bool result = false;
             try
             {
                 if (!PeriodicalOrder.isNull(order))//是否有空项
                 {
-                    if (PeriodicalOrder.isNormative(order))//是否符合规范
+                    if (PeriodicalOrder.isNormative(order, ref errorMsg))//是否符合规范
                     {
                         result = periodicalDal.AddPeriodicalOrder(order);
                     }
@@ -29,7 +36,8 @@ namespace LibraryManagement.Bll
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message); throw e;
+                Console.WriteLine(e.Message);
+                throw e;
             }
             return result;
         }
@@ -47,7 +55,8 @@ namespace LibraryManagement.Bll
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message); throw e;
+                Console.WriteLine(e.Message);
+                throw e;
             }
             return result;
         }
@@ -65,7 +74,8 @@ namespace LibraryManagement.Bll
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message); throw e;
+                Console.WriteLine(e.Message);
+                throw e;
             }
             return result;
         }

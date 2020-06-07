@@ -135,59 +135,66 @@ namespace LibraryManagement.Model
         /// 判断订单是否规范
         /// </summary>
         /// <param name="order">待判断订单</param>
+        /// <param name="errorMsg">错误信息</param>
         /// <returns>是否规范</returns>
-        public static bool isNormative(PeriodicalOrder order)
+        public static bool isNormative(PeriodicalOrder order, ref List<string> errorMsg)
         {
+            List<string> errorList = new List<string>();
             if (order.BookSellerId <= 0)
             {
-                throw new Exception("BookSellerId Error");
+                errorList.Add("BookSellerId Error");
             }
             if (order.OrdererId <= 0)
             {
-                throw new Exception("OrdererId Error");
+                errorList.Add("OrdererId Error");
             }
             Match matchISBN = Regex.Match(order.ISBN, @"^(\d{10})$");
             if (!matchISBN.Success)
             {
-                throw new Exception("ISBN Error");
+                errorList.Add("ISBN Error");
             }
             Match matchDocumentType = Regex.Match(order.DocumentType, @"\b(期刊|专著)\b");
             if (!matchDocumentType.Success)
             {
-                throw new Exception("DocumentType Error");
+                errorList.Add("DocumentType Error");
             }
             Match matchPublishCycle = Regex.Match(order.PublishCycle, @"\b(周刊|半月刊|月刊|季刊|年刊)\b");
             if (!matchPublishCycle.Success)
             {
-                throw new Exception("PublishCycle Error");
+                errorList.Add("PublishCycle Error");
             }
             Match matchOfficialTitle = Regex.Match(order.OfficialTitle, @"(.*)");
             if (!matchOfficialTitle.Success)
             {
-                throw new Exception("OfficialTitle Error");
+                errorList.Add("OfficialTitle Error");
             }
             Match matchSupplementTitle = Regex.Match(order.SupplementTitle, @"(.*)");
             if (!matchSupplementTitle.Success)
             {
-                throw new Exception("SupplementTitle Error");
+                errorList.Add("SupplementTitle Error");
             }
             if (order.PublishingHouseId <= 0)
             {
-                throw new Exception("PublishingHouseId Error");
+                errorList.Add("PublishingHouseId Error");
             }
             if (Math.Sign(order.OrderPrice) != 1)
             {
-                throw new Exception("OrderPrice Error");
+                errorList.Add("OrderPrice Error");
             }
             Match matchCurrencyType = Regex.Match(order.CurrencyType, @"\b(人民币\(RMB\))|(美元\(USD\))\b");
             if (!matchCurrencyType.Success)
             {
-                throw new Exception("CurrencyType Error");
+                errorList.Add("CurrencyType Error");
             }
             Match matchSize = Regex.Match(order.Size, @"\b(A4|A3|16开)\b");
             if (!matchSize.Success)
             {
-                throw new Exception("Size Error");
+                errorList.Add("Size Error");
+            }
+            errorMsg = errorList;
+            if (errorList.Count > 0)
+            {
+                return false;
             }
             return true;
         }
