@@ -75,6 +75,64 @@ namespace LibraryManagement.Tools.MyUserControl
                     }
             }
 
+        } 
+
+        /// <summary>
+        /// 去除控件点击事件
+        /// </summary>
+        /// <param name="function">函数名</param>
+        /// <param name="controlName">控件名</param>
+        public void RemoveContorlClickMethod(functionDelegate function, ControlNames controlName)
+        {
+            switch (controlName)
+            {
+                case ControlNames.addButton:
+                    {
+                        addButton.Click -= new EventHandler(function);
+                        break;
+                    }
+                case ControlNames.changeButton:
+                    {
+                        changeButton.Click -= new EventHandler(function);
+                        break;
+                    }
+                case ControlNames.createButton:
+                    {
+                        createButton.Click -= new EventHandler(function);
+                        break;
+                    }
+                case ControlNames.emptyButton:
+                    {
+                        emptyButton.Click -= new EventHandler(function);
+                        break;
+                    }
+                case ControlNames.exitButton:
+                    {
+                        exitButton.Click -= new EventHandler(function);
+                        break;
+                    }
+                case ControlNames.helpButton:
+                    {
+                        helpButton.Click -= new EventHandler(function);
+                        break;
+                    }
+                case ControlNames.nextButton:
+                    {
+                        nextButton.Click -= new EventHandler(function);
+                        break;
+                    }
+                case ControlNames.previousButton:
+                    {
+                        previousButton.Click -= new EventHandler(function);
+                        break;
+                    }
+                case ControlNames.saveButton:
+                    {
+                        saveButton.Click -= new EventHandler(function);
+                        break;
+                    }
+            }
+
         }
 
         public enum ControlNames
