@@ -16,5 +16,10 @@ namespace LibraryManagement.Maintainace
             parentForm.Show();
             Hide();
         }
+
+        private void comboBox_Dictionary_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
