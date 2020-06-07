@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddOrderButton = new System.Windows.Forms.Button();
             this.orderNumberLabel = new System.Windows.Forms.Label();
             this.orderNumTextBox = new System.Windows.Forms.TextBox();
             this.orderDateLabel = new System.Windows.Forms.Label();
@@ -45,17 +44,10 @@
             this.publisherTextBox = new System.Windows.Forms.TextBox();
             this.literatureTypeLabel = new System.Windows.Forms.Label();
             this.literatureTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // AddOrderButton
-            // 
-            this.AddOrderButton.Location = new System.Drawing.Point(23, 12);
-            this.AddOrderButton.Name = "AddOrderButton";
-            this.AddOrderButton.Size = new System.Drawing.Size(75, 75);
-            this.AddOrderButton.TabIndex = 0;
-            this.AddOrderButton.Text = "添加订单";
-            this.AddOrderButton.UseVisualStyleBackColor = true;
             // 
             // orderNumberLabel
             // 
@@ -191,20 +183,36 @@
             this.literatureTypeComboBox.TabIndex = 16;
             this.literatureTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.Label1_Click);
             // 
-            // richTextBox1
+            // dataGridView1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(23, 426);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(760, 171);
-            this.richTextBox1.TabIndex = 18;
-            this.richTextBox1.Text = "";
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 436);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(795, 173);
+            this.dataGridView1.TabIndex = 19;
+            // 
+            // scriptUserControl1
+            // 
+            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.scriptUserControl1.Name = "scriptUserControl1";
+            this.scriptUserControl1.Size = new System.Drawing.Size(795, 83);
+            this.scriptUserControl1.TabIndex = 20;
             // 
             // BookOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 609);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.scriptUserControl1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.literatureTypeComboBox);
             this.Controls.Add(this.literatureTypeLabel);
             this.Controls.Add(this.publisherTextBox);
@@ -221,18 +229,16 @@
             this.Controls.Add(this.orderDateLabel);
             this.Controls.Add(this.orderNumTextBox);
             this.Controls.Add(this.orderNumberLabel);
-            this.Controls.Add(this.AddOrderButton);
             this.Name = "BookOrderForm";
             this.ShowIcon = false;
             this.Text = "订购新书";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button AddOrderButton;
         private System.Windows.Forms.Label orderNumberLabel;
         private System.Windows.Forms.TextBox orderNumTextBox;
         private System.Windows.Forms.Label orderDateLabel;
@@ -249,6 +255,7 @@
         private System.Windows.Forms.TextBox publisherTextBox;
         private System.Windows.Forms.Label literatureTypeLabel;
         private System.Windows.Forms.ComboBox literatureTypeComboBox;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
     }
 }
