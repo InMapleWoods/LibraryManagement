@@ -15,6 +15,7 @@ namespace LibraryManagement.Dal
         /// 工具对象
         /// </summary>
         private SQLHelper helper = new SQLHelper();
+        /*
         /// <summary>
         /// 增加书商数据操作
         /// </summary>
@@ -51,7 +52,7 @@ namespace LibraryManagement.Dal
                 new MySqlParameter("@BankName",bookseller.BankName),
                 new MySqlParameter("@Remark",bookseller.Remark),
             };
-            int count = helper.ExecuteNonQuery(sqlStr, para, System.Data.CommandType.Text);
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (count > 0)
             {
                 return true;
@@ -59,6 +60,40 @@ namespace LibraryManagement.Dal
             else
             {
                 return false;
+            }
+        }*/
+        public bool AddDicBookSeller(DictionaryBookSeller bookseller)
+        {            
+            string sqlStr = "AddBooksellerDictionary";
+            //储存DB
+            MySqlParameter[] para = new MySqlParameter[]
+            {
+                new MySqlParameter("@returnValue",MySqlDbType.Int32,4),
+                new MySqlParameter("@name",bookseller.BookSeller),
+                new MySqlParameter("@location",bookseller.Location),
+                new MySqlParameter("@contact",bookseller.Contact),
+                new MySqlParameter("@callNum",bookseller.Call),
+                new MySqlParameter("@postcodes",bookseller.PostCodes),
+                new MySqlParameter("@bankName",bookseller.BankName),
+                new MySqlParameter("@remark",bookseller.Remark),
+            };
+            para[0].Direction = ParameterDirection.Output;//将第一个变量设为输出变量
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.StoredProcedure);
+            int result = (int)para[0].Value;//获取返回值
+            if (result == -1)
+            {
+                return false;
+            }
+            else
+            {
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
         /// <summary>
@@ -97,7 +132,7 @@ namespace LibraryManagement.Dal
                 new MySqlParameter("@BankName",publishingHouse.BankName),
                 new MySqlParameter("@Remark",publishingHouse.Remark),
             };
-            int count = helper.ExecuteNonQuery(sqlStr, para, System.Data.CommandType.Text);
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (count > 0)
             {
                 return true;

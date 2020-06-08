@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagement.Model
 {
-    class DictionaryPublishingHouse
+    public class DictionaryPublishingHouse
     {
         /// <summary>
         /// 出版社编号

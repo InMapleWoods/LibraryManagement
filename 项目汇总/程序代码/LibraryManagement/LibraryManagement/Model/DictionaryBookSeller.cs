@@ -9,7 +9,7 @@ namespace LibraryManagement.Model
     /// <summary>
     /// 书商字典
     /// </summary>
-    class DictionaryBookSeller
+    public class DictionaryBookSeller
     {
         /// <summary>
         /// 书商编号
