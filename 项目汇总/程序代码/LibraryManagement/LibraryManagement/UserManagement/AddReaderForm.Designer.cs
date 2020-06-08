@@ -92,6 +92,7 @@
             // 
             // cbb_Gender
             // 
+            this.cbb_Gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_Gender.FormattingEnabled = true;
             this.cbb_Gender.Items.AddRange(new object[] {
             "男",
@@ -130,6 +131,7 @@
             // 
             // cbb_ReaderLevel
             // 
+            this.cbb_ReaderLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_ReaderLevel.FormattingEnabled = true;
             this.cbb_ReaderLevel.Location = new System.Drawing.Point(185, 201);
             this.cbb_ReaderLevel.Name = "cbb_ReaderLevel";
@@ -170,6 +172,7 @@
             // 
             // cbb_DepartmentId
             // 
+            this.cbb_DepartmentId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_DepartmentId.FormattingEnabled = true;
             this.cbb_DepartmentId.Location = new System.Drawing.Point(185, 344);
             this.cbb_DepartmentId.Name = "cbb_DepartmentId";
@@ -187,6 +190,7 @@
             // 
             // cbb_DishonestyState
             // 
+            this.cbb_DishonestyState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_DishonestyState.FormattingEnabled = true;
             this.cbb_DishonestyState.Location = new System.Drawing.Point(185, 388);
             this.cbb_DishonestyState.Name = "cbb_DishonestyState";
