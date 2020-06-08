@@ -31,11 +31,15 @@ namespace LibraryManagement.Maintainace
             {
                 lab_CorPL.Text = "联系人";
                 dicType = 0;
+                DataBind(dicType);
+                this.showSelect();
             }
             if (comboBox_Dictionary.Text.ToString().Equals("出版社字典"))
             {
                 lab_CorPL.Text = "出版地";
                 dicType = 1;
+                DataBind(dicType);
+                this.showSelect();
             }
             
 
@@ -146,7 +150,7 @@ namespace LibraryManagement.Maintainace
             }
             if(dicType==1)
             {
-                //dataGV_DictionaryShow.DataSource = maintainaceBll.getAllDicPublishingHouse();
+                dataGV_DictionaryShow.DataSource = maintainaceBll.getAllDicPublishingHouse();
             }
            
         }
@@ -158,6 +162,44 @@ namespace LibraryManagement.Maintainace
         private void DictionaryEditForm_Load(object sender, EventArgs e)
         {
             DataBind(dicType);
+        }
+
+        private void dataGV_DictionaryShow_SelectionChanged(object sender, EventArgs e)
+        {
+            this.showSelect();
+        }
+        private void textBindclear()
+        {
+            textBox_Name.Text = null;
+            textBox_Adress.Text = null;
+            textBox_CorPL.Text = null;
+            textBox_Call.Text = null;
+            textBox_BankName.Text = null;
+            textBox_Postcodes.Text =null;
+            textBox_Remark.Text = null;
+        }
+        private void showSelect()
+        {
+            if (dicType == 0 && dataGV_DictionaryShow.SelectedRows.Count > 0)
+            {
+                textBox_Name.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["书商名字"].Value.ToString();
+                textBox_Adress.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["地址"].Value.ToString();
+                textBox_CorPL.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["联系人"].Value.ToString();
+                textBox_Call.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["电话"].Value.ToString();
+                textBox_BankName.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["开户行"].Value.ToString();
+                textBox_Postcodes.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["邮编"].Value.ToString();
+                textBox_Remark.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["备注"].Value.ToString();
+            }
+            else if (dicType == 1 && dataGV_DictionaryShow.SelectedRows.Count > 0)
+            {
+                textBox_Name.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["出版社名字"].Value.ToString();
+                textBox_Adress.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["地址"].Value.ToString();
+                textBox_CorPL.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["出版地"].Value.ToString();
+                textBox_Call.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["电话"].Value.ToString();
+                textBox_BankName.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["开户行"].Value.ToString();
+                textBox_Postcodes.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["邮编"].Value.ToString();
+                textBox_Remark.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["备注"].Value.ToString();
+            }
         }
     }
 }

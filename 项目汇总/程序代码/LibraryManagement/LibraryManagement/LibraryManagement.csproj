@@ -128,7 +128,7 @@
     <Compile Include="Circulation\CirculationForm.Designer.cs">
       <DependentUpon>CirculationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dal\MiantainaceDal.cs" />
+    <Compile Include="Dal\MaintainaceDal.cs" />
     <Compile Include="Dal\PeriodicalDal.cs" />
     <Compile Include="Dal\UtilDal.cs" />
     <Compile Include="Interview\BookOrderForm.cs">

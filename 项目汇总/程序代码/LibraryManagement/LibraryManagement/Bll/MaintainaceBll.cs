@@ -14,7 +14,7 @@ namespace LibraryManagement.Bll
     /// </summary>
     class MaintainaceBll
     {
-        MiantainaceDal miantainaceDal = new MiantainaceDal();
+        MaintainaceDal maintainaceDal = new MaintainaceDal();
         /// <summary>
         /// 新增书商字典用户操作
         /// </summary>
@@ -30,7 +30,7 @@ namespace LibraryManagement.Bll
                 {
                     if(!DictionaryBookSeller.isNormative(bookSeller,ref errorMsg))
                     {
-                        result = miantainaceDal.AddDicBookSeller(bookSeller);
+                        result = maintainaceDal.AddDicBookSeller(bookSeller);
                     }
                 }
             }
@@ -50,7 +50,7 @@ namespace LibraryManagement.Bll
             DataTable result = null;
             try
             {
-                result=miantainaceDal.getAllDicBookSeller();
+                result=maintainaceDal.getAllDicBookSeller();
             }
             catch (Exception e)
             {
@@ -70,7 +70,7 @@ namespace LibraryManagement.Bll
             DataTable result = null;
             try
             {
-                result = miantainaceDal.getDicBookSeller(index, size);
+                result = maintainaceDal.getDicBookSeller(index, size);
             }
             catch(Exception e)
             {
@@ -79,6 +79,12 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
+        /// <summary>
+        /// 新增出版社用户操作
+        /// </summary>
+        /// <param name="publishingHouse">出版社对象</param>
+        /// <param name="errorMsg">错误列表</param>
+        /// <returns>返回成功与否</returns>
         public bool AddDicPublishingHouse(DictionaryPublishingHouse publishingHouse, ref List<string> errorMsg)
         {
             bool result = false;
@@ -88,11 +94,49 @@ namespace LibraryManagement.Bll
                 {
                     if (!DictionaryPublishingHouse.isNormative(publishingHouse, ref errorMsg))
                     {
-                        result = miantainaceDal.AddDicPublishingHouse(publishingHouse);
+                        result = maintainaceDal.AddDicPublishingHouse(publishingHouse);
                     }
                 }
             }
             catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        /// <summary>
+        /// 获取全部出版社信息用户操作
+        /// </summary>
+        /// <returns>返回全部出版社信息</returns>
+        public DataTable getAllDicPublishingHouse()
+        {
+            DataTable result = null;
+            try
+            {
+                result = maintainaceDal.getAllDicPublishingHouse();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        /// <summary>
+        /// 分页获取出版社信息
+        /// </summary>
+        /// <param name="index">索引页</param>
+        /// <param name="size">页面容量</param>
+        /// <returns>返回一页出版社信息</returns>
+        public DataTable getDicPublishingHouse(int index,int size)
+        {
+            DataTable result = null;
+            try
+            {
+                result = maintainaceDal.getDicPublishingHouse(index, size);
+            }
+            catch(Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;

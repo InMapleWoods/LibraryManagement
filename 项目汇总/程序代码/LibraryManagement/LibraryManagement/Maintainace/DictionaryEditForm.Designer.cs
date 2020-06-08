@@ -66,12 +66,15 @@
             this.dataGV_DictionaryShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_DictionaryShow.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGV_DictionaryShow.Location = new System.Drawing.Point(0, 319);
+            this.dataGV_DictionaryShow.MultiSelect = false;
             this.dataGV_DictionaryShow.Name = "dataGV_DictionaryShow";
             this.dataGV_DictionaryShow.ReadOnly = true;
             this.dataGV_DictionaryShow.RowHeadersWidth = 51;
             this.dataGV_DictionaryShow.RowTemplate.Height = 23;
+            this.dataGV_DictionaryShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGV_DictionaryShow.Size = new System.Drawing.Size(800, 131);
             this.dataGV_DictionaryShow.TabIndex = 1;
+            this.dataGV_DictionaryShow.SelectionChanged += new System.EventHandler(this.dataGV_DictionaryShow_SelectionChanged);
             // 
             // lab_Name
             // 
