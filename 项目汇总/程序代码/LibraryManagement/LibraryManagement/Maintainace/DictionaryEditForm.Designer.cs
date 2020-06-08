@@ -55,9 +55,10 @@
             this.comboBox_Dictionary.Items.AddRange(new object[] {
             "书商字典",
             "出版社字典"});
-            this.comboBox_Dictionary.Location = new System.Drawing.Point(667, 88);
+            this.comboBox_Dictionary.Location = new System.Drawing.Point(889, 110);
+            this.comboBox_Dictionary.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_Dictionary.Name = "comboBox_Dictionary";
-            this.comboBox_Dictionary.Size = new System.Drawing.Size(121, 20);
+            this.comboBox_Dictionary.Size = new System.Drawing.Size(160, 23);
             this.comboBox_Dictionary.TabIndex = 0;
             this.comboBox_Dictionary.SelectedIndexChanged += new System.EventHandler(this.comboBox_Dictionary_SelectedIndexChanged);
             // 
@@ -65,13 +66,13 @@
             // 
             this.dataGV_DictionaryShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_DictionaryShow.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGV_DictionaryShow.Location = new System.Drawing.Point(0, 319);
-            this.dataGV_DictionaryShow.MultiSelect = false;
+            this.dataGV_DictionaryShow.Location = new System.Drawing.Point(0, 398);
+            this.dataGV_DictionaryShow.Margin = new System.Windows.Forms.Padding(4);
             this.dataGV_DictionaryShow.Name = "dataGV_DictionaryShow";
             this.dataGV_DictionaryShow.ReadOnly = true;
+            this.dataGV_DictionaryShow.RowHeadersVisible = false;
             this.dataGV_DictionaryShow.RowHeadersWidth = 51;
             this.dataGV_DictionaryShow.RowTemplate.Height = 23;
-            this.dataGV_DictionaryShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGV_DictionaryShow.Size = new System.Drawing.Size(800, 131);
             this.dataGV_DictionaryShow.TabIndex = 1;
             this.dataGV_DictionaryShow.SelectionChanged += new System.EventHandler(this.dataGV_DictionaryShow_SelectionChanged);
@@ -79,130 +80,143 @@
             // lab_Name
             // 
             this.lab_Name.AutoSize = true;
-            this.lab_Name.Location = new System.Drawing.Point(73, 113);
+            this.lab_Name.Location = new System.Drawing.Point(97, 141);
+            this.lab_Name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lab_Name.Name = "lab_Name";
-            this.lab_Name.Size = new System.Drawing.Size(53, 12);
+            this.lab_Name.Size = new System.Drawing.Size(67, 15);
             this.lab_Name.TabIndex = 3;
             this.lab_Name.Text = "书商名称";
             // 
             // textBox_Name
             // 
-            this.textBox_Name.Location = new System.Drawing.Point(132, 110);
+            this.textBox_Name.Location = new System.Drawing.Point(176, 138);
+            this.textBox_Name.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Name.Name = "textBox_Name";
-            this.textBox_Name.Size = new System.Drawing.Size(100, 21);
+            this.textBox_Name.Size = new System.Drawing.Size(132, 25);
             this.textBox_Name.TabIndex = 4;
             // 
             // textBox_Adress
             // 
-            this.textBox_Adress.Location = new System.Drawing.Point(132, 153);
+            this.textBox_Adress.Location = new System.Drawing.Point(176, 191);
+            this.textBox_Adress.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Adress.Name = "textBox_Adress";
-            this.textBox_Adress.Size = new System.Drawing.Size(100, 21);
+            this.textBox_Adress.Size = new System.Drawing.Size(132, 25);
             this.textBox_Adress.TabIndex = 6;
             // 
             // lab_Location
             // 
             this.lab_Location.AutoSize = true;
-            this.lab_Location.Location = new System.Drawing.Point(85, 156);
+            this.lab_Location.Location = new System.Drawing.Point(113, 195);
+            this.lab_Location.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lab_Location.Name = "lab_Location";
-            this.lab_Location.Size = new System.Drawing.Size(29, 12);
+            this.lab_Location.Size = new System.Drawing.Size(37, 15);
             this.lab_Location.TabIndex = 5;
             this.lab_Location.Text = "地址";
-            this.lab_Location.Click += new System.EventHandler(this.lab_Location_Click);
             // 
             // textBox_CorPL
             // 
-            this.textBox_CorPL.Location = new System.Drawing.Point(132, 192);
+            this.textBox_CorPL.Location = new System.Drawing.Point(176, 240);
+            this.textBox_CorPL.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_CorPL.Name = "textBox_CorPL";
-            this.textBox_CorPL.Size = new System.Drawing.Size(100, 21);
+            this.textBox_CorPL.Size = new System.Drawing.Size(132, 25);
             this.textBox_CorPL.TabIndex = 8;
             // 
             // lab_CorPL
             // 
             this.lab_CorPL.AutoSize = true;
-            this.lab_CorPL.Location = new System.Drawing.Point(85, 195);
+            this.lab_CorPL.Location = new System.Drawing.Point(113, 244);
+            this.lab_CorPL.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lab_CorPL.Name = "lab_CorPL";
-            this.lab_CorPL.Size = new System.Drawing.Size(41, 12);
+            this.lab_CorPL.Size = new System.Drawing.Size(52, 15);
             this.lab_CorPL.TabIndex = 7;
             this.lab_CorPL.Text = "联系人";
             // 
             // textBox_Postcodes
             // 
-            this.textBox_Postcodes.Location = new System.Drawing.Point(322, 153);
+            this.textBox_Postcodes.Location = new System.Drawing.Point(429, 191);
+            this.textBox_Postcodes.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Postcodes.Name = "textBox_Postcodes";
-            this.textBox_Postcodes.Size = new System.Drawing.Size(100, 21);
+            this.textBox_Postcodes.Size = new System.Drawing.Size(132, 25);
             this.textBox_Postcodes.TabIndex = 10;
             // 
             // lab_Call
             // 
             this.lab_Call.AutoSize = true;
-            this.lab_Call.Location = new System.Drawing.Point(275, 113);
+            this.lab_Call.Location = new System.Drawing.Point(367, 141);
+            this.lab_Call.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lab_Call.Name = "lab_Call";
-            this.lab_Call.Size = new System.Drawing.Size(29, 12);
+            this.lab_Call.Size = new System.Drawing.Size(37, 15);
             this.lab_Call.TabIndex = 9;
             this.lab_Call.Text = "电话";
             // 
             // textBox_BankName
             // 
-            this.textBox_BankName.Location = new System.Drawing.Point(322, 192);
+            this.textBox_BankName.Location = new System.Drawing.Point(429, 240);
+            this.textBox_BankName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_BankName.Name = "textBox_BankName";
-            this.textBox_BankName.Size = new System.Drawing.Size(100, 21);
+            this.textBox_BankName.Size = new System.Drawing.Size(132, 25);
             this.textBox_BankName.TabIndex = 12;
             // 
             // lab_Postcodes
             // 
             this.lab_Postcodes.AutoSize = true;
-            this.lab_Postcodes.Location = new System.Drawing.Point(275, 156);
+            this.lab_Postcodes.Location = new System.Drawing.Point(367, 195);
+            this.lab_Postcodes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lab_Postcodes.Name = "lab_Postcodes";
-            this.lab_Postcodes.Size = new System.Drawing.Size(29, 12);
+            this.lab_Postcodes.Size = new System.Drawing.Size(37, 15);
             this.lab_Postcodes.TabIndex = 11;
             this.lab_Postcodes.Text = "邮编";
             // 
             // textBox_Call
             // 
-            this.textBox_Call.Location = new System.Drawing.Point(322, 110);
+            this.textBox_Call.Location = new System.Drawing.Point(429, 138);
+            this.textBox_Call.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Call.Name = "textBox_Call";
-            this.textBox_Call.Size = new System.Drawing.Size(100, 21);
+            this.textBox_Call.Size = new System.Drawing.Size(132, 25);
             this.textBox_Call.TabIndex = 14;
             // 
             // lab_BankName
             // 
             this.lab_BankName.AutoSize = true;
-            this.lab_BankName.Location = new System.Drawing.Point(275, 195);
+            this.lab_BankName.Location = new System.Drawing.Point(367, 244);
+            this.lab_BankName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lab_BankName.Name = "lab_BankName";
-            this.lab_BankName.Size = new System.Drawing.Size(41, 12);
+            this.lab_BankName.Size = new System.Drawing.Size(52, 15);
             this.lab_BankName.TabIndex = 13;
             this.lab_BankName.Text = "开户行";
             // 
             // lab_Remark
             // 
             this.lab_Remark.AutoSize = true;
-            this.lab_Remark.Location = new System.Drawing.Point(85, 238);
+            this.lab_Remark.Location = new System.Drawing.Point(113, 298);
+            this.lab_Remark.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lab_Remark.Name = "lab_Remark";
-            this.lab_Remark.Size = new System.Drawing.Size(29, 12);
+            this.lab_Remark.Size = new System.Drawing.Size(37, 15);
             this.lab_Remark.TabIndex = 16;
             this.lab_Remark.Text = "备注";
             // 
             // textBox_Remark
             // 
-            this.textBox_Remark.Location = new System.Drawing.Point(132, 235);
+            this.textBox_Remark.Location = new System.Drawing.Point(176, 294);
+            this.textBox_Remark.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Remark.Name = "textBox_Remark";
-            this.textBox_Remark.Size = new System.Drawing.Size(336, 21);
+            this.textBox_Remark.Size = new System.Drawing.Size(447, 25);
             this.textBox_Remark.TabIndex = 15;
             // 
             // scriptUserControl1
             // 
             this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.scriptUserControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scriptUserControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(800, 83);
+            this.scriptUserControl1.Size = new System.Drawing.Size(1067, 104);
             this.scriptUserControl1.TabIndex = 2;
             // 
             // DictionaryEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.lab_Remark);
             this.Controls.Add(this.textBox_Remark);
             this.Controls.Add(this.textBox_Call);
@@ -220,6 +234,7 @@
             this.Controls.Add(this.comboBox_Dictionary);
             this.Controls.Add(this.textBox_Adress);
             this.Controls.Add(this.lab_Location);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DictionaryEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DictionaryEditForm";

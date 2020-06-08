@@ -9,7 +9,6 @@ namespace LibraryManagement.Maintainace
 {
     public partial class DictionaryEditForm : Form
     {
-        public int dicType=0;//0为书商字典，1为出版社字典
         MaintainaceBll maintainaceBll = new MaintainaceBll();
         Form parentForm;
         public DictionaryEditForm(Form form)
@@ -27,35 +26,30 @@ namespace LibraryManagement.Maintainace
 
         private void comboBox_Dictionary_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            if (comboBox_Dictionary.Text.ToString().Equals("书商字典"))
+            if (comboBox_Dictionary.SelectedIndex == 0)
             {
                 lab_CorPL.Text = "联系人";
-                dicType = 0;
-                DataBind(dicType);
-                this.showSelect();
             }
-            if (comboBox_Dictionary.Text.ToString().Equals("出版社字典"))
+            if (comboBox_Dictionary.SelectedIndex == 1)
             {
                 lab_CorPL.Text = "出版地";
-                dicType = 1;
-                DataBind(dicType);
-                this.showSelect();
             }
-            
+
 
         }
 
-        private void Addlog_click(object sender,System.EventArgs e)
+        private void Addlog_click(object sender, System.EventArgs e)
         {
             try
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
                 //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
-                if (dicType == 0)
+                if (comboBox_Dictionary.SelectedIndex == 0)
                 {
                     DictionaryBookSeller bookSeller = GetDictionaryBookSeller(ref errorList);
                     //判断是否添加订单成功
-                    if (maintainaceBll.AddDicBookSeller(bookSeller,ref errorList)){
+                    if (maintainaceBll.AddDicBookSeller(bookSeller, ref errorList))
+                    {
                         MessageBox.Show("添加成功");
                     }
                     else
@@ -67,11 +61,12 @@ namespace LibraryManagement.Maintainace
                         }
                     }
                 }
-                else if(dicType == 1)
+                else if (comboBox_Dictionary.SelectedIndex == 1)
                 {
-                    DictionaryPublishingHouse publishingHouse =GetDictionaryPublishingHouse(ref errorList);
+                    DictionaryPublishingHouse publishingHouse = GetDictionaryPublishingHouse(ref errorList);
                     //判断是否添加订单成功
-                    if (maintainaceBll.AddDicPublishingHouse(publishingHouse, ref errorList)){
+                    if (maintainaceBll.AddDicPublishingHouse(publishingHouse, ref errorList))
+                    {
                         MessageBox.Show("添加成功");
                     }
                     else
@@ -88,7 +83,7 @@ namespace LibraryManagement.Maintainace
             {
                 MessageBox.Show(ex.Message);
             }
-            DataBind(dicType);
+            DataBind();
         }
         private DictionaryBookSeller GetDictionaryBookSeller(ref List<string> error)
         {
@@ -142,26 +137,22 @@ namespace LibraryManagement.Maintainace
             return publishingHouse;
         }
 
-        private void DataBind(int dicType)
+        private void DataBind()
         {
-            if(dicType==0)
+            if (comboBox_Dictionary.SelectedIndex == 0)
             {
                 dataGV_DictionaryShow.DataSource = maintainaceBll.getAllDicBookSeller();
             }
-            if(dicType==1)
+            if (comboBox_Dictionary.SelectedIndex == 1)
             {
                 dataGV_DictionaryShow.DataSource = maintainaceBll.getAllDicPublishingHouse();
             }
-           
-        }
-        private void lab_Location_Click(object sender, System.EventArgs e)
-        {
-
         }
 
         private void DictionaryEditForm_Load(object sender, EventArgs e)
         {
-            DataBind(dicType);
+            comboBox_Dictionary.SelectedIndex = 0;
+            DataBind();
         }
 
         private void dataGV_DictionaryShow_SelectionChanged(object sender, EventArgs e)
