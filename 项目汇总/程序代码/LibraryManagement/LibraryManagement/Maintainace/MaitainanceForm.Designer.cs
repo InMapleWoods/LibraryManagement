@@ -70,11 +70,12 @@
             this.Controls.Add(this.Btn_backups);
             this.Controls.Add(this.Btn_statisticalEdit);
             this.Controls.Add(this.Btn_dictionaryEdit);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MaitainanceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MaitainanceForm";
-            this.Load += new System.EventHandler(this.MaitainanceForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MaitainanceForm_FormClosing);
+            this.Load += new System.EventHandler(this.MaitainanceForm_Load);
             this.ResumeLayout(false);
 
         }
