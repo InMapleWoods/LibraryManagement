@@ -171,6 +171,7 @@
     <Compile Include="Model\DictionaryBookSeller.cs" />
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
+    <Compile Include="Model\PurchaseOrder.cs" />
     <Compile Include="Periodical\PeriodicalForm.cs">
       <SubType>Form</SubType>
     </Compile>
