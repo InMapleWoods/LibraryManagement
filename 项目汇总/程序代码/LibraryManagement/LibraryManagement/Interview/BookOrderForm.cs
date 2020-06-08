@@ -31,7 +31,6 @@ namespace LibraryManagement.Interview
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
                 //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
-                PurchaseOrder order = Get
 
             }
             catch (Exception ex)
