@@ -3,9 +3,6 @@ using LibraryManagement.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Bll
 {
@@ -28,7 +25,7 @@ namespace LibraryManagement.Bll
             {
                 if (!DictionaryBookSeller.isNull(bookSeller))
                 {
-                    if(!DictionaryBookSeller.isNormative(bookSeller,ref errorMsg))
+                    if (!DictionaryBookSeller.isNormative(bookSeller, ref errorMsg))
                     {
                         result = maintainaceDal.AddDicBookSeller(bookSeller);
                     }
@@ -50,7 +47,7 @@ namespace LibraryManagement.Bll
             DataTable result = null;
             try
             {
-                result=maintainaceDal.getAllDicBookSeller();
+                result = maintainaceDal.getAllDicBookSeller();
             }
             catch (Exception e)
             {
@@ -65,14 +62,14 @@ namespace LibraryManagement.Bll
         /// <param name="index">索引</param>
         /// <param name="size">分页容量</param>
         /// <returns>一页书商数据</returns>
-        public DataTable getDicBookSeller(int index,int size)
+        public DataTable getDicBookSeller(int index, int size)
         {
             DataTable result = null;
             try
             {
                 result = maintainaceDal.getDicBookSeller(index, size);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
@@ -116,7 +113,7 @@ namespace LibraryManagement.Bll
             {
                 result = maintainaceDal.getAllDicPublishingHouse();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
@@ -129,14 +126,14 @@ namespace LibraryManagement.Bll
         /// <param name="index">索引页</param>
         /// <param name="size">页面容量</param>
         /// <returns>返回一页出版社信息</returns>
-        public DataTable getDicPublishingHouse(int index,int size)
+        public DataTable getDicPublishingHouse(int index, int size)
         {
             DataTable result = null;
             try
             {
                 result = maintainaceDal.getDicPublishingHouse(index, size);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
