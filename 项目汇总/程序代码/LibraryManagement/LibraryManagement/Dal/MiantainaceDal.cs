@@ -63,7 +63,7 @@ namespace LibraryManagement.Dal
             }
         }*/
         public bool AddDicBookSeller(DictionaryBookSeller bookseller)
-        {            
+        {
             string sqlStr = "AddBooksellerDictionary";
             //储存DB
             MySqlParameter[] para = new MySqlParameter[]
@@ -86,14 +86,7 @@ namespace LibraryManagement.Dal
             }
             else
             {
-                if (count > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
         }
         /// <summary>
@@ -153,7 +146,7 @@ namespace LibraryManagement.Dal
             " tb_DictionaryBookSeller.BookSeller as 书商名字," +
             " tb_DictionaryBookSeller.Location as 地址," +
             " tb_DictionaryBookSeller.Contact as 联系人," +
-            " tb_DictionaryBookSeller.Call as 电话," +
+            " tb_DictionaryBookSeller.CallNumber as 电话," +
             " tb_DictionaryBookSeller.Postcodes as 邮编," +
             " tb_DictionaryBookSeller.BankName as 开户行," +
             " tb_DictionaryBookSeller.Remark as 备注" +
@@ -173,7 +166,7 @@ namespace LibraryManagement.Dal
             " tb_DictionaryPublishingHouse.PublishingHouse as 出版社名字," +
             " tb_DictionaryPublishingHouse.Location as 地址," +
             " tb_DictionaryPublishingHouse.PublishingLocation as 出版地," +
-            " tb_DictionaryPublishingHouse.Call as 电话," +
+            " tb_DictionaryPublishingHouse.CallNumber as 电话," +
             " tb_DictionaryPublishingHouse.Postcodes as 邮编," +
             " tb_DictionaryPublishingHouse.BankName as 开户行," +
             " tb_DictionaryPublishingHouse.Remark as 备注 " +
@@ -188,7 +181,7 @@ namespace LibraryManagement.Dal
         /// <param name="index">索引页</param>
         /// <param name="size">每页容量</param>
         /// <returns></returns>
-        public DataTable getDicBookSeller(int index,int size)
+        public DataTable getDicBookSeller(int index, int size)
         {
             int startPos = (index - 1) * size;
             int endPos = size;
@@ -197,7 +190,7 @@ namespace LibraryManagement.Dal
             " tb_DictionaryBookSeller.BookSeller as 书商名字," +
             " tb_DictionaryBookSeller.Location as 地址," +
             " tb_DictionaryBookSeller.Contact as 联系人," +
-            " tb_DictionaryBookSeller.Call as 电话," +
+            " tb_DictionaryBookSeller.CallNumber as 电话," +
             " tb_DictionaryBookSeller.Postcodes as 邮编," +
             " tb_DictionaryBookSeller.BankName as 开户行," +
             " tb_DictionaryBookSeller.Remark as 备注" +
@@ -221,7 +214,7 @@ namespace LibraryManagement.Dal
             "tb_DictionaryPublishingHouse.PublishingHouse as 出版社名字," +
             "tb_DictionaryPublishingHouse.Location as 地址," +
             "tb_DictionaryPublishingHouse.PublishingLocation as 出版地," +
-            "tb_DictionaryPublishingHouse.Call as 电话," +
+            "tb_DictionaryPublishingHouse.CallNumber as 电话," +
             "tb_DictionaryPublishingHouse.Postcodes as 邮编," +
             "tb_DictionaryPublishingHouse.BankName as 开户行," +
             "tb_DictionaryPublishingHouse.Remark as 备注" +
