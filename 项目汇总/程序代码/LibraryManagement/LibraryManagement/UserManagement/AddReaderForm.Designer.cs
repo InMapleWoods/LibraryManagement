@@ -43,8 +43,6 @@
             this.txb_Contact = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbb_DepartmentId = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbb_DishonestyState = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dtp_Birthday = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
@@ -92,6 +90,7 @@
             // 
             // cbb_Gender
             // 
+            this.cbb_Gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_Gender.FormattingEnabled = true;
             this.cbb_Gender.Items.AddRange(new object[] {
             "男",
@@ -130,6 +129,7 @@
             // 
             // cbb_ReaderLevel
             // 
+            this.cbb_ReaderLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_ReaderLevel.FormattingEnabled = true;
             this.cbb_ReaderLevel.Location = new System.Drawing.Point(185, 201);
             this.cbb_ReaderLevel.Name = "cbb_ReaderLevel";
@@ -170,28 +170,12 @@
             // 
             // cbb_DepartmentId
             // 
+            this.cbb_DepartmentId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_DepartmentId.FormattingEnabled = true;
             this.cbb_DepartmentId.Location = new System.Drawing.Point(185, 344);
             this.cbb_DepartmentId.Name = "cbb_DepartmentId";
             this.cbb_DepartmentId.Size = new System.Drawing.Size(121, 23);
             this.cbb_DepartmentId.TabIndex = 14;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(64, 391);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 15);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "违约状态";
-            // 
-            // cbb_DishonestyState
-            // 
-            this.cbb_DishonestyState.FormattingEnabled = true;
-            this.cbb_DishonestyState.Location = new System.Drawing.Point(185, 388);
-            this.cbb_DishonestyState.Name = "cbb_DishonestyState";
-            this.cbb_DishonestyState.Size = new System.Drawing.Size(121, 23);
-            this.cbb_DishonestyState.TabIndex = 16;
             // 
             // button1
             // 
@@ -216,8 +200,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dtp_Birthday);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.cbb_DishonestyState);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.cbb_DepartmentId);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txb_Contact);
@@ -258,8 +240,6 @@
         private System.Windows.Forms.TextBox txb_Contact;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbb_DepartmentId;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbb_DishonestyState;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dtp_Birthday;
     }
