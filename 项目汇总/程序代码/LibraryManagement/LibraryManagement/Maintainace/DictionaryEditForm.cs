@@ -99,7 +99,7 @@ namespace LibraryManagement.Maintainace
                 //联系人
                 Contact = textBox_CorPL.Text.Trim(),
                 //电话
-                Call = textBox_Call.Text.Trim(),
+                CallNumber = textBox_Call.Text.Trim(),
                 //邮编
                 PostCodes = int.Parse(textBox_Postcodes.Text.Trim()),
                 //开户行
@@ -125,7 +125,7 @@ namespace LibraryManagement.Maintainace
                 //出版地
                 PublishingLocation = textBox_CorPL.Text.Trim(),
                 //电话
-                Call = textBox_Call.Text.Trim(),
+                CallNumber = textBox_Call.Text.Trim(),
                 //邮编
                 PostCodes = int.Parse(textBox_Postcodes.Text.Trim()),
                 //开户行
@@ -171,7 +171,7 @@ namespace LibraryManagement.Maintainace
         }
         private void showSelect()
         {
-            if (dicType == 0 && dataGV_DictionaryShow.SelectedRows.Count > 0)
+            if (dataGV_DictionaryShow.SelectedRows.Count > 0)
             {
                 textBox_Name.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["书商名字"].Value.ToString();
                 textBox_Adress.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["地址"].Value.ToString();
@@ -181,7 +181,7 @@ namespace LibraryManagement.Maintainace
                 textBox_Postcodes.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["邮编"].Value.ToString();
                 textBox_Remark.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["备注"].Value.ToString();
             }
-            else if (dicType == 1 && dataGV_DictionaryShow.SelectedRows.Count > 0)
+            else if (dataGV_DictionaryShow.SelectedRows.Count > 0)
             {
                 textBox_Name.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["出版社名字"].Value.ToString();
                 textBox_Adress.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["地址"].Value.ToString();

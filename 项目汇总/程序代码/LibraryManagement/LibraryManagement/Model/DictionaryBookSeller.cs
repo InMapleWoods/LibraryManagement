@@ -30,7 +30,7 @@ namespace LibraryManagement.Model
         /// <summary>
         /// 电话
         /// </summary>
-        public string Call;
+        public string CallNumber;
         /// <summary>
         /// 邮编
         /// </summary>
@@ -63,7 +63,7 @@ namespace LibraryManagement.Model
             {
                 return true;
             }
-            if (bookseller.Call == "")
+            if (bookseller.CallNumber == "")
             {
                 return true;
             }
