@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Bll\MaintainaceBll.cs" />
     <Compile Include="Bll\PeriodicalBll.cs" />
+    <Compile Include="Bll\InterviewPurchaseBll.cs" />
     <Compile Include="Bll\UtilBll.cs" />
     <Compile Include="Catalog\CancelBookForm.cs">
       <SubType>Form</SubType>
@@ -130,6 +131,7 @@
     </Compile>
     <Compile Include="Dal\MaintainaceDal.cs" />
     <Compile Include="Dal\PeriodicalDal.cs" />
+    <Compile Include="Dal\InterviewPurchaseDal.cs" />
     <Compile Include="Dal\UtilDal.cs" />
     <Compile Include="Interview\BookOrderForm.cs">
       <SubType>Form</SubType>
@@ -171,7 +173,7 @@
     <Compile Include="Model\DictionaryBookSeller.cs" />
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
-    <Compile Include="Model\PurchaseOrder.cs" />
+    <Compile Include="Model\InterviewPurchaseOrder.cs" />
     <Compile Include="Periodical\PeriodicalForm.cs">
       <SubType>Form</SubType>
     </Compile>

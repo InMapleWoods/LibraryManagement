@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace LibraryManagement.Model
 {
     /// <summary>
     /// 采购订单
     /// </summary>
-    public class PurchaseOrder
+    public class InterviewPurchaseOrder
     {
         /// <summary>
         /// 订单号
@@ -57,7 +58,7 @@ namespace LibraryManagement.Model
         /// <param name="order">待判断订单</param>
         /// <returns>是否有空项</returns>
         
-        public static bool isNull(PurchaseOrder order)
+        public static bool isNull(InterviewPurchaseOrder order)
         {
             if(order.ISBN == "")
             {
@@ -84,6 +85,46 @@ namespace LibraryManagement.Model
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// 判断订单是否规范
+        /// </summary>
+        /// <param name="order">待判断订单</param>
+        /// <param name="errorMsg">错误信息</param>
+        /// <returns>是否规范</returns>
+        
+        public static bool isNormative(InterviewPurchaseOrder order , ref List<string> errorMsg)
+        {
+            List<string> errorList = new List<string>();
+            if (order.OrdererId <= 0)
+            {
+                errorList.Add("OrdererId Error");
+            }
+            Match matchISBN = Regex.Match(order.ISBN, @"^(\d{10})$");
+            if (!matchISBN.Success)
+            {
+                errorList.Add("ISBN Error");
+            }
+            if(order.Price <= 0)
+            {
+                errorList.Add("Price Error");
+            }
+            if (order.PublishingHouseId <= 0)
+            {
+                errorList.Add("PublishingHouseId Error");
+            }
+            Match matchDocumentType = Regex.Match(order.DocumentType, @"\b(期刊|专著)\b");
+            if (!matchDocumentType.Success)
+            {
+                errorList.Add("DocumentType Error");
+            }
+            errorMsg = errorList;
+            if (errorList.Count > 0)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
