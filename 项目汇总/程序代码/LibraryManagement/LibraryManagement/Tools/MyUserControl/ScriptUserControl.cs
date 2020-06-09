@@ -26,113 +26,21 @@ namespace LibraryManagement.Tools.MyUserControl
         /// <param name="controlName">控件名</param>
         public void AddContorlClickMethod(functionDelegate function, ControlNames controlName)
         {
-            switch (controlName)
+            Control control = GetControlByName(controlName);
+            if (control == null)
             {
-                case ControlNames.addButton:
-                    {
-                        addButton.Click += new EventHandler(function);
-                        break;
-                    }
-                case ControlNames.changeButton:
-                    {
-                        changeButton.Click += new EventHandler(function);
-                        break;
-                    }
-                case ControlNames.createButton:
-                    {
-                        createButton.Click += new EventHandler(function);
-                        break;
-                    }
-                case ControlNames.emptyButton:
-                    {
-                        emptyButton.Click += new EventHandler(function);
-                        break;
-                    }
-                case ControlNames.exitButton:
-                    {
-                        exitButton.Click += new EventHandler(function);
-                        break;
-                    }
-                case ControlNames.helpButton:
-                    {
-                        helpButton.Click += new EventHandler(function);
-                        break;
-                    }
-                case ControlNames.nextButton:
-                    {
-                        nextButton.Click += new EventHandler(function);
-                        break;
-                    }
-                case ControlNames.previousButton:
-                    {
-                        previousButton.Click += new EventHandler(function);
-                        break;
-                    }
-                case ControlNames.saveButton:
-                    {
-                        saveButton.Click += new EventHandler(function);
-                        break;
-                    }
+                return;
             }
-
+            control.Click += new EventHandler(function);
         }
 
         /// <summary>
         /// 去除控件点击事件
         /// </summary>
-        /// <param name="function">函数名</param>
         /// <param name="controlName">控件名</param>
-        public void RemoveContorlClickMethod(functionDelegate function, ControlNames controlName)
+        public void RemoveContorlClickMethod(ControlNames controlName)
         {
-            Control control = null;
-            switch (controlName)
-            {
-                case ControlNames.addButton:
-                    {
-                        control = addButton;
-                        break;
-                    }
-                case ControlNames.changeButton:
-                    {
-                        control = changeButton;
-                        break;
-                    }
-                case ControlNames.createButton:
-                    {
-                        control = createButton;
-                        break;
-                    }
-                case ControlNames.emptyButton:
-                    {
-                        control = emptyButton;
-                        break;
-                    }
-                case ControlNames.exitButton:
-                    {
-                        control = exitButton;
-                        break;
-                    }
-                case ControlNames.helpButton:
-                    {
-                        control = helpButton;
-                        break;
-                    }
-                case ControlNames.nextButton:
-                    {
-                        control = nextButton;
-                        break;
-                    }
-                case ControlNames.previousButton:
-                    {
-                        control = previousButton;
-                        break;
-                    }
-                case ControlNames.saveButton:
-                    {
-                        control = saveButton;
-                        break;
-                    }
-            }
+            Control control = GetControlByName(controlName);
             if (control == null)
             {
                 return;
@@ -150,6 +58,53 @@ namespace LibraryManagement.Tools.MyUserControl
             foreach (Delegate dx in d.GetInvocationList())
             {
                 eventInfo.RemoveEventHandler(control, dx);
+            }
+        }
+
+        private Control GetControlByName(ControlNames controlName)
+        {
+            switch (controlName)
+            {
+                case ControlNames.addButton:
+                    {
+                        return addButton;
+                    }
+                case ControlNames.changeButton:
+                    {
+                        return changeButton;
+                    }
+                case ControlNames.createButton:
+                    {
+                        return createButton;
+                    }
+                case ControlNames.emptyButton:
+                    {
+                        return emptyButton;
+                    }
+                case ControlNames.exitButton:
+                    {
+                        return exitButton;
+                    }
+                case ControlNames.helpButton:
+                    {
+                        return helpButton;
+                    }
+                case ControlNames.nextButton:
+                    {
+                        return nextButton;
+                    }
+                case ControlNames.previousButton:
+                    {
+                        return previousButton;
+                    }
+                case ControlNames.saveButton:
+                    {
+                        return saveButton;
+                    }
+                default:
+                    {
+                        return null;
+                    }
             }
         }
 

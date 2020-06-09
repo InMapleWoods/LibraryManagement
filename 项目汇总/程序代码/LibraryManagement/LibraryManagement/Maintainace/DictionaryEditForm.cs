@@ -171,7 +171,9 @@ namespace LibraryManagement.Maintainace
         }
         private void showSelect()
         {
-            if (dataGV_DictionaryShow.SelectedRows.Count > 0)
+            if (dataGV_DictionaryShow.Rows.Count <= 0)
+                return;
+            if (comboBox_Dictionary.SelectedIndex == 0)
             {
                 textBox_Name.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["书商名字"].Value.ToString();
                 textBox_Adress.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["地址"].Value.ToString();
@@ -181,7 +183,7 @@ namespace LibraryManagement.Maintainace
                 textBox_Postcodes.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["邮编"].Value.ToString();
                 textBox_Remark.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["备注"].Value.ToString();
             }
-            else if (dataGV_DictionaryShow.SelectedRows.Count > 0)
+            else if (comboBox_Dictionary.SelectedIndex == 1)
             {
                 textBox_Name.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["出版社名字"].Value.ToString();
                 textBox_Adress.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["地址"].Value.ToString();
