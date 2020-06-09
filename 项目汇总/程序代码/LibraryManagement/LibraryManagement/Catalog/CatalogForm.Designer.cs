@@ -35,10 +35,10 @@
             // 
             // createCatalogBtn
             // 
-            this.createCatalogBtn.Location = new System.Drawing.Point(283, 95);
+            this.createCatalogBtn.Location = new System.Drawing.Point(318, 114);
             this.createCatalogBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createCatalogBtn.Name = "createCatalogBtn";
-            this.createCatalogBtn.Size = new System.Drawing.Size(100, 75);
+            this.createCatalogBtn.Size = new System.Drawing.Size(112, 90);
             this.createCatalogBtn.TabIndex = 0;
             this.createCatalogBtn.Text = "新书编目";
             this.createCatalogBtn.UseVisualStyleBackColor = true;
@@ -46,9 +46,10 @@
             // 
             // newBookBtn
             // 
-            this.newBookBtn.Location = new System.Drawing.Point(320, 96);
+            this.newBookBtn.Location = new System.Drawing.Point(95, 114);
+            this.newBookBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.newBookBtn.Name = "newBookBtn";
-            this.newBookBtn.Size = new System.Drawing.Size(100, 75);
+            this.newBookBtn.Size = new System.Drawing.Size(112, 90);
             this.newBookBtn.TabIndex = 1;
             this.newBookBtn.Text = "新书通报";
             this.newBookBtn.UseVisualStyleBackColor = true;
@@ -56,9 +57,10 @@
             // 
             // cancelBookBtn
             // 
-            this.cancelBookBtn.Location = new System.Drawing.Point(477, 96);
+            this.cancelBookBtn.Location = new System.Drawing.Point(537, 115);
+            this.cancelBookBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cancelBookBtn.Name = "cancelBookBtn";
-            this.cancelBookBtn.Size = new System.Drawing.Size(100, 75);
+            this.cancelBookBtn.Size = new System.Drawing.Size(112, 90);
             this.cancelBookBtn.TabIndex = 2;
             this.cancelBookBtn.Text = "注销报损";
             this.cancelBookBtn.UseVisualStyleBackColor = true;
@@ -66,9 +68,9 @@
             // 
             // CatalogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(900, 540);
             this.Controls.Add(this.cancelBookBtn);
             this.Controls.Add(this.newBookBtn);
             this.Controls.Add(this.createCatalogBtn);
