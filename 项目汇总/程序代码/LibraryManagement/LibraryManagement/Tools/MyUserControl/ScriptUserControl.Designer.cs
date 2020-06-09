@@ -103,16 +103,18 @@
             // emptyButton
             // 
             this.emptyButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emptyButton.Enabled = false;
             this.emptyButton.Location = new System.Drawing.Point(303, 3);
             this.emptyButton.Name = "emptyButton";
             this.emptyButton.Size = new System.Drawing.Size(94, 144);
             this.emptyButton.TabIndex = 3;
-            this.emptyButton.Text = "清空记录";
+            this.emptyButton.Text = "删除记录";
             this.emptyButton.UseVisualStyleBackColor = true;
             // 
             // saveButton
             // 
             this.saveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.saveButton.Enabled = false;
             this.saveButton.Location = new System.Drawing.Point(403, 3);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(94, 144);

@@ -20,6 +20,20 @@ namespace LibraryManagement.Tools.MyUserControl
         }
 
         /// <summary>
+        /// 控件启用/弃用
+        /// </summary>
+        /// <param name="controlName">控件名</param>
+        public void ContorlEnabledChange(ControlNames controlName)
+        {
+            Control control = GetControlByName(controlName);
+            if (control == null)
+            {
+                return;
+            }
+            control.Enabled = control.Enabled ? false : true;
+        }
+
+        /// <summary>
         /// 增加控件点击事件
         /// </summary>
         /// <param name="function">函数名</param>
