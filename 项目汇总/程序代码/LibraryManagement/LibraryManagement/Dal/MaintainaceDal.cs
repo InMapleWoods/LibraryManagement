@@ -143,7 +143,7 @@ namespace LibraryManagement.Dal
         {
             string sqlstr = "Select " +
             " tb_DictionaryBookSeller.Id as '编号'," +
-            " tb_DictionaryBookSeller.BookSeller as '书商名字'," +
+            " tb_DictionaryBookSeller.BookSeller as 书商名字," +
             " tb_DictionaryBookSeller.Location as '地址'," +
             " tb_DictionaryBookSeller.Contact as '联系人'," +
             " tb_DictionaryBookSeller.CallNumber as '电话'," +
