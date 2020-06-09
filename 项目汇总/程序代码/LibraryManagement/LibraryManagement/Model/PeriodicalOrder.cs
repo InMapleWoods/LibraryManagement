@@ -181,7 +181,7 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("OrderPrice Error");
             }
-            Match matchCurrencyType = Regex.Match(order.CurrencyType, @"\b(人民币\(RMB\))|(美元\(USD\))\b");
+            Match matchCurrencyType = Regex.Match(order.CurrencyType, @"(人民币\(RMB\))|(美元\(USD\))");
             if (!matchCurrencyType.Success)
             {
                 errorList.Add("CurrencyType Error");

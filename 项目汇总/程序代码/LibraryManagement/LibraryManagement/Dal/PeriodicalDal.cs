@@ -48,7 +48,7 @@ namespace LibraryManagement.Dal
                 "@orderPrice," +
                 "@currencyType," +
                 "@size" +
-                ")";
+                ");";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
@@ -75,6 +75,80 @@ namespace LibraryManagement.Dal
                 return false;
             }
         }
+
+        /// <summary>
+        /// 删除一条期刊订单记录
+        /// </summary>
+        /// <param name="orderId">期刊订单</param>
+        /// <returns>增加成功与否</returns>
+        public bool DeletePeriodicalOrder(int orderId)
+        {
+            string sqlStr = "Delete from tb_PeriodicalOrder where Id=@id;";
+            //储存Datatable        
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",orderId),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 修改一条期刊订单记录
+        /// </summary>
+        /// <param name="order">期刊订单</param>
+        /// <returns>增加成功与否</returns>
+        public bool UpdatePeriodicalOrder(PeriodicalOrder order)
+        {
+            string sqlStr = "UPDATE tb_PeriodicalOrder SET " +
+                "BookSellerId=@bookSellerId, " +
+                "OrderTime=@orderTime, " +
+                "OrdererId=@ordererId, " +
+                "ISBN=@iSBN, " +
+                "DocumentType=@documentType, " +
+                "PublishCycle=@publishCycle, " +
+                "OfficialTitle=@officialTitle, " +
+                "SupplementTitle=@supplementTitle, " +
+                "PublishingHouseId=@publishingHouseId, " +
+                "OrderPrice=@orderPrice, " +
+                "CurrencyType=@currencyType, " +
+                "Size=@size " +
+                "where Id=@id;";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@bookSellerId",order.BookSellerId),
+                new MySqlParameter("@orderTime",order.OrderDate),
+                new MySqlParameter("@ordererId",order.OrdererId),
+                new MySqlParameter("@iSBN",order.ISBN),
+                new MySqlParameter("@documentType",order.DocumentType),
+                new MySqlParameter("@publishCycle",order.PublishCycle),
+                new MySqlParameter("@officialTitle",order.OfficialTitle),
+                new MySqlParameter("@supplementTitle",order.SupplementTitle),
+                new MySqlParameter("@publishingHouseId",order.PublishingHouseId),
+                new MySqlParameter("@orderPrice",order.OrderPrice),
+                new MySqlParameter("@currencyType",order.CurrencyType),
+                new MySqlParameter("@size",order.Size),
+                new MySqlParameter("@id",order.Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// 获取全部订单
         /// </summary>

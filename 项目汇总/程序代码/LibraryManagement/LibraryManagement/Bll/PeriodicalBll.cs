@@ -43,6 +43,52 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
+        /// 删除一条期刊订单记录
+        /// </summary>
+        /// <param name="orderId">期刊订单</param>
+        /// <returns>增加成功与否</returns>
+        public bool DeletePeriodicalOrder(int orderId)
+        {
+            bool result = false;
+            try
+            {
+                result = periodicalDal.DeletePeriodicalOrder(orderId);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 修改一条期刊订单记录
+        /// </summary>
+        /// <param name="order">期刊订单</param>
+        /// <returns>增加成功与否</returns>
+        public bool UpdatePeriodicalOrder(PeriodicalOrder order, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!PeriodicalOrder.isNull(order))//是否有空项
+                {
+                    if (PeriodicalOrder.isNormative(order, ref errorMsg))//是否符合规范
+                    {
+                        result = periodicalDal.UpdatePeriodicalOrder(order);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
         /// 获取全部订单
         /// </summary>
         /// <returns>全部订单</returns>
