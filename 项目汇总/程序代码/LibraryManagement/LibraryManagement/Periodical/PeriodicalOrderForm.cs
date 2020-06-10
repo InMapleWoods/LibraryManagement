@@ -334,18 +334,18 @@ namespace LibraryManagement.Periodical
         /// <param name="row">行</param>
         private void SetPeriodicalOrder(DataGridViewRow row)
         {
-            orderNumTextBox.Text = row.Cells[0].Value.ToString();
-            booksellerComboBox.Text = row.Cells[1].Value.ToString();
-            orderDatePicker.Value = (DateTime)row.Cells[2].Value;
-            IsbnTextBox.Text = row.Cells[4].Value.ToString();
-            documentTypeComboBox.Text = row.Cells[5].Value.ToString();
-            cycleComboBox.Text = row.Cells[6].Value.ToString();
-            officialTitleTextBox.Text = row.Cells[7].Value.ToString();
-            supplementTitleTextBox.Text = row.Cells[8].Value.ToString();
-            publishingHouseComboBox.Text = row.Cells[9].Value.ToString();
-            orderPriceTextBox.Text = row.Cells[10].Value.ToString();
-            currencyTypeComboBox.Text = row.Cells[11].Value.ToString();
-            sizeComboBox.Text = row.Cells[12].Value.ToString();
+            orderNumTextBox.Text = row.Cells[0].Value.ToString();//订单编号
+            booksellerComboBox.Text = row.Cells[1].Value.ToString();//书商名称
+            orderDatePicker.Value = (DateTime)row.Cells[2].Value;//订购时间
+            IsbnTextBox.Text = row.Cells[4].Value.ToString();//ISBN
+            documentTypeComboBox.Text = row.Cells[5].Value.ToString();//文献类型
+            cycleComboBox.Text = row.Cells[6].Value.ToString();//出版周期
+            officialTitleTextBox.Text = row.Cells[7].Value.ToString();//正刊名
+            supplementTitleTextBox.Text = row.Cells[8].Value.ToString();//副刊名
+            publishingHouseComboBox.Text = row.Cells[9].Value.ToString();//出版社名称
+            orderPriceTextBox.Text = row.Cells[10].Value.ToString();//订购价
+            currencyTypeComboBox.Text = row.Cells[11].Value.ToString();//币种
+            sizeComboBox.Text = row.Cells[12].Value.ToString();//尺寸
         }
 
         /// <summary>
