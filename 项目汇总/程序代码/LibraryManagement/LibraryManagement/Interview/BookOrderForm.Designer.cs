@@ -114,7 +114,6 @@
             this.bookNameLabel.Size = new System.Drawing.Size(37, 15);
             this.bookNameLabel.TabIndex = 9;
             this.bookNameLabel.Text = "书名";
-            this.bookNameLabel.Click += new System.EventHandler(this.Label1_Click);
             // 
             // bookNameTextBox
             // 
@@ -174,7 +173,6 @@
             this.documentTypeComboBox.Name = "documentTypeComboBox";
             this.documentTypeComboBox.Size = new System.Drawing.Size(641, 23);
             this.documentTypeComboBox.TabIndex = 16;
-            this.documentTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.Label1_Click);
             // 
             // dataGridView1
             // 

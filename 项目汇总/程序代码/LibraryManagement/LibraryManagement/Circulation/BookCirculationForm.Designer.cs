@@ -56,7 +56,6 @@
             this.fineAmountLabel = new System.Windows.Forms.Label();
             this.borrowCardNumTextBox = new System.Windows.Forms.TextBox();
             this.penaltyMultipleLabel = new System.Windows.Forms.Label();
-            this.borrowCardCodeTextBox = new System.Windows.Forms.TextBox();
             this.authorLabel = new System.Windows.Forms.Label();
             this.workplaceLabel = new System.Windows.Forms.Label();
             this.optionLabel = new System.Windows.Forms.Label();
@@ -70,7 +69,6 @@
             this.borrowDateLabel = new System.Windows.Forms.Label();
             this.borrowCardNumLabel = new System.Windows.Forms.Label();
             this.appointDateLabel = new System.Windows.Forms.Label();
-            this.borrowCardCodeLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
@@ -118,7 +116,6 @@
             this.mainSplitContainer.Panel2.Controls.Add(this.fineAmountLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.borrowCardNumTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.penaltyMultipleLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.borrowCardCodeTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.authorLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.workplaceLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.optionLabel);
@@ -132,10 +129,9 @@
             this.mainSplitContainer.Panel2.Controls.Add(this.borrowDateLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.borrowCardNumLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.appointDateLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.borrowCardCodeLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
-            this.mainSplitContainer.Size = new System.Drawing.Size(1050, 743);
-            this.mainSplitContainer.SplitterDistance = 87;
+            this.mainSplitContainer.Size = new System.Drawing.Size(1050, 701);
+            this.mainSplitContainer.SplitterDistance = 82;
             this.mainSplitContainer.TabIndex = 4;
             // 
             // scriptUserControl1
@@ -143,7 +139,7 @@
             this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
             this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(1050, 87);
+            this.scriptUserControl1.Size = new System.Drawing.Size(1050, 82);
             this.scriptUserControl1.TabIndex = 0;
             // 
             // officialTitleTextBox
@@ -285,7 +281,7 @@
             // 
             // penaltyMultipleTextBox
             // 
-            this.penaltyMultipleTextBox.Location = new System.Drawing.Point(115, 265);
+            this.penaltyMultipleTextBox.Location = new System.Drawing.Point(115, 235);
             this.penaltyMultipleTextBox.Name = "penaltyMultipleTextBox";
             this.penaltyMultipleTextBox.ReadOnly = true;
             this.penaltyMultipleTextBox.Size = new System.Drawing.Size(330, 25);
@@ -293,7 +289,7 @@
             // 
             // workplaceTextBox
             // 
-            this.workplaceTextBox.Location = new System.Drawing.Point(115, 145);
+            this.workplaceTextBox.Location = new System.Drawing.Point(115, 115);
             this.workplaceTextBox.Name = "workplaceTextBox";
             this.workplaceTextBox.ReadOnly = true;
             this.workplaceTextBox.Size = new System.Drawing.Size(330, 25);
@@ -301,7 +297,7 @@
             // 
             // appointmentNumTextBox
             // 
-            this.appointmentNumTextBox.Location = new System.Drawing.Point(115, 205);
+            this.appointmentNumTextBox.Location = new System.Drawing.Point(115, 175);
             this.appointmentNumTextBox.Name = "appointmentNumTextBox";
             this.appointmentNumTextBox.ReadOnly = true;
             this.appointmentNumTextBox.Size = new System.Drawing.Size(330, 25);
@@ -309,7 +305,7 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(115, 85);
+            this.nameTextBox.Location = new System.Drawing.Point(115, 55);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.ReadOnly = true;
             this.nameTextBox.Size = new System.Drawing.Size(330, 25);
@@ -317,7 +313,7 @@
             // 
             // haveAppointedNumTextBox
             // 
-            this.haveAppointedNumTextBox.Location = new System.Drawing.Point(115, 235);
+            this.haveAppointedNumTextBox.Location = new System.Drawing.Point(115, 205);
             this.haveAppointedNumTextBox.Name = "haveAppointedNumTextBox";
             this.haveAppointedNumTextBox.ReadOnly = true;
             this.haveAppointedNumTextBox.Size = new System.Drawing.Size(330, 25);
@@ -325,7 +321,7 @@
             // 
             // genderTextBox
             // 
-            this.genderTextBox.Location = new System.Drawing.Point(115, 115);
+            this.genderTextBox.Location = new System.Drawing.Point(115, 85);
             this.genderTextBox.Name = "genderTextBox";
             this.genderTextBox.ReadOnly = true;
             this.genderTextBox.Size = new System.Drawing.Size(330, 25);
@@ -333,7 +329,7 @@
             // 
             // borrowNumTextBox
             // 
-            this.borrowNumTextBox.Location = new System.Drawing.Point(115, 175);
+            this.borrowNumTextBox.Location = new System.Drawing.Point(115, 145);
             this.borrowNumTextBox.Name = "borrowNumTextBox";
             this.borrowNumTextBox.ReadOnly = true;
             this.borrowNumTextBox.Size = new System.Drawing.Size(330, 25);
@@ -350,7 +346,7 @@
             // 
             // borrowCardNumTextBox
             // 
-            this.borrowCardNumTextBox.Location = new System.Drawing.Point(115, 55);
+            this.borrowCardNumTextBox.Location = new System.Drawing.Point(115, 25);
             this.borrowCardNumTextBox.Name = "borrowCardNumTextBox";
             this.borrowCardNumTextBox.Size = new System.Drawing.Size(330, 25);
             this.borrowCardNumTextBox.TabIndex = 9;
@@ -358,18 +354,11 @@
             // penaltyMultipleLabel
             // 
             this.penaltyMultipleLabel.AutoSize = true;
-            this.penaltyMultipleLabel.Location = new System.Drawing.Point(35, 270);
+            this.penaltyMultipleLabel.Location = new System.Drawing.Point(35, 240);
             this.penaltyMultipleLabel.Name = "penaltyMultipleLabel";
             this.penaltyMultipleLabel.Size = new System.Drawing.Size(67, 15);
             this.penaltyMultipleLabel.TabIndex = 1;
             this.penaltyMultipleLabel.Text = "赔款倍数";
-            // 
-            // borrowCardCodeTextBox
-            // 
-            this.borrowCardCodeTextBox.Location = new System.Drawing.Point(115, 25);
-            this.borrowCardCodeTextBox.Name = "borrowCardCodeTextBox";
-            this.borrowCardCodeTextBox.Size = new System.Drawing.Size(330, 25);
-            this.borrowCardCodeTextBox.TabIndex = 9;
             // 
             // authorLabel
             // 
@@ -383,7 +372,7 @@
             // workplaceLabel
             // 
             this.workplaceLabel.AutoSize = true;
-            this.workplaceLabel.Location = new System.Drawing.Point(35, 150);
+            this.workplaceLabel.Location = new System.Drawing.Point(35, 120);
             this.workplaceLabel.Name = "workplaceLabel";
             this.workplaceLabel.Size = new System.Drawing.Size(37, 15);
             this.workplaceLabel.TabIndex = 1;
@@ -401,7 +390,7 @@
             // appointmentNumLabel
             // 
             this.appointmentNumLabel.AutoSize = true;
-            this.appointmentNumLabel.Location = new System.Drawing.Point(35, 210);
+            this.appointmentNumLabel.Location = new System.Drawing.Point(35, 180);
             this.appointmentNumLabel.Name = "appointmentNumLabel";
             this.appointmentNumLabel.Size = new System.Drawing.Size(67, 15);
             this.appointmentNumLabel.TabIndex = 1;
@@ -410,7 +399,7 @@
             // haveAppointedNumLabel
             // 
             this.haveAppointedNumLabel.AutoSize = true;
-            this.haveAppointedNumLabel.Location = new System.Drawing.Point(35, 240);
+            this.haveAppointedNumLabel.Location = new System.Drawing.Point(35, 210);
             this.haveAppointedNumLabel.Name = "haveAppointedNumLabel";
             this.haveAppointedNumLabel.Size = new System.Drawing.Size(67, 15);
             this.haveAppointedNumLabel.TabIndex = 1;
@@ -419,7 +408,7 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(35, 90);
+            this.nameLabel.Location = new System.Drawing.Point(35, 60);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(37, 15);
             this.nameLabel.TabIndex = 1;
@@ -428,7 +417,7 @@
             // genderLabel
             // 
             this.genderLabel.AutoSize = true;
-            this.genderLabel.Location = new System.Drawing.Point(35, 120);
+            this.genderLabel.Location = new System.Drawing.Point(35, 90);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(37, 15);
             this.genderLabel.TabIndex = 1;
@@ -437,7 +426,7 @@
             // borrowNumLabel
             // 
             this.borrowNumLabel.AutoSize = true;
-            this.borrowNumLabel.Location = new System.Drawing.Point(35, 180);
+            this.borrowNumLabel.Location = new System.Drawing.Point(35, 150);
             this.borrowNumLabel.Name = "borrowNumLabel";
             this.borrowNumLabel.Size = new System.Drawing.Size(67, 15);
             this.borrowNumLabel.TabIndex = 1;
@@ -473,7 +462,7 @@
             // borrowCardNumLabel
             // 
             this.borrowCardNumLabel.AutoSize = true;
-            this.borrowCardNumLabel.Location = new System.Drawing.Point(35, 60);
+            this.borrowCardNumLabel.Location = new System.Drawing.Point(35, 30);
             this.borrowCardNumLabel.Name = "borrowCardNumLabel";
             this.borrowCardNumLabel.Size = new System.Drawing.Size(67, 15);
             this.borrowCardNumLabel.TabIndex = 1;
@@ -488,22 +477,13 @@
             this.appointDateLabel.TabIndex = 2;
             this.appointDateLabel.Text = "预约日期";
             // 
-            // borrowCardCodeLabel
-            // 
-            this.borrowCardCodeLabel.AutoSize = true;
-            this.borrowCardCodeLabel.Location = new System.Drawing.Point(35, 30);
-            this.borrowCardCodeLabel.Name = "borrowCardCodeLabel";
-            this.borrowCardCodeLabel.Size = new System.Drawing.Size(90, 15);
-            this.borrowCardCodeLabel.TabIndex = 1;
-            this.borrowCardCodeLabel.Text = "借书证条码 ";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 320);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 283);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -515,7 +495,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 743);
+            this.ClientSize = new System.Drawing.Size(1050, 701);
             this.Controls.Add(this.mainSplitContainer);
             this.Name = "BookCirculationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -535,9 +515,7 @@
 
         private System.Windows.Forms.SplitContainer mainSplitContainer;
         private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
-        private System.Windows.Forms.TextBox borrowCardCodeTextBox;
         private System.Windows.Forms.Label bookCodeLabel;
-        private System.Windows.Forms.Label borrowCardCodeLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button chooseAppointDateButton;
         private System.Windows.Forms.TextBox appointDateTextBox;
