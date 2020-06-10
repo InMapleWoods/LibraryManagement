@@ -29,12 +29,14 @@ namespace LibraryManagement.Maintainace
             if (comboBox_Dictionary.SelectedIndex == 0)
             {
                 lab_CorPL.Text = "联系人";
+                DataBind();
             }
             if (comboBox_Dictionary.SelectedIndex == 1)
             {
                 lab_CorPL.Text = "出版地";
+                DataBind();
             }
-
+            
 
         }
 
@@ -159,6 +161,7 @@ namespace LibraryManagement.Maintainace
         {
             this.showSelect();
         }
+  
         private void textBindclear()
         {
             textBox_Name.Text = null;
@@ -173,26 +176,27 @@ namespace LibraryManagement.Maintainace
         {
             if (dataGV_DictionaryShow.Rows.Count <= 0)
                 return;
-            if (comboBox_Dictionary.SelectedIndex == 0)
+ //           if (comboBox_Dictionary.SelectedIndex == 0)
+ //           {
+                textBox_Name.Text = this.dataGV_DictionaryShow.CurrentRow.Cells[1].Value.ToString();
+                textBox_Adress.Text = this.dataGV_DictionaryShow.CurrentRow.Cells[2].Value.ToString();
+                textBox_CorPL.Text = this.dataGV_DictionaryShow.CurrentRow.Cells[3].Value.ToString();
+                textBox_Call.Text = this.dataGV_DictionaryShow.CurrentRow.Cells[4].Value.ToString();
+                textBox_BankName.Text = this.dataGV_DictionaryShow.CurrentRow.Cells[5].Value.ToString();
+                textBox_Postcodes.Text = this.dataGV_DictionaryShow.CurrentRow.Cells[6].Value.ToString();
+                textBox_Remark.Text = this.dataGV_DictionaryShow.CurrentRow.Cells[7].Value.ToString();
+ //           }
+ /*           else if (comboBox_Dictionary.SelectedIndex == 1)
             {
-                textBox_Name.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["书商名字"].Value.ToString();
-                textBox_Adress.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["地址"].Value.ToString();
-                textBox_CorPL.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["联系人"].Value.ToString();
-                textBox_Call.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["电话"].Value.ToString();
-                textBox_BankName.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["开户行"].Value.ToString();
-                textBox_Postcodes.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["邮编"].Value.ToString();
-                textBox_Remark.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["备注"].Value.ToString();
+                textBox_Name.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["出版社名字"].Value.ToString();
+                textBox_Adress.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["地址"].Value.ToString();
+                textBox_CorPL.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["出版地"].Value.ToString();
+                textBox_Call.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["电话"].Value.ToString();
+                textBox_BankName.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["开户行"].Value.ToString();
+                textBox_Postcodes.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["邮编"].Value.ToString();
+                textBox_Remark.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["备注"].Value.ToString();
             }
-            else if (comboBox_Dictionary.SelectedIndex == 1)
-            {
-                textBox_Name.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["出版社名字"].Value.ToString();
-                textBox_Adress.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["地址"].Value.ToString();
-                textBox_CorPL.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["出版地"].Value.ToString();
-                textBox_Call.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["电话"].Value.ToString();
-                textBox_BankName.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["开户行"].Value.ToString();
-                textBox_Postcodes.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["邮编"].Value.ToString();
-                textBox_Remark.Text = this.dataGV_DictionaryShow.SelectedRows[0].Cells["备注"].Value.ToString();
-            }
+            */
         }
     }
 }

@@ -142,14 +142,14 @@ namespace LibraryManagement.Dal
         public DataTable getAllDicBookSeller()
         {
             string sqlstr = "Select " +
-            " tb_DictionaryBookSeller.Id as '编号'," +
+            " tb_DictionaryBookSeller.Id as 编号," +
             " tb_DictionaryBookSeller.BookSeller as 书商名字," +
-            " tb_DictionaryBookSeller.Location as '地址'," +
-            " tb_DictionaryBookSeller.Contact as '联系人'," +
-            " tb_DictionaryBookSeller.CallNumber as '电话'," +
-            " tb_DictionaryBookSeller.Postcodes as '邮编'," +
-            " tb_DictionaryBookSeller.BankName as '开户行'," +
-            " tb_DictionaryBookSeller.Remark as '备注'" +
+            " tb_DictionaryBookSeller.Location as 地址," +
+            " tb_DictionaryBookSeller.Contact as 联系人," +
+            " tb_DictionaryBookSeller.CallNumber as 电话," +
+            " tb_DictionaryBookSeller.Postcodes as 邮编," +
+            " tb_DictionaryBookSeller.BankName as 开户行," +
+            " tb_DictionaryBookSeller.Remark as 备注" +
             " from tb_DictionaryBookSeller;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
@@ -162,14 +162,14 @@ namespace LibraryManagement.Dal
         public DataTable getAllDicPublishingHouse()
         {
             string sqlstr = "Select " +
-            " tb_DictionaryPublishingHouse.Id as '编号'," +
-            " tb_DictionaryPublishingHouse.PublishingHouse as '出版社名字'," +
-            " tb_DictionaryPublishingHouse.Location as '地址'," +
-            " tb_DictionaryPublishingHouse.PublishingLocation as '出版地'," +
-            " tb_DictionaryPublishingHouse.CallNumber as '电话'," +
-            " tb_DictionaryPublishingHouse.Postcodes as '邮编'," +
-            " tb_DictionaryPublishingHouse.BankName as '开户行'," +
-            " tb_DictionaryPublishingHouse.Remark as '备注' " +
+            " tb_DictionaryPublishingHouse.Id as 编号," +
+            " tb_DictionaryPublishingHouse.PublishingHouse as 出版社名字," +
+            " tb_DictionaryPublishingHouse.Location as 地址," +
+            " tb_DictionaryPublishingHouse.PublishingLocation as 出版地," +
+            " tb_DictionaryPublishingHouse.CallNumber as 电话," +
+            " tb_DictionaryPublishingHouse.Postcodes as 邮编," +
+            " tb_DictionaryPublishingHouse.BankName as 开户行," +
+            " tb_DictionaryPublishingHouse.Remark as 备注 " +
             " from tb_DictionaryPublishingHouse;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
@@ -186,14 +186,14 @@ namespace LibraryManagement.Dal
             int startPos = (index - 1) * size;
             int endPos = size;
             string sqlstr = "Select " +
-            " tb_DictionaryBookSeller.Id as '编号'," +
-            " tb_DictionaryBookSeller.BookSeller as '书商名字'," +
-            " tb_DictionaryBookSeller.Location as '地址'," +
-            " tb_DictionaryBookSeller.Contact as '联系人'," +
-            " tb_DictionaryBookSeller.CallNumber as '电话'," +
-            " tb_DictionaryBookSeller.Postcodes as '邮编'," +
-            " tb_DictionaryBookSeller.BankName as '开户行'," +
-            " tb_DictionaryBookSeller.Remark as '备注'" +
+            " tb_DictionaryBookSeller.Id as 编号," +
+            " tb_DictionaryBookSeller.BookSeller as 书商名字," +
+            " tb_DictionaryBookSeller.Location as 地址," +
+            " tb_DictionaryBookSeller.Contact as 联系人," +
+            " tb_DictionaryBookSeller.CallNumber as 电话," +
+            " tb_DictionaryBookSeller.Postcodes as 邮编," +
+            " tb_DictionaryBookSeller.BankName as 开户行," +
+            " tb_DictionaryBookSeller.Remark as 备注 " +
             " from tb_DictionaryBookSeller limit @startPos,@endPos;";
 
             MySqlParameter[] para = new MySqlParameter[]
@@ -210,14 +210,14 @@ namespace LibraryManagement.Dal
             int startPos = (index - 1) * size;
             int endPos = size;
             string sqlstr = "Select " +
-            "tb_DictionaryPublishingHouse.Id as '编号'," +
-            "tb_DictionaryPublishingHouse.PublishingHouse as '出版社名字'," +
-            "tb_DictionaryPublishingHouse.Location as '地址'," +
-            "tb_DictionaryPublishingHouse.PublishingLocation as '出版地'," +
-            "tb_DictionaryPublishingHouse.CallNumber as '电话'," +
-            "tb_DictionaryPublishingHouse.Postcodes as '邮编'," +
-            "tb_DictionaryPublishingHouse.BankName as '开户行'," +
-            "tb_DictionaryPublishingHouse.Remark as '备注'" +
+            "tb_DictionaryPublishingHouse.Id as 编号," +
+            "tb_DictionaryPublishingHouse.PublishingHouse as 出版社名字," +
+            "tb_DictionaryPublishingHouse.Location as 地址," +
+            "tb_DictionaryPublishingHouse.PublishingLocation as 出版地," +
+            "tb_DictionaryPublishingHouse.CallNumber as 电话," +
+            "tb_DictionaryPublishingHouse.Postcodes as 邮编," +
+            "tb_DictionaryPublishingHouse.BankName as 开户行," +
+            "tb_DictionaryPublishingHouse.Remark as 备注" +
             "from tb_DictionaryPublishingHouse limit @startPos,@endPos;";
 
             MySqlParameter[] para = new MySqlParameter[]
