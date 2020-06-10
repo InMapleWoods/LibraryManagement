@@ -35,41 +35,47 @@
             // 
             // cancelApplyBtn
             // 
-            this.cancelApplyBtn.Location = new System.Drawing.Point(120, 124);
+            this.cancelApplyBtn.Location = new System.Drawing.Point(107, 103);
+            this.cancelApplyBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelApplyBtn.Name = "cancelApplyBtn";
-            this.cancelApplyBtn.Size = new System.Drawing.Size(125, 75);
+            this.cancelApplyBtn.Size = new System.Drawing.Size(111, 62);
             this.cancelApplyBtn.TabIndex = 0;
             this.cancelApplyBtn.Text = "注销报损申请";
             this.cancelApplyBtn.UseVisualStyleBackColor = true;
             // 
             // cancelAuditBtn
             // 
-            this.cancelAuditBtn.Location = new System.Drawing.Point(332, 124);
+            this.cancelAuditBtn.Location = new System.Drawing.Point(295, 103);
+            this.cancelAuditBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelAuditBtn.Name = "cancelAuditBtn";
-            this.cancelAuditBtn.Size = new System.Drawing.Size(125, 75);
+            this.cancelAuditBtn.Size = new System.Drawing.Size(111, 62);
             this.cancelAuditBtn.TabIndex = 1;
             this.cancelAuditBtn.Text = "注销报损审核";
             this.cancelAuditBtn.UseVisualStyleBackColor = true;
             // 
             // cancelHandleBtn
             // 
-            this.cancelHandleBtn.Location = new System.Drawing.Point(551, 124);
+            this.cancelHandleBtn.Location = new System.Drawing.Point(490, 103);
+            this.cancelHandleBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelHandleBtn.Name = "cancelHandleBtn";
-            this.cancelHandleBtn.Size = new System.Drawing.Size(125, 75);
+            this.cancelHandleBtn.Size = new System.Drawing.Size(111, 62);
             this.cancelHandleBtn.TabIndex = 2;
             this.cancelHandleBtn.Text = "注销报损处理";
             this.cancelHandleBtn.UseVisualStyleBackColor = true;
             // 
             // CancelBookForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 375);
             this.Controls.Add(this.cancelHandleBtn);
             this.Controls.Add(this.cancelAuditBtn);
             this.Controls.Add(this.cancelApplyBtn);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CancelBookForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "注销报损";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CancelBookForm_FormClosing);
             this.ResumeLayout(false);
 
         }

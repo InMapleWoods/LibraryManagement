@@ -27,7 +27,7 @@ namespace LibraryManagement.Catalog
 
         private void serialNumberBtn_Click(object sender, EventArgs e)
         {
-            var form = new SerialNumberForm();
+            var form = new SerialNumberForm(this);
             form.Show();
             Hide();
         }

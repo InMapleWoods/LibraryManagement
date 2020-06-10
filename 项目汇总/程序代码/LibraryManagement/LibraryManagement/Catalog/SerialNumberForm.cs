@@ -13,7 +13,7 @@ namespace LibraryManagement.Catalog
     public partial class SerialNumberForm : Form
     {
         Form parentForm;
-        public SerialNumberForm()
+        public SerialNumberForm(Form form)
         {
             InitializeComponent();
             parentForm = form;
