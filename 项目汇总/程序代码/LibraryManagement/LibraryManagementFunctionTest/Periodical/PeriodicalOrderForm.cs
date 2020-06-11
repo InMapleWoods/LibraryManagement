@@ -11,7 +11,7 @@ namespace LibraryManagementFunctionTest.Periodical
     {
         Form parentForm;//父窗体
         Tools.UserCaseHandle userCaseHandle;
-
+        int selectIndex = -1;
         /// <summary>
         /// 构造函数
         /// </summary>
@@ -20,7 +20,7 @@ namespace LibraryManagementFunctionTest.Periodical
         {
             InitializeComponent();
             parentForm = form;
-            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)form).parentForm).folderSrc + "\\AddPeriodicalOrder.xls");
+            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)form).parentForm).folderSrc + "\\Add_PeriodicalOrder.xls");
             sizeComboBox.SelectedIndex = 0;
             booksellerComboBox.SelectedIndex = 0;
             currencyTypeComboBox.SelectedIndex = 0;
@@ -74,10 +74,11 @@ namespace LibraryManagementFunctionTest.Periodical
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
                 //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
-                int id = int.Parse(orderNumTextBox.Text);
+                if (selectIndex == -1)
+                    return;
                 if (errorList.Count == 0)
                 {
-                    if (userCaseHandle.DeleteUserCase(id))
+                    if (userCaseHandle.DeleteUserCase(selectIndex))
                     {
                         MessageBox.Show("删除成功");
                     }
@@ -109,7 +110,7 @@ namespace LibraryManagementFunctionTest.Periodical
             {
                 dataGridView1.DataSource = userCaseHandle.GetUserCasesDataTable();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -155,6 +156,14 @@ namespace LibraryManagementFunctionTest.Periodical
         private void btn_reflashCase_Click(object sender, EventArgs e)
         {
             DataBind();
+        }
+
+        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                selectIndex = dataGridView1.CurrentRow.Index;
+            }
         }
     }
 }

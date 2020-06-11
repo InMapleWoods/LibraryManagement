@@ -18,49 +18,12 @@ namespace LibraryManageUnitTest.Tools
             Src = src;
         }
 
-        private string GetModelText(IEnumerable models, bool isFirst = true)
-        {
-            StringBuilder result = new StringBuilder();
-            if (isFirst)
-            {
-                foreach (var i in models)
-                {
-                    var newType = i.GetType();
-                    foreach (var item in newType.GetFields())
-                    {
-                        result.Append(item.Name).Append("\t");
-                    }
-                    result.Append("\r\n");
-                    break;
-                }
-            }
-            foreach (var i in models)
-            {
-                var newType = i.GetType();
-                int count = 0;
-                foreach (var item in newType.GetFields())
-                {
-                    count++;
-                    if (count <= newType.GetFields().Length)
-                    {
-                        result.Append(item.GetValue(i)).Append("\t");
-                    }
-                    else
-                    {
-                        result.Append(item.GetValue(i));
-                    }
-                }
-                result.Append("\r\n");
-            }
-            return result.ToString();
-        }
-
         public IEnumerable GetUserCases()
         {
             if (File.Exists(Src) == true)
             {
-                string name = Path.GetFileNameWithoutExtension(Src);
-                Assembly assembly=Assembly.Load("LibraryManagement");
+                string name = Path.GetFileNameWithoutExtension(Src).Split('_')[1];
+                Assembly assembly = Assembly.Load("LibraryManagement");
                 Type type = assembly.GetType("LibraryManagement.Model." + name, true, true);
                 var modelList = Activator.CreateInstance(typeof(List<>).MakeGenericType(new Type[] { type })) as IList;
                 var addMethod = modelList.GetType().GetMethod("Add");
@@ -71,7 +34,7 @@ namespace LibraryManageUnitTest.Tools
                 {
                     var temp = Activator.CreateInstance(type);
                     string[] cases = Regex.Split(userCases[i], "\t");
-                    for (int j = 0; j < title.Length - 1; j++)
+                    for (int j = 0; j < title.Length; j++)
                     {
                         FieldInfo fieldInfo = type.GetField(title[j]);
                         if (fieldInfo != null)

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.btn_reflashCase = new System.Windows.Forms.Button();
             this.btn_removeCase = new System.Windows.Forms.Button();
             this.btn_addCase = new System.Windows.Forms.Button();
             this.orderDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -62,7 +63,6 @@
             this.orderDateLabel = new System.Windows.Forms.Label();
             this.orderNumLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_reflashCase = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -119,6 +119,16 @@
             this.mainSplitContainer.Size = new System.Drawing.Size(1056, 687);
             this.mainSplitContainer.SplitterDistance = 81;
             this.mainSplitContainer.TabIndex = 3;
+            // 
+            // btn_reflashCase
+            // 
+            this.btn_reflashCase.Location = new System.Drawing.Point(632, 12);
+            this.btn_reflashCase.Name = "btn_reflashCase";
+            this.btn_reflashCase.Size = new System.Drawing.Size(160, 51);
+            this.btn_reflashCase.TabIndex = 2;
+            this.btn_reflashCase.Text = "刷新用例";
+            this.btn_reflashCase.UseVisualStyleBackColor = true;
+            this.btn_reflashCase.Click += new System.EventHandler(this.btn_reflashCase_Click);
             // 
             // btn_removeCase
             // 
@@ -426,16 +436,7 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(1056, 332);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // btn_reflashCase
-            // 
-            this.btn_reflashCase.Location = new System.Drawing.Point(632, 12);
-            this.btn_reflashCase.Name = "btn_reflashCase";
-            this.btn_reflashCase.Size = new System.Drawing.Size(160, 51);
-            this.btn_reflashCase.TabIndex = 2;
-            this.btn_reflashCase.Text = "刷新用例";
-            this.btn_reflashCase.UseVisualStyleBackColor = true;
-            this.btn_reflashCase.Click += new System.EventHandler(this.btn_reflashCase_Click);
+            this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             // 
             // PeriodicalOrderForm
             // 

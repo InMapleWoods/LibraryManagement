@@ -27,9 +27,18 @@ namespace LibraryManagementFunctionTest.Tools
                 foreach (var i in models)
                 {
                     var newType = i.GetType();
+                    int count = 0;
                     foreach (var item in newType.GetFields())
                     {
-                        result.Append(item.Name).Append("\t");
+                        count++;
+                        if (count < newType.GetFields().Length)
+                        {
+                            result.Append(item.Name).Append("\t");
+                        }
+                        else
+                        {
+                            result.Append(item.Name);
+                        }
                     }
                     result.Append("\r\n");
                     break;
@@ -42,7 +51,7 @@ namespace LibraryManagementFunctionTest.Tools
                 foreach (var item in newType.GetFields())
                 {
                     count++;
-                    if (count <= newType.GetFields().Length)
+                    if (count < newType.GetFields().Length)
                     {
                         result.Append(item.GetValue(i)).Append("\t");
                     }
@@ -71,6 +80,10 @@ namespace LibraryManagementFunctionTest.Tools
                     content = filecontent + GetModelText(models, false);
                 }
             }
+            else
+            {
+                content = GetModelText(models);
+            }
             if (string.IsNullOrEmpty(content))
             {
                 return false;
@@ -95,7 +108,7 @@ namespace LibraryManagementFunctionTest.Tools
                 string userCaseText = File.ReadAllText(Src, Encoding.GetEncoding("Unicode"));
                 string[] userCases = Regex.Split(userCaseText, "\r\n");
                 string[] title = Regex.Split(userCases[0], "\t");
-                for (int i = 0; i < title.Length - 1; i++)
+                for (int i = 0; i < title.Length; i++)
                 {
                     dataTable.Columns.Add(title[i]);
                 }
@@ -112,7 +125,7 @@ namespace LibraryManagementFunctionTest.Tools
         {
             if (File.Exists(Src) == true)
             {
-                string name = Path.GetFileNameWithoutExtension(Src);
+                string name = Path.GetFileNameWithoutExtension(Src).Split('_')[1];
                 Type type = Type.GetType("LibraryManagementFunctionTest.Model." + name, true, true);
                 var modelList = Activator.CreateInstance(typeof(List<>).MakeGenericType(new Type[] { type })) as IList;
                 var addMethod = modelList.GetType().GetMethod("Add");
@@ -123,7 +136,7 @@ namespace LibraryManagementFunctionTest.Tools
                 {
                     var temp = Activator.CreateInstance(type);
                     string[] cases = Regex.Split(userCases[i], "\t");
-                    for (int j = 0; j < title.Length - 1; j++)
+                    for (int j = 0; j < title.Length; j++)
                     {
                         FieldInfo fieldInfo = type.GetField(title[j]);
                         if (fieldInfo != null)
@@ -149,16 +162,18 @@ namespace LibraryManagementFunctionTest.Tools
             return null;
         }
 
-        public bool DeleteUserCase(int modelid)
+        public bool DeleteUserCase(int selectIndex)
         {
             IEnumerable models = GetUserCases();
             List<object> list = new List<object>();
+            int i = 0;
             foreach (var m in models)
             {
-                if ((int)m.GetType().GetField("Id").GetValue(m) != modelid)
+                if (i != selectIndex)
                 {
                     list.Add(m);
                 }
+                i++;
             }
 
             //foreach (var i in models)
