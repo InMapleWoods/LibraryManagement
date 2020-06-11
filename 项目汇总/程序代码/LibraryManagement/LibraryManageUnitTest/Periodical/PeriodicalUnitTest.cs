@@ -3,6 +3,7 @@ using LibraryManagement.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace LibraryManageUnitTest.Periodical
 {
@@ -13,99 +14,18 @@ namespace LibraryManageUnitTest.Periodical
         [TestMethod]
         public void TestAddPeriodicalOrder()
         {
-            List<PeriodicalOrder> periodicalOrders = new List<PeriodicalOrder>(
-                new PeriodicalOrder[] { 
-                    new PeriodicalOrder() 
-                    { 
-                        OrdererId = 1, 
-                        ISBN = "1234567890",
-                        OfficialTitle = "正", 
-                        SupplementTitle = "副", 
-                        OrderPrice = 10 
-                    }, 
-                    new PeriodicalOrder() 
-                    { 
-                        OrdererId = -1, 
-                        ISBN = "1234567890", 
-                        OfficialTitle = "正",
-                        SupplementTitle = "副",
-                        OrderPrice = 10
-                    }, 
-                    new PeriodicalOrder()
-                    {
-                        OrdererId = 1,
-                        ISBN = string.Empty, 
-                        OfficialTitle = "正",
-                        SupplementTitle = "副",
-                        OrderPrice = 10 
-                    },
-                    new PeriodicalOrder() 
-                    { 
-                        OrdererId = 1,
-                        ISBN = "1234567890",
-                        OfficialTitle = string.Empty,
-                        SupplementTitle = "副",
-                        OrderPrice = 10
-                    }, 
-                    new PeriodicalOrder() 
-                    { 
-                        OrdererId = 1,
-                        ISBN = "1234567890",
-                        OfficialTitle = "正",
-                        SupplementTitle = string.Empty, 
-                        OrderPrice = 10 
-                    },
-                    new PeriodicalOrder()
-                    { 
-                        OrdererId = 1, 
-                        ISBN = "1234567890", 
-                        OfficialTitle = "正",
-                        SupplementTitle = "副", 
-                        OrderPrice = -10 
-                    }, 
-                    new PeriodicalOrder()
-                    { 
-                        OrdererId = 1, 
-                        ISBN = "123456789",
-                        OfficialTitle = "正", 
-                        SupplementTitle = "副", 
-                        OrderPrice = 10 
-                    },
-                    new PeriodicalOrder() 
-                    { 
-                        OrdererId = 1,
-                        ISBN = "12345678900", 
-                        OfficialTitle = "正", 
-                        SupplementTitle = "副", 
-                        OrderPrice = 10 
-                    },
-                    new PeriodicalOrder()
-                    { 
-                        OrdererId = 1, 
-                        ISBN = "ABC", 
-                        OfficialTitle = "正", 
-                        SupplementTitle = "副", 
-                        OrderPrice = 10 
-                    }, 
-                    new PeriodicalOrder() 
-                    { 
-                        OrdererId = 1, 
-                        ISBN = "1234567890", 
-                        OfficialTitle = "正", 
-                        SupplementTitle = "副", 
-                        OrderPrice = 0 
-                    } 
-                });
+            Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"C:\Users\96464\Desktop\软件工程\AddPeriodicalOrder.xls");
+            IEnumerable periodicalOrders =userCaseHandle.GetUserCases();
             List<string> errorList = new List<string>();
             foreach (var i in periodicalOrders)
             {
-                Assert.AreEqual(false, periodicalBll.AddPeriodicalOrder(i, ref errorList));
+                Assert.AreEqual(false, periodicalBll.AddPeriodicalOrder((PeriodicalOrder)i, ref errorList));
             }
             PeriodicalOrder order = new PeriodicalOrder()
             {
                 OrdererId = 1,
                 ISBN = "1234567890",
-                OfficialTitle = "单元测试"+DateTime.Now.Date.ToString("yy-MM-dd"),
+                OfficialTitle = "单元测试" + DateTime.Now.Date.ToString("yy-MM-dd"),
                 SupplementTitle = "单元测试" + DateTime.Now.Date.ToString("yy-MM-dd"),
                 OrderPrice = 10,
                 BookSellerId = 1,

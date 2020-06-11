@@ -20,7 +20,7 @@ namespace LibraryManagementFunctionTest.Periodical
         {
             InitializeComponent();
             parentForm = form;
-            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)form).parentForm).folderSrc + "\\PeriodicalOrder.xls");
+            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)form).parentForm).folderSrc + "\\AddPeriodicalOrder.xls");
             sizeComboBox.SelectedIndex = 0;
             booksellerComboBox.SelectedIndex = 0;
             currencyTypeComboBox.SelectedIndex = 0;
