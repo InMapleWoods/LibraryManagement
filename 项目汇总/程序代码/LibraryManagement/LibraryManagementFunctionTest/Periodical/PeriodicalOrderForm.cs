@@ -1,6 +1,7 @@
 ﻿using LibraryManagementFunctionTest.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -46,7 +47,7 @@ namespace LibraryManagementFunctionTest.Periodical
                 var list = new PeriodicalOrder[] { GetPeriodicalOrder(ref errorList) };
                 if (errorList.Count == 0)
                 {
-                    if (userCaseHandle.AddUserCases(list))
+                    if (userCaseHandle.AddUserCases(list.ToList()))
                     {
                         MessageBox.Show("添加成功");
                     }

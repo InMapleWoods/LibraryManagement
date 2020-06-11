@@ -7,8 +7,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using Microsoft.Office.Core;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace LibraryManagementFunctionTest.Tools
 {
@@ -21,20 +19,37 @@ namespace LibraryManagementFunctionTest.Tools
             Src = src;
         }
 
-        private string GetModelText(IEnumerable models)
+        private string GetModelText(IEnumerable models, bool isFirst = true)
         {
             StringBuilder result = new StringBuilder();
+            if (isFirst)
+            {
+                foreach (var i in models)
+                {
+                    var newType = i.GetType();
+                    foreach (var item in newType.GetFields())
+                    {
+                        result.Append(item.Name).Append("\t");
+                    }
+                    result.Append("\r\n");
+                    break;
+                }
+            }
             foreach (var i in models)
             {
                 var newType = i.GetType();
+                int count = 0;
                 foreach (var item in newType.GetFields())
                 {
-                    result.Append(item.Name).Append("\t");
-                }
-                result.Append("\r\n");
-                foreach (var item in newType.GetFields())
-                {
-                    result.Append(item.GetValue(i)).Append("\t");
+                    count++;
+                    if (count <= newType.GetFields().Length)
+                    {
+                        result.Append(item.GetValue(i)).Append("\t");
+                    }
+                    else
+                    {
+                        result.Append(item.GetValue(i));
+                    }
                 }
                 result.Append("\r\n");
             }
@@ -43,10 +58,18 @@ namespace LibraryManagementFunctionTest.Tools
 
         public bool AddUserCases(IEnumerable models)
         {
-            string content = GetModelText(models);
+            string content = "";
             if (File.Exists(Src) == true)
             {
-                content = File.ReadAllText(Src, Encoding.GetEncoding("Unicode")) + content;
+                string filecontent = File.ReadAllText(Src, Encoding.GetEncoding("Unicode"));
+                if (string.IsNullOrEmpty(filecontent))
+                {
+                    content = GetModelText(models);
+                }
+                else
+                {
+                    content = filecontent + GetModelText(models, false);
+                }
             }
             if (string.IsNullOrEmpty(content))
             {
@@ -76,7 +99,7 @@ namespace LibraryManagementFunctionTest.Tools
                 {
                     dataTable.Columns.Add(title[i]);
                 }
-                for (int i = 1; i < userCases.Length - 1; i += 2)
+                for (int i = 1; i < userCases.Length - 1; i++)
                 {
                     string[] cases = Regex.Split(userCases[i], "\t");
                     dataTable.Rows.Add(cases.Take(cases.Length - 1).ToArray());
@@ -96,24 +119,27 @@ namespace LibraryManagementFunctionTest.Tools
                 string userCaseText = File.ReadAllText(Src, Encoding.GetEncoding("Unicode"));
                 string[] userCases = Regex.Split(userCaseText, "\r\n");
                 string[] title = Regex.Split(userCases[0], "\t");
-                for (int i = 1; i < userCases.Length - 1; i += 2)
+                for (int i = 1; i < userCases.Length - 1; i++)
                 {
                     var temp = Activator.CreateInstance(type);
                     string[] cases = Regex.Split(userCases[i], "\t");
                     for (int j = 0; j < title.Length - 1; j++)
                     {
                         FieldInfo fieldInfo = type.GetField(title[j]);
-                        if (fieldInfo.FieldType == typeof(int))
+                        if (fieldInfo != null)
                         {
-                            fieldInfo.SetValue(temp, int.Parse(cases[j]));//给对应属性赋值
-                        }
-                        else if (fieldInfo.FieldType == typeof(string))
-                        {
-                            fieldInfo.SetValue(temp, cases[j]);//给对应属性赋值
-                        }
-                        else if (fieldInfo.FieldType == typeof(double))
-                        {
-                            fieldInfo.SetValue(temp, double.Parse(cases[j]));//给对应属性赋值
+                            if (fieldInfo.FieldType == typeof(int))
+                            {
+                                fieldInfo.SetValue(temp, int.Parse(cases[j]));//给对应属性赋值
+                            }
+                            else if (fieldInfo.FieldType == typeof(string))
+                            {
+                                fieldInfo.SetValue(temp, cases[j]);//给对应属性赋值
+                            }
+                            else if (fieldInfo.FieldType == typeof(double))
+                            {
+                                fieldInfo.SetValue(temp, double.Parse(cases[j]));//给对应属性赋值
+                            }
                         }
                     }
                     addMethod.Invoke(modelList, new object[] { temp });
@@ -127,9 +153,9 @@ namespace LibraryManagementFunctionTest.Tools
         {
             IEnumerable models = GetUserCases();
             List<object> list = new List<object>();
-            foreach(var m in models)
+            foreach (var m in models)
             {
-                if((int)m.GetType().GetField("Id").GetValue(m) != modelid)
+                if ((int)m.GetType().GetField("Id").GetValue(m) != modelid)
                 {
                     list.Add(m);
                 }
