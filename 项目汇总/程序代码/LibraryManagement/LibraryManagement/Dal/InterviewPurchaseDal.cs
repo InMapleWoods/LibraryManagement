@@ -79,13 +79,17 @@ namespace LibraryManagement.Dal
                 "tb_PurchaseOrder.Id as 订单号，" +
                 "tb_PurchaseOrder.SubDate as 订单日期，" +
                 "tb_PurchaseOrder.ISBN as ISBN号，" +
-                "tb_PurchaseOrder.OrdererId as 订购人ID，" +
+                "tb_BasicInformation.UserId as 订购人ID," +
                 "tb_PurchaseOrder.BookName as 书名，" +
                 "tb_PurchaseOrder.Price as 价格，" +
-                "tb_PurchaseOrder.PublishingHouseId as 出版社ID，" +
+                "tb_DictionaryPublishingHouse.PublishingHouseId as 出版社ID," +
                 "tb_PurchaseOrder.DocumentType as 文献类型" +
                 " from " +
-                "tb_PurchaseOrder ;";
+                "tb_PurchaseOrder inner join " +
+                "tb_DictionaryPublishingHouse inner join " +
+                "tb_BasicInformation " +
+                "on tb_PurchaseOrder.OrdererId=tb_BasicInformation.UserId" +
+                "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
