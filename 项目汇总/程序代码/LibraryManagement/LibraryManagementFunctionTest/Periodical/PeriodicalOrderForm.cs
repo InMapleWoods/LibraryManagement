@@ -26,6 +26,7 @@ namespace LibraryManagementFunctionTest.Periodical
             currencyTypeComboBox.SelectedIndex = 0;
             publishingHouseComboBox.SelectedIndex = 0;
             cycleComboBox.SelectedIndex = 0;
+            comboBox_chooseType.SelectedIndex = 0;
             documentTypeComboBox.SelectedIndex = 0;
         }
 
@@ -164,6 +165,19 @@ namespace LibraryManagementFunctionTest.Periodical
             {
                 selectIndex = dataGridView1.CurrentRow.Index;
             }
+        }
+
+        private void comboBox_chooseType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox_chooseType.SelectedIndex == 0)
+            {
+                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)parentForm).parentForm).folderSrc + "\\Add_PeriodicalOrder.xls");
+            }
+            else
+            {
+                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)parentForm).parentForm).folderSrc + "\\Update_PeriodicalOrder.xls");
+            }
+            DataBind();
         }
     }
 }

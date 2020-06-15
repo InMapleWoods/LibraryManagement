@@ -1,6 +1,7 @@
 ﻿using LibraryManagement.Dal;
 using LibraryManagement.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 
@@ -124,6 +125,78 @@ namespace LibraryManagement.Bll
                 throw e;
             }
             return result;
+        }
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public IEnumerable GetAllPeriodOrdersArray()
+        {
+            List<PeriodicalOrder> result = new List<PeriodicalOrder>();
+            try
+            {
+                DataTable datatable = periodicalDal.GetAllPeriodOrders();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    PeriodicalOrder periodicalOrder = new PeriodicalOrder()
+                    {
+                        Id = (int)dr["编号"],
+                        OrderDate = (DateTime)dr["订购时间"],
+                        ISBN = dr["ISBN号"].ToString(),
+                        DocumentType = dr["文献类型"].ToString(),
+                        PublishCycle = dr["出版周期"].ToString(),
+                        OfficialTitle = dr["正刊名"].ToString(),
+                        SupplementTitle = dr["副刊名"].ToString(),
+                        OrderPrice = double.Parse(dr["订购价"].ToString()),
+                        CurrencyType = dr["币种"].ToString(),
+                        Size = dr["尺寸"].ToString(),
+                    };
+                    result.Add(periodicalOrder);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 获取分页后订单
+        /// </summary>
+        /// <returns>分页后订单</returns>
+        public IEnumerable GetPeriodOrdersArray(int index, int size)
+        {
+            List<PeriodicalOrder> result = new List<PeriodicalOrder>();
+            try
+            {
+                DataTable datatable = periodicalDal.GetPeriodOrders(index, size);
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    PeriodicalOrder periodicalOrder = new PeriodicalOrder()
+                    {
+                        Id = (int)dr["编号"],
+                        OrderDate = (DateTime)dr["订购时间"],
+                        ISBN = dr["ISBN号"].ToString(),
+                        DocumentType = dr["文献类型"].ToString(),
+                        PublishCycle = dr["出版周期"].ToString(),
+                        OfficialTitle = dr["正刊名"].ToString(),
+                        SupplementTitle = dr["副刊名"].ToString(),
+                        OrderPrice = (double)dr["订购价"],
+                        CurrencyType = dr["币种"].ToString(),
+                        Size = dr["尺寸"].ToString(),
+                    };
+                    result.Add(periodicalOrder);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
         }
     }
 }
