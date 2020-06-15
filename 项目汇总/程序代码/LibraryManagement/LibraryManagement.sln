@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagement", "Librar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManageUnitTest", "LibraryManageUnitTest\LibraryManageUnitTest.csproj", "{DED01838-B2D5-451A-B104-7510CAED73D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagementFunctionTest", "LibraryManagementFunctionTest\LibraryManagementFunctionTest.csproj", "{C73E6B1C-719C-45F8-AAE6-6DF78CA250BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DED01838-B2D5-451A-B104-7510CAED73D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DED01838-B2D5-451A-B104-7510CAED73D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DED01838-B2D5-451A-B104-7510CAED73D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C73E6B1C-719C-45F8-AAE6-6DF78CA250BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C73E6B1C-719C-45F8-AAE6-6DF78CA250BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C73E6B1C-719C-45F8-AAE6-6DF78CA250BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C73E6B1C-719C-45F8-AAE6-6DF78CA250BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

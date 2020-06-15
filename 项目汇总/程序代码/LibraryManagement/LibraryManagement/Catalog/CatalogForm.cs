@@ -32,16 +32,16 @@ namespace LibraryManagement.Catalog
             Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void cancelBookBtn_Click(object sender, EventArgs e)
         {
-            var form = new CancelBookForm();
+            var form = new CancelBookForm(this);
             form.Show();
             Hide();
+        }
+
+        private void newBookBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

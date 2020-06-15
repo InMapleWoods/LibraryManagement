@@ -12,9 +12,11 @@ namespace LibraryManagement.Catalog
 {
     public partial class SerialNumberForm : Form
     {
-        public SerialNumberForm()
+        Form parentForm;
+        public SerialNumberForm(Form form)
         {
             InitializeComponent();
+            parentForm = form;
         }
 
         private void getInterviewBookBtn_Click(object sender, EventArgs e)

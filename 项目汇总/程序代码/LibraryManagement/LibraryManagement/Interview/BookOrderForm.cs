@@ -104,16 +104,6 @@ namespace LibraryManagement.Interview
             Hide();
         }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddOrderButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BookOrderForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();

@@ -170,6 +170,7 @@
     <Compile Include="Maintainace\MaitainanceForm.Designer.cs">
       <DependentUpon>MaitainanceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Book.cs" />
     <Compile Include="Model\DictionaryBookSeller.cs" />
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
