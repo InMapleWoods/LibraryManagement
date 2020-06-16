@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.comboBox_chooseType = new System.Windows.Forms.ComboBox();
             this.btn_reflashCase = new System.Windows.Forms.Button();
             this.btn_removeCase = new System.Windows.Forms.Button();
             this.btn_addCase = new System.Windows.Forms.Button();
@@ -80,6 +81,7 @@
             // 
             // mainSplitContainer.Panel1
             // 
+            this.mainSplitContainer.Panel1.Controls.Add(this.comboBox_chooseType);
             this.mainSplitContainer.Panel1.Controls.Add(this.btn_reflashCase);
             this.mainSplitContainer.Panel1.Controls.Add(this.btn_removeCase);
             this.mainSplitContainer.Panel1.Controls.Add(this.btn_addCase);
@@ -121,6 +123,19 @@
             this.mainSplitContainer.SplitterDistance = 64;
             this.mainSplitContainer.SplitterWidth = 3;
             this.mainSplitContainer.TabIndex = 3;
+            // 
+            // comboBox_chooseType
+            // 
+            this.comboBox_chooseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_chooseType.FormattingEnabled = true;
+            this.comboBox_chooseType.Items.AddRange(new object[] {
+            "增加",
+            "修改"});
+            this.comboBox_chooseType.Location = new System.Drawing.Point(853, 27);
+            this.comboBox_chooseType.Name = "comboBox_chooseType";
+            this.comboBox_chooseType.Size = new System.Drawing.Size(121, 23);
+            this.comboBox_chooseType.TabIndex = 3;
+            this.comboBox_chooseType.SelectedIndexChanged += new System.EventHandler(this.comboBox_chooseType_SelectedIndexChanged);
             // 
             // btn_reflashCase
             // 
@@ -534,5 +549,6 @@
         private System.Windows.Forms.Button btn_removeCase;
         private System.Windows.Forms.Button btn_addCase;
         private System.Windows.Forms.Button btn_reflashCase;
+        private System.Windows.Forms.ComboBox comboBox_chooseType;
     }
 }

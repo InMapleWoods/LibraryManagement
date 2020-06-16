@@ -61,18 +61,18 @@ namespace LibraryManagement.Interview
         {
             List<string> errorList = new List<string>();//错误列表
             //判断订购人账号是否符合要求
-            Match matchOrderer = Regex.Match(orderNumTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
+            Match matchOrderer = Regex.Match(SubscriberTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
             if (!matchOrderer.Success)
             {
                 errorList.Add("OrdererNumber Error");
             }
 
             //通过订购人账号获取id
-            int ordererId = utilBll.GetUserIdFormNumber(orderNumTextBox.Text);
+            int ordererId = utilBll.GetUserIdFormNumber(SubscriberTextBox.Text);
 
-            int price;
+            double price;
             //判断价格是否能被转换为整型
-            if (!int.TryParse(pricetextBox.Text, out price))
+            if (!double.TryParse(pricetextBox.Text, out price))
             {
                 errorList.Add("OrderPrice Error");
             }
