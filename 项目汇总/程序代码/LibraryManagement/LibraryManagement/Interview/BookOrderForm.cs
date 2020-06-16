@@ -61,7 +61,7 @@ namespace LibraryManagement.Interview
         {
             List<string> errorList = new List<string>();//错误列表
             //判断订购人账号是否符合要求
-            Match matchOrderer = Regex.Match(orderNumTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
+            Match matchOrderer = Regex.Match(SubscriberTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
             if (!matchOrderer.Success)
             {
                 errorList.Add("OrdererNumber Error");
