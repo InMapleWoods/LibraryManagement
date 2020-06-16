@@ -74,6 +74,7 @@
             // 
             this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.mainSplitContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainSplitContainer.Name = "mainSplitContainer";
             this.mainSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -116,15 +117,17 @@
             this.mainSplitContainer.Panel2.Controls.Add(this.orderDateLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.orderNumLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
-            this.mainSplitContainer.Size = new System.Drawing.Size(1056, 687);
-            this.mainSplitContainer.SplitterDistance = 81;
+            this.mainSplitContainer.Size = new System.Drawing.Size(792, 550);
+            this.mainSplitContainer.SplitterDistance = 64;
+            this.mainSplitContainer.SplitterWidth = 3;
             this.mainSplitContainer.TabIndex = 3;
             // 
             // btn_reflashCase
             // 
-            this.btn_reflashCase.Location = new System.Drawing.Point(632, 12);
+            this.btn_reflashCase.Location = new System.Drawing.Point(474, 10);
+            this.btn_reflashCase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_reflashCase.Name = "btn_reflashCase";
-            this.btn_reflashCase.Size = new System.Drawing.Size(160, 51);
+            this.btn_reflashCase.Size = new System.Drawing.Size(120, 41);
             this.btn_reflashCase.TabIndex = 2;
             this.btn_reflashCase.Text = "刷新用例";
             this.btn_reflashCase.UseVisualStyleBackColor = true;
@@ -132,9 +135,10 @@
             // 
             // btn_removeCase
             // 
-            this.btn_removeCase.Location = new System.Drawing.Point(364, 13);
+            this.btn_removeCase.Location = new System.Drawing.Point(273, 10);
+            this.btn_removeCase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_removeCase.Name = "btn_removeCase";
-            this.btn_removeCase.Size = new System.Drawing.Size(161, 51);
+            this.btn_removeCase.Size = new System.Drawing.Size(121, 41);
             this.btn_removeCase.TabIndex = 1;
             this.btn_removeCase.Text = "删除用例";
             this.btn_removeCase.UseVisualStyleBackColor = true;
@@ -142,9 +146,10 @@
             // 
             // btn_addCase
             // 
-            this.btn_addCase.Location = new System.Drawing.Point(105, 13);
+            this.btn_addCase.Location = new System.Drawing.Point(79, 10);
+            this.btn_addCase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_addCase.Name = "btn_addCase";
-            this.btn_addCase.Size = new System.Drawing.Size(169, 51);
+            this.btn_addCase.Size = new System.Drawing.Size(127, 41);
             this.btn_addCase.TabIndex = 0;
             this.btn_addCase.Text = "增加用例";
             this.btn_addCase.UseVisualStyleBackColor = true;
@@ -152,9 +157,10 @@
             // 
             // orderDatePicker
             // 
-            this.orderDatePicker.Location = new System.Drawing.Point(115, 55);
+            this.orderDatePicker.Location = new System.Drawing.Point(86, 44);
+            this.orderDatePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.orderDatePicker.Name = "orderDatePicker";
-            this.orderDatePicker.Size = new System.Drawing.Size(270, 25);
+            this.orderDatePicker.Size = new System.Drawing.Size(204, 21);
             this.orderDatePicker.TabIndex = 13;
             // 
             // currencyTypeComboBox
@@ -164,9 +170,10 @@
             this.currencyTypeComboBox.Items.AddRange(new object[] {
             "人民币(RMB)",
             "美元(USD)"});
-            this.currencyTypeComboBox.Location = new System.Drawing.Point(620, 175);
+            this.currencyTypeComboBox.Location = new System.Drawing.Point(465, 140);
+            this.currencyTypeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.currencyTypeComboBox.Name = "currencyTypeComboBox";
-            this.currencyTypeComboBox.Size = new System.Drawing.Size(270, 23);
+            this.currencyTypeComboBox.Size = new System.Drawing.Size(204, 20);
             this.currencyTypeComboBox.TabIndex = 12;
             // 
             // publishingHouseComboBox
@@ -175,9 +182,10 @@
             this.publishingHouseComboBox.FormattingEnabled = true;
             this.publishingHouseComboBox.Items.AddRange(new object[] {
             "出版社"});
-            this.publishingHouseComboBox.Location = new System.Drawing.Point(620, 145);
+            this.publishingHouseComboBox.Location = new System.Drawing.Point(465, 116);
+            this.publishingHouseComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.publishingHouseComboBox.Name = "publishingHouseComboBox";
-            this.publishingHouseComboBox.Size = new System.Drawing.Size(270, 23);
+            this.publishingHouseComboBox.Size = new System.Drawing.Size(204, 20);
             this.publishingHouseComboBox.TabIndex = 12;
             // 
             // cycleComboBox
@@ -190,9 +198,10 @@
             "月刊",
             "季刊",
             "年刊"});
-            this.cycleComboBox.Location = new System.Drawing.Point(620, 115);
+            this.cycleComboBox.Location = new System.Drawing.Point(465, 92);
+            this.cycleComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cycleComboBox.Name = "cycleComboBox";
-            this.cycleComboBox.Size = new System.Drawing.Size(270, 23);
+            this.cycleComboBox.Size = new System.Drawing.Size(204, 20);
             this.cycleComboBox.TabIndex = 12;
             // 
             // documentTypeComboBox
@@ -202,9 +211,10 @@
             this.documentTypeComboBox.Items.AddRange(new object[] {
             "期刊",
             "专著"});
-            this.documentTypeComboBox.Location = new System.Drawing.Point(620, 85);
+            this.documentTypeComboBox.Location = new System.Drawing.Point(465, 68);
+            this.documentTypeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.documentTypeComboBox.Name = "documentTypeComboBox";
-            this.documentTypeComboBox.Size = new System.Drawing.Size(270, 23);
+            this.documentTypeComboBox.Size = new System.Drawing.Size(204, 20);
             this.documentTypeComboBox.TabIndex = 12;
             // 
             // booksellerComboBox
@@ -213,9 +223,10 @@
             this.booksellerComboBox.FormattingEnabled = true;
             this.booksellerComboBox.Items.AddRange(new object[] {
             "书商"});
-            this.booksellerComboBox.Location = new System.Drawing.Point(620, 25);
+            this.booksellerComboBox.Location = new System.Drawing.Point(465, 20);
+            this.booksellerComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.booksellerComboBox.Name = "booksellerComboBox";
-            this.booksellerComboBox.Size = new System.Drawing.Size(270, 23);
+            this.booksellerComboBox.Size = new System.Drawing.Size(204, 20);
             this.booksellerComboBox.TabIndex = 12;
             // 
             // sizeComboBox
@@ -226,199 +237,223 @@
             "A4",
             "A3",
             "16开"});
-            this.sizeComboBox.Location = new System.Drawing.Point(115, 235);
+            this.sizeComboBox.Location = new System.Drawing.Point(86, 188);
+            this.sizeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sizeComboBox.Name = "sizeComboBox";
-            this.sizeComboBox.Size = new System.Drawing.Size(270, 23);
+            this.sizeComboBox.Size = new System.Drawing.Size(204, 20);
             this.sizeComboBox.TabIndex = 11;
             // 
             // officialTitleTextBox
             // 
-            this.officialTitleTextBox.Location = new System.Drawing.Point(115, 115);
+            this.officialTitleTextBox.Location = new System.Drawing.Point(86, 92);
+            this.officialTitleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.officialTitleTextBox.Name = "officialTitleTextBox";
-            this.officialTitleTextBox.Size = new System.Drawing.Size(270, 25);
+            this.officialTitleTextBox.Size = new System.Drawing.Size(204, 21);
             this.officialTitleTextBox.TabIndex = 9;
             // 
             // responsibleTextBox
             // 
-            this.responsibleTextBox.Location = new System.Drawing.Point(115, 175);
+            this.responsibleTextBox.Location = new System.Drawing.Point(86, 140);
+            this.responsibleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.responsibleTextBox.Name = "responsibleTextBox";
-            this.responsibleTextBox.Size = new System.Drawing.Size(270, 25);
+            this.responsibleTextBox.Size = new System.Drawing.Size(204, 21);
             this.responsibleTextBox.TabIndex = 9;
             // 
             // orderPriceTextBox
             // 
-            this.orderPriceTextBox.Location = new System.Drawing.Point(115, 205);
+            this.orderPriceTextBox.Location = new System.Drawing.Point(86, 164);
+            this.orderPriceTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.orderPriceTextBox.Name = "orderPriceTextBox";
-            this.orderPriceTextBox.Size = new System.Drawing.Size(270, 25);
+            this.orderPriceTextBox.Size = new System.Drawing.Size(204, 21);
             this.orderPriceTextBox.TabIndex = 9;
             // 
             // IsbnTextBox
             // 
-            this.IsbnTextBox.Location = new System.Drawing.Point(115, 85);
+            this.IsbnTextBox.Location = new System.Drawing.Point(86, 68);
+            this.IsbnTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.IsbnTextBox.Name = "IsbnTextBox";
-            this.IsbnTextBox.Size = new System.Drawing.Size(270, 25);
+            this.IsbnTextBox.Size = new System.Drawing.Size(204, 21);
             this.IsbnTextBox.TabIndex = 9;
             // 
             // supplementTitleTextBox
             // 
-            this.supplementTitleTextBox.Location = new System.Drawing.Point(115, 145);
+            this.supplementTitleTextBox.Location = new System.Drawing.Point(86, 116);
+            this.supplementTitleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.supplementTitleTextBox.Name = "supplementTitleTextBox";
-            this.supplementTitleTextBox.Size = new System.Drawing.Size(270, 25);
+            this.supplementTitleTextBox.Size = new System.Drawing.Size(204, 21);
             this.supplementTitleTextBox.TabIndex = 9;
             // 
             // remarkTextBox
             // 
-            this.remarkTextBox.Location = new System.Drawing.Point(620, 205);
+            this.remarkTextBox.Location = new System.Drawing.Point(465, 164);
+            this.remarkTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.remarkTextBox.Name = "remarkTextBox";
-            this.remarkTextBox.Size = new System.Drawing.Size(270, 25);
+            this.remarkTextBox.Size = new System.Drawing.Size(204, 21);
             this.remarkTextBox.TabIndex = 9;
             // 
             // ordererTextBox
             // 
-            this.ordererTextBox.Location = new System.Drawing.Point(620, 55);
+            this.ordererTextBox.Location = new System.Drawing.Point(465, 44);
+            this.ordererTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ordererTextBox.Name = "ordererTextBox";
-            this.ordererTextBox.Size = new System.Drawing.Size(270, 25);
+            this.ordererTextBox.Size = new System.Drawing.Size(204, 21);
             this.ordererTextBox.TabIndex = 9;
             // 
             // orderNumTextBox
             // 
-            this.orderNumTextBox.Location = new System.Drawing.Point(115, 25);
+            this.orderNumTextBox.Location = new System.Drawing.Point(86, 20);
+            this.orderNumTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.orderNumTextBox.Name = "orderNumTextBox";
-            this.orderNumTextBox.Size = new System.Drawing.Size(270, 25);
+            this.orderNumTextBox.Size = new System.Drawing.Size(204, 21);
             this.orderNumTextBox.TabIndex = 9;
             // 
             // sizeLabel
             // 
             this.sizeLabel.AutoSize = true;
-            this.sizeLabel.Location = new System.Drawing.Point(35, 240);
+            this.sizeLabel.Location = new System.Drawing.Point(26, 192);
+            this.sizeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sizeLabel.Name = "sizeLabel";
-            this.sizeLabel.Size = new System.Drawing.Size(37, 15);
+            this.sizeLabel.Size = new System.Drawing.Size(29, 12);
             this.sizeLabel.TabIndex = 8;
             this.sizeLabel.Text = "尺寸";
             // 
             // orderPriceLabel
             // 
             this.orderPriceLabel.AutoSize = true;
-            this.orderPriceLabel.Location = new System.Drawing.Point(35, 210);
+            this.orderPriceLabel.Location = new System.Drawing.Point(26, 168);
+            this.orderPriceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.orderPriceLabel.Name = "orderPriceLabel";
-            this.orderPriceLabel.Size = new System.Drawing.Size(52, 15);
+            this.orderPriceLabel.Size = new System.Drawing.Size(41, 12);
             this.orderPriceLabel.TabIndex = 7;
             this.orderPriceLabel.Text = "订购价";
             // 
             // responsibleLabel
             // 
             this.responsibleLabel.AutoSize = true;
-            this.responsibleLabel.Location = new System.Drawing.Point(35, 180);
+            this.responsibleLabel.Location = new System.Drawing.Point(26, 144);
+            this.responsibleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.responsibleLabel.Name = "responsibleLabel";
-            this.responsibleLabel.Size = new System.Drawing.Size(52, 15);
+            this.responsibleLabel.Size = new System.Drawing.Size(41, 12);
             this.responsibleLabel.TabIndex = 6;
             this.responsibleLabel.Text = "责任人";
             // 
             // supplementTitleLabel
             // 
             this.supplementTitleLabel.AutoSize = true;
-            this.supplementTitleLabel.Location = new System.Drawing.Point(35, 150);
+            this.supplementTitleLabel.Location = new System.Drawing.Point(26, 120);
+            this.supplementTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.supplementTitleLabel.Name = "supplementTitleLabel";
-            this.supplementTitleLabel.Size = new System.Drawing.Size(52, 15);
+            this.supplementTitleLabel.Size = new System.Drawing.Size(41, 12);
             this.supplementTitleLabel.TabIndex = 5;
             this.supplementTitleLabel.Text = "副刊名";
             // 
             // officialTitleLabel
             // 
             this.officialTitleLabel.AutoSize = true;
-            this.officialTitleLabel.Location = new System.Drawing.Point(35, 120);
+            this.officialTitleLabel.Location = new System.Drawing.Point(26, 96);
+            this.officialTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.officialTitleLabel.Name = "officialTitleLabel";
-            this.officialTitleLabel.Size = new System.Drawing.Size(52, 15);
+            this.officialTitleLabel.Size = new System.Drawing.Size(41, 12);
             this.officialTitleLabel.TabIndex = 4;
             this.officialTitleLabel.Text = "正刊名";
             // 
             // ordererLabel
             // 
             this.ordererLabel.AutoSize = true;
-            this.ordererLabel.Location = new System.Drawing.Point(540, 60);
+            this.ordererLabel.Location = new System.Drawing.Point(405, 48);
+            this.ordererLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ordererLabel.Name = "ordererLabel";
-            this.ordererLabel.Size = new System.Drawing.Size(52, 15);
+            this.ordererLabel.Size = new System.Drawing.Size(41, 12);
             this.ordererLabel.TabIndex = 1;
             this.ordererLabel.Text = "订购人";
             // 
             // IsbnLabel
             // 
             this.IsbnLabel.AutoSize = true;
-            this.IsbnLabel.Location = new System.Drawing.Point(35, 90);
+            this.IsbnLabel.Location = new System.Drawing.Point(26, 72);
+            this.IsbnLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.IsbnLabel.Name = "IsbnLabel";
-            this.IsbnLabel.Size = new System.Drawing.Size(63, 15);
+            this.IsbnLabel.Size = new System.Drawing.Size(47, 12);
             this.IsbnLabel.TabIndex = 3;
             this.IsbnLabel.Text = "I S B N";
             // 
             // remarkLabel
             // 
             this.remarkLabel.AutoSize = true;
-            this.remarkLabel.Location = new System.Drawing.Point(540, 210);
+            this.remarkLabel.Location = new System.Drawing.Point(405, 168);
+            this.remarkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.remarkLabel.Name = "remarkLabel";
-            this.remarkLabel.Size = new System.Drawing.Size(37, 15);
+            this.remarkLabel.Size = new System.Drawing.Size(29, 12);
             this.remarkLabel.TabIndex = 2;
             this.remarkLabel.Text = "备注";
             // 
             // currencyTypeLabel
             // 
             this.currencyTypeLabel.AutoSize = true;
-            this.currencyTypeLabel.Location = new System.Drawing.Point(540, 180);
+            this.currencyTypeLabel.Location = new System.Drawing.Point(405, 144);
+            this.currencyTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.currencyTypeLabel.Name = "currencyTypeLabel";
-            this.currencyTypeLabel.Size = new System.Drawing.Size(37, 15);
+            this.currencyTypeLabel.Size = new System.Drawing.Size(29, 12);
             this.currencyTypeLabel.TabIndex = 2;
             this.currencyTypeLabel.Text = "币种";
             // 
             // publishingHouseLabel
             // 
             this.publishingHouseLabel.AutoSize = true;
-            this.publishingHouseLabel.Location = new System.Drawing.Point(540, 150);
+            this.publishingHouseLabel.Location = new System.Drawing.Point(405, 120);
+            this.publishingHouseLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.publishingHouseLabel.Name = "publishingHouseLabel";
-            this.publishingHouseLabel.Size = new System.Drawing.Size(52, 15);
+            this.publishingHouseLabel.Size = new System.Drawing.Size(41, 12);
             this.publishingHouseLabel.TabIndex = 2;
             this.publishingHouseLabel.Text = "出版社";
             // 
             // cycleLabel
             // 
             this.cycleLabel.AutoSize = true;
-            this.cycleLabel.Location = new System.Drawing.Point(540, 120);
+            this.cycleLabel.Location = new System.Drawing.Point(405, 96);
+            this.cycleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cycleLabel.Name = "cycleLabel";
-            this.cycleLabel.Size = new System.Drawing.Size(67, 15);
+            this.cycleLabel.Size = new System.Drawing.Size(53, 12);
             this.cycleLabel.TabIndex = 2;
             this.cycleLabel.Text = "出版周期";
             // 
             // documentTypeLabel
             // 
             this.documentTypeLabel.AutoSize = true;
-            this.documentTypeLabel.Location = new System.Drawing.Point(540, 91);
+            this.documentTypeLabel.Location = new System.Drawing.Point(405, 73);
+            this.documentTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.documentTypeLabel.Name = "documentTypeLabel";
-            this.documentTypeLabel.Size = new System.Drawing.Size(67, 15);
+            this.documentTypeLabel.Size = new System.Drawing.Size(53, 12);
             this.documentTypeLabel.TabIndex = 2;
             this.documentTypeLabel.Text = "文献类型";
             // 
             // booksellerLabel
             // 
             this.booksellerLabel.AutoSize = true;
-            this.booksellerLabel.Location = new System.Drawing.Point(540, 30);
+            this.booksellerLabel.Location = new System.Drawing.Point(405, 24);
+            this.booksellerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.booksellerLabel.Name = "booksellerLabel";
-            this.booksellerLabel.Size = new System.Drawing.Size(37, 15);
+            this.booksellerLabel.Size = new System.Drawing.Size(29, 12);
             this.booksellerLabel.TabIndex = 1;
             this.booksellerLabel.Text = "书商";
             // 
             // orderDateLabel
             // 
             this.orderDateLabel.AutoSize = true;
-            this.orderDateLabel.Location = new System.Drawing.Point(35, 60);
+            this.orderDateLabel.Location = new System.Drawing.Point(26, 48);
+            this.orderDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.orderDateLabel.Name = "orderDateLabel";
-            this.orderDateLabel.Size = new System.Drawing.Size(67, 15);
+            this.orderDateLabel.Size = new System.Drawing.Size(53, 12);
             this.orderDateLabel.TabIndex = 2;
             this.orderDateLabel.Text = "订购日期";
             // 
             // orderNumLabel
             // 
             this.orderNumLabel.AutoSize = true;
-            this.orderNumLabel.Location = new System.Drawing.Point(35, 30);
+            this.orderNumLabel.Location = new System.Drawing.Point(26, 24);
+            this.orderNumLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.orderNumLabel.Name = "orderNumLabel";
-            this.orderNumLabel.Size = new System.Drawing.Size(52, 15);
+            this.orderNumLabel.Size = new System.Drawing.Size(41, 12);
             this.orderNumLabel.TabIndex = 1;
             this.orderNumLabel.Text = "订单号";
             // 
@@ -428,22 +463,24 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 270);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 217);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1056, 332);
+            this.dataGridView1.Size = new System.Drawing.Size(792, 266);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             // 
             // PeriodicalOrderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 687);
+            this.ClientSize = new System.Drawing.Size(792, 550);
             this.Controls.Add(this.mainSplitContainer);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "PeriodicalOrderForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

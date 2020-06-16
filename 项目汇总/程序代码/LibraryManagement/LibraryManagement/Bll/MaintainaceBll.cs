@@ -27,7 +27,11 @@ namespace LibraryManagement.Bll
                 {
                     if (!DictionaryBookSeller.isNormative(bookSeller, ref errorMsg))
                     {
-                        result = maintainaceDal.AddDicBookSeller(bookSeller);
+                        if (this.AddCaseNameCheckBS(bookSeller))
+                        {
+                            result = maintainaceDal.AddDicBookSeller(bookSeller);
+                        }
+                       
                     }
                 }
             }
@@ -91,9 +95,102 @@ namespace LibraryManagement.Bll
                 {
                     if (!DictionaryPublishingHouse.isNormative(publishingHouse, ref errorMsg))
                     {
-                        result = maintainaceDal.AddDicPublishingHouse(publishingHouse);
+                        if (this.AddCaseNameCheckPH(publishingHouse))
+                        {
+                             result = maintainaceDal.AddDicPublishingHouse(publishingHouse);
+                        }
+                       
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        /// <summary>
+        /// 更新书商信息
+        /// </summary>
+        /// <param name="bookSeller"></param>
+        /// <param name="errorMsg"></param>
+        /// <returns></returns>
+        public bool UpdateDicBookSeller(DictionaryBookSeller bookSeller, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!DictionaryBookSeller.isNull(bookSeller))
+                {
+                    if (!DictionaryBookSeller.isNormative(bookSeller, ref errorMsg))
+                    {
+                        if (this.UpdateCaseNameCheckBS(bookSeller))
+                        {
+                            result = maintainaceDal.UpdateBookSeller(bookSeller);
+                        }
+
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        /// <summary>
+        /// 更新出版社信息
+        /// </summary>
+        /// <param name="bookSeller"></param>
+        /// <param name="errorMsg"></param>
+        /// <returns></returns>
+        public bool UpdateDicPublishingHouse(DictionaryPublishingHouse publishingHouse, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!DictionaryPublishingHouse.isNull(publishingHouse))
+                {
+                    if (!DictionaryPublishingHouse.isNormative(publishingHouse, ref errorMsg))
+                    {
+                        if (this.UpdateCaseNameCheckPH(publishingHouse))
+                        {
+                            result = maintainaceDal.UpdatePublishingHouse(publishingHouse);
+                        }
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        public bool DeleteDicBookSeller(int Id)
+        {
+            bool result = false;
+            try
+            {
+                result = maintainaceDal.DeleteBookSellerById(Id);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        public bool DeleteDicPublishingHouse(int Id)
+        {
+            bool result = false;
+            try
+            {
+                result = maintainaceDal.DeletePublishingHouseById(Id);
             }
             catch (Exception e)
             {
@@ -139,6 +236,114 @@ namespace LibraryManagement.Bll
                 throw e;
             }
             return result;
+        }
+        /// <summary>
+        /// 增加时的名称查重
+        /// </summary>
+        /// <param name="dictionaryBookSeller"></param>
+        /// <returns>为T则无重复，F则有重复</returns>
+        public bool AddCaseNameCheckBS(DictionaryBookSeller dictionaryBookSeller)
+        {
+            DataTable result = null;
+                
+            try
+            {
+                    result = maintainaceDal.getBookSellerByName(dictionaryBookSeller);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            if(result.Rows.Count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 增加时的名称查重
+        /// </summary>
+        /// <param name="publishingHouse"></param>
+        /// <returns>为T则无重复，F则有重复</returns>
+        public bool AddCaseNameCheckPH(DictionaryPublishingHouse publishingHouse)
+        {
+            DataTable result = null;
+
+            try
+            {
+                result = maintainaceDal.getPublishingHouserByName(publishingHouse);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            if (result.Rows.Count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 更新书商信息名字查重
+        /// </summary>
+        /// <param name="dictionaryBookSeller"></param>
+        /// <returns></returns>
+        public bool UpdateCaseNameCheckBS(DictionaryBookSeller dictionaryBookSeller)
+        {
+            DataTable result = null;
+
+            try
+            {
+                result = maintainaceDal.getBookSellerByName(dictionaryBookSeller);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            if (result.Rows.Count <=1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 更新出版社信息名字查重
+        /// </summary>
+        /// <param name="publishingHouse"></param>
+        /// <returns></returns>
+        public bool UpdateCaseNameCheckPH(DictionaryPublishingHouse publishingHouse)
+        {
+            DataTable result = null;
+
+            try
+            {
+                result = maintainaceDal.getPublishingHouserByName(publishingHouse);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            if (result.Rows.Count <= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -30,5 +30,21 @@ namespace LibraryManagementFunctionTest.Maintainace
                 lab_CorPL.Text = "出版地";
             }
         }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clear()
+        {
+            this.textBox_Name.Text = "";
+            this.textBox_Adress.Text = ""; 
+            this.textBox_CorPL.Text = "";
+            this.textBox_Call.Text = "";
+            this.textBox_Postcodes.Text = "";
+            this.textBox_Remark.Text = "";
+            this.textBox_BankName.Text = "";
+        }
     }
 }
