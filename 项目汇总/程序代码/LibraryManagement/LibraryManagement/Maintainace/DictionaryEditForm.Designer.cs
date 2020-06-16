@@ -74,6 +74,7 @@
             this.dataGV_DictionaryShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGV_DictionaryShow.Size = new System.Drawing.Size(800, 105);
             this.dataGV_DictionaryShow.TabIndex = 1;
+            this.dataGV_DictionaryShow.CurrentCellChanged += new System.EventHandler(this.dataGV_DictionaryShow_CurrentCellChanged);
             this.dataGV_DictionaryShow.SelectionChanged += new System.EventHandler(this.dataGV_DictionaryShow_SelectionChanged);
             // 
             // lab_Name
@@ -89,6 +90,7 @@
             // 
             this.textBox_Name.Location = new System.Drawing.Point(132, 110);
             this.textBox_Name.Name = "textBox_Name";
+            this.textBox_Name.ReadOnly = true;
             this.textBox_Name.Size = new System.Drawing.Size(100, 21);
             this.textBox_Name.TabIndex = 4;
             // 
@@ -187,6 +189,7 @@
             this.textBox_Remark.Name = "textBox_Remark";
             this.textBox_Remark.Size = new System.Drawing.Size(336, 21);
             this.textBox_Remark.TabIndex = 15;
+            this.textBox_Remark.TextChanged += new System.EventHandler(this.textBox_Remark_TextChanged);
             // 
             // scriptUserControl1
             // 
