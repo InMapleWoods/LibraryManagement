@@ -76,12 +76,12 @@ namespace LibraryManagement.Dal
         public DataTable GerAllPurchaseOrders()
         {
             string sqlstr = "select " +
-                "tb_PurchaseOrder.Id as 订单号，" +
-                "tb_PurchaseOrder.SubDate as 订单日期，" +
-                "tb_PurchaseOrder.ISBN as ISBN号，" +
+                "tb_PurchaseOrder.Id as 订单号," +
+                "tb_PurchaseOrder.SubDate as 订单日期," +
+                "tb_PurchaseOrder.ISBN as ISBN号," +
                 "tb_BasicInformation.UserId as 订购人ID," +
-                "tb_PurchaseOrder.BookName as 书名，" +
-                "tb_PurchaseOrder.Price as 价格，" +
+                "tb_PurchaseOrder.BookName as 书名," +
+                "tb_PurchaseOrder.Price as 价格," +
                 "tb_DictionaryPublishingHouse.PublishingHouseId as 出版社ID," +
                 "tb_PurchaseOrder.DocumentType as 文献类型" +
                 " from " +
@@ -89,7 +89,7 @@ namespace LibraryManagement.Dal
                 "tb_DictionaryPublishingHouse inner join " +
                 "tb_BasicInformation " +
                 "on tb_PurchaseOrder.OrdererId=tb_BasicInformation.UserId" +
-                "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
+                "and tb_PurchaseOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
