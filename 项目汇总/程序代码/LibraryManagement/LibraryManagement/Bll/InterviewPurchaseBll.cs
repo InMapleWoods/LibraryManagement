@@ -46,6 +46,25 @@ namespace LibraryManagement.Bll
             return result;
         }
 
+        /// <summary>
+        /// 删除一条采购订单记录
+        /// </summary>
+        /// <param name="orderId">采购订单</param>
+        /// <returns>增加成功与否</returns>
+        public bool DeletePurchaseOrder(int orderId)
+        {
+            bool result = false;
+            try
+            {
+                result = purchaseDal.DeletePurchaseOrder(orderId);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
 
         /// <summary>
         /// 获取全部订单

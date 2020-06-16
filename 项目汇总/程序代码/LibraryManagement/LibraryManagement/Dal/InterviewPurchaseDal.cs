@@ -70,6 +70,70 @@ namespace LibraryManagement.Dal
         }
 
         /// <summary>
+        /// 删除一条采购订单记录
+        /// </summary>
+        /// <param name="orderId">采购订单</param>
+        /// <returns>增加成功与否</returns>
+        public bool DeletePurchaseOrder(int orderId)
+        {
+            string sqlStr = "Delete from tb_PurchaseOrder where Id=@id;";
+            //储存Datatable        
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",orderId),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 修改一条采购订单记录
+        /// </summary>
+        /// <param name="order">采购订单</param>
+        /// <returns>增加成功与否</returns>
+        public bool UpdatePurchaseOrder(InterviewPurchaseOrder order)
+        {
+            string sqlStr = "UPDATE tb_PurchaseOrder SET " +
+                "Id=@id, " +
+                "SubDate=@subDate, " +
+                "ISBN=@iSBN, " +
+                "OrdererId=@ordererId, " +
+                "BookName=@bookName, " +
+                "Price=@price, " +
+                "PublishingHouseId=@publishingHouseId, " +
+                "DocumentType=@documentType, " +
+                "where Id=@id;";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器 
+            {
+                new MySqlParameter("@id",order.Id),
+                new MySqlParameter("@subDate",order.SubDate),
+                new MySqlParameter("@ordererId",order.OrdererId),
+                new MySqlParameter("@iSBN",order.ISBN),
+                new MySqlParameter("@documentType",order.DocumentType),
+                new MySqlParameter("@bookName",order.BookName),
+                new MySqlParameter("@price",order.Price),
+                new MySqlParameter("@publishingHouseId",order.PublishingHouseId),
+                new MySqlParameter("@id",order.Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
         /// 获取全部订单
         /// </summary>
         /// <returns>全部订单</returns>

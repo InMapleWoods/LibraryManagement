@@ -23,10 +23,10 @@ namespace LibraryManagement.Interview
         {
             InitializeComponent();
             parentForm = form;
-            scriptUserControl1.AddContorlClickMethod(ExitLog_Click,
-                ScriptUserControl.ControlNames.exitButton);
-            scriptUserControl1.AddContorlClickMethod(AddLog_Click,
-                ScriptUserControl.ControlNames.addButton);
+            scriptUserControl1.AddContorlClickMethod(ExitLog_Click, ScriptUserControl.ControlNames.exitButton);
+            scriptUserControl1.AddContorlClickMethod(AddLog_Click, ScriptUserControl.ControlNames.addButton);
+            scriptUserControl1.AddContorlClickMethod(ChangeLog_Click, ScriptUserControl.ControlNames.changeButton);
+            scriptUserControl1.AddContorlClickMethod(DeleteLog_Click, ScriptUserControl.ControlNames.emptyButton);
         }
 
         private void AddLog_Click(object sender,EventArgs e)
@@ -57,9 +57,81 @@ namespace LibraryManagement.Interview
             DataBind();
         }
 
+        /// <summary>
+        /// 修改记录
+        /// </summary>
+        private void ChangeLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string orderNum = orderNumTextBox.Text;//获取订单编号
+                if (string.IsNullOrEmpty(orderNum))
+                {
+                    return;
+                }
+                ChangeControlEnableState();//更改菜单按钮启用状态
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 删除记录
+        /// </summary>
+        private void DeleteLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("是否删除该条记录", "删除确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
+                if (dialogResult == DialogResult.Yes)//如果选择确认按钮
+                {
+                    string orderNum = orderNumTextBox.Text;//获取订单编号
+                    int id;
+                    if (!int.TryParse(orderNum, out id))//将其转换为数字失败
+                    {
+                        MessageBox.Show("订单编号错误");
+                        return;
+                    }
+                    if (interviewPurchaseBll.DeletePurchaseOrder(id))//调用订单删除方法
+                    {
+                        MessageBox.Show("删除成功");
+                    }
+                    else
+                    {
+                        MessageBox.Show("删除失败");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            DataBind();//数据绑定
+        }
+
+        /// <summary>
+        /// 返回上一级
+        /// </summary>
+        private void ExitLog_Click(object sender, EventArgs e)
+        {
+            parentForm.Show();
+            Hide();
+        }
+
+        /// <summary>
+        /// 获取当前窗体所表示的订单
+        /// </summary>
+        /// <param name="error">错误列表</param>
+        /// <returns>采购订单</returns>
         private InterviewPurchaseOrder GetPurchaseOrder(ref List<string> error)
         {
             List<string> errorList = new List<string>();//错误列表
+
+            //出版社Id
+            int publisherId = ((KeyValuePair<int, string>)publishingHouseComboBox.SelectedItem).Key;
+            
             //判断订购人账号是否符合要求
             Match matchOrderer = Regex.Match(SubscriberTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
             if (!matchOrderer.Success)
@@ -71,18 +143,13 @@ namespace LibraryManagement.Interview
             int ordererId = utilBll.GetUserIdFormNumber(SubscriberTextBox.Text);
 
             double price;
+
             //判断价格是否能被转换为整型
             if (!double.TryParse(pricetextBox.Text, out price))
             {
                 errorList.Add("OrderPrice Error");
             }
 
-            int publisherId;
-            //判断出版社ID是否能被转换为整型
-            if (!int.TryParse(publisherTextBox.Text, out publisherId))
-            {
-                errorList.Add("PublisherId Error");
-            }
             //根据页面内容构造订单
             InterviewPurchaseOrder order = new InterviewPurchaseOrder()
             {
@@ -98,10 +165,15 @@ namespace LibraryManagement.Interview
             return order;//返回订单
         }
 
-        private void ExitLog_Click(object sender,EventArgs e)
+        /// <summary>
+        /// 修改用户控件中按钮的启用状态
+        /// </summary>
+        private void ChangeControlEnableState()
         {
-            parentForm.Show();
-            Hide();
+            scriptUserControl1.ContorlEnabledChange(ScriptUserControl.ControlNames.addButton);
+            scriptUserControl1.ContorlEnabledChange(ScriptUserControl.ControlNames.changeButton);
+            scriptUserControl1.ContorlEnabledChange(ScriptUserControl.ControlNames.emptyButton);
+            scriptUserControl1.ContorlEnabledChange(ScriptUserControl.ControlNames.saveButton);
         }
 
         private void BookOrderForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -114,6 +186,12 @@ namespace LibraryManagement.Interview
             //下方总窗体数据绑定
             dataGridView1.DataSource = interviewPurchaseBll.GetAllPurchaseOrders();
 
+            //出版社数据绑定
+            BindingSource bs_PublishingHouse = new BindingSource();
+            bs_PublishingHouse.DataSource = utilBll.GetPublishingHouseNames();
+            publishingHouseComboBox.DataSource = bs_PublishingHouse;
+            publishingHouseComboBox.ValueMember = "Key";
+            publishingHouseComboBox.DisplayMember = "Value";
         }
     }
 }
