@@ -6,45 +6,50 @@ using System.Windows.Forms;
 
 namespace LibraryManagementFunctionTest.Periodical
 {
-    public partial class PeriodicalOrderForm : Form
+    public partial class PeriodicalArrivalForm : Form
     {
         Form parentForm;//父窗体
+
         Tools.UserCaseHandle userCaseHandle;
         int selectIndex = -1;
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="form">父窗体</param>
-        public PeriodicalOrderForm(Form form)
+        public PeriodicalArrivalForm(Form form)
         {
             InitializeComponent();
             parentForm = form;
-            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)form).parentForm).folderSrc + "\\Add_PeriodicalOrder.xls");
-            sizeComboBox.SelectedIndex = 0;
-            booksellerComboBox.SelectedIndex = 0;
-            currencyTypeComboBox.SelectedIndex = 0;
-            publishingHouseComboBox.SelectedIndex = 0;
-            cycleComboBox.SelectedIndex = 0;
+            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)form).parentForm).folderSrc + "\\Add_PeriodicalArrival.xls");
             comboBox_chooseType.SelectedIndex = 0;
-            documentTypeComboBox.SelectedIndex = 0;
+            stateComboBox.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// 窗体加载函数
+        /// </summary>
+        private void PeriodicalArrivalForm_Load(object sender, EventArgs e)
+        {
+            DataBind();//数据绑定
         }
 
         /// <summary>
         /// 窗体关闭函数
         /// </summary>
-        private void PeriodicalOrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void PeriodicalArrivalForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();//显示上层窗体
             Hide();//隐藏当前窗体
         }
+
 
         private void btn_addCase_Click(object sender, EventArgs e)
         {
             try
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
-                //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
-                var list = new PeriodicalOrder[] { GetPeriodicalOrder(ref errorList) };
+                //获取根据当前页面内容生成的登到（若有错误会被添加到错误列表中）
+                var list = new PeriodicalArrival[] { GetPeriodicalArrival(ref errorList) };
                 if (errorList.Count == 0)
                 {
                     if (userCaseHandle.AddUserCases(list.ToList()))
@@ -73,7 +78,7 @@ namespace LibraryManagementFunctionTest.Periodical
             try
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
-                //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
+                //获取根据当前页面内容生成的登到（若有错误会被添加到错误列表中）
                 if (selectIndex == -1)
                     return;
                 if (errorList.Count == 0)
@@ -99,16 +104,12 @@ namespace LibraryManagementFunctionTest.Periodical
             DataBind();
         }
 
-        private void PeriodicalOrderForm_Load(object sender, EventArgs e)
-        {
-            DataBind();
-        }
 
         private void DataBind()
         {
             try
             {
-                dataGridView1.DataSource = userCaseHandle.GetUserCasesDataTable();
+                arrivalDataGridView.DataSource = userCaseHandle.GetUserCasesDataTable();
             }
             catch (Exception e)
             {
@@ -117,40 +118,20 @@ namespace LibraryManagementFunctionTest.Periodical
         }
 
         /// <summary>
-        /// 获取当前窗体所表示的订单
+        /// 获取当前窗体所表示的登到
         /// </summary>
         /// <param name="error">错误列表</param>
-        /// <returns>期刊订单</returns>
-        private PeriodicalOrder GetPeriodicalOrder(ref List<string> error)
+        /// <returns>期刊登到</returns>
+        private PeriodicalArrival GetPeriodicalArrival(ref List<string> error)
         {
             List<string> errorList = new List<string>();//错误列表
-            //通过订购人账号获取id
-            int ordererId = int.Parse(ordererTextBox.Text);
-            double price;
-            //判断价格是否能被转换为浮点型
-            if (!double.TryParse(orderPriceTextBox.Text, out price))
+            //根据页面内容构造登到
+            PeriodicalArrival arrival = new PeriodicalArrival()
             {
-                errorList.Add("OrderPrice Error");
-            }
-            //根据页面内容构造订单
-            PeriodicalOrder order = new PeriodicalOrder()
-            {
-                Id = int.Parse(orderNumTextBox.Text),
-                BookSellerId = booksellerComboBox.SelectedIndex,
-                OrderDate = orderDatePicker.Value,
-                OrdererId = ordererId,
-                ISBN = IsbnTextBox.Text,
-                DocumentType = documentTypeComboBox.Text,
-                PublishCycle = cycleComboBox.Text,
-                OfficialTitle = officialTitleTextBox.Text,
-                SupplementTitle = supplementTitleTextBox.Text,
-                PublishingHouseId = publishingHouseComboBox.SelectedIndex,
-                OrderPrice = price,
-                CurrencyType = currencyTypeComboBox.Text,
-                Size = sizeComboBox.Text,
+                State = stateComboBox.Text,
             };
             error = errorList;//返回错误列表
-            return order;//返回订单
+            return arrival;//返回登到
         }
 
         private void btn_reflashCase_Click(object sender, EventArgs e)
@@ -158,23 +139,15 @@ namespace LibraryManagementFunctionTest.Periodical
             DataBind();
         }
 
-        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-                selectIndex = dataGridView1.CurrentRow.Index;
-            }
-        }
-
         private void comboBox_chooseType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox_chooseType.SelectedIndex == 0)
             {
-                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)parentForm).parentForm).folderSrc + "\\Add_PeriodicalOrder.xls");
+                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)parentForm).parentForm).folderSrc + "\\Add_PeriodicalArrival.xls");
             }
             else
             {
-                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)parentForm).parentForm).folderSrc + "\\Update_PeriodicalOrder.xls");
+                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((PeriodicalForm)parentForm).parentForm).folderSrc + "\\Update_PeriodicalArrival.xls");
             }
             DataBind();
         }

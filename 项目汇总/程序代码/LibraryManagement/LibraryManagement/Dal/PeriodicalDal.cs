@@ -14,6 +14,7 @@ namespace LibraryManagement.Dal
         /// </summary>
         private SQLHelper helper = new SQLHelper();
 
+        #region 期刊订单
         /// <summary>
         /// 增加一条期刊订单记录
         /// </summary>
@@ -80,7 +81,7 @@ namespace LibraryManagement.Dal
         /// 删除一条期刊订单记录
         /// </summary>
         /// <param name="orderId">期刊订单</param>
-        /// <returns>增加成功与否</returns>
+        /// <returns>删除成功与否</returns>
         public bool DeletePeriodicalOrder(int orderId)
         {
             string sqlStr = "Delete from tb_PeriodicalOrder where Id=@id;";
@@ -104,7 +105,7 @@ namespace LibraryManagement.Dal
         /// 修改一条期刊订单记录
         /// </summary>
         /// <param name="order">期刊订单</param>
-        /// <returns>增加成功与否</returns>
+        /// <returns>修改成功与否</returns>
         public bool UpdatePeriodicalOrder(PeriodicalOrder order)
         {
             string sqlStr = "UPDATE tb_PeriodicalOrder SET " +
@@ -176,7 +177,9 @@ namespace LibraryManagement.Dal
                 "tb_BasicInformation " +
                 "on tb_PeriodicalOrder.BookSellerId=tb_DictionaryBookSeller.Id " +
                 "and tb_PeriodicalOrder.OrdererId=tb_BasicInformation.UserId " +
-                "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
+                "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
+                "AND NOT EXISTS ( SELECT * FROM tb_PeriodicalArrival WHERE tb_PeriodicalArrival.OrderId = tb_PeriodicalOrder.Id ) " +
+                "AND NOT EXISTS ( SELECT * FROM tb_Periodical WHERE tb_Periodical.OrderId = tb_PeriodicalOrder.Id );";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
@@ -212,6 +215,8 @@ namespace LibraryManagement.Dal
                 "on tb_PeriodicalOrder.BookSellerId=tb_DictionaryBookSeller.Id " +
                 "and tb_PeriodicalOrder.OrdererId=tb_BasicInformation.UserId " +
                 "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
+                "AND NOT EXISTS ( SELECT * FROM tb_PeriodicalArrival WHERE tb_PeriodicalArrival.OrderId = tb_PeriodicalOrder.Id )" +
+                "AND NOT EXISTS ( SELECT * FROM tb_Periodical WHERE tb_Periodical.OrderId = tb_PeriodicalOrder.Id );" +
                 "order by tb_PeriodicalOrder.Id limit @startPos,@endPos;";
             MySqlParameter[] paras = new MySqlParameter[]
             {
@@ -221,5 +226,163 @@ namespace LibraryManagement.Dal
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
         }
+        #endregion
+
+        #region 期刊登到
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public DataTable GetAllPeriodArrivals()
+        {
+            string sqlstr = " SELECT " +
+                " tb_PeriodicalArrival.Id AS 编号, " +
+                " tb_PeriodicalArrival.OrderId AS 订单编号, " +
+                " tb_PeriodicalOrder.ISBN AS ISBN号, " +
+                " tb_PeriodicalOrder.OfficialTitle AS 正刊名, " +
+                " tb_PeriodicalOrder.OrderPrice AS 订购价, " +
+                " tb_PeriodicalOrder.CurrencyType AS 币种, " +
+                " tb_PeriodicalArrival.State AS 状态  " +
+                " FROM " +
+                " tb_PeriodicalArrival " +
+                " INNER JOIN tb_PeriodicalOrder " +
+                " ON tb_PeriodicalArrival.OrderId = tb_PeriodicalOrder.Id;";
+            MySqlParameter[] paras = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
+
+        /// <summary>
+        /// 获取分页后订单
+        /// </summary>
+        /// <returns>分页后订单</returns>
+        public DataTable GetPeriodArrivals(int index, int size)
+        {
+            int startPos = (index - 1) * size;
+            int endPos = size;
+            string sqlstr = " SELECT " +
+                " tb_PeriodicalArrival.Id AS 编号, " +
+                " tb_PeriodicalArrival.OrderId AS 订单编号, " +
+                " tb_PeriodicalOrder.ISBN AS ISBN号, " +
+                " tb_PeriodicalOrder.OfficialTitle AS 正刊名, " +
+                " tb_PeriodicalOrder.OrderPrice AS 订购价, " +
+                " tb_PeriodicalOrder.CurrencyType AS 币种, " +
+                " tb_PeriodicalArrival.State AS 状态  " +
+                " FROM " +
+                " tb_PeriodicalArrival " +
+                " INNER JOIN tb_PeriodicalOrder " +
+                " ON tb_PeriodicalArrival.OrderId = tb_PeriodicalOrder.Id " +
+                " order by tb_PeriodicalArrival.Id limit @startPos,@endPos;";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@startPos",startPos),
+                new MySqlParameter("@endPos",endPos),
+            };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
+
+        /// <summary>
+        /// 增加一条期刊登到记录
+        /// </summary>
+        /// <param name="arrival">期刊登到记录</param>
+        /// <returns>增加成功与否</returns>
+        public bool AddPeriodicalArrival(PeriodicalArrival arrival)
+        {
+            string sqlStr = "INSERT INTO tb_PeriodicalArrival (" +
+                "OrderId," +
+                "State" +
+                ") " +
+                "VALUES(" +
+                "@orderId," +
+                "@state" +
+                ");";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@orderId",arrival.OrderId),
+                new MySqlParameter("@state",arrival.State),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 删除一条期刊登到记录
+        /// </summary>
+        /// <param name="arrivalId">期刊登到Id</param>
+        /// <returns>删除成功与否</returns>
+        public bool DeletePeriodicalArrival(int arrivalId)
+        {
+            string sqlStr = "Delete from tb_PeriodicalArrival where Id=@id;";
+            //储存Datatable        
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",arrivalId),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 更改一条期刊登到记录
+        /// </summary>
+        /// <param name="arrival">期刊登到记录</param>
+        /// <returns>更改成功与否</returns>
+        public bool UpdatePeriodicalArrival(PeriodicalArrival arrival)
+        {
+            string sqlStr = "UPDATE tb_PeriodicalArrival SET " +
+                "OrderId=@orderId, " +
+                "State=@state " +
+                "where Id=@id;";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@state",arrival.State),
+                new MySqlParameter("@orderId",arrival.OrderId),
+                new MySqlParameter("@id",arrival.Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 将完好期刊写入流通库
+        /// </summary>
+        /// <returns>更改成功与否</returns>
+        public bool MoveArrivedPeriodicalToCirculate()
+        {
+            string sqlStr = "MoveArrivedPeriodicalToCirculate";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@result",MySqlDbType.Bit,1),
+            };
+            para[0].Direction = ParameterDirection.Output;//将第一个变量设为输出变量
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.StoredProcedure);
+            return para[0].Value.ToString() == "1";
+        }
+        #endregion
     }
 }

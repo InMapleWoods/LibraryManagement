@@ -1,10 +1,10 @@
-﻿using System;
+﻿using LibraryManagement.Bll;
+using LibraryManagement.Model;
+using LibraryManagement.Tools.MyUserControl;
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using LibraryManagement.Bll;
-using LibraryManagement.Model;
-using LibraryManagement.Tools.MyUserControl;
 
 namespace LibraryManagement.Periodical
 {

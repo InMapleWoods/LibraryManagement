@@ -2,13 +2,13 @@
 using LibraryManagement.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace LibraryManageUnitTest.Periodical
 {
     [TestClass]
-    public class PeriodicalUnitTest
+    public class PeriodicalOrderUnitTest
     {
         PeriodicalBll periodicalBll = new PeriodicalBll();
 
@@ -58,23 +58,26 @@ namespace LibraryManageUnitTest.Periodical
                     maxId = i.Id;
                 }
             }
-            PeriodicalOrder order = new PeriodicalOrder()
+            if (maxId != -1)
             {
-                Id = maxId,
-                OrdererId = 1,
-                ISBN = "1234567890",
-                OfficialTitle = "单元测试" + DateTime.Now.Date.ToString("yy-MM-dd"),
-                SupplementTitle = "单元测试" + DateTime.Now.Date.ToString("yy-MM-dd"),
-                OrderPrice = 10,
-                BookSellerId = 1,
-                OrderDate = DateTime.Now,
-                DocumentType = "期刊",
-                PublishCycle = "月刊",
-                PublishingHouseId = 1,
-                CurrencyType = "美元(USD)",
-                Size = "A4",
-            };
-            Assert.AreEqual(true, periodicalBll.UpdatePeriodicalOrder(order, ref errorList));
+                PeriodicalOrder order = new PeriodicalOrder()
+                {
+                    Id = maxId,
+                    OrdererId = 1,
+                    ISBN = "1234567890",
+                    OfficialTitle = "单元测试" + DateTime.Now.Date.ToString("yy-MM-dd"),
+                    SupplementTitle = "单元测试" + DateTime.Now.Date.ToString("yy-MM-dd"),
+                    OrderPrice = 10,
+                    BookSellerId = 1,
+                    OrderDate = DateTime.Now,
+                    DocumentType = "期刊",
+                    PublishCycle = "月刊",
+                    PublishingHouseId = 1,
+                    CurrencyType = "美元(USD)",
+                    Size = "A4",
+                };
+                Assert.AreEqual(true, periodicalBll.UpdatePeriodicalOrder(order, ref errorList));
+            }
         }
 
         [TestMethod]
@@ -88,7 +91,10 @@ namespace LibraryManageUnitTest.Periodical
                     maxId = i.Id;
                 }
             }
-            Assert.AreEqual(true, periodicalBll.DeletePeriodicalOrder(maxId));
+            if (maxId != -1)
+            {
+                Assert.AreEqual(true, periodicalBll.DeletePeriodicalOrder(maxId));
+            }
             Assert.AreEqual(false, periodicalBll.DeletePeriodicalOrder(-1));
         }
 

@@ -52,6 +52,7 @@
             this.arriveButton.TabIndex = 2;
             this.arriveButton.Text = "期刊登到";
             this.arriveButton.UseVisualStyleBackColor = true;
+            this.arriveButton.Click += new System.EventHandler(this.arriveButton_Click);
             // 
             // bindiButton
             // 
