@@ -40,7 +40,7 @@ namespace LibraryManagement.Model
         /// <summary>
         /// 价格
         /// </summary>
-        public int Price = 0;
+        public double Price = 0;
 
         /// <summary>
         /// 出版社ID

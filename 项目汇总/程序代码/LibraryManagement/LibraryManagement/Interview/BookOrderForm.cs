@@ -68,11 +68,11 @@ namespace LibraryManagement.Interview
             }
 
             //通过订购人账号获取id
-            int ordererId = utilBll.GetUserIdFormNumber(orderNumTextBox.Text);
+            int ordererId = utilBll.GetUserIdFormNumber(SubscriberTextBox.Text);
 
-            int price;
+            double price;
             //判断价格是否能被转换为整型
-            if (!int.TryParse(pricetextBox.Text, out price))
+            if (!double.TryParse(pricetextBox.Text, out price))
             {
                 errorList.Add("OrderPrice Error");
             }

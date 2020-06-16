@@ -165,6 +165,7 @@
             // 
             // documentTypeComboBox
             // 
+            this.documentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.documentTypeComboBox.FormattingEnabled = true;
             this.documentTypeComboBox.Items.AddRange(new object[] {
             "期刊",
