@@ -29,5 +29,10 @@ namespace LibraryManagement.Catalog
         {
 
         }
+
+        private void cancelAuditBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

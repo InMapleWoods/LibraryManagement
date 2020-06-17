@@ -75,7 +75,7 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(253, 135);
+            this.idLabel.Location = new System.Drawing.Point(253, 133);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(26, 18);
             this.idLabel.TabIndex = 2;
@@ -84,7 +84,7 @@
             // isbnLabel
             // 
             this.isbnLabel.AutoSize = true;
-            this.isbnLabel.Location = new System.Drawing.Point(253, 163);
+            this.isbnLabel.Location = new System.Drawing.Point(253, 167);
             this.isbnLabel.Name = "isbnLabel";
             this.isbnLabel.Size = new System.Drawing.Size(62, 18);
             this.isbnLabel.TabIndex = 3;
@@ -93,7 +93,7 @@
             // positiveTitleLabel
             // 
             this.positiveTitleLabel.AutoSize = true;
-            this.positiveTitleLabel.Location = new System.Drawing.Point(253, 192);
+            this.positiveTitleLabel.Location = new System.Drawing.Point(253, 201);
             this.positiveTitleLabel.Name = "positiveTitleLabel";
             this.positiveTitleLabel.Size = new System.Drawing.Size(62, 18);
             this.positiveTitleLabel.TabIndex = 4;
@@ -102,7 +102,7 @@
             // firstAuthorLabel
             // 
             this.firstAuthorLabel.AutoSize = true;
-            this.firstAuthorLabel.Location = new System.Drawing.Point(253, 222);
+            this.firstAuthorLabel.Location = new System.Drawing.Point(253, 235);
             this.firstAuthorLabel.Name = "firstAuthorLabel";
             this.firstAuthorLabel.Size = new System.Drawing.Size(80, 18);
             this.firstAuthorLabel.TabIndex = 5;
@@ -111,7 +111,7 @@
             // publishingHouseLabel
             // 
             this.publishingHouseLabel.AutoSize = true;
-            this.publishingHouseLabel.Location = new System.Drawing.Point(253, 252);
+            this.publishingHouseLabel.Location = new System.Drawing.Point(253, 268);
             this.publishingHouseLabel.Name = "publishingHouseLabel";
             this.publishingHouseLabel.Size = new System.Drawing.Size(62, 18);
             this.publishingHouseLabel.TabIndex = 6;
@@ -120,7 +120,7 @@
             // documentTypeLabel
             // 
             this.documentTypeLabel.AutoSize = true;
-            this.documentTypeLabel.Location = new System.Drawing.Point(253, 282);
+            this.documentTypeLabel.Location = new System.Drawing.Point(253, 300);
             this.documentTypeLabel.Name = "documentTypeLabel";
             this.documentTypeLabel.Size = new System.Drawing.Size(80, 18);
             this.documentTypeLabel.TabIndex = 7;
@@ -129,7 +129,7 @@
             // primaryLiabilityLabel
             // 
             this.primaryLiabilityLabel.AutoSize = true;
-            this.primaryLiabilityLabel.Location = new System.Drawing.Point(253, 311);
+            this.primaryLiabilityLabel.Location = new System.Drawing.Point(253, 333);
             this.primaryLiabilityLabel.Name = "primaryLiabilityLabel";
             this.primaryLiabilityLabel.Size = new System.Drawing.Size(80, 18);
             this.primaryLiabilityLabel.TabIndex = 8;
@@ -138,7 +138,7 @@
             // catalogerLabel
             // 
             this.catalogerLabel.AutoSize = true;
-            this.catalogerLabel.Location = new System.Drawing.Point(253, 339);
+            this.catalogerLabel.Location = new System.Drawing.Point(253, 367);
             this.catalogerLabel.Name = "catalogerLabel";
             this.catalogerLabel.Size = new System.Drawing.Size(80, 18);
             this.catalogerLabel.TabIndex = 9;
@@ -147,7 +147,7 @@
             // catalogingDateLabel
             // 
             this.catalogingDateLabel.AutoSize = true;
-            this.catalogingDateLabel.Location = new System.Drawing.Point(253, 367);
+            this.catalogingDateLabel.Location = new System.Drawing.Point(253, 405);
             this.catalogingDateLabel.Name = "catalogingDateLabel";
             this.catalogingDateLabel.Size = new System.Drawing.Size(80, 18);
             this.catalogingDateLabel.TabIndex = 10;
@@ -155,70 +155,73 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(348, 367);
+            this.dateTimePicker1.Location = new System.Drawing.Point(348, 398);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(392, 28);
             this.dateTimePicker1.TabIndex = 11;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(348, 124);
+            this.textBox1.Location = new System.Drawing.Point(348, 130);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(392, 28);
             this.textBox1.TabIndex = 12;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(348, 153);
+            this.textBox2.Location = new System.Drawing.Point(348, 164);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(392, 28);
             this.textBox2.TabIndex = 13;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(348, 182);
+            this.textBox3.Location = new System.Drawing.Point(348, 198);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(392, 28);
             this.textBox3.TabIndex = 14;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(348, 212);
+            this.textBox4.Location = new System.Drawing.Point(348, 232);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(392, 28);
             this.textBox4.TabIndex = 15;
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(348, 242);
+            this.comboBox1.Location = new System.Drawing.Point(348, 265);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(392, 26);
             this.comboBox1.TabIndex = 16;
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(348, 274);
+            this.comboBox2.Location = new System.Drawing.Point(348, 297);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(392, 26);
             this.comboBox2.TabIndex = 17;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(348, 300);
+            this.textBox5.Location = new System.Drawing.Point(348, 330);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(392, 28);
             this.textBox5.TabIndex = 18;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(348, 333);
+            this.textBox6.Location = new System.Drawing.Point(348, 364);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(392, 28);
             this.textBox6.TabIndex = 19;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
-            // catalogQueryForm
+            // CatalogQueryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -243,7 +246,7 @@
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.scriptUserControl1);
-            this.Name = "catalogQueryForm";
+            this.Name = "CatalogQueryForm";
             this.Text = "编目查询";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
