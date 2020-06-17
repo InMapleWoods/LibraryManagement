@@ -232,6 +232,7 @@
             this.Controls.Add(this.orderDateLabel);
             this.Controls.Add(this.orderNumTextBox);
             this.Controls.Add(this.orderNumberLabel);
+            this.MaximizeBox = false;
             this.Name = "BookOrderForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

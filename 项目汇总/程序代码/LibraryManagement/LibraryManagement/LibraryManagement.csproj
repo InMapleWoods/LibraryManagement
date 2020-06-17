@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bll\InterviewListBll.cs" />
     <Compile Include="Bll\MaintainaceBll.cs" />
     <Compile Include="Bll\PeriodicalBll.cs" />
     <Compile Include="Bll\InterviewPurchaseBll.cs" />
@@ -146,6 +147,12 @@
       <DependentUpon>InterviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dal\SqlHelper.cs" />
+    <Compile Include="Interview\InterviewListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interview\InterviewListForm.Designer.cs">
+      <DependentUpon>InterviewListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +180,7 @@
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\DictionaryBookSeller.cs" />
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
+    <Compile Include="Model\InterviewList.cs" />
     <Compile Include="Model\PeriodicalArrival.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
     <Compile Include="Model\InterviewPurchaseOrder.cs" />
@@ -204,6 +212,9 @@
     </Compile>
     <EmbeddedResource Include="Interview\BookOrderForm.resx">
       <DependentUpon>BookOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interview\InterviewListForm.resx">
+      <DependentUpon>InterviewListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintainace\BackUpForm.resx">
       <DependentUpon>BackUpForm.cs</DependentUpon>
