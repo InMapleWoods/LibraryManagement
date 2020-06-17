@@ -44,8 +44,8 @@
             this.documentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.subDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             this.publishingHouseComboBox = new System.Windows.Forms.ComboBox();
+            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -182,6 +182,8 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(795, 185);
             this.dataGridView1.TabIndex = 19;
+            this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // subDatePicker
             // 
@@ -189,14 +191,6 @@
             this.subDatePicker.Name = "subDatePicker";
             this.subDatePicker.Size = new System.Drawing.Size(641, 25);
             this.subDatePicker.TabIndex = 21;
-            // 
-            // scriptUserControl1
-            // 
-            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(795, 83);
-            this.scriptUserControl1.TabIndex = 20;
             // 
             // publishingHouseComboBox
             // 
@@ -206,6 +200,14 @@
             this.publishingHouseComboBox.Name = "publishingHouseComboBox";
             this.publishingHouseComboBox.Size = new System.Drawing.Size(641, 23);
             this.publishingHouseComboBox.TabIndex = 22;
+            // 
+            // scriptUserControl1
+            // 
+            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.scriptUserControl1.Name = "scriptUserControl1";
+            this.scriptUserControl1.Size = new System.Drawing.Size(795, 83);
+            this.scriptUserControl1.TabIndex = 20;
             // 
             // BookOrderForm
             // 
@@ -235,6 +237,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "订购新书";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookOrderForm_FormClosing);
+            this.Load += new System.EventHandler(this.BookOrderForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

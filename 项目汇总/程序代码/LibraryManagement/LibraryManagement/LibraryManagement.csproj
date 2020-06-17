@@ -92,6 +92,7 @@
     <Compile Include="Bll\MaintainaceBll.cs" />
     <Compile Include="Bll\PeriodicalBll.cs" />
     <Compile Include="Bll\InterviewPurchaseBll.cs" />
+    <Compile Include="Bll\UserManagementBll.cs" />
     <Compile Include="Bll\UtilBll.cs" />
     <Compile Include="Catalog\CancelBookForm.cs">
       <SubType>Form</SubType>
@@ -138,6 +139,7 @@
     <Compile Include="Dal\MaintainaceDal.cs" />
     <Compile Include="Dal\PeriodicalDal.cs" />
     <Compile Include="Dal\InterviewPurchaseDal.cs" />
+    <Compile Include="Dal\UserManagementDal.cs" />
     <Compile Include="Dal\UtilDal.cs" />
     <Compile Include="Interview\BookOrderForm.cs">
       <SubType>Form</SubType>
@@ -182,6 +184,7 @@
     <Compile Include="Model\PeriodicalArrival.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
     <Compile Include="Model\InterviewPurchaseOrder.cs" />
+    <Compile Include="Model\UserManagementReaderInfo.cs" />
     <Compile Include="Periodical\PeriodicalArrivalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,12 +225,6 @@
     </Compile>
     <Compile Include="Tools\MyUserControl\ScriptUserControl.Designer.cs">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserManagement\AddReaderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserManagement\AddReaderForm.Designer.cs">
-      <DependentUpon>AddReaderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\AdminOperationForm.cs">
       <SubType>Form</SubType>
@@ -294,9 +291,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\MyUserControl\ScriptUserControl.resx">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserManagement\AddReaderForm.resx">
-      <DependentUpon>AddReaderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\AdminOperationForm.resx">
       <DependentUpon>AdminOperationForm.cs</DependentUpon>
