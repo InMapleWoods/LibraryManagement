@@ -1,5 +1,6 @@
 ﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -221,6 +222,12 @@ namespace LibraryManagement.Periodical
 
         private void SetEnable()
         {
+            if (arrivalDataGridView.Rows.Count == 0)
+            {
+                changeButton.Enabled = false;
+                deleteButton.Enabled = false;
+                arrivalButton.Enabled = true;
+            }
             DataGridViewRow row = arrivalDataGridView.SelectedRows.Count <= 0 ? arrivalDataGridView.CurrentRow : arrivalDataGridView.SelectedRows[0];
             if (row == null)
             {

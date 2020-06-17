@@ -65,7 +65,7 @@
             // arrivalButton
             // 
             this.arrivalButton.Enabled = false;
-            this.arrivalButton.Location = new System.Drawing.Point(603, 284);
+            this.arrivalButton.Location = new System.Drawing.Point(562, 283);
             this.arrivalButton.Name = "arrivalButton";
             this.arrivalButton.Size = new System.Drawing.Size(76, 75);
             this.arrivalButton.TabIndex = 1;
@@ -133,9 +133,9 @@
             // changeButton
             // 
             this.changeButton.Enabled = false;
-            this.changeButton.Location = new System.Drawing.Point(685, 284);
+            this.changeButton.Location = new System.Drawing.Point(644, 284);
             this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(76, 75);
+            this.changeButton.Size = new System.Drawing.Size(117, 75);
             this.changeButton.TabIndex = 1;
             this.changeButton.Text = "修改状态";
             this.changeButton.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             this.deleteButton.Enabled = false;
             this.deleteButton.Location = new System.Drawing.Point(767, 284);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(76, 75);
+            this.deleteButton.Size = new System.Drawing.Size(123, 75);
             this.deleteButton.TabIndex = 1;
             this.deleteButton.Text = "删除登到";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -171,9 +171,9 @@
             // 
             // circulationButton
             // 
-            this.circulationButton.Location = new System.Drawing.Point(59, 285);
+            this.circulationButton.Location = new System.Drawing.Point(39, 284);
             this.circulationButton.Name = "circulationButton";
-            this.circulationButton.Size = new System.Drawing.Size(76, 75);
+            this.circulationButton.Size = new System.Drawing.Size(123, 75);
             this.circulationButton.TabIndex = 1;
             this.circulationButton.Text = "完好期刊\r\n全部入库";
             this.circulationButton.UseVisualStyleBackColor = true;
