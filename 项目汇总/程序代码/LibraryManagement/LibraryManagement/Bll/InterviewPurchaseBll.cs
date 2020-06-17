@@ -67,6 +67,37 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
+        /// 修改一条采购订单记录
+        /// </summary>
+        /// <param name="order">采购订单</param>
+        /// <returns>修改成功与否</returns>
+        public bool UpdatePurchaseOrder(InterviewPurchaseOrder order, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (order.Id == 0)
+                {
+                    errorMsg.Add("Id Error");
+                    return false;
+                }
+                if (!InterviewPurchaseOrder.isNull(order))//是否有空项
+                {
+                    if (InterviewPurchaseOrder.isNormative(order, ref errorMsg))//是否符合规范
+                    {
+                        result = purchaseDal.UpdatePurchaseOrder(order);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
         /// 获取全部订单
         /// </summary>
         /// <returns>全部订单</returns>

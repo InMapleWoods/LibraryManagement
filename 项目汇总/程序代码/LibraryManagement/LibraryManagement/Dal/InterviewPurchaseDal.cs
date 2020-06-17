@@ -101,7 +101,6 @@ namespace LibraryManagement.Dal
         public bool UpdatePurchaseOrder(InterviewPurchaseOrder order)
         {
             string sqlStr = "UPDATE tb_PurchaseOrder SET " +
-                "Id=@id, " +
                 "SubDate=@subDate, " +
                 "ISBN=@iSBN, " +
                 "OrdererId=@ordererId, " +
@@ -113,7 +112,6 @@ namespace LibraryManagement.Dal
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器 
             {
-                new MySqlParameter("@id",order.Id),
                 new MySqlParameter("@subDate",order.SubDate),
                 new MySqlParameter("@ordererId",order.OrdererId),
                 new MySqlParameter("@iSBN",order.ISBN),
