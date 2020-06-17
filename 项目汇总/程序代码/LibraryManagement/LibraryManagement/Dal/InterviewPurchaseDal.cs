@@ -12,13 +12,14 @@ namespace LibraryManagement.Dal
     /// <summary>
     /// 采访子系统数据操作类
     /// </summary>
-    public class InterviewPurchaseDal
+    public class InterviewDal
     {
         /// <summary>
         /// 工具对象
         /// </summary>
         private SQLHelper helper = new SQLHelper();
 
+        #region 采购订单
         /// <summary>
         /// 增加一条采购订单记录
         /// </summary>
@@ -156,5 +157,145 @@ namespace LibraryManagement.Dal
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
         }
+        #endregion
+
+        #region 采访清单
+        /// <summary>
+        /// 增加一条采访清单记录
+        /// </summary>
+        /// <param name="list">采访清单</param>
+        /// <returns>增加成功与否</returns>
+        public bool AddInterviewList(InterviewList list)
+        {
+            string sqlStr = "INSERT INTO tb_InterviewList (" +
+                "Id," +
+                "Author," +
+                "ISBN," +
+                "OrderStatus," +
+                "BookName," +
+                "Price," +
+                "PublishingHouseId," +
+                "DocumentType" +
+                ")" +
+                "VALUES(" +
+                "@id," +
+                "@author," +
+                "@iSBN," +
+                "@orderStatus," +
+                "@bookName," +
+                "@price," +
+                "@publishingHouseId," +
+                "@documentType" +
+                ")";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",list.Id),
+                new MySqlParameter("@author",list.Author),
+                new MySqlParameter("@iSBN",list.ISBN),
+                new MySqlParameter("@bookName",list.BookName),
+                new MySqlParameter("@price",list.Price),
+                new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
+                new MySqlParameter("@orderStatus",list.OrderStatus),
+                new MySqlParameter("@documentType",list.DocumentType),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 删除一条采访清单记录
+        /// </summary>
+        /// <param name="Id">采访清单</param>
+        /// <returns>增加成功与否</returns>
+        public bool DeleteInterviewList(int Id)
+        {
+            string sqlStr = "Delete from tb_InterviewList where Id=@id;";
+            //储存Datatable        
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 修改一条采访清单记录
+        /// </summary>
+        /// <param name="list">采访清单</param>
+        /// <returns>增加成功与否</returns>
+        public bool UpdateInterviewList(InterviewList list)
+        {
+            string sqlStr = "UPDATE tb_InterviewList SET " +
+                "ISBN=@iSBN, " +
+                "Author=@author, " +
+                "BookName=@bookName, " +
+                "Price=@price, " +
+                "PublishingHouseId=@publishingHouseId, " +
+                "DocumentType=@documentType " +
+                "OrderStatus=@orderStatus, " +
+                "where Id=@id;";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器 
+            {
+                new MySqlParameter("@subDate",list.Author),
+                new MySqlParameter("@iSBN",list.ISBN),
+                new MySqlParameter("@documentType",list.DocumentType),
+                new MySqlParameter("@bookName",list.BookName),
+                new MySqlParameter("@price",list.Price),
+                new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
+                new MySqlParameter("@id",list.Id),
+                new MySqlParameter("@orderStatus",list.OrderStatus),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 获取全部清单
+        /// </summary>
+        /// <returns>全部清单</returns>
+        public DataTable GetAllInterviewList()
+        {
+            string sqlstr = "select " +
+                "tb_InterviewList.Id as 清单号," +
+                "tb_InterviewList.ISBN as ISBN号," +
+                "tb_InterviewList.Author as 作者," +
+                "tb_InterviewList.BookName as 书名," +
+                "tb_InterviewList.Price as 价格," +
+                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
+                "tb_InterviewList.DocumentType as 文献类型," +
+                "tb_InterviewList.OrderStatus as 订购状态," +
+                " from " +
+                "tb_InterviewList inner join " +
+                "tb_DictionaryPublishingHouse " +
+                "on tb_InterviewList.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
+            MySqlParameter[] paras = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
+        #endregion
     }
 }
