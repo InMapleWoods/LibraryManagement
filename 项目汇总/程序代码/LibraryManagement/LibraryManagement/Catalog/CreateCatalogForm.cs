@@ -62,5 +62,20 @@ namespace LibraryManagement.Catalog
         {
 
         }
+
+        private void firstAuthorLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void documentTypeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void scriptUserControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -24,6 +24,12 @@ namespace LibraryManagement.Catalog
             var form = new CreateCatalogForm(this);
             form.Show();
             Hide();
+        } 
+        private void catalogQueryBtn_Click(object sender, EventArgs e)
+        {
+            var form = new CatalogQueryForm(this);
+            form.Show();
+            Hide();
         }
 
         private void CatalogForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -42,6 +48,13 @@ namespace LibraryManagement.Catalog
         private void newBookBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void catalogQueryBtn_Click_1(object sender, EventArgs e)
+        {
+            var form = new CatalogQueryForm(this);
+            form.Show();
+            Hide();
         }
     }
 }

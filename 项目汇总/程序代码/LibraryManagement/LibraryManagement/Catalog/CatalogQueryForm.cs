@@ -10,24 +10,28 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.Catalog
 {
-    public partial class CancelBookForm : Form
+    public partial class CatalogQueryForm : Form
     {
         Form parentForm;
-        public CancelBookForm(Form form)
+        public CatalogQueryForm(Form form)
         {
             InitializeComponent();
             parentForm = form;
         }
 
-        private void CancelBookForm_FormClosing(object sender, FormClosingEventArgs e)
+       
+
+        private void CatalogQueryForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
             Hide();
         }
+    
 
-        private void cancelApplyBtn_Click(object sender, EventArgs e)
+        private void scriptUserControl1_Load(object sender, EventArgs e)
         {
 
         }
+
     }
 }
