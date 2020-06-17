@@ -178,8 +178,7 @@ namespace LibraryManagement.Dal
                 "on tb_PeriodicalOrder.BookSellerId=tb_DictionaryBookSeller.Id " +
                 "and tb_PeriodicalOrder.OrdererId=tb_BasicInformation.UserId " +
                 "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
-                "AND NOT EXISTS ( SELECT * FROM tb_PeriodicalArrival WHERE tb_PeriodicalArrival.OrderId = tb_PeriodicalOrder.Id ) " +
-                "AND NOT EXISTS ( SELECT * FROM tb_Periodical WHERE tb_Periodical.OrderId = tb_PeriodicalOrder.Id );";
+                "AND NOT EXISTS ( SELECT * FROM tb_PeriodicalArrival WHERE tb_PeriodicalArrival.OrderId = tb_PeriodicalOrder.Id ) ;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
@@ -216,7 +215,6 @@ namespace LibraryManagement.Dal
                 "and tb_PeriodicalOrder.OrdererId=tb_BasicInformation.UserId " +
                 "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
                 "AND NOT EXISTS ( SELECT * FROM tb_PeriodicalArrival WHERE tb_PeriodicalArrival.OrderId = tb_PeriodicalOrder.Id )" +
-                "AND NOT EXISTS ( SELECT * FROM tb_Periodical WHERE tb_Periodical.OrderId = tb_PeriodicalOrder.Id );" +
                 "order by tb_PeriodicalOrder.Id limit @startPos,@endPos;";
             MySqlParameter[] paras = new MySqlParameter[]
             {
