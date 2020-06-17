@@ -107,7 +107,7 @@ namespace LibraryManagement.Dal
                 "BookName=@bookName, " +
                 "Price=@price, " +
                 "PublishingHouseId=@publishingHouseId, " +
-                "DocumentType=@documentType, " +
+                "DocumentType=@documentType " +
                 "where Id=@id;";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器 
