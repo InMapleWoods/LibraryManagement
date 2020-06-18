@@ -188,7 +188,7 @@
             this.PublishingHouseComboBox.Location = new System.Drawing.Point(560, 158);
             this.PublishingHouseComboBox.Name = "PublishingHouseComboBox";
             this.PublishingHouseComboBox.Size = new System.Drawing.Size(100, 23);
-            this.PublishingHouseComboBox.TabIndex = 37;
+            this.PublishingHouseComboBox.TabIndex = 33;
             // 
             // scriptUserControl1
             // 
@@ -212,7 +212,7 @@
             this.BookNameTextBox.Location = new System.Drawing.Point(132, 289);
             this.BookNameTextBox.Name = "BookNameTextBox";
             this.BookNameTextBox.Size = new System.Drawing.Size(100, 25);
-            this.BookNameTextBox.TabIndex = 40;
+            this.BookNameTextBox.TabIndex = 31;
             // 
             // InterviewListForm
             // 

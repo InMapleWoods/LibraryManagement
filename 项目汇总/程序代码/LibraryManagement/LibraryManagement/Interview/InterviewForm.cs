@@ -30,5 +30,11 @@ namespace LibraryManagement.Interview
             form.Show();
             Hide();
         }
+
+        private void ReturnButton_Click(object sender, System.EventArgs e)
+        {
+            parentForm.Show();
+            Hide();
+        }
     }
 }

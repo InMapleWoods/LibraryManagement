@@ -93,13 +93,13 @@ namespace LibraryManagement.Model
         /// <summary>
         /// 判断清单是否规范
         /// </summary>
-        /// <param name="order">待判断清单</param>
+        /// <param name="list">待判断清单</param>
         /// <param name="errorMsg">错误信息</param>
         /// <returns>是否规范</returns>
         public static bool isNormative(InterviewList list, ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
-            if (list.Id <= 0)
+            if (list.Id < 0)
             {
                 errorList.Add("Id Error");
             }

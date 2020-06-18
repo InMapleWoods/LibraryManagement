@@ -23,7 +23,7 @@ namespace LibraryManagement.Bll
         /// <summary>
         /// 增加一条采访清单记录
         /// </summary>
-        /// <param name="order">采访清单</param>
+        /// <param name="list">采访清单</param>
         /// <param name="errorMsg">增加成功与否</param>
         /// <returns></returns>
         public bool AddInterviewList(InterviewList list, ref List<string> errorMsg)

@@ -281,8 +281,8 @@ namespace LibraryManagement.Dal
         {
             string sqlstr = "select " +
                 "tb_InterviewList.Id as 清单号," +
-                "tb_InterviewList.ISBN as ISBN号," +
                 "tb_InterviewList.Author as 作者," +
+                "tb_InterviewList.ISBN as ISBN号," +
                 "tb_InterviewList.BookName as 书名," +
                 "tb_InterviewList.Price as 价格," +
                 "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
