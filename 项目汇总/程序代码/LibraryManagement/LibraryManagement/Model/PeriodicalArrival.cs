@@ -23,11 +23,10 @@ namespace LibraryManagement.Model
         /// </summary>
         public string State = "";
 
-
         /// <summary>
-        /// 判断订单是否有空项
+        /// 判断登到记录是否有空项
         /// </summary>
-        /// <param name="arrival">待判断订单</param>
+        /// <param name="arrival">待判断登到记录</param>
         /// <returns>是否有空项</returns>
         public static bool isNull(PeriodicalArrival arrival)
         {
@@ -43,9 +42,9 @@ namespace LibraryManagement.Model
         }
 
         /// <summary>
-        /// 判断订单是否规范
+        /// 判断登到记录是否规范
         /// </summary>
-        /// <param name="arrival">待判断订单</param>
+        /// <param name="arrival">待判断登到记录</param>
         /// <param name="errorMsg">错误信息</param>
         /// <returns>是否规范</returns>
         public static bool isNormative(PeriodicalArrival arrival, ref List<string> errorMsg)
