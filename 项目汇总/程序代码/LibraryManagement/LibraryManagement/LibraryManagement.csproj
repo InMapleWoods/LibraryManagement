@@ -201,11 +201,15 @@
     <Compile Include="Model\InterviewPurchaseOrder.cs" />
     <Compile Include="Model\StatisticalInfo.cs" />
     <Compile Include="Model\UserManagementReaderInfo.cs" />
-    <Compile Include="Periodical\PeriodicalArrivalForm.cs" />
+    <Compile Include="Periodical\PeriodicalArrivalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Periodical\PeriodicalArrivalForm.Designer.cs">
       <DependentUpon>PeriodicalArrivalForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Periodical\PeriodicalBindingForm.cs" />
+    <Compile Include="Periodical\PeriodicalBindingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Periodical\PeriodicalBindingForm.Designer.cs">
       <DependentUpon>PeriodicalBindingForm.cs</DependentUpon>
     </Compile>
