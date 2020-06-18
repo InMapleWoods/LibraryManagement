@@ -14,7 +14,9 @@ namespace LibraryManagement.Maintainace
 
         private void Btn_statisticalEditor_Click(object sender, EventArgs e)
         {
-
+            var form = new StatisticalEditForm(this);
+            form.Show();
+            Hide();
         }
 
         private void Btn_dictionaryEdit_Click(object sender, EventArgs e)

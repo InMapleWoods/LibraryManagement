@@ -13,7 +13,7 @@ namespace LibraryManagement.Model
         //表名
         public string TableName;
         //操作
-        public string Opration;
+        public string Operation;
 
         public static bool isNull(StatisticalInfo statisticalInfo)
         {
@@ -22,7 +22,7 @@ namespace LibraryManagement.Model
             {
                 return true;
             }
-            if (statisticalInfo.Opration == "")
+            if (statisticalInfo.Operation == "")
             {
                 return true;
             }
