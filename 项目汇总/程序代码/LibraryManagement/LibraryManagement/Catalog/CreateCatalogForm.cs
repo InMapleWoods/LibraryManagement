@@ -52,5 +52,30 @@ namespace LibraryManagement.Catalog
             form.Show();
             Hide();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void catalogingDatLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void firstAuthorLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void documentTypeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void scriptUserControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

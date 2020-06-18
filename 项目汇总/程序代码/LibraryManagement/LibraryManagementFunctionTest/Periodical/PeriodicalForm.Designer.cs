@@ -52,6 +52,7 @@
             this.arriveButton.TabIndex = 2;
             this.arriveButton.Text = "期刊登到";
             this.arriveButton.UseVisualStyleBackColor = true;
+            this.arriveButton.Click += new System.EventHandler(this.arriveButton_Click);
             // 
             // bindiButton
             // 
@@ -61,6 +62,7 @@
             this.bindiButton.TabIndex = 3;
             this.bindiButton.Text = "期刊装订";
             this.bindiButton.UseVisualStyleBackColor = true;
+            this.bindiButton.Click += new System.EventHandler(this.bindiButton_Click);
             // 
             // reportFormButton
             // 

@@ -1,10 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Dal
 {
@@ -53,7 +49,7 @@ namespace LibraryManagement.Dal
                 return null;
             }
             Dictionary<int, string> result = new Dictionary<int, string>();
-            foreach(DataRow i in dataTable.Rows)
+            foreach (DataRow i in dataTable.Rows)
             {
                 int idResult = (int)i["Id"];
                 string nameResult = (string)i["BookSeller"];
@@ -76,7 +72,7 @@ namespace LibraryManagement.Dal
                 return null;
             }
             Dictionary<int, string> result = new Dictionary<int, string>();
-            foreach(DataRow i in dataTable.Rows)
+            foreach (DataRow i in dataTable.Rows)
             {
                 int idResult = (int)i["Id"];
                 string nameResult = (string)i["PublishingHouse"];

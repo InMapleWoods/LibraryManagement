@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 namespace LibraryManagementFunctionTest.Model
@@ -57,30 +54,30 @@ namespace LibraryManagementFunctionTest.Model
         /// </summary>
         /// <param name="order">待判断订单</param>
         /// <returns>是否有空项</returns>
-        
+
         public static bool isNull(InterviewPurchaseOrder order)
         {
-            if(order.ISBN == "")
+            if (order.ISBN == "")
             {
                 return true;
             }
-            if(order.OrdererId == 0)
+            if (order.OrdererId == 0)
             {
                 return true;
             }
-            if(order.BookName == "")
+            if (order.BookName == "")
             {
                 return true;
             }
-            if(order.Price == 0)
+            if (order.Price == 0)
             {
                 return true;
             }
-            if(order.PublishingHouseId == 0)
+            if (order.PublishingHouseId == 0)
             {
                 return true;
             }
-            if(order.DocumentType == "")
+            if (order.DocumentType == "")
             {
                 return true;
             }
@@ -93,8 +90,8 @@ namespace LibraryManagementFunctionTest.Model
         /// <param name="order">待判断订单</param>
         /// <param name="errorMsg">错误信息</param>
         /// <returns>是否规范</returns>
-        
-        public static bool isNormative(InterviewPurchaseOrder order , ref List<string> errorMsg)
+
+        public static bool isNormative(InterviewPurchaseOrder order, ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
             if (order.OrdererId <= 0)
@@ -106,7 +103,7 @@ namespace LibraryManagementFunctionTest.Model
             {
                 errorList.Add("ISBN Error");
             }
-            if(order.Price <= 0)
+            if (order.Price <= 0)
             {
                 errorList.Add("Price Error");
             }

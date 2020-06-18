@@ -40,12 +40,12 @@
             this.priceLabel = new System.Windows.Forms.Label();
             this.pricetextBox = new System.Windows.Forms.TextBox();
             this.publisherLabel = new System.Windows.Forms.Label();
-            this.publisherTextBox = new System.Windows.Forms.TextBox();
             this.literatureTypeLabel = new System.Windows.Forms.Label();
             this.documentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             this.subDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.publishingHouseComboBox = new System.Windows.Forms.ComboBox();
+            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,13 +147,6 @@
             this.publisherLabel.TabIndex = 13;
             this.publisherLabel.Text = "出版社";
             // 
-            // publisherTextBox
-            // 
-            this.publisherTextBox.Location = new System.Drawing.Point(102, 335);
-            this.publisherTextBox.Name = "publisherTextBox";
-            this.publisherTextBox.Size = new System.Drawing.Size(641, 25);
-            this.publisherTextBox.TabIndex = 14;
-            // 
             // literatureTypeLabel
             // 
             this.literatureTypeLabel.AutoSize = true;
@@ -189,6 +182,24 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(795, 185);
             this.dataGridView1.TabIndex = 19;
+            this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // subDatePicker
+            // 
+            this.subDatePicker.Location = new System.Drawing.Point(102, 144);
+            this.subDatePicker.Name = "subDatePicker";
+            this.subDatePicker.Size = new System.Drawing.Size(641, 25);
+            this.subDatePicker.TabIndex = 21;
+            // 
+            // publishingHouseComboBox
+            // 
+            this.publishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.publishingHouseComboBox.FormattingEnabled = true;
+            this.publishingHouseComboBox.Location = new System.Drawing.Point(102, 338);
+            this.publishingHouseComboBox.Name = "publishingHouseComboBox";
+            this.publishingHouseComboBox.Size = new System.Drawing.Size(641, 23);
+            this.publishingHouseComboBox.TabIndex = 22;
             // 
             // scriptUserControl1
             // 
@@ -198,24 +209,17 @@
             this.scriptUserControl1.Size = new System.Drawing.Size(795, 83);
             this.scriptUserControl1.TabIndex = 20;
             // 
-            // subDatePicker
-            // 
-            this.subDatePicker.Location = new System.Drawing.Point(102, 144);
-            this.subDatePicker.Name = "subDatePicker";
-            this.subDatePicker.Size = new System.Drawing.Size(641, 25);
-            this.subDatePicker.TabIndex = 21;
-            // 
             // BookOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 609);
+            this.Controls.Add(this.publishingHouseComboBox);
             this.Controls.Add(this.subDatePicker);
             this.Controls.Add(this.scriptUserControl1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.documentTypeComboBox);
             this.Controls.Add(this.literatureTypeLabel);
-            this.Controls.Add(this.publisherTextBox);
             this.Controls.Add(this.publisherLabel);
             this.Controls.Add(this.pricetextBox);
             this.Controls.Add(this.priceLabel);
@@ -228,11 +232,13 @@
             this.Controls.Add(this.orderDateLabel);
             this.Controls.Add(this.orderNumTextBox);
             this.Controls.Add(this.orderNumberLabel);
+            this.MaximizeBox = false;
             this.Name = "BookOrderForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "订购新书";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookOrderForm_FormClosing);
+            this.Load += new System.EventHandler(this.BookOrderForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -252,11 +258,11 @@
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.TextBox pricetextBox;
         private System.Windows.Forms.Label publisherLabel;
-        private System.Windows.Forms.TextBox publisherTextBox;
         private System.Windows.Forms.Label literatureTypeLabel;
         private System.Windows.Forms.ComboBox documentTypeComboBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
         private System.Windows.Forms.DateTimePicker subDatePicker;
+        private System.Windows.Forms.ComboBox publishingHouseComboBox;
     }
 }

@@ -24,5 +24,16 @@ namespace LibraryManagementFunctionTest.Periodical
             parentForm.Show();
             Hide();
         }
+
+        private void arriveButton_Click(object sender, EventArgs e)
+        {
+            var form = new PeriodicalArrivalForm(this);
+            form.Show();
+            Hide();
+        }
+
+        private void bindiButton_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

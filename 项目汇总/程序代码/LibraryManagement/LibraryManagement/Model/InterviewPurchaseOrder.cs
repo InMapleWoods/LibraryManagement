@@ -57,7 +57,6 @@ namespace LibraryManagement.Model
         /// </summary>
         /// <param name="order">待判断订单</param>
         /// <returns>是否有空项</returns>
-        
         public static bool isNull(InterviewPurchaseOrder order)
         {
             if(order.ISBN == "")
@@ -93,7 +92,6 @@ namespace LibraryManagement.Model
         /// <param name="order">待判断订单</param>
         /// <param name="errorMsg">错误信息</param>
         /// <returns>是否规范</returns>
-        
         public static bool isNormative(InterviewPurchaseOrder order , ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();

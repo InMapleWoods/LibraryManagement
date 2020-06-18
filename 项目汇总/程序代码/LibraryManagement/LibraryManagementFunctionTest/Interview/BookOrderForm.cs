@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace LibraryManagementFunctionTest.Interview
 {
     public partial class BookOrderForm : Form
     {
-        Form parentForm;        
+        Form parentForm;
         public BookOrderForm(Form form)
         {
             InitializeComponent();

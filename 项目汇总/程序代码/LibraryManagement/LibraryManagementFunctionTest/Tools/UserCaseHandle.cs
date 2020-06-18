@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -115,7 +114,7 @@ namespace LibraryManagementFunctionTest.Tools
                 for (int i = 1; i < userCases.Length - 1; i++)
                 {
                     string[] cases = Regex.Split(userCases[i], "\t");
-                    dataTable.Rows.Add(cases.Take(cases.Length - 1).ToArray());
+                    dataTable.Rows.Add(cases);
                 }
             }
             return dataTable;

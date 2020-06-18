@@ -24,5 +24,15 @@ namespace LibraryManagement.Catalog
             parentForm.Show();
             Hide();
         }
+
+        private void cancelApplyBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelAuditBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
