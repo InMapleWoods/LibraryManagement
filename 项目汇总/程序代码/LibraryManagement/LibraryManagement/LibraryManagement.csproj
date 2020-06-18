@@ -89,9 +89,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bll\InterviewListBll.cs" />
     <Compile Include="Bll\MaintainaceBll.cs" />
     <Compile Include="Bll\PeriodicalBll.cs" />
     <Compile Include="Bll\InterviewPurchaseBll.cs" />
+    <Compile Include="Bll\UserManagementBll.cs" />
     <Compile Include="Bll\UtilBll.cs" />
     <Compile Include="Catalog\CancelBookForm.cs">
       <SubType>Form</SubType>
@@ -110,6 +112,12 @@
     </Compile>
     <Compile Include="Catalog\CreateCatalogForm.Designer.cs">
       <DependentUpon>CreateCatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\CatalogQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\CatalogQueryForm.Designer.cs">
+      <DependentUpon>CatalogQueryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Circulation\BookCirculationForm.cs">
       <SubType>Form</SubType>
@@ -132,6 +140,7 @@
     <Compile Include="Dal\MaintainaceDal.cs" />
     <Compile Include="Dal\PeriodicalDal.cs" />
     <Compile Include="Dal\InterviewPurchaseDal.cs" />
+    <Compile Include="Dal\UserManagementDal.cs" />
     <Compile Include="Dal\UtilDal.cs" />
     <Compile Include="Interview\BookOrderForm.cs">
       <SubType>Form</SubType>
@@ -146,6 +155,12 @@
       <DependentUpon>InterviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dal\SqlHelper.cs" />
+    <Compile Include="Interview\InterviewListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interview\InterviewListForm.Designer.cs">
+      <DependentUpon>InterviewListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,10 +188,12 @@
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\DictionaryBookSeller.cs" />
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
+    <Compile Include="Model\InterviewList.cs" />
     <Compile Include="Model\PeriodicalArrival.cs" />
     <Compile Include="Model\PeriodicalBinding.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
     <Compile Include="Model\InterviewPurchaseOrder.cs" />
+    <Compile Include="Model\UserManagementReaderInfo.cs" />
     <Compile Include="Periodical\PeriodicalArrivalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,8 +226,14 @@
     <Compile Include="Statistical\StatisticalForm.Designer.cs">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Catalog\CatalogQueryForm.resx">
+      <DependentUpon>CatalogQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interview\BookOrderForm.resx">
       <DependentUpon>BookOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interview\InterviewListForm.resx">
+      <DependentUpon>InterviewListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintainace\BackUpForm.resx">
       <DependentUpon>BackUpForm.cs</DependentUpon>
@@ -220,12 +243,6 @@
     </Compile>
     <Compile Include="Tools\MyUserControl\ScriptUserControl.Designer.cs">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserManagement\AddReaderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserManagement\AddReaderForm.Designer.cs">
-      <DependentUpon>AddReaderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\AdminOperationForm.cs">
       <SubType>Form</SubType>
@@ -295,9 +312,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\MyUserControl\ScriptUserControl.resx">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserManagement\AddReaderForm.resx">
-      <DependentUpon>AddReaderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\AdminOperationForm.resx">
       <DependentUpon>AdminOperationForm.cs</DependentUpon>

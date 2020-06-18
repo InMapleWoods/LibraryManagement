@@ -23,5 +23,12 @@ namespace LibraryManagement.Interview
             form.Show();
             Hide();
         }
+
+        private void InterviewListButton_Click(object sender, System.EventArgs e)
+        {
+            var form = new InterviewListForm(this);
+            form.Show();
+            Hide();
+        }
     }
 }

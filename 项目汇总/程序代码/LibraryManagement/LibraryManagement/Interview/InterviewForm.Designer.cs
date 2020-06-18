@@ -43,6 +43,7 @@
             this.InterviewListButton.TabIndex = 0;
             this.InterviewListButton.Text = "采访清单";
             this.InterviewListButton.UseVisualStyleBackColor = true;
+            this.InterviewListButton.Click += new System.EventHandler(this.InterviewListButton_Click);
             // 
             // CataloguingListButton
             // 
@@ -91,6 +92,7 @@
             this.Controls.Add(this.OrderModificationButton);
             this.Controls.Add(this.CataloguingListButton);
             this.Controls.Add(this.InterviewListButton);
+            this.MaximizeBox = false;
             this.Name = "InterviewForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

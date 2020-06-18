@@ -10,31 +10,32 @@ using LibraryManagement.Model;
 namespace LibraryManagement.Bll
 {
     /// <summary>
-    /// 采购订单用户操作类
+    /// 采访清单用户操作类
     /// </summary>
-    public class InterviewPurchaseBll
+    public class InterviewListBll
     {
-        /// <summary>
+
+         /// <summary>
         /// 订单数据操作对象
         /// </summary>
-        InterviewDal purchaseDal = new InterviewDal();
+        InterviewDal interviewDal = new InterviewDal();
 
         /// <summary>
-        /// 增加一条采购订单记录
+        /// 增加一条采访清单记录
         /// </summary>
-        /// <param name="order">采购订单</param>
+        /// <param name="order">采访清单</param>
         /// <param name="errorMsg">增加成功与否</param>
         /// <returns></returns>
-        public bool AddPurchaseOrder(InterviewPurchaseOrder order, ref List<string> errorMsg)
+        public bool AddInterviewList(InterviewList list, ref List<string> errorMsg)
         {
             bool result = false;
             try
             {
-                if(!InterviewPurchaseOrder.isNull(order))//是否有空项
+                if(!InterviewList.isNull(list))//是否有空项
                 {
-                    if(InterviewPurchaseOrder.isNormative(order, ref errorMsg))//是否符合规范
+                    if(InterviewList.isNormative(list, ref errorMsg))//是否符合规范
                     {
-                        result = purchaseDal.AddPurchaseOrder(order);
+                        result = interviewDal.AddInterviewList(list);
                     }
                 }
             }
@@ -47,16 +48,16 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
-        /// 删除一条采购订单记录
+        /// 删除一条采访清单记录
         /// </summary>
-        /// <param name="orderId">采购订单</param>
+        /// <param name="Id">采访清单</param>
         /// <returns>增加成功与否</returns>
-        public bool DeletePurchaseOrder(int orderId)
+        public bool DeleteInterviewList(int Id)
         {
             bool result = false;
             try
             {
-                result = purchaseDal.DeletePurchaseOrder(orderId);
+                result = interviewDal.DeleteInterviewList(Id);
             }
             catch (Exception e)
             {
@@ -67,25 +68,25 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
-        /// 修改一条采购订单记录
+        /// 修改一条采访清单记录
         /// </summary>
-        /// <param name="order">采购订单</param>
+        /// <param name="list">采访清单</param>
         /// <returns>修改成功与否</returns>
-        public bool UpdatePurchaseOrder(InterviewPurchaseOrder order, ref List<string> errorMsg)
+        public bool UpdateInterviewList(InterviewList list, ref List<string> errorMsg)
         {
             bool result = false;
             try
             {
-                if (order.Id == 0)
+                if (list.Id == 0)
                 {
                     errorMsg.Add("Id Error");
                     return false;
                 }
-                if (!InterviewPurchaseOrder.isNull(order))//是否有空项
+                if (!InterviewList.isNull(list))//是否有空项
                 {
-                    if (InterviewPurchaseOrder.isNormative(order, ref errorMsg))//是否符合规范
+                    if (InterviewList.isNormative(list, ref errorMsg))//是否符合规范
                     {
-                        result = purchaseDal.UpdatePurchaseOrder(order);
+                        result = interviewDal.UpdateInterviewList(list);
                     }
                 }
             }
@@ -98,15 +99,15 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
-        /// 获取全部订单
+        /// 获取全部清单
         /// </summary>
-        /// <returns>全部订单</returns>
-        public DataTable GetAllPurchaseOrders()
+        /// <returns>全部清单</returns>
+        public DataTable GetAllInterviewList()
         {
             DataTable result = null;
             try
             {
-                result = purchaseDal.GerAllPurchaseOrders();
+                result = interviewDal.GetAllInterviewList();
             }
             catch(Exception ex)
             {
@@ -115,7 +116,5 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
-
-
     }
 }
