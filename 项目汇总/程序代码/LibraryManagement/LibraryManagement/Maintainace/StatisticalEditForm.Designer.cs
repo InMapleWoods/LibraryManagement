@@ -104,6 +104,7 @@
             this.btn_Delete.TabIndex = 7;
             this.btn_Delete.Text = "删除";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Update
             // 
@@ -113,6 +114,7 @@
             this.btn_Update.TabIndex = 8;
             this.btn_Update.Text = "更改";
             this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // comboBox_TableName
             // 
@@ -121,6 +123,7 @@
             this.comboBox_TableName.Name = "comboBox_TableName";
             this.comboBox_TableName.Size = new System.Drawing.Size(121, 20);
             this.comboBox_TableName.TabIndex = 9;
+            this.comboBox_TableName.SelectedIndexChanged += new System.EventHandler(this.comboBox_TableName_SelectedIndexChanged);
             // 
             // StatisticalEditForm
             // 
@@ -137,7 +140,9 @@
             this.Controls.Add(this.textBox_Option);
             this.Controls.Add(this.btn_Add);
             this.Name = "StatisticalEditForm";
-            this.Text = "StatisticalEditForm";
+            this.Text = "统计格式设计";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StatisticalEditForm_FormClosing);
+            this.Load += new System.EventHandler(this.StatisticalEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_StatisticalInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

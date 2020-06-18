@@ -295,6 +295,9 @@
     <EmbeddedResource Include="Maintainace\MaitainanceForm.resx">
       <DependentUpon>MaitainanceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maintainace\StatisticalEditForm.resx">
+      <DependentUpon>StatisticalEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Periodical\PeriodicalArrivalForm.resx">
       <DependentUpon>PeriodicalArrivalForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -185,39 +185,43 @@ namespace LibraryManagement.Maintainace
         {
             try
             {
+                DialogResult dialogResult = MessageBox.Show("是否删除该条记录", "删除确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
                 List<string> errorList = new List<string>();//创建一个错误列表
                 //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
-                if (comboBox_Dictionary.SelectedIndex == 0)
+                if(dialogResult == DialogResult.Yes)
                 {
-                    
-                    //判断是否删除书商成功
-                    if (maintainaceBll.DeleteDicBookSeller(currentID))
+                    if (comboBox_Dictionary.SelectedIndex == 0)
                     {
-                        MessageBox.Show("删除成功");
-                    }
-                    else
-                    {
-                        MessageBox.Show("删除失败");
-                        foreach (var i in errorList)
+
+                        //判断是否删除书商成功
+                        if (maintainaceBll.DeleteDicBookSeller(currentID))
                         {
-                            MessageBox.Show(i);//逐条显示错误信息
+                            MessageBox.Show("删除成功");
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败");
+                            foreach (var i in errorList)
+                            {
+                                MessageBox.Show(i);//逐条显示错误信息
+                            }
                         }
                     }
-                }
-                else if (comboBox_Dictionary.SelectedIndex == 1)
-                {
-                   
-                    //判断是否删除成功
-                    if (maintainaceBll.DeleteDicPublishingHouse(currentID))
+                    else if (comboBox_Dictionary.SelectedIndex == 1)
                     {
-                        MessageBox.Show("删除成功");
-                    }
-                    else
-                    {
-                        MessageBox.Show("删除失败");
-                        foreach (var i in errorList)
+
+                        //判断是否删除成功
+                        if (maintainaceBll.DeleteDicPublishingHouse(currentID))
                         {
-                            MessageBox.Show(i);//逐条显示错误信息
+                            MessageBox.Show("删除成功");
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败");
+                            foreach (var i in errorList)
+                            {
+                                MessageBox.Show(i);//逐条显示错误信息
+                            }
                         }
                     }
                 }
@@ -443,6 +447,9 @@ namespace LibraryManagement.Maintainace
             }
             */
         }
+        /// <summary>
+        /// 按钮状态改变
+        /// </summary>
         private void ChangeControlEnableState()
         {
             scriptUserControl1.ContorlEnabledChange(ScriptUserControl.ControlNames.addButton);
