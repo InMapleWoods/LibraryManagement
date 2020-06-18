@@ -31,5 +31,9 @@ namespace LibraryManagementFunctionTest.Periodical
             form.Show();
             Hide();
         }
+
+        private void bindiButton_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

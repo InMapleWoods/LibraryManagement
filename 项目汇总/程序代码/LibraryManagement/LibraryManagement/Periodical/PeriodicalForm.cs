@@ -31,5 +31,12 @@ namespace LibraryManagement.Periodical
             form.Show();
             Hide();
         }
+
+        private void bindiButton_Click(object sender, EventArgs e)
+        {
+            var form = new PeriodicalBindingForm(this);
+            form.Show();
+            Hide();
+        }
     }
 }

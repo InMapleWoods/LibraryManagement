@@ -229,9 +229,9 @@ namespace LibraryManagement.Dal
         #region 期刊登到
 
         /// <summary>
-        /// 获取全部订单
+        /// 获取全部登到
         /// </summary>
-        /// <returns>全部订单</returns>
+        /// <returns>全部登到</returns>
         public DataTable GetAllPeriodArrivals()
         {
             string sqlstr = " SELECT " +
@@ -252,9 +252,9 @@ namespace LibraryManagement.Dal
         }
 
         /// <summary>
-        /// 获取分页后订单
+        /// 获取分页后登到
         /// </summary>
-        /// <returns>分页后订单</returns>
+        /// <returns>分页后登到</returns>
         public DataTable GetPeriodArrivals(int index, int size)
         {
             int startPos = (index - 1) * size;
@@ -381,6 +381,158 @@ namespace LibraryManagement.Dal
             int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.StoredProcedure);
             return para[0].Value.ToString() == "1";
         }
+        #endregion
+
+        #region 期刊合订
+        /// <summary>
+        /// 获取全部期刊
+        /// </summary>
+        /// <returns>全部期刊</returns>
+        public DataTable GetAllUnbindedPeriodical()
+        {
+            string sqlstr = " SELECT " +
+                " tb_CirculateBooks.Id AS 编号, " +
+                " tb_CirculateBooks.ISBN AS ISBN, " +
+                " tb_CirculateBooks.OfficialTitle AS 标题, " +
+                " tb_DictionaryPublishingHouse.PublishingLocation AS 出版社  " +
+                " FROM " +
+                " tb_CirculateBooks " +
+                " INNER JOIN tb_DictionaryPublishingHouse " +
+                " ON tb_CirculateBooks.PublishingHouseId = tb_DictionaryPublishingHouse.id  " +
+                " AND tb_CirculateBooks.DocumentType = '期刊'  " +
+                " AND BookStatus <> '已合订'; ";
+            MySqlParameter[] paras = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
+
+        /// <summary>
+        /// 获取全部合订
+        /// </summary>
+        /// <returns>全部合订</returns>
+        public DataTable GetAllPeriodBindings()
+        {
+            string sqlstr = " SELECT " +
+                " tb_PeriodicalBindingList.Id AS 编号, " +
+                " tb_PeriodicalBindingList.BindingIdList AS 合订编号, " +
+                " tb_PeriodicalBindingList.BookId AS 流通库编号, " +
+                " tb_PeriodicalBindingList.BindingName AS 合订本名称  " +
+                " FROM " +
+                " tb_PeriodicalBindingList ;";
+            MySqlParameter[] paras = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
+
+        /// <summary>
+        /// 获取分页后合订
+        /// </summary>
+        /// <returns>分页后合订</returns>
+        public DataTable GetPeriodBindings(int index, int size)
+        {
+            int startPos = (index - 1) * size;
+            int endPos = size;
+            string sqlstr = " SELECT " +
+                " tb_PeriodicalBindingList.Id AS 编号, " +
+                " tb_PeriodicalBindingList.BindingIdList AS 合订编号, " +
+                " tb_PeriodicalBindingList.BookId AS 流通库编号, " +
+                " tb_PeriodicalBindingList.BindingName AS 合订本名称  " +
+                " FROM " +
+                " tb_PeriodicalBindingList " +
+                " order by tb_PeriodicalBindingList.Id limit @startPos,@endPos;";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@startPos",startPos),
+                new MySqlParameter("@endPos",endPos),
+            };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
+
+        /// <summary>
+        /// 增加一条期刊合订记录
+        /// </summary>
+        /// <param name="binding">期刊合订记录</param>
+        /// <returns>增加成功与否</returns>
+        //public bool AddPeriodicalBinding(PeriodicalBinding binding)
+        //{
+        //    string sqlStr = "INSERT INTO tb_PeriodicalArrival (" +
+        //        "OrderId," +
+        //        "State" +
+        //        ") " +
+        //        "VALUES(" +
+        //        "@orderId," +
+        //        "@state" +
+        //        ");";
+        //    //储存Datatable
+        //    MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+        //    {
+        //        new MySqlParameter("@orderId",binding.OrderId),
+        //        new MySqlParameter("@state",binding.State),
+        //    };
+        //    int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+        //    if (count > 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        /// <summary>
+        /// 删除一条期刊合订记录
+        /// </summary>
+        /// <param name="bindingId">期刊合订Id</param>
+        /// <returns>删除成功与否</returns>
+        public bool DeletePeriodicalBinding(int bindingId)
+        {
+            string sqlStr = "Delete from tb_PeriodicalArrival where Id=@id;";
+            //储存Datatable        
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",bindingId),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        ///// <summary>
+        ///// 更改一条期刊合订记录
+        ///// </summary>
+        ///// <param name="binding">期刊合订记录</param>
+        ///// <returns>更改成功与否</returns>
+        //public bool UpdatePeriodicalBinding(PeriodicalBinding binding)
+        //{
+        //    string sqlStr = "UPDATE tb_PeriodicalArrival SET " +
+        //        "OrderId=@orderId, " +
+        //        "State=@state " +
+        //        "where Id=@id;";
+        //    //储存Datatable
+        //    MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+        //    {
+        //        new MySqlParameter("@state",binding.State),
+        //        new MySqlParameter("@orderId",binding.OrderId),
+        //        new MySqlParameter("@id",binding.Id),
+        //    };
+        //    int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+        //    if (count > 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
         #endregion
     }
 }

@@ -62,6 +62,7 @@
             this.bindiButton.TabIndex = 3;
             this.bindiButton.Text = "期刊装订";
             this.bindiButton.UseVisualStyleBackColor = true;
+            this.bindiButton.Click += new System.EventHandler(this.bindiButton_Click);
             // 
             // reportFormButton
             // 

@@ -190,6 +190,7 @@
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
     <Compile Include="Model\InterviewList.cs" />
     <Compile Include="Model\PeriodicalArrival.cs" />
+    <Compile Include="Model\PeriodicalBinding.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
     <Compile Include="Model\InterviewPurchaseOrder.cs" />
     <Compile Include="Model\UserManagementReaderInfo.cs" />
@@ -198,6 +199,12 @@
     </Compile>
     <Compile Include="Periodical\PeriodicalArrivalForm.Designer.cs">
       <DependentUpon>PeriodicalArrivalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Periodical\PeriodicalBindingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Periodical\PeriodicalBindingForm.Designer.cs">
+      <DependentUpon>PeriodicalBindingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Periodical\PeriodicalForm.cs">
       <SubType>Form</SubType>
@@ -236,6 +243,12 @@
     </Compile>
     <Compile Include="Tools\MyUserControl\ScriptUserControl.Designer.cs">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\AddReaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement\AddReaderForm.Designer.cs">
+      <DependentUpon>AddReaderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\AdminOperationForm.cs">
       <SubType>Form</SubType>
@@ -282,6 +295,9 @@
     <EmbeddedResource Include="Periodical\PeriodicalArrivalForm.resx">
       <DependentUpon>PeriodicalArrivalForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Periodical\PeriodicalBindingForm.resx">
+      <DependentUpon>PeriodicalBindingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Periodical\PeriodicalForm.resx">
       <DependentUpon>PeriodicalForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\MyUserControl\ScriptUserControl.resx">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\AddReaderForm.resx">
+      <DependentUpon>AddReaderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\AdminOperationForm.resx">
       <DependentUpon>AdminOperationForm.cs</DependentUpon>
