@@ -454,32 +454,32 @@ namespace LibraryManagement.Dal
         /// </summary>
         /// <param name="binding">期刊合订记录</param>
         /// <returns>增加成功与否</returns>
-        public bool AddPeriodicalBinding(PeriodicalBinding binding)
-        {
-            string sqlStr = "INSERT INTO tb_PeriodicalArrival (" +
-                "OrderId," +
-                "State" +
-                ") " +
-                "VALUES(" +
-                "@orderId," +
-                "@state" +
-                ");";
-            //储存Datatable
-            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
-            {
-                new MySqlParameter("@orderId",binding.OrderId),
-                new MySqlParameter("@state",binding.State),
-            };
-            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
-            if (count > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //public bool AddPeriodicalBinding(PeriodicalBinding binding)
+        //{
+        //    string sqlStr = "INSERT INTO tb_PeriodicalArrival (" +
+        //        "OrderId," +
+        //        "State" +
+        //        ") " +
+        //        "VALUES(" +
+        //        "@orderId," +
+        //        "@state" +
+        //        ");";
+        //    //储存Datatable
+        //    MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+        //    {
+        //        new MySqlParameter("@orderId",binding.OrderId),
+        //        new MySqlParameter("@state",binding.State),
+        //    };
+        //    int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+        //    if (count > 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
         /// <summary>
         /// 删除一条期刊合订记录
@@ -505,34 +505,34 @@ namespace LibraryManagement.Dal
             }
         }
 
-        /// <summary>
-        /// 更改一条期刊合订记录
-        /// </summary>
-        /// <param name="binding">期刊合订记录</param>
-        /// <returns>更改成功与否</returns>
-        public bool UpdatePeriodicalBinding(PeriodicalBinding binding)
-        {
-            string sqlStr = "UPDATE tb_PeriodicalArrival SET " +
-                "OrderId=@orderId, " +
-                "State=@state " +
-                "where Id=@id;";
-            //储存Datatable
-            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
-            {
-                new MySqlParameter("@state",binding.State),
-                new MySqlParameter("@orderId",binding.OrderId),
-                new MySqlParameter("@id",binding.Id),
-            };
-            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
-            if (count > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        ///// <summary>
+        ///// 更改一条期刊合订记录
+        ///// </summary>
+        ///// <param name="binding">期刊合订记录</param>
+        ///// <returns>更改成功与否</returns>
+        //public bool UpdatePeriodicalBinding(PeriodicalBinding binding)
+        //{
+        //    string sqlStr = "UPDATE tb_PeriodicalArrival SET " +
+        //        "OrderId=@orderId, " +
+        //        "State=@state " +
+        //        "where Id=@id;";
+        //    //储存Datatable
+        //    MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+        //    {
+        //        new MySqlParameter("@state",binding.State),
+        //        new MySqlParameter("@orderId",binding.OrderId),
+        //        new MySqlParameter("@id",binding.Id),
+        //    };
+        //    int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+        //    if (count > 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
         #endregion
     }
 }
