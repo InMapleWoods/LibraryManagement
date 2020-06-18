@@ -287,7 +287,7 @@ namespace LibraryManagement.Dal
                 "tb_InterviewList.Price as 价格," +
                 "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
                 "tb_InterviewList.DocumentType as 文献类型," +
-                "tb_InterviewList.OrderStatus as 订购状态," +
+                "tb_InterviewList.OrderStatus as 订购状态 " +
                 " from " +
                 "tb_InterviewList inner join " +
                 "tb_DictionaryPublishingHouse " +
