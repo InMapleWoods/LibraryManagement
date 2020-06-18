@@ -14,18 +14,18 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.Interview
 {
-    public partial class InterviewListForm : Form
+    public partial class AcceptanceListForm : Form
     {
-
         Form parentForm;//父窗体
-        InterviewListBll interviewListBll = new InterviewListBll();//采访用户操作类
+        InterviewPurchaseBll interviewPurchaseBll = new InterviewPurchaseBll();//采访订单用户操作类
+        AcceptanceListBll acceptanceListBll = new AcceptanceListBll();//验收清单用户操作类
         UtilBll utilBll = new UtilBll();//复用部分用户操作类
 
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="form">父窗体</param>
-        public InterviewListForm(Form form)
+        public AcceptanceListForm(Form form)
         {
             InitializeComponent();
             parentForm = form;
@@ -48,7 +48,7 @@ namespace LibraryManagement.Interview
             try
             {
                 DataBind();//数据绑定
-                EmptyInterviewList();//将输入框置为空白
+                EmptyAcceptanceList();//将输入框置为空白
             }
             catch (Exception ex)
             {
@@ -65,9 +65,9 @@ namespace LibraryManagement.Interview
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
                 //获取根据当前页面内容生成的清单（若有错误会被添加到错误列表中）
-                InterviewList list = GetInterviewList(ref errorList);
+                AcceptanceList list = GetAcceptanceList(ref errorList);
                 //判断是否添加清单成功
-                if (interviewListBll.AddInterviewList(list, ref errorList))
+                if (acceptanceListBll.AddAcceptanceList(list, ref errorList))
                 {
                     MessageBox.Show("添加成功");
                 }
@@ -94,8 +94,8 @@ namespace LibraryManagement.Interview
         {
             try
             {
-                string id = InterviewIdTextBox.Text;//获取清单号
-                if (string.IsNullOrEmpty(id))
+                string Id = IdTextBox.Text;//获取清单编号
+                if (string.IsNullOrEmpty(Id))
                 {
                     return;
                 }
@@ -117,14 +117,14 @@ namespace LibraryManagement.Interview
                 DialogResult dialogResult = MessageBox.Show("是否删除该条记录", "删除确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
                 if (dialogResult == DialogResult.Yes)//如果选择确认按钮
                 {
-                    string orderNum = InterviewIdTextBox.Text;//获取清单号
+                    string idNum = IdTextBox.Text;//获取清单编号
                     int id;
-                    if (!int.TryParse(orderNum, out id))//将其转换为数字失败
+                    if (!int.TryParse(idNum, out id))//将其转换为数字失败
                     {
-                        MessageBox.Show("订单编号错误");
+                        MessageBox.Show("清单编号错误");
                         return;
                     }
-                    if (interviewListBll.DeleteInterviewList(id))//调用订单删除方法
+                    if (acceptanceListBll.DeleteAcceptanceList(id))//调用清单删除方法
                     {
                         MessageBox.Show("删除成功");
                     }
@@ -150,17 +150,17 @@ namespace LibraryManagement.Interview
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
                 //获取根据当前页面内容生成的清单（若有错误会被添加到错误列表中）
-                string interviewId = InterviewIdTextBox.Text;//获取清单号
+                string idNum = IdTextBox.Text;//获取订单编号
                 int id;
-                if (!int.TryParse(interviewId, out id))//将其转换为数字失败
+                if (!int.TryParse(idNum, out id))//将其转换为数字失败
                 {
-                    MessageBox.Show("清单号错误");
+                    MessageBox.Show("订单编号错误");
                     return;
                 }
-                InterviewList list = GetInterviewList(ref errorList);
-                list.Id = id;//设置清单号
+                AcceptanceList list = GetAcceptanceList(ref errorList);
+                list.Id = id;//设置清单ID
                 //判断是否添加清单成功
-                if (interviewListBll.UpdateInterviewList(list, ref errorList))
+                if (acceptanceListBll.UpdateAcceptanceList(list, ref errorList))
                 {
                     MessageBox.Show("修改成功");
                 }
@@ -190,17 +190,17 @@ namespace LibraryManagement.Interview
             {
                 //若不选择整行，selectRows是没有元素的，所以需要进行判断
                 int index;
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (AcceptanceDataGridView.SelectedRows.Count > 0)
                 {
-                    index = dataGridView1.SelectedRows[0].Index;
+                    index = AcceptanceDataGridView.SelectedRows[0].Index;
                 }
                 else
                 {
-                    index = dataGridView1.CurrentRow.Index;
+                    index = AcceptanceDataGridView.CurrentRow.Index;
                 }
-                dataGridView1.Rows[index].Selected = false;//放弃选择当前行
-                index = index + 1 >= dataGridView1.RowCount ? dataGridView1.RowCount - 1 : index + 1;
-                dataGridView1.Rows[index].Selected = true;//选择下一行
+                AcceptanceDataGridView.Rows[index].Selected = false;//放弃选择当前行
+                index = index + 1 >= AcceptanceDataGridView.RowCount ? AcceptanceDataGridView.RowCount - 1 : index + 1;
+                AcceptanceDataGridView.Rows[index].Selected = true;//选择下一行
             }
             catch (Exception ex)
             {
@@ -217,17 +217,17 @@ namespace LibraryManagement.Interview
             {
                 //若不选择整行，selectRows是没有元素的，所以需要进行判断
                 int index;
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (AcceptanceDataGridView.SelectedRows.Count > 0)
                 {
-                    index = dataGridView1.SelectedRows[0].Index;
+                    index = AcceptanceDataGridView.SelectedRows[0].Index;
                 }
                 else
                 {
-                    index = dataGridView1.CurrentRow.Index;
+                    index = AcceptanceDataGridView.CurrentRow.Index;
                 }
-                dataGridView1.Rows[index].Selected = false;//放弃选择当前行
+                AcceptanceDataGridView.Rows[index].Selected = false;//放弃选择当前行
                 index = index - 1 <= 0 ? 0 : index - 1;
-                dataGridView1.Rows[index].Selected = true;//选择上一行
+                AcceptanceDataGridView.Rows[index].Selected = true;//选择上一行
             }
             catch (Exception ex)
             {
@@ -247,35 +247,63 @@ namespace LibraryManagement.Interview
         #endregion
 
         /// <summary>
+        /// 将当前窗体输入文本部分置空
+        /// </summary>
+        private void EmptyAcceptanceList()
+        {
+            IdTextBox.Text = "";
+            BookSellerComboBox.Text = "";
+            PublishingHouseComboBox.Text = "";
+            OrdererTextBox.Text = "";
+            AcceptorTextBox.Text = "";
+            DocumentTypeComboBox.Text = "";
+        }
+
+        /// <summary>
         /// 获取当前窗体所表示的清单
         /// </summary>
         /// <param name="error">错误列表</param>
-        /// <returns>采访清单</returns>
-        private InterviewList GetInterviewList(ref List<string> error)
+        /// <returns>验收清单</returns>
+        private AcceptanceList GetAcceptanceList(ref List<string> error)
         {
             List<string> errorList = new List<string>();//错误列表
+
+            //书商Id
+            int bookSellerId = ((KeyValuePair<int, string>)BookSellerComboBox.SelectedItem).Key;
 
             //出版社Id
             int publisherId = ((KeyValuePair<int, string>)PublishingHouseComboBox.SelectedItem).Key;
 
-            double price;
-
-            //判断价格是否能被转换为整型
-            if (!double.TryParse(PriceTextBox.Text, out price))
+            //判断订购人账号是否符合要求
+            Match matchOrderer = Regex.Match(OrdererTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
+            if (!matchOrderer.Success)
             {
-                errorList.Add("Price Error");
+                errorList.Add("OrdererId Error");
             }
 
-            //根据页面内容构造清单
-            InterviewList list = new InterviewList()
+            //通过订购人账号获取id
+            int ordererId = utilBll.GetUserIdFormNumber(OrdererTextBox.Text);
+
+            //判断验收人账号是否符合要求
+            Match matchAcceptor = Regex.Match(AcceptorTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
+            if (!matchOrderer.Success)
             {
-                ISBN = ISBNTextBox.Text,
-                Author = AuthorTextBox.Text,
-                BookName = BookNameTextBox.Text,
-                Price = price,
+                errorList.Add("AcceptorId Error");
+            }
+
+            //通过订购人账号获取id
+            int acceptorId = utilBll.GetUserIdFormNumber(AcceptorTextBox.Text);
+
+            double price;
+
+            //根据页面内容构造清单
+            AcceptanceList list = new AcceptanceList()
+            {
+                BookSellerId = bookSellerId,
                 PublishingHouseId = publisherId,
+                OrdererId = ordererId,
+                AcceptorId = acceptorId,
                 DocumentType = DocumentTypeComboBox.Text,
-                OrderStatus = OrderStatusComboBox.Text
             };
             error = errorList;//返回错误列表
             return list;//返回订单
@@ -295,39 +323,54 @@ namespace LibraryManagement.Interview
         /// <summary>
         /// 关闭当前界面并返回
         /// </summary>
-        private void InterviewListForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void AcceptanceListForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
             Hide();
         }
 
         /// <summary>
-        /// 将当前窗体输入文本部分置空
-        /// </summary>
-        private void EmptyInterviewList()
-        {
-            ISBNTextBox.Text = "";
-            AuthorTextBox.Text = "";
-            DocumentTypeComboBox.Text = "";
-            BookNameTextBox.Text = "";
-            PriceTextBox.Text = "";
-            OrderStatusComboBox.Text = "";
-        }
-
-        /// <summary>
         /// 设置某行的数据为当前窗体输入框内容
         /// </summary>
         /// <param name="row">行</param>
-        private void SetInterviewList(DataGridViewRow row)
+        private void SetAcceptanceList(DataGridViewRow row)
         {
-            InterviewIdTextBox.Text = row.Cells[0].Value.ToString();//清单号
-            AuthorTextBox.Text = row.Cells[1].Value.ToString();//作者
-            ISBNTextBox.Text = row.Cells[2].Value.ToString();//ISBN
-            BookNameTextBox.Text = row.Cells[3].Value.ToString();//书名
-            PriceTextBox.Text = row.Cells[4].Value.ToString();//价格
-            PublishingHouseComboBox.Text = row.Cells[5].Value.ToString();//出版社名称
-            DocumentTypeComboBox.Text = row.Cells[6].Value.ToString();//文献类型
-            OrderStatusComboBox.Text = row.Cells[7].Value.ToString();//订购状态
+            IdTextBox.Text = row.Cells[0].Value.ToString();//清单号
+            BookSellerComboBox.Text = row.Cells[1].Value.ToString();//书商
+            PublishingHouseComboBox.Text = row.Cells[2].Value.ToString();//出版社
+            OrdererTextBox.Text = row.Cells[3].Value.ToString();//订购人
+            AcceptorTextBox.Text = row.Cells[4].Value.ToString();//验收人
+            DocumentTypeComboBox.Text = row.Cells[5].Value.ToString();//文献类型
+        }
+
+        /// <summary>
+        /// 选择行更改
+        /// </summary>
+        private void AcceptanceDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (AcceptanceDataGridView.SelectedRows.Count > 0)
+            {
+                SetAcceptanceList(AcceptanceDataGridView.SelectedRows[0]);
+            }
+        }
+
+        /// <summary>
+        /// 当前行更改
+        /// </summary>
+        private void AcceptanceDataGridView_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (AcceptanceDataGridView.CurrentRow != null)
+            {
+                SetAcceptanceList(AcceptanceDataGridView.CurrentRow);
+            }
+        }
+
+        /// <summary>
+        /// 窗体加载函数
+        /// </summary>
+        private void AcceptanceListForm_Load(object sender, EventArgs e)
+        {
+            DataBind();//数据绑定
         }
 
         /// <summary>
@@ -335,8 +378,18 @@ namespace LibraryManagement.Interview
         /// </summary>
         private void DataBind()
         {
-            //下方总窗体数据绑定
-            dataGridView1.DataSource = interviewListBll.GetAllInterviewList();
+            //上方窗体数据绑定
+            PurchaseDataGridView.DataSource = interviewPurchaseBll.GetAllPurchaseOrders();
+
+            //下方窗体数据绑定
+            AcceptanceDataGridView.DataSource = acceptanceListBll.GetAllAcceptanceList();
+
+            //书商数据绑定
+            BindingSource bs_BookSeller = new BindingSource();
+            bs_BookSeller.DataSource = utilBll.GetBookSellerNames();
+            BookSellerComboBox.DataSource = bs_BookSeller;
+            BookSellerComboBox.ValueMember = "Key";
+            BookSellerComboBox.DisplayMember = "Value";
 
             //出版社数据绑定
             BindingSource bs_PublishingHouse = new BindingSource();
@@ -344,36 +397,6 @@ namespace LibraryManagement.Interview
             PublishingHouseComboBox.DataSource = bs_PublishingHouse;
             PublishingHouseComboBox.ValueMember = "Key";
             PublishingHouseComboBox.DisplayMember = "Value";
-        }
-
-        /// <summary>
-        /// 选择行更改
-        /// </summary>
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                SetInterviewList(dataGridView1.SelectedRows[0]);
-            }
-        }
-
-        /// <summary>
-        /// 当前行更改
-        /// </summary>
-        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-                SetInterviewList(dataGridView1.CurrentRow);
-            }
-        }
-
-        /// <summary>
-        /// 窗体加载函数
-        /// </summary>
-        private void InterviewListForm_Load(object sender, EventArgs e)
-        {
-            DataBind();//数据绑定
         }
     }
 }

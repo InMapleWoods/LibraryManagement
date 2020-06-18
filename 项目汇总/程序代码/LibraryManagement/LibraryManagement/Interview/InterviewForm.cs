@@ -36,5 +36,12 @@ namespace LibraryManagement.Interview
             parentForm.Show();
             Hide();
         }
+
+        private void AcceptanceListButton_Click(object sender, System.EventArgs e)
+        {
+            var form = new AcceptanceListForm(this);
+            form.Show();
+            Hide();
+        }
     }
 }

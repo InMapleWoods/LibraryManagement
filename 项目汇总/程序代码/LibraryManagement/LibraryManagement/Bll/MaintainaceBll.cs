@@ -407,6 +407,30 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
+        public bool UpdateStatisticalInfo(StatisticalInfo statisticalInfo, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!StatisticalInfo.isNull(statisticalInfo))
+                {
+                    if (!StatisticalInfo.isNormative(statisticalInfo, ref errorMsg))
+                    {
+                        if (this.UpdateCaseNameCheckSI(statisticalInfo))
+                        {
+                            result = maintainaceDal.UpdateStatisticalInfo(statisticalInfo);
+                        }
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
         public bool AddCaseNameCheckSI(StatisticalInfo statisticalInfo)
         {
             DataTable result = null;
@@ -450,6 +474,20 @@ namespace LibraryManagement.Bll
             {
                 return false;
             }
+        }
+        public bool DeleteStatisticalInfo(StatisticalInfo statisticalInfo)
+        {
+            bool result = false;
+            try
+            {
+                result = maintainaceDal.DeleteStatisticalInfo(statisticalInfo);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
         }
     }
 }
