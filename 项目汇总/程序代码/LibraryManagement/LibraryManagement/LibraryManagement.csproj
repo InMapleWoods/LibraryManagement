@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bll\AcceptanceListBll.cs" />
     <Compile Include="Bll\InterviewListBll.cs" />
     <Compile Include="Bll\MaintainaceBll.cs" />
     <Compile Include="Bll\PeriodicalBll.cs" />
@@ -140,10 +141,15 @@
     </Compile>
     <Compile Include="Dal\MaintainaceDal.cs" />
     <Compile Include="Dal\PeriodicalDal.cs" />
-    <Compile Include="Dal\InterviewPurchaseDal.cs" />
-    <Compile Include="Dal\StatisticalDal.cs" />
+    <Compile Include="Dal\InterviewDal.cs" />
     <Compile Include="Dal\UserManagementDal.cs" />
     <Compile Include="Dal\UtilDal.cs" />
+    <Compile Include="Interview\AcceptanceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interview\AcceptanceListForm.Designer.cs">
+      <DependentUpon>AcceptanceListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interview\BookOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,7 @@
     <Compile Include="Maintainace\StatisticalEditForm.Designer.cs">
       <DependentUpon>StatisticalEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\AcceptanceList.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\DictionaryBookSeller.cs" />
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
@@ -237,6 +244,9 @@
     </Compile>
     <EmbeddedResource Include="Catalog\CatalogQueryForm.resx">
       <DependentUpon>CatalogQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interview\AcceptanceListForm.resx">
+      <DependentUpon>AcceptanceListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\BookOrderForm.resx">
       <DependentUpon>BookOrderForm.cs</DependentUpon>

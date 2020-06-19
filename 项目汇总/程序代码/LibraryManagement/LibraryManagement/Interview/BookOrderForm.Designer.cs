@@ -93,11 +93,11 @@
             // subscriberLabel
             // 
             this.subscriberLabel.AutoSize = true;
-            this.subscriberLabel.Location = new System.Drawing.Point(35, 221);
+            this.subscriberLabel.Location = new System.Drawing.Point(19, 221);
             this.subscriberLabel.Name = "subscriberLabel";
-            this.subscriberLabel.Size = new System.Drawing.Size(52, 15);
+            this.subscriberLabel.Size = new System.Drawing.Size(68, 15);
             this.subscriberLabel.TabIndex = 7;
-            this.subscriberLabel.Text = "订购人";
+            this.subscriberLabel.Text = "订购人ID";
             // 
             // SubscriberTextBox
             // 

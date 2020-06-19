@@ -71,7 +71,7 @@ namespace LibraryManageUnitTest.Periodical
                 {
                     Id = maxId,
                     OrderId = maxOrderId,
-                    State = "单元测试Update",
+                    State = "待退",
                 };
                 Assert.AreEqual(true, periodicalBll.UpdatePeriodicalArrival(arrival, ref errorList));
             }

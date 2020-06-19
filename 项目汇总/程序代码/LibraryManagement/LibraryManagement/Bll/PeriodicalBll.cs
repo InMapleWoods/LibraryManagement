@@ -398,6 +398,167 @@ namespace LibraryManagement.Bll
             return result;
         }
         #endregion
+        #region 期刊合订
+        /// <summary>
+        /// 获取全部期刊
+        /// </summary>
+        /// <returns>全部期刊</returns>
+        public DataTable GetAllUnbindedPeriodical()
+        {
+            DataTable result = null;
+            try
+            {
+                result = periodicalDal.GetAllUnbindedPeriodical();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
 
+        /// <summary>
+        /// 获取全部合订
+        /// </summary>
+        /// <returns>全部合订</returns>
+        public DataTable GetAllPeriodBindings()
+        {
+
+            DataTable result = null;
+            try
+            {
+                result = periodicalDal.GetAllPeriodBindings();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取分页后合订
+        /// </summary>
+        /// <returns>分页后合订</returns>
+        public DataTable GetPeriodBindings(int index, int size)
+        {
+
+            DataTable result = null;
+            try
+            {
+                result = periodicalDal.GetPeriodBindings(index, size);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 增加一条期刊合订记录
+        /// </summary>
+        /// <param name="binding">期刊合订记录</param>
+        /// <returns>增加成功与否</returns>
+        public bool AddPeriodicalBinding(PeriodicalBinding binding, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!PeriodicalBinding.isNull(binding))//是否有空项
+                {
+                    if (PeriodicalBinding.isNormative(binding, ref errorMsg))//是否符合规范
+                    {
+                        result = periodicalDal.AddPeriodicalBinding(binding);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 删除一条期刊合订记录
+        /// </summary>
+        /// <param name="bindingId">期刊合订Id</param>
+        /// <returns>删除成功与否</returns>
+        public bool DeletePeriodicalBinding(int bindingId)
+        {
+            bool result = false;
+            try
+            {
+                result = periodicalDal.DeletePeriodicalBinding(bindingId);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取全部期刊
+        /// </summary>
+        /// <returns>全部期刊</returns>
+        public IEnumerable GetAllUnbindedPeriodicalArray()
+        {
+            List<Book> result = new List<Book>();
+            try
+            {
+                DataTable datatable = periodicalDal.GetAllUnbindedPeriodical();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    Book book = new Book()
+                    {
+                        Id = (int)dr["编号"],
+                    };
+                    result.Add(book);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+        /// <summary>
+        /// 获取全部合订
+        /// </summary>
+        /// <returns>全部合订</returns>
+        public IEnumerable GetAllPeriodBindingsArray()
+        {
+            List<PeriodicalBinding> result = new List<PeriodicalBinding>();
+            try
+            {
+                DataTable datatable = periodicalDal.GetAllPeriodBindings();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    PeriodicalBinding periodicalBinding = new PeriodicalBinding()
+                    {
+                        Id = (int)dr["编号"],
+                        BindingIdList = dr["合订编号"].ToString(),
+                        BookId = (int)dr["流通库编号"],
+                        BindingName = dr["合订本名称"].ToString(),
+                    };
+                    result.Add(periodicalBinding);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+        #endregion
     }
 }

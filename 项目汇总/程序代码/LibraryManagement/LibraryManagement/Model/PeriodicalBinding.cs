@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,10 +44,6 @@ namespace LibraryManagement.Model
             {
                 return true;
             }
-            if (binding.BookId == 0)
-            {
-                return true;
-            }
             if (binding.BindingName == "")
             {
                 return true;
@@ -68,10 +65,6 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("BindingIdList Error");
             }
-            if (binding.BookId <= 0)
-            {
-                errorList.Add("BookId Error");
-            }
             Match matchBindingName = Regex.Match(binding.BindingName, @"(.*)");
             if (!matchBindingName.Success)
             {
@@ -83,6 +76,18 @@ namespace LibraryManagement.Model
                 return false;
             }
             return true;
+        }
+
+        public static string GetBindingListString(IEnumerable list)
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (var i in list)
+            {
+                builder.Append(i);
+                builder.Append("|");
+            }
+            string result = builder.ToString();
+            return result.Substring(0, result.Length - 1);
         }
     }
 }
