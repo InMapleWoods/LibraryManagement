@@ -233,6 +233,12 @@
     <Compile Include="Periodical\PeriodicalOrderForm.Designer.cs">
       <DependentUpon>PeriodicalOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Periodical\PeriodicalTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Periodical\PeriodicalTableForm.Designer.cs">
+      <DependentUpon>PeriodicalTableForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statistical\StatisticalForm.cs">
@@ -256,6 +262,7 @@
     <EmbeddedResource Include="Maintainace\BackUpForm.resx">
       <DependentUpon>BackUpForm.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Tools\DataTablePrinter.cs" />
     <Compile Include="Tools\MyUserControl\ScriptUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -324,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Periodical\PeriodicalOrderForm.resx">
       <DependentUpon>PeriodicalOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Periodical\PeriodicalTableForm.resx">
+      <DependentUpon>PeriodicalTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
