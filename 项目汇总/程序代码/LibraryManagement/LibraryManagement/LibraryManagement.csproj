@@ -94,6 +94,7 @@
     <Compile Include="Bll\MaintainaceBll.cs" />
     <Compile Include="Bll\PeriodicalBll.cs" />
     <Compile Include="Bll\InterviewPurchaseBll.cs" />
+    <Compile Include="Bll\StatisticalBll.cs" />
     <Compile Include="Bll\UserManagementBll.cs" />
     <Compile Include="Bll\UtilBll.cs" />
     <Compile Include="Catalog\CancelBookForm.cs">
