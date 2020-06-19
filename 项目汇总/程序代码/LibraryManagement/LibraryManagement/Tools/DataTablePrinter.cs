@@ -8,10 +8,34 @@ namespace LibraryManagement.Tools
 {
     internal class PrintService
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="table">数据集</param>
+        public PrintService(DataTable table)
+        {
+            prtDocument = new PrintDocument();
+            if (printName != string.Empty)
+            {
+                prtDocument.PrinterSettings.PrinterName = printName;
+            }
+            prtDocument.DefaultPageSettings.Landscape = table.Columns.Count > 9;
+            prtDocument.OriginAtMargins = false;
+            printedTable = table;
+            pindex = 0;
+            curdgi = 0;
+            width = new int[printedTable.Columns.Count];
+            pheight = prtDocument.PrinterSettings.DefaultPageSettings.Bounds.Bottom + 400;
+            //pheight = prtDocument.PrinterSettings.DefaultPageSettings.Bounds.Bottom;
+            pWidth = prtDocument.PrinterSettings.DefaultPageSettings.Bounds.Right;
+            prtDocument.PrinterSettings.DefaultPageSettings.Landscape = false;
+            prtDocument.PrintPage += new PrintPageEventHandler(docToPrint_PrintPage);
+        }
+
         #region Members //成员
         public string printName = string.Empty;
-        public Font prtTextFont = new Font("Verdana", 10);
-        public Font prtTitleFont = new Font("宋体", 10);
+        public Font prtTextFont = new Font("Verdana", 9);
+        public Font prtTitleFont = new Font("宋体", 9);
         private string[] titles = new string[0];
         public string[] Titles
         {
@@ -38,6 +62,7 @@ namespace LibraryManagement.Tools
         private int[] width;
         private int rowOfDownDistance = 3;
         private int rowOfUpDistance = 2;
+        private PrintDocument prtDocument;
 
         int startColumnControls = 0;
         int endColumnControls = 0;
@@ -48,19 +73,11 @@ namespace LibraryManagement.Tools
         /// <summary>
         /// 打印数据集
         /// </summary>
-        /// <param name="table">数据集</param>
         /// <returns></returns>
-        public bool PrintDataTable(DataTable table)
+        public bool PrintDataTable()
         {
-            PrintDocument prtDocument = new PrintDocument();
             try
             {
-                if (printName != string.Empty)
-                {
-                    prtDocument.PrinterSettings.PrinterName = printName;
-                }
-                prtDocument.DefaultPageSettings.Landscape = true;
-                prtDocument.OriginAtMargins = false;
                 PrintDialog prtDialog = new PrintDialog();
                 prtDialog.AllowSomePages = true;
                 prtDialog.ShowHelp = false;
@@ -69,15 +86,6 @@ namespace LibraryManagement.Tools
                 {
                     return false;
                 }
-                printedTable = table;
-                pindex = 0;
-                curdgi = 0;
-                width = new int[printedTable.Columns.Count];
-                pheight = prtDocument.PrinterSettings.DefaultPageSettings.Bounds.Bottom + 400;
-                //pheight = prtDocument.PrinterSettings.DefaultPageSettings.Bounds.Bottom;
-                pWidth = prtDocument.PrinterSettings.DefaultPageSettings.Bounds.Right;
-                prtDocument.PrinterSettings.DefaultPageSettings.Landscape = false;
-                prtDocument.PrintPage += new PrintPageEventHandler(docToPrint_PrintPage);
                 prtDocument.Print();
             }
             catch (InvalidPrinterException ex)
@@ -197,6 +205,26 @@ namespace LibraryManagement.Tools
                 }
                 ev.HasMorePages = true;
             }
+        }
+        #endregion
+
+        #region Preview
+        /// <summary>
+        /// 打印预览
+        /// </summary>
+        public void PrintPreview()
+        {
+            var printPreviewDialog1 = new PrintPreviewDialog();
+            //设置页面的预览的页码 
+            //设置显示页面显示的大小(也就是原页面的倍数) 
+            printPreviewDialog1.PrintPreviewControl.StartPage = 0;
+            printPreviewDialog1.PrintPreviewControl.Zoom = 1.0;
+            //设置或返回窗口状态，即该窗口是最小化、正常大小还是其他状态。 
+            printPreviewDialog1.WindowState = FormWindowState.Maximized;
+            //设置和获取需要预览的文档 
+            //将窗体显示为指定者的模式对话框 
+            printPreviewDialog1.Document = prtDocument;
+            printPreviewDialog1.ShowDialog();
         }
         #endregion
     }

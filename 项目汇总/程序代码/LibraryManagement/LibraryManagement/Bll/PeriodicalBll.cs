@@ -560,5 +560,46 @@ namespace LibraryManagement.Bll
             }
         }
         #endregion
+
+        #region 报表查询
+
+        /// <summary>
+        /// 获取全部已验收期刊
+        /// </summary>
+        /// <returns>全部已验收期刊</returns>
+        public DataTable GetAllPeriodical(string id, string isbn, string officialTitle, string price)
+        {
+            DataTable result = null;
+            try
+            {
+                result = periodicalDal.GetAllPeriodical(id, isbn, officialTitle, price);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public DataTable GetAllPeriodOrders(string id, string isbn, string officialTitle, string price)
+        {
+            DataTable result = null;
+            try
+            {
+                result = periodicalDal.GetAllPeriodOrders(id, isbn, officialTitle, price);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        #endregion
     }
 }

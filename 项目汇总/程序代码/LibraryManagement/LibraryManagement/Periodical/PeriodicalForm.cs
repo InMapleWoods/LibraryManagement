@@ -38,5 +38,12 @@ namespace LibraryManagement.Periodical
             form.Show();
             Hide();
         }
+
+        private void reportFormButton_Click(object sender, EventArgs e)
+        {
+            var form = new PeriodicalTableForm(this);
+            form.Show();
+            Hide();
+        }
     }
 }

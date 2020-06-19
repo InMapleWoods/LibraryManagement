@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace LibraryManagementFunctionTest.Maintainace
@@ -39,7 +38,7 @@ namespace LibraryManagementFunctionTest.Maintainace
         private void clear()
         {
             this.textBox_Name.Text = "";
-            this.textBox_Adress.Text = ""; 
+            this.textBox_Adress.Text = "";
             this.textBox_CorPL.Text = "";
             this.textBox_Call.Text = "";
             this.textBox_Postcodes.Text = "";

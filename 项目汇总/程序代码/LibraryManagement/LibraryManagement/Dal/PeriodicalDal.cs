@@ -489,5 +489,105 @@ namespace LibraryManagement.Dal
             return para[0].Value.ToString() == "1";
         }
         #endregion
+
+        #region 报表查询
+
+        /// <summary>
+        /// 获取全部已验收期刊
+        /// </summary>
+        /// <returns>全部已验收期刊</returns>
+        public DataTable GetAllPeriodical(string id, string isbn, string officialTitle, string price)
+        {
+            id = "%" + id + "%";
+            isbn = "%" + isbn + "%";
+            officialTitle = "%" + officialTitle + "%";
+            price = "%" + price + "%";
+            string sqlstr = "select " +
+                "tb_PeriodicalOrder.Id as 编号," +
+                "tb_DictionaryBookSeller.BookSeller as 书商," +
+                "tb_PeriodicalOrder.OrderTime as 订购时间," +
+                "tb_BasicInformation.UserName as 订购人," +
+                "tb_PeriodicalOrder.ISBN as ISBN号," +
+                "tb_PeriodicalOrder.DocumentType as 文献类型," +
+                "tb_PeriodicalOrder.PublishCycle as 出版周期," +
+                "tb_PeriodicalOrder.OfficialTitle as 正刊名," +
+                "tb_PeriodicalOrder.SupplementTitle as 副刊名," +
+                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
+                "tb_PeriodicalOrder.OrderPrice as 订购价," +
+                "tb_PeriodicalOrder.CurrencyType as 币种," +
+                "tb_PeriodicalOrder.Size as 尺寸" +
+                " from " +
+                "tb_PeriodicalOrder inner join " +
+                "tb_DictionaryBookSeller inner join " +
+                "tb_DictionaryPublishingHouse inner join " +
+                "tb_BasicInformation " +
+                "on tb_PeriodicalOrder.BookSellerId=tb_DictionaryBookSeller.Id " +
+                "and tb_PeriodicalOrder.OrdererId=tb_BasicInformation.UserId " +
+                "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
+                "and tb_PeriodicalOrder.Id LIKE @id " +
+                "and tb_PeriodicalOrder.ISBN LIKE @iSBN " +
+                "and tb_PeriodicalOrder.OfficialTitle LIKE @officialTitle " +
+                "and tb_PeriodicalOrder.OrderPrice LIKE @orderPrice " +
+                "AND tb_PeriodicalOrder.CirculateId<>'-1';";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@id",id),
+                new MySqlParameter("@iSBN",isbn),
+                new MySqlParameter("@officialTitle",officialTitle),
+                new MySqlParameter("@orderPrice",price),
+            };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
+
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public DataTable GetAllPeriodOrders(string id, string isbn, string officialTitle, string price)
+        {
+            id = "%" + id + "%";
+            isbn = "%" + isbn + "%";
+            officialTitle = "%" + officialTitle + "%";
+            price = "%" + price + "%";
+            string sqlstr = "select " +
+                "tb_PeriodicalOrder.Id as 编号," +
+                "tb_DictionaryBookSeller.BookSeller as 书商," +
+                "tb_PeriodicalOrder.OrderTime as 订购时间," +
+                "tb_BasicInformation.UserName as 订购人," +
+                "tb_PeriodicalOrder.ISBN as ISBN号," +
+                "tb_PeriodicalOrder.DocumentType as 文献类型," +
+                "tb_PeriodicalOrder.PublishCycle as 出版周期," +
+                "tb_PeriodicalOrder.OfficialTitle as 正刊名," +
+                "tb_PeriodicalOrder.SupplementTitle as 副刊名," +
+                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
+                "tb_PeriodicalOrder.OrderPrice as 订购价," +
+                "tb_PeriodicalOrder.CurrencyType as 币种," +
+                "tb_PeriodicalOrder.Size as 尺寸" +
+                " from " +
+                "tb_PeriodicalOrder inner join " +
+                "tb_DictionaryBookSeller inner join " +
+                "tb_DictionaryPublishingHouse inner join " +
+                "tb_BasicInformation " +
+                "on tb_PeriodicalOrder.BookSellerId=tb_DictionaryBookSeller.Id " +
+                "and tb_PeriodicalOrder.OrdererId=tb_BasicInformation.UserId " +
+                "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
+                "and tb_PeriodicalOrder.Id LIKE @id " +
+                "and tb_PeriodicalOrder.ISBN LIKE @iSBN " +
+                "and tb_PeriodicalOrder.OfficialTitle LIKE @officialTitle " +
+                "and tb_PeriodicalOrder.OrderPrice LIKE @orderPrice " +
+                "AND NOT EXISTS ( SELECT * FROM tb_PeriodicalArrival WHERE tb_PeriodicalArrival.OrderId = tb_PeriodicalOrder.Id ) ;";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@id",id),
+                new MySqlParameter("@iSBN",isbn),
+                new MySqlParameter("@officialTitle",officialTitle),
+                new MySqlParameter("@orderPrice",price),
+            };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
+        #endregion
     }
 }
