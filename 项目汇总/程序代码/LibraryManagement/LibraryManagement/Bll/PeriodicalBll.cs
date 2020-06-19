@@ -505,6 +505,32 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
+        /// 获取全部期刊
+        /// </summary>
+        /// <returns>全部期刊</returns>
+        public IEnumerable GetAllUnbindedPeriodicalArray()
+        {
+            List<Book> result = new List<Book>();
+            try
+            {
+                DataTable datatable = periodicalDal.GetAllUnbindedPeriodical();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    Book book = new Book()
+                    {
+                        Id = (int)dr["编号"],
+                    };
+                    result.Add(book);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+        /// <summary>
         /// 获取全部合订
         /// </summary>
         /// <returns>全部合订</returns>
@@ -519,7 +545,7 @@ namespace LibraryManagement.Bll
                     PeriodicalBinding periodicalBinding = new PeriodicalBinding()
                     {
                         Id = (int)dr["编号"],
-                        BindingIdList = dr["订单编号"].ToString(),
+                        BindingIdList = dr["合订编号"].ToString(),
                         BookId = (int)dr["流通库编号"],
                         BindingName = dr["合订本名称"].ToString(),
                     };
