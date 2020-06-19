@@ -142,6 +142,7 @@
     <Compile Include="Dal\MaintainaceDal.cs" />
     <Compile Include="Dal\PeriodicalDal.cs" />
     <Compile Include="Dal\InterviewDal.cs" />
+    <Compile Include="Dal\StatisticalDal.cs" />
     <Compile Include="Dal\UserManagementDal.cs" />
     <Compile Include="Dal\UtilDal.cs" />
     <Compile Include="Interview\AcceptanceListForm.cs">
