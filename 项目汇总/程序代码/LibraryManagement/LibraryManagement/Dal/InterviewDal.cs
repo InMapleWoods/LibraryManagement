@@ -74,7 +74,7 @@ namespace LibraryManagement.Dal
         /// 删除一条采购订单记录
         /// </summary>
         /// <param name="orderId">采购订单</param>
-        /// <returns>增加成功与否</returns>
+        /// <returns>删除成功与否</returns>
         public bool DeletePurchaseOrder(int orderId)
         {
             string sqlStr = "Delete from tb_PurchaseOrder where Id=@id;";
@@ -98,7 +98,7 @@ namespace LibraryManagement.Dal
         /// 修改一条采购订单记录
         /// </summary>
         /// <param name="order">采购订单</param>
-        /// <returns>增加成功与否</returns>
+        /// <returns>修改成功与否</returns>
         public bool UpdatePurchaseOrder(InterviewPurchaseOrder order)
         {
             string sqlStr = "UPDATE tb_PurchaseOrder SET " +
@@ -214,7 +214,7 @@ namespace LibraryManagement.Dal
         /// 删除一条采访清单记录
         /// </summary>
         /// <param name="Id">采访清单</param>
-        /// <returns>增加成功与否</returns>
+        /// <returns>删除成功与否</returns>
         public bool DeleteInterviewList(int Id)
         {
             string sqlStr = "Delete from tb_InterviewList where Id=@id;";
@@ -238,7 +238,7 @@ namespace LibraryManagement.Dal
         /// 修改一条采访清单记录
         /// </summary>
         /// <param name="list">采访清单</param>
-        /// <returns>增加成功与否</returns>
+        /// <returns>修改成功与否</returns>
         public bool UpdateInterviewList(InterviewList list)
         {
             string sqlStr = "UPDATE tb_InterviewList SET " +
@@ -247,13 +247,13 @@ namespace LibraryManagement.Dal
                 "BookName=@bookName, " +
                 "Price=@price, " +
                 "PublishingHouseId=@publishingHouseId, " +
-                "DocumentType=@documentType " +
-                "OrderStatus=@orderStatus, " +
+                "DocumentType=@documentType, " +
+                "OrderStatus=@orderStatus " +
                 "where Id=@id;";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器 
             {
-                new MySqlParameter("@subDate",list.Author),
+                new MySqlParameter("@author",list.Author),
                 new MySqlParameter("@iSBN",list.ISBN),
                 new MySqlParameter("@documentType",list.DocumentType),
                 new MySqlParameter("@bookName",list.BookName),
@@ -292,6 +292,139 @@ namespace LibraryManagement.Dal
                 "tb_InterviewList inner join " +
                 "tb_DictionaryPublishingHouse " +
                 "on tb_InterviewList.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
+            MySqlParameter[] paras = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
+        #endregion
+
+        #region 验收清单
+
+        /// <summary>
+        /// 增加一条验收清单记录
+        /// </summary>
+        /// <param name="list">验收清单</param>
+        /// <returns>增加成功与否</returns>
+        public bool AddAcceptanceList(AcceptanceList list)
+        {
+            string sqlStr = "INSERT INTO tb_AcceptanceList (" +
+                "Id," +
+                "BookSellerId," +
+                "PublishingHouseId," +
+                "OrdererId," +
+                "AcceptorId," +
+                "DocumentType" +
+                ")" +
+                "VALUES(" +
+                "@id," +
+                "@bookSellerId," +
+                "@publishingHouseId," +
+                "@ordererId," +
+                "@acceptorId," +
+                "@documentType" +
+                ")";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",list.Id),
+                new MySqlParameter("@bookSellerId",list.BookSellerId),
+                new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
+                new MySqlParameter("@ordererId",list.OrdererId),
+                new MySqlParameter("@acceptorId",list.AcceptorId),
+                new MySqlParameter("@documentType",list.DocumentType),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 删除一条验收清单记录
+        /// </summary>
+        /// <param name="Id">验收清单</param>
+        /// <returns>删除成功与否</returns>
+        public bool DeleteAcceptanceList(int Id)
+        {
+            string sqlStr = "Delete from tb_AcceptanceList where Id=@id;";
+            //储存Datatable        
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 修改一条验收记录
+        /// </summary>
+        /// <param name="list">验收清单</param>
+        /// <returns>修改成功与否</returns>
+        public bool UpdateAcceptanceList(AcceptanceList list)
+        {
+            string sqlStr = "UPDATE tb_AcceptanceList SET " +
+                "BookSellerId=@bookSellerId, " +
+                "PublishingHouseId=@publishingHouseId, " +
+                "OrdererId=@ordererId, " +
+                "AcceptorId=@acceptorId, " +
+                "DocumentType=@documentType " +
+                "where Id=@id;";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器 
+            {
+                new MySqlParameter("@id",list.Id),
+                new MySqlParameter("@bookSellerId",list.BookSellerId),
+                new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
+                new MySqlParameter("@ordererId",list.OrdererId),
+                new MySqlParameter("@acceptorId",list.AcceptorId),
+                new MySqlParameter("@documentType",list.DocumentType),
+                new MySqlParameter("@id",list.Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 获取全部清单
+        /// </summary>
+        /// <returns>全部清单</returns>
+        public DataTable GetAllAcceptanceList()
+        {
+            string sqlstr = "select " +
+                "tb_AcceptanceList.Id as 清单号," +
+                "tb_DictionaryBookSeller.BookSeller as 书商," +
+                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
+                "tb_AdminInformation.AdminRole as 订购人," +
+                "tb_AdminInformation.AdminRole as 验收人," +
+                "tb_AcceptanceList.DocumentType as 文献类型 " +
+                " from " +
+                "tb_AcceptanceList inner join " +
+                "tb_DictionaryBookSeller inner join " +
+                "tb_DictionaryPublishingHouse inner join " +
+                "tb_AdminInformation " +
+                "on tb_AcceptanceList.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
+                "and tb_AcceptanceList.BookSellerId=tb_DictionaryBookSeller.Id " +
+                "and tb_AcceptanceList.OrdererId=tb_AdminInformation.UserId ;"; 
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;

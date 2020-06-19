@@ -1,6 +1,5 @@
 ﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
-using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -154,7 +153,7 @@ namespace LibraryManagement.Periodical
         {
             List<string> errorList = new List<string>();//错误列表
             int orderId;
-            //判断订单编号是否能被转换为浮点型
+            //判断登到编号是否能被转换为浮点型
             if (!int.TryParse(orderIdTextBox.Text, out orderId))
             {
                 errorList.Add("OrderId Error");
@@ -166,7 +165,7 @@ namespace LibraryManagement.Periodical
                 State = stateComboBox.Text,
             };
             error = errorList;//返回错误列表
-            return arrival;//返回订单
+            return arrival;//返回登到
         }
 
         private void orderDataGridView_CurrentCellChanged(object sender, EventArgs e)

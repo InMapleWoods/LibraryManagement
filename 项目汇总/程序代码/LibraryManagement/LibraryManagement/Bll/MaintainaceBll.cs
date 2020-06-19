@@ -345,5 +345,149 @@ namespace LibraryManagement.Bll
                 return false;
             }
         }
+        //**************************************统计报表设计*********************************
+        /// <summary>
+        /// 获取预览结果
+        /// </summary>
+        /// <param name="sqlStr"></param>
+        /// <returns></returns>
+        public DataTable getPreviewResult(string sqlStr)
+        {
+            DataTable result = null;
+            try
+            {
+                result = maintainaceDal.getStatisticResult(sqlStr);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        /// <summary>
+        /// 获取详细信息
+        /// </summary>
+        /// <returns></returns>
+        public DataTable getStatisticalInfo()
+        {
+            DataTable result = null;
+            try
+            {
+                result = maintainaceDal.getStatisticInfo();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        public bool AddStatisticalInfo(StatisticalInfo statisticalInfo, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!StatisticalInfo.isNull(statisticalInfo))
+                {
+                    if (!StatisticalInfo.isNormative(statisticalInfo, ref errorMsg))
+                    {
+                        if (this.AddCaseNameCheckSI(statisticalInfo))
+                        {
+                            result = maintainaceDal.AddStatisticalInfo(statisticalInfo);
+                        }
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        public bool UpdateStatisticalInfo(StatisticalInfo statisticalInfo, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!StatisticalInfo.isNull(statisticalInfo))
+                {
+                    if (!StatisticalInfo.isNormative(statisticalInfo, ref errorMsg))
+                    {
+                        if (this.UpdateCaseNameCheckSI(statisticalInfo))
+                        {
+                            result = maintainaceDal.UpdateStatisticalInfo(statisticalInfo);
+                        }
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        public bool AddCaseNameCheckSI(StatisticalInfo statisticalInfo)
+        {
+            DataTable result = null;
+
+            try
+            {
+                result = maintainaceDal.getStatisticInfoByName(statisticalInfo);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            if (result.Rows.Count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool UpdateCaseNameCheckSI(StatisticalInfo statisticalInfo)
+        {
+            DataTable result = null;
+
+            try
+            {
+                result = maintainaceDal.getStatisticInfoByName(statisticalInfo);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            if (result.Rows.Count <= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool DeleteStatisticalInfo(StatisticalInfo statisticalInfo)
+        {
+            bool result = false;
+            try
+            {
+                result = maintainaceDal.DeleteStatisticalInfo(statisticalInfo);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
     }
 }

@@ -1,41 +1,40 @@
-﻿using System;
+﻿using LibraryManagement.Dal;
+using LibraryManagement.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LibraryManagement.Dal;
-using LibraryManagement.Model;
 
 namespace LibraryManagement.Bll
 {
     /// <summary>
-    /// 采访清单用户操作类
+    /// 验收清单用户操作类
     /// </summary>
-    public class InterviewListBll
+    public class AcceptanceListBll
     {
-
         /// <summary>
         /// 清单数据操作对象
         /// </summary>
         InterviewDal interviewDal = new InterviewDal();
 
         /// <summary>
-        /// 增加一条采访清单记录
+        /// 增加一条验收清单记录
         /// </summary>
-        /// <param name="list">采访清单</param>
+        /// <param name="list">验收清单</param>
         /// <param name="errorMsg">增加成功与否</param>
         /// <returns></returns>
-        public bool AddInterviewList(InterviewList list, ref List<string> errorMsg)
+        public bool AddAcceptanceList(AcceptanceList list, ref List<string> errorMsg)
         {
             bool result = false;
             try
             {
-                if(!InterviewList.isNull(list))//是否有空项
+                if (!AcceptanceList.isNull(list))//是否有空项
                 {
-                    if(InterviewList.isNormative(list, ref errorMsg))//是否符合规范
+                    if (AcceptanceList.isNormative(list, ref errorMsg))//是否符合规范
                     {
-                        result = interviewDal.AddInterviewList(list);
+                        result = interviewDal.AddAcceptanceList(list);
                     }
                 }
             }
@@ -48,16 +47,16 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
-        /// 删除一条采访清单记录
+        /// 删除一条验收清单记录
         /// </summary>
-        /// <param name="Id">采访清单</param>
+        /// <param name="Id">验收清单</param>
         /// <returns>删除成功与否</returns>
-        public bool DeleteInterviewList(int Id)
+        public bool DeleteAcceptanceList(int Id)
         {
             bool result = false;
             try
             {
-                result = interviewDal.DeleteInterviewList(Id);
+                result = interviewDal.DeleteAcceptanceList(Id);
             }
             catch (Exception e)
             {
@@ -68,11 +67,11 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
-        /// 修改一条采访清单记录
+        /// 修改一条验收清单记录
         /// </summary>
-        /// <param name="list">采访清单</param>
+        /// <param name="list">验收清单</param>
         /// <returns>修改成功与否</returns>
-        public bool UpdateInterviewList(InterviewList list, ref List<string> errorMsg)
+        public bool UpdateAcceptanceList(AcceptanceList list, ref List<string> errorMsg)
         {
             bool result = false;
             try
@@ -82,11 +81,11 @@ namespace LibraryManagement.Bll
                     errorMsg.Add("Id Error");
                     return false;
                 }
-                if (!InterviewList.isNull(list))//是否有空项
+                if (!AcceptanceList.isNull(list))//是否有空项
                 {
-                    if (InterviewList.isNormative(list, ref errorMsg))//是否符合规范
+                    if (AcceptanceList.isNormative(list, ref errorMsg))//是否符合规范
                     {
-                        result = interviewDal.UpdateInterviewList(list);
+                        result = interviewDal.UpdateAcceptanceList(list);
                     }
                 }
             }
@@ -102,17 +101,17 @@ namespace LibraryManagement.Bll
         /// 获取全部清单
         /// </summary>
         /// <returns>全部清单</returns>
-        public DataTable GetAllInterviewList()
+        public DataTable GetAllAcceptanceList()
         {
             DataTable result = null;
             try
             {
-                result = interviewDal.GetAllInterviewList();
+                result = interviewDal.GetAllAcceptanceList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw ex; 
+                throw ex;
             }
             return result;
         }

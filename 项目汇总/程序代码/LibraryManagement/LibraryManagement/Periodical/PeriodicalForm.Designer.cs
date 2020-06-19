@@ -72,6 +72,7 @@
             this.reportFormButton.TabIndex = 4;
             this.reportFormButton.Text = "报表查询";
             this.reportFormButton.UseVisualStyleBackColor = true;
+            this.reportFormButton.Click += new System.EventHandler(this.reportFormButton_Click);
             // 
             // PeriodicalForm
             // 

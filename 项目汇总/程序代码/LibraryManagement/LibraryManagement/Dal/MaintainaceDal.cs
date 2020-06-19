@@ -357,7 +357,7 @@ namespace LibraryManagement.Dal
             return dataTable;
         }
         /// <summary>
-        /// 通过ID获取书商信息
+        /// 通过名字获取书商信息
         /// </summary>
         /// <param name="bookSeller"></param>
         /// <returns></returns>
@@ -381,6 +381,11 @@ namespace LibraryManagement.Dal
             DataTable dataTable = helper.ExecuteQuery(sqlStr, para, CommandType.Text);
             return dataTable;
         }
+        /// <summary>
+        /// 通过名字获取出版社信息
+        /// </summary>
+        /// <param name="publishingHouse"></param>
+        /// <returns></returns>
         public DataTable getPublishingHouserByName(DictionaryPublishingHouse publishingHouse)
         {
             string sqlStr = "Select " +
@@ -401,6 +406,125 @@ namespace LibraryManagement.Dal
             DataTable dataTable = helper.ExecuteQuery(sqlStr, para, CommandType.Text);
             return dataTable;
         }
-
+        //********************************统计表设计部分**********************************************************
+        /// <summary>
+        /// 获取统计信息
+        /// </summary>
+        /// <param name="sqlStr"></param>
+        /// <returns></returns>
+        public DataTable getStatisticResult(String sqlStr)
+        {
+            MySqlParameter[] para = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlStr, para, CommandType.Text);
+            return dataTable;
+        }
+        /// <summary>
+        /// 获取统计设计表信息
+        /// </summary>
+        /// <returns></returns>
+        public DataTable getStatisticInfo()
+        {
+            string sqlStr = "Select " +
+                " tb_StatisticalFormat.Id as 编号 ," +
+                " tb_StatisticalFormat.TableName as 表名称 ," +
+                " tb_StatisticalFormat.Operation as 操作 " +
+                " from tb_StatisticalFormat ; ";
+            MySqlParameter[] para = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlStr, para, CommandType.Text);
+            return dataTable;
+        }
+        public DataTable getStatisticInfoByName(StatisticalInfo statisticalInfo)
+        {
+            string sqlStr = "Select " +
+                " tb_StatisticalFormat.Id as 编号 ," +
+                " tb_StatisticalFormat.TableName as 表名称 ," +
+                " tb_StatisticalFormat.Operation as 操作 " +
+                " from tb_StatisticalFormat " +
+                " Where TableName =@TableName ;";
+            MySqlParameter[] para = new MySqlParameter[]
+            {
+                new MySqlParameter("@TableName",statisticalInfo.TableName),
+            };
+            DataTable dataTable = helper.ExecuteQuery(sqlStr, para, CommandType.Text);
+            return dataTable;
+        }
+        /// <summary>
+        /// 增添统计格式
+        /// </summary>
+        /// <param name="statisticalInfo"></param>
+        /// <returns></returns>
+        public bool AddStatisticalInfo(StatisticalInfo statisticalInfo)
+        {
+            bool result = false;
+            string sqlStr = "INSERT INTO tb_StatisticalFormat ( " +
+                " TableName ," +
+                " Operation" +
+                " )" +
+                " VALUES ( " +
+                " @TableName ," +
+                " @Operation " +
+                " ) ;";
+            MySqlParameter[] para = new MySqlParameter[]
+            {
+                new MySqlParameter("@TableName",statisticalInfo.TableName),
+                new MySqlParameter("@Operation",statisticalInfo.Operation),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 更新统计格式
+        /// </summary>
+        /// <param name="statisticalInfo"></param>
+        /// <returns></returns>
+        public bool UpdateStatisticalInfo(StatisticalInfo statisticalInfo)
+        {
+            bool result = false;
+            string sqlStr = "Update tb_StatisticalFormat SET " +
+                " TableName =@TableName ," +
+                " Operation = @Operation " +
+                " WHERE Id= @Id ;";
+            MySqlParameter[] para = new MySqlParameter[]
+            {
+                new MySqlParameter("@TableName",statisticalInfo.TableName),
+                new MySqlParameter("@Operation",statisticalInfo.Operation),
+                new MySqlParameter("@Id",statisticalInfo.Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool DeleteStatisticalInfo(StatisticalInfo statisticalInfo)
+        {
+            bool result = false;
+            string sqlStr = "DELETE FROM tb_StatisticalFormat " +
+                " WHERE Id= @Id ;";
+            MySqlParameter[] para = new MySqlParameter[]
+            {
+                new MySqlParameter("@Id",statisticalInfo.Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.InterviewListButton = new System.Windows.Forms.Button();
-            this.CataloguingListButton = new System.Windows.Forms.Button();
+            this.AcceptanceListButton = new System.Windows.Forms.Button();
             this.OrderModificationButton = new System.Windows.Forms.Button();
             this.OrderInformationButton = new System.Windows.Forms.Button();
             this.OrderButton = new System.Windows.Forms.Button();
@@ -46,14 +46,15 @@
             this.InterviewListButton.UseVisualStyleBackColor = true;
             this.InterviewListButton.Click += new System.EventHandler(this.InterviewListButton_Click);
             // 
-            // CataloguingListButton
+            // AcceptanceListButton
             // 
-            this.CataloguingListButton.Location = new System.Drawing.Point(492, 126);
-            this.CataloguingListButton.Name = "CataloguingListButton";
-            this.CataloguingListButton.Size = new System.Drawing.Size(75, 75);
-            this.CataloguingListButton.TabIndex = 1;
-            this.CataloguingListButton.Text = "编目清单";
-            this.CataloguingListButton.UseVisualStyleBackColor = true;
+            this.AcceptanceListButton.Location = new System.Drawing.Point(492, 126);
+            this.AcceptanceListButton.Name = "AcceptanceListButton";
+            this.AcceptanceListButton.Size = new System.Drawing.Size(75, 75);
+            this.AcceptanceListButton.TabIndex = 1;
+            this.AcceptanceListButton.Text = "验收清单";
+            this.AcceptanceListButton.UseVisualStyleBackColor = true;
+            this.AcceptanceListButton.Click += new System.EventHandler(this.AcceptanceListButton_Click);
             // 
             // OrderModificationButton
             // 
@@ -102,7 +103,7 @@
             this.Controls.Add(this.OrderButton);
             this.Controls.Add(this.OrderInformationButton);
             this.Controls.Add(this.OrderModificationButton);
-            this.Controls.Add(this.CataloguingListButton);
+            this.Controls.Add(this.AcceptanceListButton);
             this.Controls.Add(this.InterviewListButton);
             this.MaximizeBox = false;
             this.Name = "InterviewForm";
@@ -117,7 +118,7 @@
         #endregion
 
         private System.Windows.Forms.Button InterviewListButton;
-        private System.Windows.Forms.Button CataloguingListButton;
+        private System.Windows.Forms.Button AcceptanceListButton;
         private System.Windows.Forms.Button OrderModificationButton;
         private System.Windows.Forms.Button OrderInformationButton;
         private System.Windows.Forms.Button OrderButton;
