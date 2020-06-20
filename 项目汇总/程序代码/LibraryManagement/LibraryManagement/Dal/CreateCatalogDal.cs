@@ -33,8 +33,8 @@ namespace LibraryManagement.Dal
                  "FirstAuthor," +
                  "PublishingHouseId," +
                  "DocumentType," +
-                 "PrimaryLiability" +
-                 "CatalogerId" +
+                 "PrimaryLiability," +
+                 "CatalogerId," +
                  "CatalogingDate" +
                  ")" +
                  "VALUES(" +
@@ -43,10 +43,10 @@ namespace LibraryManagement.Dal
                  "@positiveTitel," +
                  "@firstAuther," +
                  "@publishingHouseId," +
-                 "@documentType" +
+                 "@documentType," +
                  "@primaryLiability," +
                  "@catalogerId," +
-                 "@catalogingDate," +
+                 "@catalogingDate" +
                  ")";
                 //储存Datatable
                 MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
@@ -105,7 +105,7 @@ namespace LibraryManagement.Dal
             string sqlStr = "UPDATE tb_CatalogForm SET " +
                 "ISBN=@iSBN, " +
                 "PositiveTitle=@positiveTitel, " +
-                "FirstAuthor=@firstAuther, " +
+                "FirstAuthor=@firstAuthor, " +
                 "PublishingHouseId=@publishingHouseId, " +
                 "DocumentType=@documentType, " +
                 "PrimaryLiability=@primaryLiability, " +
@@ -119,7 +119,7 @@ namespace LibraryManagement.Dal
                 new MySqlParameter("@iSBN",list.ISBN),
                 new MySqlParameter("@documentType",list.DocumentType),
                 new MySqlParameter("@positiveTitel",list.PositiveTitle),
-                new MySqlParameter("@firstAuther",list.FirstAuthor),
+                new MySqlParameter("@firstAuthor",list.FirstAuthor),
                 new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
                 new MySqlParameter("@primaryLiability",list.PrimaryLiability),
                 new MySqlParameter("@catalogerId",list.CatalogerId),
@@ -146,15 +146,16 @@ namespace LibraryManagement.Dal
                 "tb_CatalogForm.Id as ID," +
                 "tb_CatalogForm.PositiveTitle as 正题名," +
                 "tb_CatalogForm.ISBN as ISBN号," +
-                "tb_CatalogForm.FirstAuther as 第一作者," +
+                "tb_CatalogForm.FirstAuthor as 第一作者," +
                 "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
-                "tb_CatalogForm.PrimaryLiability as 第一责任" +
+                "tb_CatalogForm.PrimaryLiability as 第一责任," +
                 "tb_CatalogForm.CatalogerId as 编目人员," +
-                "tb_CatalogForm.DocumentType as 文献类型" +
+                "tb_CatalogForm.DocumentType as 文献类型," +
                 "tb_CatalogForm.CatalogingDate as 编目日期" +
                 " from " +
                 "tb_CatalogForm inner join " +
-                "and tb_CatalogForm.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
+                 "tb_DictionaryPublishingHouse " +
+                "on tb_CatalogForm.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;

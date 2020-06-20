@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.interviewBtn = new System.Windows.Forms.Button();
+            this.directCatalogBtn = new System.Windows.Forms.Button();
             this.catalogingTransferBtn = new System.Windows.Forms.Button();
             this.cancelBookBtn = new System.Windows.Forms.Button();
             this.catalogQueryBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // interviewBtn
+            // directCatalogBtn
             // 
-            this.interviewBtn.Location = new System.Drawing.Point(96, 114);
-            this.interviewBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.interviewBtn.Name = "interviewBtn";
-            this.interviewBtn.Size = new System.Drawing.Size(112, 90);
-            this.interviewBtn.TabIndex = 0;
-            this.interviewBtn.Text = "采访编目";
-            this.interviewBtn.UseVisualStyleBackColor = true;
-            this.interviewBtn.Click += new System.EventHandler(this.createCatalogBtn_Click);
+            this.directCatalogBtn.Location = new System.Drawing.Point(96, 114);
+            this.directCatalogBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.directCatalogBtn.Name = "directCatalogBtn";
+            this.directCatalogBtn.Size = new System.Drawing.Size(112, 90);
+            this.directCatalogBtn.TabIndex = 0;
+            this.directCatalogBtn.Text = "直接编目";
+            this.directCatalogBtn.UseVisualStyleBackColor = true;
+            this.directCatalogBtn.Click += new System.EventHandler(this.createCatalogBtn_Click);
             // 
             // catalogingTransferBtn
             // 
@@ -85,7 +85,7 @@
             this.Controls.Add(this.catalogQueryBtn);
             this.Controls.Add(this.cancelBookBtn);
             this.Controls.Add(this.catalogingTransferBtn);
-            this.Controls.Add(this.interviewBtn);
+            this.Controls.Add(this.directCatalogBtn);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CatalogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -97,7 +97,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button interviewBtn;
+        private System.Windows.Forms.Button directCatalogBtn;
         private System.Windows.Forms.Button catalogingTransferBtn;
         private System.Windows.Forms.Button cancelBookBtn;
         private System.Windows.Forms.Button catalogQueryBtn;

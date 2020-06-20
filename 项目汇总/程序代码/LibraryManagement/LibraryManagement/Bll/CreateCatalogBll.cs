@@ -50,12 +50,12 @@ namespace LibraryManagement.Bll
         /// </summary>
         /// <param name="listId">编目清单</param>
         /// <returns>删除成功与否</returns>
-        public bool DeleteCatalogList(int listId)
+        public bool DeleteCatalogList(int Id)
         {
             bool result = false;
             try
             {
-                result = createDal.DeleteCatalogList(listId);
+                result = createDal.DeleteCatalogList(Id);
             }
             catch (Exception e)
             {

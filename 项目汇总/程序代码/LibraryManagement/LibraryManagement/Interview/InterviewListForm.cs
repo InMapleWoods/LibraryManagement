@@ -375,5 +375,10 @@ namespace LibraryManagement.Interview
         {
             DataBind();//数据绑定
         }
+
+        private void scriptUserControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

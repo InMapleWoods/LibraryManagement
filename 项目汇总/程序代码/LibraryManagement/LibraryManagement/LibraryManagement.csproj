@@ -123,6 +123,13 @@
     <Compile Include="Catalog\CatalogQueryForm.Designer.cs">
       <DependentUpon>CatalogQueryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalog\InterviewCatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\InterviewCatalogForm.Designer.cs">
+      <DependentUpon>InterviewCatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Circulation\BookCirculationForm.cs">
     <Compile Include="Circulation\BookAppointForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Circulation\BookReturnForm.resx">
       <DependentUpon>BookReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\InterviewCatalogForm.resx">
+      <DependentUpon>InterviewCatalogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\AcceptanceListForm.resx">
       <DependentUpon>AcceptanceListForm.cs</DependentUpon>
