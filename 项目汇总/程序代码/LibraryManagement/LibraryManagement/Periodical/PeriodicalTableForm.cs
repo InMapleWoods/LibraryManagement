@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.Periodical
 {
+    /// <summary>
+    /// 报表打印窗体
+    /// </summary>
     public partial class PeriodicalTableForm : Form
     {
         Form parentForm;//父窗体
@@ -56,22 +59,31 @@ namespace LibraryManagement.Periodical
             }
         }
 
+        /// <summary>
+        /// 已验收勾选状态变化
+        /// </summary>
         private void checkBox_arrived_CheckedChanged(object sender, EventArgs e)
         {
             DataBind();
         }
 
+        /// <summary>
+        /// 查询按钮点击事件
+        /// </summary>
         private void button_search_Click(object sender, EventArgs e)
         {
             DataBind();
         }
 
+        /// <summary>
+        /// 打印按钮点击事件
+        /// </summary>
         private void button_print_Click(object sender, EventArgs e)
         {
             try
             {
                 Tools.PrintService print = new Tools.PrintService((DataTable)dataGridView1.DataSource);
-                if (print.PrintDataTable())
+                if (print.PrintDataTable())//打印datagridview中的内容
                 {
                     MessageBox.Show("打印成功");
                 }
@@ -79,7 +91,7 @@ namespace LibraryManagement.Periodical
                 {
                     MessageBox.Show("打印失败");
                 }
-                Focus();
+                Focus();//该窗体获取焦点
             }
             catch (Exception ex)
             {
@@ -87,13 +99,16 @@ namespace LibraryManagement.Periodical
             }
         }
 
+        /// <summary>
+        /// 打印预览按钮事件
+        /// </summary>
         private void button_preview_Click(object sender, EventArgs e)
         {
             try
             {
                 Tools.PrintService print = new Tools.PrintService((DataTable)dataGridView1.DataSource);
-                print.PrintPreview();
-                Focus();
+                print.PrintPreview();//显示打印预览
+                Focus();//该窗体获取焦点
             }
             catch (Exception ex)
             {
@@ -101,6 +116,9 @@ namespace LibraryManagement.Periodical
             }
         }
 
+        /// <summary>
+        /// 文本变化事件
+        /// </summary>
         private void _TextBox_TextChanged(object sender, EventArgs e)
         {
             DataBind();
