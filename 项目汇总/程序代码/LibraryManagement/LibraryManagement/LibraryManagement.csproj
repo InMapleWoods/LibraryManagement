@@ -129,7 +129,7 @@
     <Compile Include="Catalog\InterviewCatalogForm.Designer.cs">
       <DependentUpon>InterviewCatalogForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Circulation\BookCirculationForm.cs">
+    <Compile Include="Circulation\BookCirculationForm.cs" />
     <Compile Include="Circulation\BookAppointForm.cs">
       <SubType>Form</SubType>
     </Compile>
