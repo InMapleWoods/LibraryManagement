@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.Periodical
 {
+    /// <summary>
+    /// 期刊合订窗体
+    /// </summary>
     public partial class PeriodicalBindingForm : Form
     {
         Form parentForm;//父窗体
@@ -58,6 +61,9 @@ namespace LibraryManagement.Periodical
             }
         }
 
+        /// <summary>
+        /// 合订按钮点击事件
+        /// </summary>
         private void button_Add_Click(object sender, EventArgs e)
         {
             try
@@ -83,14 +89,17 @@ namespace LibraryManagement.Periodical
             {
                 MessageBox.Show(ex.Message);
             }
-            DataBind();
+            DataBind();//数据绑定
         }
 
+        /// <summary>
+        /// 拆分按钮点击事件
+        /// </summary>
         private void button_Remove_Click(object sender, EventArgs e)
         {
             try
             {
-                DialogResult dialogResult = MessageBox.Show("是否删除该条记录", "删除确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
+                DialogResult dialogResult = MessageBox.Show("是否拆分该条记录", "拆分确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
                 if (dialogResult == DialogResult.Yes)//如果选择确认按钮
                 {
                     int id;
@@ -99,13 +108,13 @@ namespace LibraryManagement.Periodical
                         MessageBox.Show("合订编号错误");
                         return;
                     }
-                    if (periodicalBll.DeletePeriodicalBinding(id))//调用登到删除方法
+                    if (periodicalBll.DeletePeriodicalBinding(id))//调用登到拆分方法
                     {
-                        MessageBox.Show("删除成功");
+                        MessageBox.Show("拆分成功");
                     }
                     else
                     {
-                        MessageBox.Show("删除失败");
+                        MessageBox.Show("拆分失败");
                     }
                 }
             }
@@ -113,9 +122,12 @@ namespace LibraryManagement.Periodical
             {
                 MessageBox.Show(ex.Message);
             }
-            DataBind();
+            DataBind();//数据绑定
         }
 
+        /// <summary>
+        /// DataGridView中勾选checkBox
+        /// </summary>
         private void dataGridView_Periodical_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView_Periodical.CurrentCell == null)
@@ -132,9 +144,7 @@ namespace LibraryManagement.Periodical
                 {
                     dgvCheck.Value = true;
                 }
-
-                //若单击时，CheckBox已经被勾上
-                else
+                else//若单击时，CheckBox已经被勾上
                 {
                     dgvCheck.Value = false;
                 }
@@ -159,6 +169,9 @@ namespace LibraryManagement.Periodical
             return binding;//返回合订
         }
 
+        /// <summary>
+        /// 获取当前页面勾选情况所代表的合订列表
+        /// </summary>
         private string GetBindList()
         {
             List<string> ls = new List<string>();
@@ -177,7 +190,9 @@ namespace LibraryManagement.Periodical
             return PeriodicalBinding.GetBindingListString(ls);
         }
 
-
+        /// <summary>
+        /// 当前行修改
+        /// </summary>
         private void dataGridView_Periodical_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dataGridView_Periodical.CurrentRow != null)
@@ -187,6 +202,9 @@ namespace LibraryManagement.Periodical
             }
         }
 
+        /// <summary>
+        /// 选中行修改
+        /// </summary>
         private void dataGridView_Periodical_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView_Periodical.SelectedRows.Count > 0)
@@ -195,6 +213,10 @@ namespace LibraryManagement.Periodical
                 textBox_bindingName.Text = "";//合订本名称
             }
         }
+
+        /// <summary>
+        /// 当前行修改
+        /// </summary>
         private void dataGridView_Binding_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dataGridView_Binding.CurrentRow != null)
@@ -204,6 +226,9 @@ namespace LibraryManagement.Periodical
             }
         }
 
+        /// <summary>
+        /// 选中行修改
+        /// </summary>
         private void dataGridView_Binding_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView_Binding.SelectedRows.Count > 0)
