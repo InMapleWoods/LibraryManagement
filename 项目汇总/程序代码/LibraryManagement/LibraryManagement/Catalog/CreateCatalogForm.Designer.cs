@@ -53,42 +53,42 @@
             // 
             // idTextBox
             // 
-            this.idTextBox.Location = new System.Drawing.Point(177, 111);
+            this.idTextBox.Location = new System.Drawing.Point(212, 138);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(199, 28);
             this.idTextBox.TabIndex = 7;
             // 
             // ISBNTextBox
             // 
-            this.ISBNTextBox.Location = new System.Drawing.Point(637, 111);
+            this.ISBNTextBox.Location = new System.Drawing.Point(637, 138);
             this.ISBNTextBox.Name = "ISBNTextBox";
             this.ISBNTextBox.Size = new System.Drawing.Size(199, 28);
             this.ISBNTextBox.TabIndex = 8;
             // 
             // BookNameTextBox
             // 
-            this.BookNameTextBox.Location = new System.Drawing.Point(177, 145);
+            this.BookNameTextBox.Location = new System.Drawing.Point(212, 172);
             this.BookNameTextBox.Name = "BookNameTextBox";
             this.BookNameTextBox.Size = new System.Drawing.Size(199, 28);
             this.BookNameTextBox.TabIndex = 9;
             // 
             // AuthorTextBox
             // 
-            this.AuthorTextBox.Location = new System.Drawing.Point(637, 145);
+            this.AuthorTextBox.Location = new System.Drawing.Point(637, 172);
             this.AuthorTextBox.Name = "AuthorTextBox";
             this.AuthorTextBox.Size = new System.Drawing.Size(199, 28);
             this.AuthorTextBox.TabIndex = 10;
             // 
             // PrimaryLiabilityLabelTextBox
             // 
-            this.PrimaryLiabilityLabelTextBox.Location = new System.Drawing.Point(177, 211);
+            this.PrimaryLiabilityLabelTextBox.Location = new System.Drawing.Point(212, 238);
             this.PrimaryLiabilityLabelTextBox.Name = "PrimaryLiabilityLabelTextBox";
             this.PrimaryLiabilityLabelTextBox.Size = new System.Drawing.Size(199, 28);
             this.PrimaryLiabilityLabelTextBox.TabIndex = 13;
             // 
             // CatalogerIdTextBox
             // 
-            this.CatalogerIdTextBox.Location = new System.Drawing.Point(637, 213);
+            this.CatalogerIdTextBox.Location = new System.Drawing.Point(637, 240);
             this.CatalogerIdTextBox.Name = "CatalogerIdTextBox";
             this.CatalogerIdTextBox.Size = new System.Drawing.Size(199, 28);
             this.CatalogerIdTextBox.TabIndex = 14;
@@ -96,7 +96,7 @@
             // isbnNumberLabel
             // 
             this.isbnNumberLabel.AutoSize = true;
-            this.isbnNumberLabel.Location = new System.Drawing.Point(525, 114);
+            this.isbnNumberLabel.Location = new System.Drawing.Point(525, 141);
             this.isbnNumberLabel.Name = "isbnNumberLabel";
             this.isbnNumberLabel.Size = new System.Drawing.Size(62, 18);
             this.isbnNumberLabel.TabIndex = 16;
@@ -105,7 +105,7 @@
             // positiveTitleLabel
             // 
             this.positiveTitleLabel.AutoSize = true;
-            this.positiveTitleLabel.Location = new System.Drawing.Point(77, 148);
+            this.positiveTitleLabel.Location = new System.Drawing.Point(112, 175);
             this.positiveTitleLabel.Name = "positiveTitleLabel";
             this.positiveTitleLabel.Size = new System.Drawing.Size(62, 18);
             this.positiveTitleLabel.TabIndex = 17;
@@ -114,7 +114,7 @@
             // firstAuthorLabel
             // 
             this.firstAuthorLabel.AutoSize = true;
-            this.firstAuthorLabel.Location = new System.Drawing.Point(525, 148);
+            this.firstAuthorLabel.Location = new System.Drawing.Point(525, 175);
             this.firstAuthorLabel.Name = "firstAuthorLabel";
             this.firstAuthorLabel.Size = new System.Drawing.Size(80, 18);
             this.firstAuthorLabel.TabIndex = 18;
@@ -124,7 +124,7 @@
             // publishingHouseLabel
             // 
             this.publishingHouseLabel.AutoSize = true;
-            this.publishingHouseLabel.Location = new System.Drawing.Point(77, 182);
+            this.publishingHouseLabel.Location = new System.Drawing.Point(112, 209);
             this.publishingHouseLabel.Name = "publishingHouseLabel";
             this.publishingHouseLabel.Size = new System.Drawing.Size(62, 18);
             this.publishingHouseLabel.TabIndex = 19;
@@ -134,7 +134,7 @@
             // documentTypeLabel
             // 
             this.documentTypeLabel.AutoSize = true;
-            this.documentTypeLabel.Location = new System.Drawing.Point(525, 182);
+            this.documentTypeLabel.Location = new System.Drawing.Point(525, 209);
             this.documentTypeLabel.Name = "documentTypeLabel";
             this.documentTypeLabel.Size = new System.Drawing.Size(80, 18);
             this.documentTypeLabel.TabIndex = 20;
@@ -144,7 +144,7 @@
             // primaryLiabilityLabel
             // 
             this.primaryLiabilityLabel.AutoSize = true;
-            this.primaryLiabilityLabel.Location = new System.Drawing.Point(77, 216);
+            this.primaryLiabilityLabel.Location = new System.Drawing.Point(112, 243);
             this.primaryLiabilityLabel.Name = "primaryLiabilityLabel";
             this.primaryLiabilityLabel.Size = new System.Drawing.Size(80, 18);
             this.primaryLiabilityLabel.TabIndex = 21;
@@ -153,7 +153,7 @@
             // catalogerLabel
             // 
             this.catalogerLabel.AutoSize = true;
-            this.catalogerLabel.Location = new System.Drawing.Point(525, 216);
+            this.catalogerLabel.Location = new System.Drawing.Point(525, 243);
             this.catalogerLabel.Name = "catalogerLabel";
             this.catalogerLabel.Size = new System.Drawing.Size(80, 18);
             this.catalogerLabel.TabIndex = 22;
@@ -162,7 +162,7 @@
             // catalogingDatLabel
             // 
             this.catalogingDatLabel.AutoSize = true;
-            this.catalogingDatLabel.Location = new System.Drawing.Point(77, 252);
+            this.catalogingDatLabel.Location = new System.Drawing.Point(112, 279);
             this.catalogingDatLabel.Name = "catalogingDatLabel";
             this.catalogingDatLabel.Size = new System.Drawing.Size(80, 18);
             this.catalogingDatLabel.TabIndex = 23;
@@ -172,7 +172,7 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(77, 114);
+            this.idLabel.Location = new System.Drawing.Point(112, 141);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(26, 18);
             this.idLabel.TabIndex = 24;
@@ -183,14 +183,17 @@
             // 
             this.DocumentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DocumentTypeComboBox.FormattingEnabled = true;
-            this.DocumentTypeComboBox.Location = new System.Drawing.Point(637, 179);
+            this.DocumentTypeComboBox.Items.AddRange(new object[] {
+            "期刊",
+            "文献"});
+            this.DocumentTypeComboBox.Location = new System.Drawing.Point(637, 206);
             this.DocumentTypeComboBox.Name = "DocumentTypeComboBox";
             this.DocumentTypeComboBox.Size = new System.Drawing.Size(199, 26);
             this.DocumentTypeComboBox.TabIndex = 25;
             // 
             // CatalogDateTimePicker
             // 
-            this.CatalogDateTimePicker.Location = new System.Drawing.Point(177, 245);
+            this.CatalogDateTimePicker.Location = new System.Drawing.Point(212, 272);
             this.CatalogDateTimePicker.Name = "CatalogDateTimePicker";
             this.CatalogDateTimePicker.Size = new System.Drawing.Size(199, 28);
             this.CatalogDateTimePicker.TabIndex = 26;
@@ -199,7 +202,7 @@
             // 
             this.PublishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PublishingHouseComboBox.FormattingEnabled = true;
-            this.PublishingHouseComboBox.Location = new System.Drawing.Point(177, 179);
+            this.PublishingHouseComboBox.Location = new System.Drawing.Point(212, 206);
             this.PublishingHouseComboBox.Name = "PublishingHouseComboBox";
             this.PublishingHouseComboBox.Size = new System.Drawing.Size(199, 26);
             this.PublishingHouseComboBox.TabIndex = 27;
@@ -210,7 +213,7 @@
             this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
             this.scriptUserControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(957, 104);
+            this.scriptUserControl1.Size = new System.Drawing.Size(1029, 104);
             this.scriptUserControl1.TabIndex = 28;
             this.scriptUserControl1.Load += new System.EventHandler(this.scriptUserControl1_Load);
             // 
@@ -218,13 +221,13 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 300);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 344);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(957, 234);
+            this.dataGridView1.Size = new System.Drawing.Size(1029, 234);
             this.dataGridView1.TabIndex = 29;
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             this.dataGridView1.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridView1_CurrentCellDirtyStateChanged);
@@ -234,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 534);
+            this.ClientSize = new System.Drawing.Size(1029, 578);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.scriptUserControl1);
             this.Controls.Add(this.PublishingHouseComboBox);
