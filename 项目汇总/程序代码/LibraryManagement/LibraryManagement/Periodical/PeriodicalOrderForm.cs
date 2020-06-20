@@ -409,5 +409,9 @@ namespace LibraryManagement.Periodical
             }
         }
 
+        private void scriptUserControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
