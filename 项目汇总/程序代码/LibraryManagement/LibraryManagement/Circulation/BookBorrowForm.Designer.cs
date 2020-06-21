@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
+            this.idLabel = new System.Windows.Forms.Label();
+            this.idTextBox = new System.Windows.Forms.TextBox();
             this.borrowDatePicker = new System.Windows.Forms.DateTimePicker();
             this.officialTitleTextBox = new System.Windows.Forms.TextBox();
             this.officialTitleLabel = new System.Windows.Forms.Label();
@@ -37,14 +40,21 @@
             this.typeNumLabel = new System.Windows.Forms.Label();
             this.IsbnTextBox = new System.Windows.Forms.TextBox();
             this.IsbnLabel = new System.Windows.Forms.Label();
+            this.validityTermTextBox = new System.Windows.Forms.TextBox();
             this.bookCodeTextBox = new System.Windows.Forms.TextBox();
+            this.fineAmountTextBox = new System.Windows.Forms.TextBox();
+            this.penaltyMultipleTextBox = new System.Windows.Forms.TextBox();
             this.workplaceTextBox = new System.Windows.Forms.TextBox();
+            this.appointmentNumTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.genderTextBox = new System.Windows.Forms.TextBox();
             this.borrowNumTextBox = new System.Windows.Forms.TextBox();
+            this.fineAmountLabel = new System.Windows.Forms.Label();
             this.borrowCardNumTextBox = new System.Windows.Forms.TextBox();
+            this.penaltyMultipleLabel = new System.Windows.Forms.Label();
             this.authorLabel = new System.Windows.Forms.Label();
             this.workplaceLabel = new System.Windows.Forms.Label();
+            this.appointmentNumLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.genderLabel = new System.Windows.Forms.Label();
             this.borrowNumLabel = new System.Windows.Forms.Label();
@@ -53,16 +63,6 @@
             this.borrowDateLabel = new System.Windows.Forms.Label();
             this.borrowCardNumLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
-            this.penaltyMultipleLabel = new System.Windows.Forms.Label();
-            this.penaltyMultipleTextBox = new System.Windows.Forms.TextBox();
-            this.fineAmountLabel = new System.Windows.Forms.Label();
-            this.fineAmountTextBox = new System.Windows.Forms.TextBox();
-            this.appointmentNumTextBox = new System.Windows.Forms.TextBox();
-            this.appointmentNumLabel = new System.Windows.Forms.Label();
-            this.validityTermTextBox = new System.Windows.Forms.TextBox();
-            this.idLabel = new System.Windows.Forms.Label();
-            this.idTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -119,6 +119,33 @@
             this.mainSplitContainer.Size = new System.Drawing.Size(1050, 701);
             this.mainSplitContainer.SplitterDistance = 82;
             this.mainSplitContainer.TabIndex = 4;
+            // 
+            // scriptUserControl1
+            // 
+            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.scriptUserControl1.Name = "scriptUserControl1";
+            this.scriptUserControl1.Size = new System.Drawing.Size(1050, 82);
+            this.scriptUserControl1.TabIndex = 0;
+            // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(540, 210);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(37, 15);
+            this.idLabel.TabIndex = 19;
+            this.idLabel.Text = "编号";
+            this.idLabel.Visible = false;
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.Location = new System.Drawing.Point(620, 205);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.ReadOnly = true;
+            this.idTextBox.Size = new System.Drawing.Size(330, 25);
+            this.idTextBox.TabIndex = 18;
+            this.idTextBox.Visible = false;
             // 
             // borrowDatePicker
             // 
@@ -186,6 +213,14 @@
             this.IsbnLabel.TabIndex = 13;
             this.IsbnLabel.Text = "I S B N";
             // 
+            // validityTermTextBox
+            // 
+            this.validityTermTextBox.Location = new System.Drawing.Point(620, 175);
+            this.validityTermTextBox.Name = "validityTermTextBox";
+            this.validityTermTextBox.ReadOnly = true;
+            this.validityTermTextBox.Size = new System.Drawing.Size(330, 25);
+            this.validityTermTextBox.TabIndex = 9;
+            // 
             // bookCodeTextBox
             // 
             this.bookCodeTextBox.Location = new System.Drawing.Point(620, 25);
@@ -194,6 +229,22 @@
             this.bookCodeTextBox.TabIndex = 9;
             this.bookCodeTextBox.TextChanged += new System.EventHandler(this.bookCodeTextBox_TextChanged);
             // 
+            // fineAmountTextBox
+            // 
+            this.fineAmountTextBox.Location = new System.Drawing.Point(115, 235);
+            this.fineAmountTextBox.Name = "fineAmountTextBox";
+            this.fineAmountTextBox.ReadOnly = true;
+            this.fineAmountTextBox.Size = new System.Drawing.Size(330, 25);
+            this.fineAmountTextBox.TabIndex = 9;
+            // 
+            // penaltyMultipleTextBox
+            // 
+            this.penaltyMultipleTextBox.Location = new System.Drawing.Point(115, 205);
+            this.penaltyMultipleTextBox.Name = "penaltyMultipleTextBox";
+            this.penaltyMultipleTextBox.ReadOnly = true;
+            this.penaltyMultipleTextBox.Size = new System.Drawing.Size(330, 25);
+            this.penaltyMultipleTextBox.TabIndex = 9;
+            // 
             // workplaceTextBox
             // 
             this.workplaceTextBox.Location = new System.Drawing.Point(115, 115);
@@ -201,6 +252,14 @@
             this.workplaceTextBox.ReadOnly = true;
             this.workplaceTextBox.Size = new System.Drawing.Size(330, 25);
             this.workplaceTextBox.TabIndex = 9;
+            // 
+            // appointmentNumTextBox
+            // 
+            this.appointmentNumTextBox.Location = new System.Drawing.Point(115, 175);
+            this.appointmentNumTextBox.Name = "appointmentNumTextBox";
+            this.appointmentNumTextBox.ReadOnly = true;
+            this.appointmentNumTextBox.Size = new System.Drawing.Size(330, 25);
+            this.appointmentNumTextBox.TabIndex = 9;
             // 
             // nameTextBox
             // 
@@ -226,6 +285,15 @@
             this.borrowNumTextBox.Size = new System.Drawing.Size(330, 25);
             this.borrowNumTextBox.TabIndex = 9;
             // 
+            // fineAmountLabel
+            // 
+            this.fineAmountLabel.AutoSize = true;
+            this.fineAmountLabel.Location = new System.Drawing.Point(35, 240);
+            this.fineAmountLabel.Name = "fineAmountLabel";
+            this.fineAmountLabel.Size = new System.Drawing.Size(67, 15);
+            this.fineAmountLabel.TabIndex = 1;
+            this.fineAmountLabel.Text = "罚款金额";
+            // 
             // borrowCardNumTextBox
             // 
             this.borrowCardNumTextBox.Location = new System.Drawing.Point(115, 25);
@@ -233,6 +301,15 @@
             this.borrowCardNumTextBox.Size = new System.Drawing.Size(330, 25);
             this.borrowCardNumTextBox.TabIndex = 9;
             this.borrowCardNumTextBox.TextChanged += new System.EventHandler(this.borrowCardNumTextBox_TextChanged);
+            // 
+            // penaltyMultipleLabel
+            // 
+            this.penaltyMultipleLabel.AutoSize = true;
+            this.penaltyMultipleLabel.Location = new System.Drawing.Point(35, 209);
+            this.penaltyMultipleLabel.Name = "penaltyMultipleLabel";
+            this.penaltyMultipleLabel.Size = new System.Drawing.Size(67, 15);
+            this.penaltyMultipleLabel.TabIndex = 1;
+            this.penaltyMultipleLabel.Text = "赔款倍数";
             // 
             // authorLabel
             // 
@@ -251,6 +328,15 @@
             this.workplaceLabel.Size = new System.Drawing.Size(37, 15);
             this.workplaceLabel.TabIndex = 1;
             this.workplaceLabel.Text = "单位";
+            // 
+            // appointmentNumLabel
+            // 
+            this.appointmentNumLabel.AutoSize = true;
+            this.appointmentNumLabel.Location = new System.Drawing.Point(35, 180);
+            this.appointmentNumLabel.Name = "appointmentNumLabel";
+            this.appointmentNumLabel.Size = new System.Drawing.Size(67, 15);
+            this.appointmentNumLabel.TabIndex = 1;
+            this.appointmentNumLabel.Text = "可预约数";
             // 
             // nameLabel
             // 
@@ -332,90 +418,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // scriptUserControl1
-            // 
-            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(1050, 82);
-            this.scriptUserControl1.TabIndex = 0;
-            // 
-            // penaltyMultipleLabel
-            // 
-            this.penaltyMultipleLabel.AutoSize = true;
-            this.penaltyMultipleLabel.Location = new System.Drawing.Point(35, 209);
-            this.penaltyMultipleLabel.Name = "penaltyMultipleLabel";
-            this.penaltyMultipleLabel.Size = new System.Drawing.Size(67, 15);
-            this.penaltyMultipleLabel.TabIndex = 1;
-            this.penaltyMultipleLabel.Text = "赔款倍数";
-            // 
-            // penaltyMultipleTextBox
-            // 
-            this.penaltyMultipleTextBox.Location = new System.Drawing.Point(115, 205);
-            this.penaltyMultipleTextBox.Name = "penaltyMultipleTextBox";
-            this.penaltyMultipleTextBox.ReadOnly = true;
-            this.penaltyMultipleTextBox.Size = new System.Drawing.Size(330, 25);
-            this.penaltyMultipleTextBox.TabIndex = 9;
-            // 
-            // fineAmountLabel
-            // 
-            this.fineAmountLabel.AutoSize = true;
-            this.fineAmountLabel.Location = new System.Drawing.Point(35, 240);
-            this.fineAmountLabel.Name = "fineAmountLabel";
-            this.fineAmountLabel.Size = new System.Drawing.Size(67, 15);
-            this.fineAmountLabel.TabIndex = 1;
-            this.fineAmountLabel.Text = "罚款金额";
-            // 
-            // fineAmountTextBox
-            // 
-            this.fineAmountTextBox.Location = new System.Drawing.Point(115, 235);
-            this.fineAmountTextBox.Name = "fineAmountTextBox";
-            this.fineAmountTextBox.ReadOnly = true;
-            this.fineAmountTextBox.Size = new System.Drawing.Size(330, 25);
-            this.fineAmountTextBox.TabIndex = 9;
-            // 
-            // appointmentNumTextBox
-            // 
-            this.appointmentNumTextBox.Location = new System.Drawing.Point(115, 175);
-            this.appointmentNumTextBox.Name = "appointmentNumTextBox";
-            this.appointmentNumTextBox.ReadOnly = true;
-            this.appointmentNumTextBox.Size = new System.Drawing.Size(330, 25);
-            this.appointmentNumTextBox.TabIndex = 9;
-            // 
-            // appointmentNumLabel
-            // 
-            this.appointmentNumLabel.AutoSize = true;
-            this.appointmentNumLabel.Location = new System.Drawing.Point(35, 180);
-            this.appointmentNumLabel.Name = "appointmentNumLabel";
-            this.appointmentNumLabel.Size = new System.Drawing.Size(67, 15);
-            this.appointmentNumLabel.TabIndex = 1;
-            this.appointmentNumLabel.Text = "可预约数";
-            // 
-            // validityTermTextBox
-            // 
-            this.validityTermTextBox.Location = new System.Drawing.Point(620, 175);
-            this.validityTermTextBox.Name = "validityTermTextBox";
-            this.validityTermTextBox.ReadOnly = true;
-            this.validityTermTextBox.Size = new System.Drawing.Size(330, 25);
-            this.validityTermTextBox.TabIndex = 9;
-            // 
-            // idLabel
-            // 
-            this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(540, 210);
-            this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(37, 15);
-            this.idLabel.TabIndex = 19;
-            this.idLabel.Text = "编号";
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.Location = new System.Drawing.Point(620, 205);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(330, 25);
-            this.idTextBox.TabIndex = 18;
             // 
             // BookBorrowForm
             // 

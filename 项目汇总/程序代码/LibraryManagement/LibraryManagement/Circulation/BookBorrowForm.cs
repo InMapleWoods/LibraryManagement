@@ -41,24 +41,31 @@ namespace LibraryManagement.Circulation
         /// </summary>
         private void DataBind()
         {
-            List<string> errorList = new List<string>();//错误列表
-            Match matchBorrowCardNum = Regex.Match(borrowCardNumTextBox.Text, @"(^\d{11}$)");
-            if (!matchBorrowCardNum.Success)
+            try
             {
-                errorList.Add("BorrowCardNum Error");
+                List<string> errorList = new List<string>();//错误列表
+                Match matchBorrowCardNum = Regex.Match(borrowCardNumTextBox.Text, @"(^\d{11}$)");
+                if (!matchBorrowCardNum.Success)
+                {
+                    errorList.Add("BorrowCardNum Error");
+                }
+                if (errorList.Count > 0)
+                    return;
+                //通过借书证号获取id
+                int readerId = circulationBll.GetReaderIdByNum(borrowCardNumTextBox.Text);
+                if (readerId == -1)
+                    return;
+                string bookId = bookCodeTextBox.Text;
+                dataGridView1.DataSource = circulationBll.GetBorrowLogByReader(readerId, bookId);
+                GetReader(readerId);
+                if (string.IsNullOrEmpty(bookId))
+                    return;
+                GetBook(bookId);
             }
-            if (errorList.Count > 0)
-                return;
-            //通过借书证号获取id
-            int readerId = circulationBll.GetReaderIdByNum(borrowCardNumTextBox.Text);
-            if (readerId == -1)
-                return;
-            string bookId = bookCodeTextBox.Text;
-            dataGridView1.DataSource = circulationBll.GetBorrowLogByReader(readerId, bookId);
-            GetReader(readerId);
-            if (string.IsNullOrEmpty(bookId))
-                return;
-            GetBook(bookId);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -221,6 +228,7 @@ namespace LibraryManagement.Circulation
         {
             try
             {
+                ChangeControlEnableState();
                 if (string.IsNullOrEmpty(idTextBox.Text))
                 {
                     return;
@@ -237,7 +245,6 @@ namespace LibraryManagement.Circulation
                         MessageBox.Show("删除失败");
                     }
                 }
-                ChangeControlEnableState();
             }
             catch (Exception ex)
             {
@@ -324,6 +331,8 @@ namespace LibraryManagement.Circulation
             scriptUserControl1.ContorlEnabledChange(ScriptUserControl.ControlNames.addButton);
             scriptUserControl1.ContorlEnabledChange(ScriptUserControl.ControlNames.changeButton);
             scriptUserControl1.ContorlEnabledChange(ScriptUserControl.ControlNames.emptyButton);
+            idTextBox.Visible = !idTextBox.Visible;
+            idLabel.Visible = !idLabel.Visible;
         }
         #endregion
 

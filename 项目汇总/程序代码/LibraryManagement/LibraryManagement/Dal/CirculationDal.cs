@@ -70,6 +70,39 @@ namespace LibraryManagement.Dal
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
         }
+        
+        /// <summary>
+        /// 获取某人全部预约记录
+        /// </summary>
+        /// <param name="readerId">读者编号</param>
+        /// <param name="bookId">书籍编号</param>
+        /// <returns>某人全部预约记录</returns>
+        public DataTable GetAppointLogByReader(int readerId, string bookId)
+        {
+            bookId = "%" + bookId + "%";
+            string sqlstr = " SELECT " +
+                " tb_BookAppointLog.Id AS `编号`,  " +
+                " tb_BasicInformation.UserName AS `借书人`,  " +
+                " tb_CirculateBooks.OfficialTitle AS `书名`,  " +
+                " tb_BookAppointLog.AppointmentTime AS `预约时间`,  " +
+                " tb_BookAppointLog.ExpireDate AS `到期时间` " +
+                " FROM " +
+                " tb_BookAppointLog " +
+                " INNER JOIN tb_BasicInformation " +
+                " INNER JOIN tb_CirculateBooks ON " +
+                " tb_BookAppointLog.BookId = tb_CirculateBooks.Id AND " +
+                " tb_BookAppointLog.ReaderId = tb_BasicInformation.UserId AND " +
+                " tb_BookAppointLog.State = '有效' " +
+                " AND tb_CirculateBooks.Id LIKE @bookName " +
+                " AND tb_BookAppointLog.ReaderId = @readerId; ";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                 new MySqlParameter("@bookName", bookId),
+                 new MySqlParameter("@readerId", readerId),
+            };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
 
         /// <summary>
         /// 借阅图书
@@ -100,6 +133,48 @@ namespace LibraryManagement.Dal
         public bool RemoveBorrowLog(int id)
         {
             string sqlStr = "DeleteBookBorrowLog";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@returnValue",MySqlDbType.Bit,1),
+                new MySqlParameter("@Id",id),
+            };
+            para[0].Direction = ParameterDirection.Output;//将第一个变量设为输出变量
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.StoredProcedure);
+            return para[0].Value.ToString() == "1";
+        }
+        
+
+        /// <summary>
+        /// 预约图书
+        /// </summary>
+        /// <param name="log"></param>
+        /// <returns></returns>
+        public bool AddAppointLog(BookAppointLog log)
+        {
+            string sqlStr = "AddBookAppointLog";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@returnValue",MySqlDbType.Bit,1),
+                new MySqlParameter("@readerId",log.ReaderId),
+                new MySqlParameter("@bookId",log.BookId),
+                new MySqlParameter("@appointTime",log.AppointmentTime),
+                new MySqlParameter("@expireDate",log.ExpireDate),
+            };
+            para[0].Direction = ParameterDirection.Output;//将第一个变量设为输出变量
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.StoredProcedure);
+            return para[0].Value.ToString() == "1";
+        }
+
+        /// <summary>
+        /// 删除预约图书记录
+        /// </summary>
+        /// <param name="id">记录id</param>
+        /// <returns></returns>
+        public bool RemoveAppointLog(int id)
+        {
+            string sqlStr = "DeleteBookAppointLog";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {

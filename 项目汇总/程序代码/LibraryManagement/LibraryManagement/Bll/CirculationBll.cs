@@ -58,6 +58,27 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
+        /// 获取某人全部预约记录
+        /// </summary>
+        /// <param name="readerId">读者编号</param>
+        /// <param name="bookId">书籍编号</param>
+        /// <returns>某人全部预约记录</returns>
+        public DataTable GetAppointLogByReader(int readerId, string bookId)
+        {
+            DataTable result = null;
+            try
+            {
+                result = circulationDal.GetAppointLogByReader(readerId, bookId);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
         /// 借阅图书
         /// </summary>
         /// <param name="log"></param>        
@@ -95,6 +116,53 @@ namespace LibraryManagement.Bll
             try
             {
                 result = circulationDal.RemoveBorrowLog(id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 预约图书
+        /// </summary>
+        /// <param name="log"></param>        
+        /// <param name="errorMsg">错误</param>
+        /// <returns>增加成功与否</returns>
+        public bool AddAppointLog(BookAppointLog log, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!BookAppointLog.isNull(log))//是否有空项
+                {
+                    if (BookAppointLog.isNormative(log, ref errorMsg))//是否符合规范
+                    {
+                        result = circulationDal.AddAppointLog(log);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 删除预约图书记录
+        /// </summary>
+        /// <param name="id">记录id</param>
+        /// <returns>增加成功与否</returns>
+        public bool RemoveAppointLog(int id)
+        {
+            bool result = false;
+            try
+            {
+                result = circulationDal.RemoveAppointLog(id);
             }
             catch (Exception ex)
             {
