@@ -36,5 +36,12 @@ namespace LibraryManagement.Maintainace
         {
 
         }
+
+        private void Btn_backups_Click(object sender, EventArgs e)
+        {
+            var form = new BackUpForm(this);
+            form.Show();
+            Hide();
+        }
     }
 }
