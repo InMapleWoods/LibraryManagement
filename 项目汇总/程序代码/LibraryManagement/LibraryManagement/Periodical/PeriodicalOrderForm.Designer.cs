@@ -126,7 +126,6 @@
             this.scriptUserControl1.Name = "scriptUserControl1";
             this.scriptUserControl1.Size = new System.Drawing.Size(1188, 97);
             this.scriptUserControl1.TabIndex = 0;
-            this.scriptUserControl1.Load += new System.EventHandler(this.scriptUserControl1_Load);
             // 
             // orderDatePicker
             // 
