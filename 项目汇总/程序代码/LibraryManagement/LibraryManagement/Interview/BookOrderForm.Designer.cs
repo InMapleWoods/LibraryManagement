@@ -162,7 +162,10 @@
             this.documentTypeComboBox.FormattingEnabled = true;
             this.documentTypeComboBox.Items.AddRange(new object[] {
             "期刊",
-            "专著"});
+            "专著",
+            "论文",
+            "专利",
+            "电子文献"});
             this.documentTypeComboBox.Location = new System.Drawing.Point(102, 377);
             this.documentTypeComboBox.Name = "documentTypeComboBox";
             this.documentTypeComboBox.Size = new System.Drawing.Size(641, 23);
