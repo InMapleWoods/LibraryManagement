@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LibraryManagement.Model
@@ -47,9 +48,9 @@ namespace LibraryManagement.Model
         public string Contact = "";
 
         /// <summary>
-        /// 院系编号
+        /// 院系名称
         /// </summary>
-        public string DepartmentNum = "";
+        public string DepartmentName = "";
 
         /// <summary>
         /// 判断读者信息是否有空项
@@ -82,7 +83,7 @@ namespace LibraryManagement.Model
             {
                 return true;
             }
-            if (info.DepartmentNum == "")
+            if (info.DepartmentName == "")
             {
                 return true;
             }
@@ -97,10 +98,36 @@ namespace LibraryManagement.Model
         public static bool isNormative(UserManagementReaderInfo info, ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
-
-
-
+            Match matchLibraryCardNum = Regex.Match(info.LibraryCardNum, @"\d{11}");
+            if (!matchLibraryCardNum.Success)
+            {
+                errorList.Add("LibraryCardNum Error");
+            }
+            Match matchUserNumber = Regex.Match(info.UserNumber, @"(\d{12}|\d{10}|\d{8})");
+            if (!matchUserNumber.Success)
+            {
+                errorList.Add("UserNumber Error");
+            }
+            Match matchUserName = Regex.Match(info.UserName, @"\S{2,20}");
+            if (!matchUserName.Success)
+            {
+                errorList.Add("UserName Error");
+            }
+            Match matchAddress = Regex.Match(info.Address, @"\d{2}\#\d{3}");
+            if (!matchAddress.Success)
+            {
+                errorList.Add("Address Error");
+            }
+            Match matchContact = Regex.Match(info.Contact, @"\d{11}");
+            if (!matchContact.Success)
+            {
+                errorList.Add("Contact Error");
+            }
             errorMsg = errorList;
+            if (errorList.Count > 0)
+            {
+                return false;
+            }
             return true;
         }
     }

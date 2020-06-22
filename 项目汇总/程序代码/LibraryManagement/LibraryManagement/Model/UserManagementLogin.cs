@@ -47,13 +47,13 @@ namespace LibraryManagement.Model
         public static bool isNormative(UserManagementLogin login, ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
-            Match userNumber = Regex.Match(login.UserNumber, @"(\d{12}|\d{10}|\d{8})");
-            if(!userNumber.Success)
+            Match matchUserNumber = Regex.Match(login.UserNumber, @"(\d{12}|\d{10}|\d{8})");
+            if(!matchUserNumber.Success)
             {
                 errorList.Add("UserNumber Error");
             }
-            Match password = Regex.Match(login.Password, @"\S{6,16}");
-            if(!password.Success)
+            Match matchPassword = Regex.Match(login.Password, @"\S{6,16}");
+            if(!matchPassword.Success)
             {
                 errorList.Add("Password Error");
             }
