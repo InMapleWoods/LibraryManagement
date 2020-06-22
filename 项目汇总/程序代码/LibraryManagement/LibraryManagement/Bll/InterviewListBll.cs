@@ -15,8 +15,8 @@ namespace LibraryManagement.Bll
     public class InterviewListBll
     {
 
-         /// <summary>
-        /// 订单数据操作对象
+        /// <summary>
+        /// 清单数据操作对象
         /// </summary>
         InterviewDal interviewDal = new InterviewDal();
 
@@ -51,7 +51,7 @@ namespace LibraryManagement.Bll
         /// 删除一条采访清单记录
         /// </summary>
         /// <param name="Id">采访清单</param>
-        /// <returns>增加成功与否</returns>
+        /// <returns>删除成功与否</returns>
         public bool DeleteInterviewList(int Id)
         {
             bool result = false;

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using LibraryManagement.Bll;
+﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace LibraryManageUnitTest.Periodical
 {
@@ -71,7 +70,7 @@ namespace LibraryManageUnitTest.Periodical
                 {
                     Id = maxId,
                     OrderId = maxOrderId,
-                    State = "单元测试Update",
+                    State = "待退",
                 };
                 Assert.AreEqual(true, periodicalBll.UpdatePeriodicalArrival(arrival, ref errorList));
             }

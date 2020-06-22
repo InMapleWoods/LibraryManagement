@@ -89,18 +89,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bll\AcceptanceListBll.cs" />
+    <Compile Include="Bll\CirculationBll.cs" />
+    <Compile Include="Bll\CreateCatalogBll.cs" />
     <Compile Include="Bll\InterviewListBll.cs" />
     <Compile Include="Bll\MaintainaceBll.cs" />
     <Compile Include="Bll\PeriodicalBll.cs" />
     <Compile Include="Bll\InterviewPurchaseBll.cs" />
+    <Compile Include="Bll\StatisticalBll.cs" />
     <Compile Include="Bll\UserManagementBll.cs" />
     <Compile Include="Bll\UtilBll.cs" />
-    <Compile Include="Catalog\CancelBookForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Catalog\CancelBookForm.Designer.cs">
-      <DependentUpon>CancelBookForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Catalog\CatalogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,11 +117,29 @@
     <Compile Include="Catalog\CatalogQueryForm.Designer.cs">
       <DependentUpon>CatalogQueryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Circulation\BookCirculationForm.cs">
+    <Compile Include="Catalog\InterviewCatalogForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Circulation\BookCirculationForm.Designer.cs">
-      <DependentUpon>BookCirculationForm.cs</DependentUpon>
+    <Compile Include="Catalog\InterviewCatalogForm.Designer.cs">
+      <DependentUpon>InterviewCatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\MoveCatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\MoveCatalogForm.Designer.cs">
+      <DependentUpon>MoveCatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Circulation\BookAppointForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\BookAppointForm.Designer.cs">
+      <DependentUpon>BookAppointForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Circulation\BookBorrowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\BookBorrowForm.Designer.cs">
+      <DependentUpon>BookBorrowForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Catalog\SerialNumberForm.cs">
       <SubType>Form</SubType>
@@ -131,17 +147,32 @@
     <Compile Include="Catalog\SerialNumberForm.Designer.cs">
       <DependentUpon>SerialNumberForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Circulation\BookReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\BookReturnForm.Designer.cs">
+      <DependentUpon>BookReturnForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Circulation\CirculationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Circulation\CirculationForm.Designer.cs">
       <DependentUpon>CirculationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dal\CirculationDal.cs" />
+    <Compile Include="Dal\CreateCatalogDal.cs" />
     <Compile Include="Dal\MaintainaceDal.cs" />
     <Compile Include="Dal\PeriodicalDal.cs" />
-    <Compile Include="Dal\InterviewPurchaseDal.cs" />
+    <Compile Include="Dal\InterviewDal.cs" />
+    <Compile Include="Dal\StatisticalDal.cs" />
     <Compile Include="Dal\UserManagementDal.cs" />
     <Compile Include="Dal\UtilDal.cs" />
+    <Compile Include="Interview\AcceptanceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interview\AcceptanceListForm.Designer.cs">
+      <DependentUpon>AcceptanceListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interview\BookOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +191,12 @@
     </Compile>
     <Compile Include="Interview\InterviewListForm.Designer.cs">
       <DependentUpon>InterviewListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interview\ReturnListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interview\ReturnListForm.Designer.cs">
+      <DependentUpon>ReturnListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -191,14 +228,19 @@
     <Compile Include="Maintainace\StatisticalEditForm.Designer.cs">
       <DependentUpon>StatisticalEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\AcceptanceList.cs" />
     <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\BookLog.cs" />
+    <Compile Include="Model\CreateCatalogList.cs" />
     <Compile Include="Model\DictionaryBookSeller.cs" />
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
+    <Compile Include="Model\InterviewCatalog.cs" />
     <Compile Include="Model\InterviewList.cs" />
     <Compile Include="Model\PeriodicalArrival.cs" />
     <Compile Include="Model\PeriodicalBinding.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
     <Compile Include="Model\InterviewPurchaseOrder.cs" />
+    <Compile Include="Model\Reader.cs" />
     <Compile Include="Model\StatisticalInfo.cs" />
     <Compile Include="Model\UserManagementLogin.cs" />
     <Compile Include="Model\UserManagementReaderInfo.cs" />
@@ -226,6 +268,12 @@
     <Compile Include="Periodical\PeriodicalOrderForm.Designer.cs">
       <DependentUpon>PeriodicalOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Periodical\PeriodicalTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Periodical\PeriodicalTableForm.Designer.cs">
+      <DependentUpon>PeriodicalTableForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statistical\StatisticalForm.cs">
@@ -237,15 +285,34 @@
     <EmbeddedResource Include="Catalog\CatalogQueryForm.resx">
       <DependentUpon>CatalogQueryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\MoveCatalogForm.resx">
+      <DependentUpon>MoveCatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\BookAppointForm.resx">
+      <DependentUpon>BookAppointForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\BookReturnForm.resx">
+      <DependentUpon>BookReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\InterviewCatalogForm.resx">
+      <DependentUpon>InterviewCatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interview\AcceptanceListForm.resx">
+      <DependentUpon>AcceptanceListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interview\BookOrderForm.resx">
       <DependentUpon>BookOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\InterviewListForm.resx">
       <DependentUpon>InterviewListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interview\ReturnListForm.resx">
+      <DependentUpon>ReturnListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maintainace\BackUpForm.resx">
       <DependentUpon>BackUpForm.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Tools\DataTablePrinter.cs" />
     <Compile Include="Tools\MyUserControl\ScriptUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -264,17 +331,14 @@
     <Compile Include="UserManagement\UserManagementForm.Designer.cs">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Catalog\CancelBookForm.resx">
-      <DependentUpon>CancelBookForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Catalog\CatalogForm.resx">
       <DependentUpon>CatalogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalog\CreateCatalogForm.resx">
       <DependentUpon>CreateCatalogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Circulation\BookCirculationForm.resx">
-      <DependentUpon>BookCirculationForm.cs</DependentUpon>
+    <EmbeddedResource Include="Circulation\BookBorrowForm.resx">
+      <DependentUpon>BookBorrowForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Circulation\CirculationForm.resx">
       <DependentUpon>CirculationForm.cs</DependentUpon>
@@ -294,6 +358,9 @@
     <EmbeddedResource Include="Maintainace\MaitainanceForm.resx">
       <DependentUpon>MaitainanceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maintainace\StatisticalEditForm.resx">
+      <DependentUpon>StatisticalEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Periodical\PeriodicalArrivalForm.resx">
       <DependentUpon>PeriodicalArrivalForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Periodical\PeriodicalOrderForm.resx">
       <DependentUpon>PeriodicalOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Periodical\PeriodicalTableForm.resx">
+      <DependentUpon>PeriodicalTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

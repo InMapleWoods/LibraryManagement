@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.Periodical
 {
+    /// <summary>
+    /// 期刊订单窗体
+    /// </summary>
     public partial class PeriodicalOrderForm : Form
     {
         Form parentForm;//父窗体
@@ -149,6 +152,7 @@ namespace LibraryManagement.Periodical
                 MessageBox.Show(ex.Message);
             }
             DataBind();//数据绑定
+            ChangeControlEnableState();
         }
 
         /// <summary>

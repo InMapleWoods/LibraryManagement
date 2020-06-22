@@ -426,8 +426,8 @@ namespace LibraryManagement.Dal
         {
             string sqlStr = "Select " +
                 " tb_StatisticalFormat.Id as 编号 ," +
-                " tb_StatisticalFormat.TabaleName as 表名称 ," +
-                " tb_StatisticalFormat.Opration as 操作 " +
+                " tb_StatisticalFormat.TableName as 表名称 ," +
+                " tb_StatisticalFormat.Operation as 操作 " +
                 " from tb_StatisticalFormat ; ";
             MySqlParameter[] para = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlStr, para, CommandType.Text);
@@ -437,8 +437,8 @@ namespace LibraryManagement.Dal
         {
             string sqlStr = "Select " +
                 " tb_StatisticalFormat.Id as 编号 ," +
-                " tb_StatisticalFormat.TabaleName as 表名称 ," +
-                " tb_StatisticalFormat.Opration as 操作 " +
+                " tb_StatisticalFormat.TableName as 表名称 ," +
+                " tb_StatisticalFormat.Operation as 操作 " +
                 " from tb_StatisticalFormat " +
                 " Where TableName =@TableName ;";
             MySqlParameter[] para = new MySqlParameter[]
@@ -458,16 +458,16 @@ namespace LibraryManagement.Dal
             bool result = false;
             string sqlStr = "INSERT INTO tb_StatisticalFormat ( " +
                 " TableName ," +
-                " Opration " +
+                " Operation" +
                 " )" +
                 " VALUES ( " +
                 " @TableName ," +
-                " @Opration " +
+                " @Operation " +
                 " ) ;";
             MySqlParameter[] para = new MySqlParameter[]
             {
                 new MySqlParameter("@TableName",statisticalInfo.TableName),
-                new MySqlParameter("@Operation",statisticalInfo.Opration),
+                new MySqlParameter("@Operation",statisticalInfo.Operation),
             };
             int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (count > 0)
@@ -488,13 +488,32 @@ namespace LibraryManagement.Dal
         {
             bool result = false;
             string sqlStr = "Update tb_StatisticalFormat SET " +
-                " TableName =@TableName," +
-                " Opration = @Opration " +
-                " WHERE Id=@Id ;";
+                " TableName =@TableName ," +
+                " Operation = @Operation " +
+                " WHERE Id= @Id ;";
             MySqlParameter[] para = new MySqlParameter[]
             {
                 new MySqlParameter("@TableName",statisticalInfo.TableName),
-                new MySqlParameter("@Operation",statisticalInfo.Opration),
+                new MySqlParameter("@Operation",statisticalInfo.Operation),
+                new MySqlParameter("@Id",statisticalInfo.Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool DeleteStatisticalInfo(StatisticalInfo statisticalInfo)
+        {
+            bool result = false;
+            string sqlStr = "DELETE FROM tb_StatisticalFormat " +
+                " WHERE Id= @Id ;";
+            MySqlParameter[] para = new MySqlParameter[]
+            {
                 new MySqlParameter("@Id",statisticalInfo.Id),
             };
             int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);

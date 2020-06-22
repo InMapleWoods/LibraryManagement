@@ -400,7 +400,8 @@ namespace LibraryManagement.Dal
                 " INNER JOIN tb_DictionaryPublishingHouse " +
                 " ON tb_CirculateBooks.PublishingHouseId = tb_DictionaryPublishingHouse.id  " +
                 " AND tb_CirculateBooks.DocumentType = '期刊'  " +
-                " AND BookStatus <> '已合订'; ";
+                " AND tb_CirculateBooks.BookStatus <> '已合订' " +
+                " AND tb_CirculateBooks.FirstAuthor <> '合订期刊'; ";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
@@ -454,32 +455,20 @@ namespace LibraryManagement.Dal
         /// </summary>
         /// <param name="binding">期刊合订记录</param>
         /// <returns>增加成功与否</returns>
-        //public bool AddPeriodicalBinding(PeriodicalBinding binding)
-        //{
-        //    string sqlStr = "INSERT INTO tb_PeriodicalArrival (" +
-        //        "OrderId," +
-        //        "State" +
-        //        ") " +
-        //        "VALUES(" +
-        //        "@orderId," +
-        //        "@state" +
-        //        ");";
-        //    //储存Datatable
-        //    MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
-        //    {
-        //        new MySqlParameter("@orderId",binding.OrderId),
-        //        new MySqlParameter("@state",binding.State),
-        //    };
-        //    int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
-        //    if (count > 0)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+        public bool AddPeriodicalBinding(PeriodicalBinding binding)
+        {
+            string sqlStr = "AddPeriodicalBinding";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@returnValue",MySqlDbType.Bit,1),
+                new MySqlParameter("@bindingIdList",binding.BindingIdList),
+                new MySqlParameter("@bindingName",binding.BindingName),
+            };
+            para[0].Direction = ParameterDirection.Output;//将第一个变量设为输出变量
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.StoredProcedure);
+            return para[0].Value.ToString() == "1";
+        }
 
         /// <summary>
         /// 删除一条期刊合订记录
@@ -488,51 +477,117 @@ namespace LibraryManagement.Dal
         /// <returns>删除成功与否</returns>
         public bool DeletePeriodicalBinding(int bindingId)
         {
-            string sqlStr = "Delete from tb_PeriodicalArrival where Id=@id;";
+            string sqlStr = "DeletePeriodicalBinding";
             //储存Datatable        
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
+                new MySqlParameter("@returnValue",MySqlDbType.Bit,1),
                 new MySqlParameter("@id",bindingId),
             };
-            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
-            if (count > 0)
+            para[0].Direction = ParameterDirection.Output;//将第一个变量设为输出变量
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.StoredProcedure);
+            return para[0].Value.ToString() == "1";
+        }
+        #endregion
+
+        #region 报表查询
+
+        /// <summary>
+        /// 获取全部已验收期刊
+        /// </summary>
+        /// <returns>全部已验收期刊</returns>
+        public DataTable GetAllPeriodical(string id, string isbn, string officialTitle, string price)
+        {
+            id = "%" + id + "%";
+            isbn = "%" + isbn + "%";
+            officialTitle = "%" + officialTitle + "%";
+            price = "%" + price + "%";
+            string sqlstr = "select " +
+                "tb_PeriodicalOrder.Id as 编号," +
+                "tb_DictionaryBookSeller.BookSeller as 书商," +
+                "tb_PeriodicalOrder.OrderTime as 订购时间," +
+                "tb_BasicInformation.UserName as 订购人," +
+                "tb_PeriodicalOrder.ISBN as ISBN号," +
+                "tb_PeriodicalOrder.DocumentType as 文献类型," +
+                "tb_PeriodicalOrder.PublishCycle as 出版周期," +
+                "tb_PeriodicalOrder.OfficialTitle as 正刊名," +
+                "tb_PeriodicalOrder.SupplementTitle as 副刊名," +
+                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
+                "tb_PeriodicalOrder.OrderPrice as 订购价," +
+                "tb_PeriodicalOrder.CurrencyType as 币种," +
+                "tb_PeriodicalOrder.Size as 尺寸" +
+                " from " +
+                "tb_PeriodicalOrder inner join " +
+                "tb_DictionaryBookSeller inner join " +
+                "tb_DictionaryPublishingHouse inner join " +
+                "tb_BasicInformation " +
+                "on tb_PeriodicalOrder.BookSellerId=tb_DictionaryBookSeller.Id " +
+                "and tb_PeriodicalOrder.OrdererId=tb_BasicInformation.UserId " +
+                "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
+                "and tb_PeriodicalOrder.Id LIKE @id " +
+                "and tb_PeriodicalOrder.ISBN LIKE @iSBN " +
+                "and tb_PeriodicalOrder.OfficialTitle LIKE @officialTitle " +
+                "and tb_PeriodicalOrder.OrderPrice LIKE @orderPrice " +
+                "AND tb_PeriodicalOrder.CirculateId<>'-1';";
+            MySqlParameter[] paras = new MySqlParameter[]
             {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                new MySqlParameter("@id",id),
+                new MySqlParameter("@iSBN",isbn),
+                new MySqlParameter("@officialTitle",officialTitle),
+                new MySqlParameter("@orderPrice",price),
+            };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
         }
 
-        ///// <summary>
-        ///// 更改一条期刊合订记录
-        ///// </summary>
-        ///// <param name="binding">期刊合订记录</param>
-        ///// <returns>更改成功与否</returns>
-        //public bool UpdatePeriodicalBinding(PeriodicalBinding binding)
-        //{
-        //    string sqlStr = "UPDATE tb_PeriodicalArrival SET " +
-        //        "OrderId=@orderId, " +
-        //        "State=@state " +
-        //        "where Id=@id;";
-        //    //储存Datatable
-        //    MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
-        //    {
-        //        new MySqlParameter("@state",binding.State),
-        //        new MySqlParameter("@orderId",binding.OrderId),
-        //        new MySqlParameter("@id",binding.Id),
-        //    };
-        //    int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
-        //    if (count > 0)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public DataTable GetAllPeriodOrders(string id, string isbn, string officialTitle, string price)
+        {
+            id = "%" + id + "%";
+            isbn = "%" + isbn + "%";
+            officialTitle = "%" + officialTitle + "%";
+            price = "%" + price + "%";
+            string sqlstr = "select " +
+                "tb_PeriodicalOrder.Id as 编号," +
+                "tb_DictionaryBookSeller.BookSeller as 书商," +
+                "tb_PeriodicalOrder.OrderTime as 订购时间," +
+                "tb_BasicInformation.UserName as 订购人," +
+                "tb_PeriodicalOrder.ISBN as ISBN号," +
+                "tb_PeriodicalOrder.DocumentType as 文献类型," +
+                "tb_PeriodicalOrder.PublishCycle as 出版周期," +
+                "tb_PeriodicalOrder.OfficialTitle as 正刊名," +
+                "tb_PeriodicalOrder.SupplementTitle as 副刊名," +
+                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
+                "tb_PeriodicalOrder.OrderPrice as 订购价," +
+                "tb_PeriodicalOrder.CurrencyType as 币种," +
+                "tb_PeriodicalOrder.Size as 尺寸" +
+                " from " +
+                "tb_PeriodicalOrder inner join " +
+                "tb_DictionaryBookSeller inner join " +
+                "tb_DictionaryPublishingHouse inner join " +
+                "tb_BasicInformation " +
+                "on tb_PeriodicalOrder.BookSellerId=tb_DictionaryBookSeller.Id " +
+                "and tb_PeriodicalOrder.OrdererId=tb_BasicInformation.UserId " +
+                "and tb_PeriodicalOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
+                "and tb_PeriodicalOrder.Id LIKE @id " +
+                "and tb_PeriodicalOrder.ISBN LIKE @iSBN " +
+                "and tb_PeriodicalOrder.OfficialTitle LIKE @officialTitle " +
+                "and tb_PeriodicalOrder.OrderPrice LIKE @orderPrice " +
+                "AND NOT EXISTS ( SELECT * FROM tb_PeriodicalArrival WHERE tb_PeriodicalArrival.OrderId = tb_PeriodicalOrder.Id ) ;";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@id",id),
+                new MySqlParameter("@iSBN",isbn),
+                new MySqlParameter("@officialTitle",officialTitle),
+                new MySqlParameter("@orderPrice",price),
+            };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
         #endregion
     }
 }

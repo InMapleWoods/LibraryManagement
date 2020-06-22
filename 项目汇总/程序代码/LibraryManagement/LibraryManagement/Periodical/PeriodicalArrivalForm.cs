@@ -1,12 +1,14 @@
 ﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
-using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace LibraryManagement.Periodical
 {
+    /// <summary>
+    /// 期刊登到窗体
+    /// </summary>
     public partial class PeriodicalArrivalForm : Form
     {
         Form parentForm;//父窗体
@@ -52,6 +54,9 @@ namespace LibraryManagement.Periodical
             SetEnable();
         }
 
+        /// <summary>
+        /// 登到按钮点击
+        /// </summary>
         private void arrivalButton_Click(object sender, EventArgs e)
         {
             try
@@ -77,9 +82,12 @@ namespace LibraryManagement.Periodical
             {
                 MessageBox.Show(ex.Message);
             }
-            DataBind();
+            DataBind();//数据绑定
         }
 
+        /// <summary>
+        /// 修改登到按钮点击
+        /// </summary>
         private void changeButton_Click(object sender, EventArgs e)
         {
             try
@@ -115,6 +123,9 @@ namespace LibraryManagement.Periodical
             DataBind();//数据绑定
         }
 
+        /// <summary>
+        /// 删除登到记录按钮点击
+        /// </summary>
         private void deleteButton_Click(object sender, EventArgs e)
         {
             try
@@ -154,7 +165,7 @@ namespace LibraryManagement.Periodical
         {
             List<string> errorList = new List<string>();//错误列表
             int orderId;
-            //判断订单编号是否能被转换为浮点型
+            //判断登到编号是否能被转换为浮点型
             if (!int.TryParse(orderIdTextBox.Text, out orderId))
             {
                 errorList.Add("OrderId Error");
@@ -166,9 +177,12 @@ namespace LibraryManagement.Periodical
                 State = stateComboBox.Text,
             };
             error = errorList;//返回错误列表
-            return arrival;//返回订单
+            return arrival;//返回登到
         }
 
+        /// <summary>
+        /// 当前行变化
+        /// </summary>
         private void orderDataGridView_CurrentCellChanged(object sender, EventArgs e)
         {
             if (orderDataGridView.CurrentRow != null)
@@ -180,6 +194,9 @@ namespace LibraryManagement.Periodical
             SetEnable();//按钮启用
         }
 
+        /// <summary>
+        /// 选择行变化
+        /// </summary>
         private void orderDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (orderDataGridView.SelectedRows.Count > 0)
@@ -191,6 +208,9 @@ namespace LibraryManagement.Periodical
             SetEnable();//按钮启用
         }
 
+        /// <summary>
+        /// 当前行变化
+        /// </summary>
         private void arrivalDataGridView_CurrentCellChanged(object sender, EventArgs e)
         {
             if (arrivalDataGridView.CurrentRow != null)
@@ -200,6 +220,9 @@ namespace LibraryManagement.Periodical
             SetEnable();//按钮启用
         }
 
+        /// <summary>
+        /// 选择行变化
+        /// </summary>
         private void arrivalDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (arrivalDataGridView.SelectedRows.Count > 0)
@@ -220,6 +243,9 @@ namespace LibraryManagement.Periodical
             stateComboBox.Text = row.Cells["状态"].Value.ToString();//登到状态
         }
 
+        /// <summary>
+        /// 根据点击上下窗体的不同启用不同按钮
+        /// </summary>
         private void SetEnable()
         {
             if (arrivalDataGridView.Rows.Count == 0)
@@ -247,6 +273,9 @@ namespace LibraryManagement.Periodical
             }
         }
 
+        /// <summary>
+        /// 全部入库按钮点击
+        /// </summary>
         private void circulationButton_Click(object sender, EventArgs e)
         {
             try

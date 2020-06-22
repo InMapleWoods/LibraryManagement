@@ -14,7 +14,9 @@ namespace LibraryManagement.Maintainace
 
         private void Btn_statisticalEditor_Click(object sender, EventArgs e)
         {
-
+            var form = new StatisticalEditForm(this);
+            form.Show();
+            Hide();
         }
 
         private void Btn_dictionaryEdit_Click(object sender, EventArgs e)
@@ -33,6 +35,13 @@ namespace LibraryManagement.Maintainace
         private void MaitainanceForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Btn_backups_Click(object sender, EventArgs e)
+        {
+            var form = new BackUpForm(this);
+            form.Show();
+            Hide();
         }
     }
 }

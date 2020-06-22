@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Model
 {
@@ -17,16 +13,34 @@ namespace LibraryManagement.Model
         /// </summary>
         public int Id = 0;
 
+        /// <summary>
+        /// ISBN
+        /// </summary>
         public string ISBN = "";
 
+        /// <summary>
+        /// 题目名称
+        /// </summary>
         public string OfficialTitle = "";
 
+        /// <summary>
+        /// 第一作者
+        /// </summary>
         public string FirstAuthor = "";
 
+        /// <summary>
+        /// 出版社编号
+        /// </summary>
         public int PublishingHouseId = 0;
 
+        /// <summary>
+        /// 文献类型
+        /// </summary>
         public string DocumentType = "";
 
+        /// <summary>
+        /// 图书状态
+        /// </summary>
         public string BookStatus;
 
         /// <summary>
