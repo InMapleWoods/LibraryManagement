@@ -99,12 +99,6 @@
     <Compile Include="Bll\StatisticalBll.cs" />
     <Compile Include="Bll\UserManagementBll.cs" />
     <Compile Include="Bll\UtilBll.cs" />
-    <Compile Include="Catalog\CancelBookForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Catalog\CancelBookForm.Designer.cs">
-      <DependentUpon>CancelBookForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Catalog\CatalogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +122,12 @@
     </Compile>
     <Compile Include="Catalog\InterviewCatalogForm.Designer.cs">
       <DependentUpon>InterviewCatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\MoveCatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\MoveCatalogForm.Designer.cs">
+      <DependentUpon>MoveCatalogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Circulation\BookAppointForm.cs">
       <SubType>Form</SubType>
@@ -230,15 +230,17 @@
     </Compile>
     <Compile Include="Model\AcceptanceList.cs" />
     <Compile Include="Model\Book.cs" />
-    <Compile Include="Model\BookBorrowLog.cs" />
+    <Compile Include="Model\BookLog.cs" />
     <Compile Include="Model\CreateCatalogList.cs" />
     <Compile Include="Model\DictionaryBookSeller.cs" />
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
+    <Compile Include="Model\InterviewCatalog.cs" />
     <Compile Include="Model\InterviewList.cs" />
     <Compile Include="Model\PeriodicalArrival.cs" />
     <Compile Include="Model\PeriodicalBinding.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
     <Compile Include="Model\InterviewPurchaseOrder.cs" />
+    <Compile Include="Model\Reader.cs" />
     <Compile Include="Model\StatisticalInfo.cs" />
     <Compile Include="Model\UserManagementReaderInfo.cs" />
     <Compile Include="Periodical\PeriodicalArrivalForm.cs">
@@ -281,6 +283,9 @@
     </Compile>
     <EmbeddedResource Include="Catalog\CatalogQueryForm.resx">
       <DependentUpon>CatalogQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\MoveCatalogForm.resx">
+      <DependentUpon>MoveCatalogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Circulation\BookAppointForm.resx">
       <DependentUpon>BookAppointForm.cs</DependentUpon>
@@ -331,9 +336,6 @@
     <Compile Include="UserManagement\UserManagementForm.Designer.cs">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Catalog\CancelBookForm.resx">
-      <DependentUpon>CancelBookForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Catalog\CatalogForm.resx">
       <DependentUpon>CatalogForm.cs</DependentUpon>
     </EmbeddedResource>
