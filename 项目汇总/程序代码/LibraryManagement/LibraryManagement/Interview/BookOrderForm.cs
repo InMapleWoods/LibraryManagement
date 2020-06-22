@@ -17,7 +17,8 @@ namespace LibraryManagement.Interview
     public partial class BookOrderForm : Form
     {
         Form parentForm;//父窗体
-        InterviewPurchaseBll interviewPurchaseBll = new InterviewPurchaseBll();//采访用户操作类
+        InterviewPurchaseBll interviewPurchaseBll = new InterviewPurchaseBll();//采访订单用户操作类
+        InterviewListBll interviewListBll = new InterviewListBll();//采访清单用户操作类
         UtilBll utilBll = new UtilBll();//复用部分用户操作类
 
         /// <summary>
@@ -189,17 +190,17 @@ namespace LibraryManagement.Interview
             {
                 //若不选择整行，selectRows是没有元素的，所以需要进行判断
                 int index;
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (OrderDataGridView.SelectedRows.Count > 0)
                 {
-                    index = dataGridView1.SelectedRows[0].Index;
+                    index = OrderDataGridView.SelectedRows[0].Index;
                 }
                 else
                 {
-                    index = dataGridView1.CurrentRow.Index;
+                    index = OrderDataGridView.CurrentRow.Index;
                 }
-                dataGridView1.Rows[index].Selected = false;//放弃选择当前行
-                index = index + 1 >= dataGridView1.RowCount ? dataGridView1.RowCount - 1 : index + 1;
-                dataGridView1.Rows[index].Selected = true;//选择下一行
+                OrderDataGridView.Rows[index].Selected = false;//放弃选择当前行
+                index = index + 1 >= OrderDataGridView.RowCount ? OrderDataGridView.RowCount - 1 : index + 1;
+                OrderDataGridView.Rows[index].Selected = true;//选择下一行
             }
             catch (Exception ex)
             {
@@ -216,17 +217,17 @@ namespace LibraryManagement.Interview
             {
                 //若不选择整行，selectRows是没有元素的，所以需要进行判断
                 int index;
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (OrderDataGridView.SelectedRows.Count > 0)
                 {
-                    index = dataGridView1.SelectedRows[0].Index;
+                    index = OrderDataGridView.SelectedRows[0].Index;
                 }
                 else
                 {
-                    index = dataGridView1.CurrentRow.Index;
+                    index = OrderDataGridView.CurrentRow.Index;
                 }
-                dataGridView1.Rows[index].Selected = false;//放弃选择当前行
+                OrderDataGridView.Rows[index].Selected = false;//放弃选择当前行
                 index = index - 1 <= 0 ? 0 : index - 1;
-                dataGridView1.Rows[index].Selected = true;//选择上一行
+                OrderDataGridView.Rows[index].Selected = true;//选择上一行
             }
             catch (Exception ex)
             {
@@ -344,8 +345,10 @@ namespace LibraryManagement.Interview
         /// </summary>
         private void DataBind()
         {
+            //上方总窗体数据绑定
+            InterviewDataGridView.DataSource = interviewListBll.GetAllInterviewList();
             //下方总窗体数据绑定
-            dataGridView1.DataSource = interviewPurchaseBll.GetAllPurchaseOrders();
+            OrderDataGridView.DataSource = interviewPurchaseBll.GetAllPurchaseOrders();
 
             //出版社数据绑定
             BindingSource bs_PublishingHouse = new BindingSource();
@@ -360,9 +363,9 @@ namespace LibraryManagement.Interview
         /// </summary>
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (OrderDataGridView.SelectedRows.Count > 0)
             {
-                SetPurchaseOrder(dataGridView1.SelectedRows[0]);
+                SetPurchaseOrder(OrderDataGridView.SelectedRows[0]);
             }
         }
 
@@ -371,9 +374,9 @@ namespace LibraryManagement.Interview
         /// </summary>
         private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+            if (OrderDataGridView.CurrentRow != null)
             {
-                SetPurchaseOrder(dataGridView1.CurrentRow);
+                SetPurchaseOrder(OrderDataGridView.CurrentRow);
             }
         }
 
