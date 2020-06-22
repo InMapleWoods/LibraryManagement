@@ -12,24 +12,33 @@ namespace LibraryManagement.Maintainace
 {
     public partial class BackUpForm : Form
     {
-        public BackUpForm()
+        Form parentForm;
+        public BackUpForm(Form form)
         {
             InitializeComponent();
+            parentForm = form;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void btn_selectpath_Click(object sender, EventArgs e)
         {
+            FolderBrowserDialog dilog = new FolderBrowserDialog();
+            dilog.Description = "请选择文件夹";
+            if (dilog.ShowDialog() == DialogResult.OK || dilog.ShowDialog() == DialogResult.Yes)
+            {
+                textBox_Path.Text = dilog.SelectedPath;
+            }
+        }
 
+        private void BackUpForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Show();
+            Hide();
         }
     }
 }

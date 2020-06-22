@@ -152,6 +152,7 @@ namespace LibraryManagement.Periodical
                 MessageBox.Show(ex.Message);
             }
             DataBind();//数据绑定
+            ChangeControlEnableState();
         }
 
         /// <summary>
@@ -412,9 +413,5 @@ namespace LibraryManagement.Periodical
             }
         }
 
-        private void scriptUserControl1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

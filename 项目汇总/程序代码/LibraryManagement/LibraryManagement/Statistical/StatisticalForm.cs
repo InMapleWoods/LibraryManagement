@@ -1,4 +1,5 @@
 ﻿using LibraryManagement.Bll;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -45,6 +46,27 @@ namespace LibraryManagement.Statistical
             if (comboBox_ChooseTable.SelectedIndex >= 0 && statisticalInfo != null)
             {
                 dataGV_showStatisticalData.DataSource = statisticalBll.getStatisticalResult(statisticalInfo.Rows[comboBox_ChooseTable.SelectedIndex][2].ToString());
+            }
+        }
+
+        private void btn_Print_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)dataGV_showStatisticalData.DataSource);
+                if (print.PrintDataTable())//打印datagridview中的内容
+                {
+                    MessageBox.Show("打印成功");
+                }
+                else
+                {
+                    MessageBox.Show("打印失败");
+                }
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

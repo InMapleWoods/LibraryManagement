@@ -294,8 +294,6 @@ namespace LibraryManagement.Interview
             //通过订购人账号获取id
             int acceptorId = utilBll.GetUserIdFormNumber(AcceptorTextBox.Text);
 
-            double price;
-
             //根据页面内容构造清单
             AcceptanceList list = new AcceptanceList()
             {

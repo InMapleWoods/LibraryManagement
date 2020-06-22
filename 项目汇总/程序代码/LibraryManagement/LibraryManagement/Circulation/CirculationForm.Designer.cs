@@ -36,9 +36,9 @@
             // 
             // bookBorrowButton
             // 
-            this.bookBorrowButton.Location = new System.Drawing.Point(92, 149);
+            this.bookBorrowButton.Location = new System.Drawing.Point(92, 126);
             this.bookBorrowButton.Name = "bookBorrowButton";
-            this.bookBorrowButton.Size = new System.Drawing.Size(75, 75);
+            this.bookBorrowButton.Size = new System.Drawing.Size(97, 98);
             this.bookBorrowButton.TabIndex = 0;
             this.bookBorrowButton.Text = "图书借阅";
             this.bookBorrowButton.UseVisualStyleBackColor = true;
@@ -46,18 +46,18 @@
             // 
             // defaultHandleButton
             // 
-            this.defaultHandleButton.Location = new System.Drawing.Point(526, 149);
+            this.defaultHandleButton.Location = new System.Drawing.Point(492, 126);
             this.defaultHandleButton.Name = "defaultHandleButton";
-            this.defaultHandleButton.Size = new System.Drawing.Size(75, 75);
+            this.defaultHandleButton.Size = new System.Drawing.Size(97, 98);
             this.defaultHandleButton.TabIndex = 0;
             this.defaultHandleButton.Text = "违约处理";
             this.defaultHandleButton.UseVisualStyleBackColor = true;
             // 
             // bookAppointButton
             // 
-            this.bookAppointButton.Location = new System.Drawing.Point(189, 149);
+            this.bookAppointButton.Location = new System.Drawing.Point(226, 126);
             this.bookAppointButton.Name = "bookAppointButton";
-            this.bookAppointButton.Size = new System.Drawing.Size(75, 75);
+            this.bookAppointButton.Size = new System.Drawing.Size(97, 98);
             this.bookAppointButton.TabIndex = 0;
             this.bookAppointButton.Text = "图书预约";
             this.bookAppointButton.UseVisualStyleBackColor = true;
@@ -65,9 +65,9 @@
             // 
             // bookReturnButton
             // 
-            this.bookReturnButton.Location = new System.Drawing.Point(288, 149);
+            this.bookReturnButton.Location = new System.Drawing.Point(356, 126);
             this.bookReturnButton.Name = "bookReturnButton";
-            this.bookReturnButton.Size = new System.Drawing.Size(75, 75);
+            this.bookReturnButton.Size = new System.Drawing.Size(97, 98);
             this.bookReturnButton.TabIndex = 0;
             this.bookReturnButton.Text = "图书归还";
             this.bookReturnButton.UseVisualStyleBackColor = true;
