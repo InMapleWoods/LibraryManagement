@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace LibraryManagement.Bll
         /// </summary>
         CatalogDal createDal= new CatalogDal();
 
-
+        #region 直接编目
         /// <summary>
         /// 增加一条编目记录
         /// </summary>
@@ -112,5 +113,186 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
+        #endregion
+
+        #region 采访编目
+        /// <summary>
+        /// 获取全部采访清单
+        /// </summary>
+        /// <returns>全部采访清单</returns>
+        public DataTable GetAllInterviewCatalog()
+        {
+            DataTable result = null;
+            try
+            {
+                result = createDal.GetAllInterviewCatalog();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 增加一条采访编目记录
+        /// </summary>
+        /// <param name="list">采访编目</param>
+        /// <returns>增加成功与否</returns>
+        public bool AddInterviewCatalog(InterviewCatalog list, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!InterviewCatalog.isNull(list))//是否有空项
+                {
+                    if (InterviewCatalog.isNormative(list, ref errorMsg))//是否符合规范
+                    {
+                        result = createDal.AddInterviewCatalog(list);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 删除一条采访编目记录
+        /// </summary>
+        /// <param name="arrivalId">采访编目</param>
+        /// <returns>增加成功与否</returns>
+        public bool DeleteInterviewCatalog(int interviewId)
+        {
+            bool result = false;
+            try
+            {
+                result = createDal.DeleteInterviewCatalog(interviewId);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 更改一条期刊登到记录
+        /// </summary>
+        /// <param name="arrival">期刊登到记录</param>
+        /// <returns>更改成功与否</returns>
+        public bool UpdateInterviewCatalog(InterviewCatalog list, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (list.Id == 0)
+                {
+                    errorMsg.Add("Id Error");
+                    return false;
+                }
+                if (!InterviewCatalog.isNull(list))//是否有空项
+                {
+                    if (InterviewCatalog.isNormative(list, ref errorMsg))//是否符合规范
+                    {
+                        result = createDal.UpdateInterviewCatalog(list);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public IEnumerable GetAllInterviewCatalogArray()
+        {
+            List<InterviewCatalog> result = new List<InterviewCatalog>();
+            try
+            {
+                DataTable datatable = createDal.GetAllInterviewCatalog();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    InterviewCatalog interviewCatalog = new InterviewCatalog()
+                    {
+                        Id = (int)dr["编号"],
+                        InterviewId = (int)dr["订单编号"],
+                        State = dr["状态"].ToString(),
+                    };
+                    result.Add(interviewCatalog);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+        /// <summary>
+        /// 将完好期刊写入流通库
+        /// </summary>
+        /// <returns>更改成功与否</returns>
+        public bool MoveInterviewCatalogToCirculate()
+        {
+            bool result = false;
+            try
+            {
+                result = createDal.MoveInterviewCatalogToCirculate();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        #endregion
+
+        //#region 编目移送
+
+        ///// <summary>
+        ///// 移送一条编目清单
+        ///// </summary>
+        ///// <param name="list">编目清单</param>
+        ///// <returns>增加成功与否</returns>
+        //public bool MoveCatalog(CreateCatalogList list, ref List<string> errorMsg)
+        //{
+        //    bool result = false;
+        //    try
+        //    {
+        //        if (!CreateCatalogList.isNull(list))//是否有空项
+        //        {
+        //            if (CreateCatalogList.isNormative(list, ref errorMsg))//是否符合规范
+        //            {
+        //                result = CatalogDal.MoveCatalog(list);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //        throw e;
+        //    }
+        //    return result;
+        //}
+
+
+        //#endregion
     }
 }

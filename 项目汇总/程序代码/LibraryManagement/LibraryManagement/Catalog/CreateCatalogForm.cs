@@ -103,7 +103,7 @@ namespace LibraryManagement.Catalog
         {
             try
             {
-                string id = idTextBox.Text;//获取清单号
+                string id = idTextBox.Text;//获取编目号
                 if (string.IsNullOrEmpty(id))
                 {
                     return;
@@ -130,7 +130,7 @@ namespace LibraryManagement.Catalog
                     int id;
                     if (!int.TryParse(listNum, out id))//将其转换为数字失败
                     {
-                        MessageBox.Show("订单编号错误");
+                        MessageBox.Show("编号错误");
                         return;
                     }
                     if (createCatalogBll.DeleteCatalogList(id))//调用订单删除方法
@@ -320,10 +320,9 @@ namespace LibraryManagement.Catalog
             AuthorTextBox.Text = row.Cells[1].Value.ToString();//作者
             ISBNTextBox.Text = row.Cells[2].Value.ToString();//ISBN
             BookNameTextBox.Text = row.Cells[3].Value.ToString();//书名
-            //PriceTextBox.Text = row.Cells[4].Value.ToString();//价格
-            PublishingHouseComboBox.Text = row.Cells[5].Value.ToString();//出版社名称
+            PublishingHouseComboBox.Text = row.Cells[4].Value.ToString();//出版社名称
+            PrimaryLiabilityLabelTextBox.Text = row.Cells[5].Value.ToString();//第一责任
             DocumentTypeComboBox.Text = row.Cells[6].Value.ToString();//文献类型
-            CatalogerIdTextBox.Text = row.Cells[7].Value.ToString();//编目人员
             CatalogDateTimePicker.Value = (DateTime)row.Cells[8].Value;//编目日期
         }
 
@@ -341,6 +340,10 @@ namespace LibraryManagement.Catalog
             PublishingHouseComboBox.DataSource = bs_PublishingHouse;
             PublishingHouseComboBox.ValueMember = "Key";
             PublishingHouseComboBox.DisplayMember = "Value";
+
+            DocumentTypeComboBox.SelectedIndex = 0;//文献类型
+          
+            
         }
 
         /// <summary>
@@ -432,6 +435,11 @@ namespace LibraryManagement.Catalog
         }
 
         private void dataGridView1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CatalogerIdTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -25,12 +25,7 @@ namespace LibraryManagement.Catalog
             form.Show();
             Hide();
         } 
-        private void catalogQueryBtn_Click(object sender, EventArgs e)
-        {
-            var form = new CatalogQueryForm(this);
-            form.Show();
-            Hide();
-        }
+     
 
         private void CatalogForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -38,12 +33,7 @@ namespace LibraryManagement.Catalog
             Hide();
         }
 
-        private void cancelBookBtn_Click(object sender, EventArgs e)
-        {
-            var form = new CancelBookForm(this);
-            form.Show();
-            Hide();
-        }
+
 
         private void newBookBtn_Click(object sender, EventArgs e)
         {
@@ -53,6 +43,12 @@ namespace LibraryManagement.Catalog
         private void catalogQueryBtn_Click_1(object sender, EventArgs e)
         {
             var form = new CatalogQueryForm(this);
+            form.Show();
+            Hide();
+        }
+        private void interviewCatalogBtn_Click(object sender, EventArgs e)
+        {
+            var form = new InterviewCatalogForm(this);
             form.Show();
             Hide();
         }

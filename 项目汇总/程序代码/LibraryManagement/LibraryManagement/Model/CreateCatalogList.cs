@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 namespace LibraryManagement.Model
 {
     /// <summary>
-    /// 采访编目
+    /// 编目
     /// </summary>
     public class CreateCatalogList
     {
@@ -60,6 +60,11 @@ namespace LibraryManagement.Model
         public string PrimaryLiability = "";
 
         /// <summary>
+        /// 状态
+        /// </summary>
+        public string State = "";
+
+        /// <summary>
         /// 判断列表是否有空项
         /// </summary>
         /// <param name="list">待判断列表</param>
@@ -91,6 +96,10 @@ namespace LibraryManagement.Model
                 return true;
             }
             if (list.PrimaryLiability == "")
+            {
+                return true;
+            }
+            if (list.State == "")
             {
                 return true;
             }

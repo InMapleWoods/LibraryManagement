@@ -92,6 +92,7 @@
             this.CatalogerIdTextBox.Name = "CatalogerIdTextBox";
             this.CatalogerIdTextBox.Size = new System.Drawing.Size(199, 28);
             this.CatalogerIdTextBox.TabIndex = 14;
+            this.CatalogerIdTextBox.TextChanged += new System.EventHandler(this.CatalogerIdTextBox_TextChanged);
             // 
             // isbnNumberLabel
             // 
@@ -219,6 +220,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 344);

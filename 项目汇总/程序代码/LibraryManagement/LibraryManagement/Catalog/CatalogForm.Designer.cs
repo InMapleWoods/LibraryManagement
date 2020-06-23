@@ -30,7 +30,7 @@
         {
             this.directCatalogBtn = new System.Windows.Forms.Button();
             this.catalogingTransferBtn = new System.Windows.Forms.Button();
-            this.cancelBookBtn = new System.Windows.Forms.Button();
+            this.interviewCatalogBtn = new System.Windows.Forms.Button();
             this.catalogQueryBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -56,16 +56,16 @@
             this.catalogingTransferBtn.UseVisualStyleBackColor = true;
             this.catalogingTransferBtn.Click += new System.EventHandler(this.newBookBtn_Click);
             // 
-            // cancelBookBtn
+            // interviewCatalogBtn
             // 
-            this.cancelBookBtn.Location = new System.Drawing.Point(665, 114);
-            this.cancelBookBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cancelBookBtn.Name = "cancelBookBtn";
-            this.cancelBookBtn.Size = new System.Drawing.Size(112, 90);
-            this.cancelBookBtn.TabIndex = 2;
-            this.cancelBookBtn.Text = "注销报损";
-            this.cancelBookBtn.UseVisualStyleBackColor = true;
-            this.cancelBookBtn.Click += new System.EventHandler(this.cancelBookBtn_Click);
+            this.interviewCatalogBtn.Location = new System.Drawing.Point(665, 114);
+            this.interviewCatalogBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.interviewCatalogBtn.Name = "interviewCatalogBtn";
+            this.interviewCatalogBtn.Size = new System.Drawing.Size(112, 90);
+            this.interviewCatalogBtn.TabIndex = 2;
+            this.interviewCatalogBtn.Text = "采访编目";
+            this.interviewCatalogBtn.UseVisualStyleBackColor = true;
+            this.interviewCatalogBtn.Click += new System.EventHandler(this.interviewCatalogBtn_Click);
             // 
             // catalogQueryBtn
             // 
@@ -83,7 +83,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 540);
             this.Controls.Add(this.catalogQueryBtn);
-            this.Controls.Add(this.cancelBookBtn);
+            this.Controls.Add(this.interviewCatalogBtn);
             this.Controls.Add(this.catalogingTransferBtn);
             this.Controls.Add(this.directCatalogBtn);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -99,7 +99,7 @@
 
         private System.Windows.Forms.Button directCatalogBtn;
         private System.Windows.Forms.Button catalogingTransferBtn;
-        private System.Windows.Forms.Button cancelBookBtn;
+        private System.Windows.Forms.Button interviewCatalogBtn;
         private System.Windows.Forms.Button catalogQueryBtn;
     }
 }
