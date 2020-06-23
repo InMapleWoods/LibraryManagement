@@ -31,9 +31,9 @@ namespace LibraryManagement.Interview
         /// 设置某行的数据为当前窗体输入框内容
         /// </summary>
         /// <param name="row">行</param>
-        private void SetPurchaseOrder(DataGridViewRow row)
+        private void SetInformation(DataGridViewRow row)
         {
-            orderNumTextBox.Text = row.Cells[0].Value.ToString();//订单编号
+            NumTextBox.Text = row.Cells[0].Value.ToString();//订单编号
             subDatePicker.Value = (DateTime)row.Cells[1].Value;//订购时间
             ISBNtextBox.Text = row.Cells[2].Value.ToString();//ISBN
             bookNameTextBox.Text = row.Cells[4].Value.ToString();//书名
@@ -51,16 +51,41 @@ namespace LibraryManagement.Interview
             OrderDataGridView.DataSource = interviewPurchaseBll.GetAllPurchaseOrders();
         }
 
-        /// <summary>
-        /// 选择行更改
-        /// </summary>
+        #region 选择行更改
         private void OrderDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (OrderDataGridView.SelectedRows.Count > 0)
             {
-                SetPurchaseOrder(OrderDataGridView.SelectedRows[0]);
+                SetInformation(OrderDataGridView.SelectedRows[0]);
             }
         }
+
+        private void ReturnListDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (ReturnListDataGridView.SelectedRows.Count > 0)
+            {
+                SetInformation(ReturnListDataGridView.SelectedRows[0]);
+            }
+        }
+        #endregion
+
+        #region 当前行更改
+        private void OrderDataGridView_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (OrderDataGridView.CurrentRow != null)
+            {
+                SetInformation(OrderDataGridView.CurrentRow);
+            }
+        }
+
+        private void ReturnListDataGridView_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (ReturnListDataGridView.SelectedRows != null)
+            {
+                SetInformation(ReturnListDataGridView.CurrentRow);
+            }
+        }
+        #endregion
 
         /// <summary>
         /// 窗体加载函数

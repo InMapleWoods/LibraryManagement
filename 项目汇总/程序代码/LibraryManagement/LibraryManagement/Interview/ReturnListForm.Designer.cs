@@ -44,8 +44,8 @@
             this.ISBNtextBox = new System.Windows.Forms.TextBox();
             this.ISBNlabel = new System.Windows.Forms.Label();
             this.orderDateLabel = new System.Windows.Forms.Label();
-            this.orderNumTextBox = new System.Windows.Forms.TextBox();
-            this.orderNumberLabel = new System.Windows.Forms.Label();
+            this.NumTextBox = new System.Windows.Forms.TextBox();
+            this.NumberLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReturnListDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -59,16 +59,20 @@
             this.OrderDataGridView.RowTemplate.Height = 27;
             this.OrderDataGridView.Size = new System.Drawing.Size(813, 150);
             this.OrderDataGridView.TabIndex = 0;
+            this.OrderDataGridView.CurrentCellChanged += new System.EventHandler(this.OrderDataGridView_CurrentCellChanged);
+            this.OrderDataGridView.SelectionChanged += new System.EventHandler(this.OrderDataGridView_SelectionChanged);
             // 
             // ReturnListDataGridView
             // 
             this.ReturnListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ReturnListDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ReturnListDataGridView.Location = new System.Drawing.Point(0, 532);
+            this.ReturnListDataGridView.Location = new System.Drawing.Point(0, 504);
             this.ReturnListDataGridView.Name = "ReturnListDataGridView";
             this.ReturnListDataGridView.RowTemplate.Height = 27;
-            this.ReturnListDataGridView.Size = new System.Drawing.Size(813, 150);
+            this.ReturnListDataGridView.Size = new System.Drawing.Size(813, 178);
             this.ReturnListDataGridView.TabIndex = 1;
+            this.ReturnListDataGridView.CurrentCellChanged += new System.EventHandler(this.ReturnListDataGridView_CurrentCellChanged);
+            this.ReturnListDataGridView.SelectionChanged += new System.EventHandler(this.ReturnListDataGridView_SelectionChanged);
             // 
             // publishingHouseComboBox
             // 
@@ -192,21 +196,21 @@
             this.orderDateLabel.TabIndex = 25;
             this.orderDateLabel.Text = "订购日期";
             // 
-            // orderNumTextBox
+            // NumTextBox
             // 
-            this.orderNumTextBox.Location = new System.Drawing.Point(142, 234);
-            this.orderNumTextBox.Name = "orderNumTextBox";
-            this.orderNumTextBox.Size = new System.Drawing.Size(149, 25);
-            this.orderNumTextBox.TabIndex = 24;
+            this.NumTextBox.Location = new System.Drawing.Point(142, 234);
+            this.NumTextBox.Name = "NumTextBox";
+            this.NumTextBox.Size = new System.Drawing.Size(149, 25);
+            this.NumTextBox.TabIndex = 24;
             // 
-            // orderNumberLabel
+            // NumberLabel
             // 
-            this.orderNumberLabel.AutoSize = true;
-            this.orderNumberLabel.Location = new System.Drawing.Point(75, 237);
-            this.orderNumberLabel.Name = "orderNumberLabel";
-            this.orderNumberLabel.Size = new System.Drawing.Size(52, 15);
-            this.orderNumberLabel.TabIndex = 23;
-            this.orderNumberLabel.Text = "订单号";
+            this.NumberLabel.AutoSize = true;
+            this.NumberLabel.Location = new System.Drawing.Point(75, 237);
+            this.NumberLabel.Name = "NumberLabel";
+            this.NumberLabel.Size = new System.Drawing.Size(37, 15);
+            this.NumberLabel.TabIndex = 23;
+            this.NumberLabel.Text = "单号";
             // 
             // ReturnListForm
             // 
@@ -227,8 +231,8 @@
             this.Controls.Add(this.ISBNtextBox);
             this.Controls.Add(this.ISBNlabel);
             this.Controls.Add(this.orderDateLabel);
-            this.Controls.Add(this.orderNumTextBox);
-            this.Controls.Add(this.orderNumberLabel);
+            this.Controls.Add(this.NumTextBox);
+            this.Controls.Add(this.NumberLabel);
             this.Controls.Add(this.ReturnListDataGridView);
             this.Controls.Add(this.OrderDataGridView);
             this.MaximizeBox = false;
@@ -262,7 +266,7 @@
         private System.Windows.Forms.TextBox ISBNtextBox;
         private System.Windows.Forms.Label ISBNlabel;
         private System.Windows.Forms.Label orderDateLabel;
-        private System.Windows.Forms.TextBox orderNumTextBox;
-        private System.Windows.Forms.Label orderNumberLabel;
+        private System.Windows.Forms.TextBox NumTextBox;
+        private System.Windows.Forms.Label NumberLabel;
     }
 }

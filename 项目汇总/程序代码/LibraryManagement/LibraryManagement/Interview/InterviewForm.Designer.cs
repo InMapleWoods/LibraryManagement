@@ -63,6 +63,7 @@
             this.ReturnInformationButton.TabIndex = 3;
             this.ReturnInformationButton.Text = "退货信息";
             this.ReturnInformationButton.UseVisualStyleBackColor = true;
+            this.ReturnInformationButton.Click += new System.EventHandler(this.ReturnInformationButton_Click);
             // 
             // OrderButton
             // 
