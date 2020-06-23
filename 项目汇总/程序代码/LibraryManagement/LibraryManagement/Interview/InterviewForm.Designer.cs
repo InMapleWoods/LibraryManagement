@@ -30,7 +30,7 @@
         {
             this.InterviewListButton = new System.Windows.Forms.Button();
             this.AcceptanceListButton = new System.Windows.Forms.Button();
-            this.OrderInformationButton = new System.Windows.Forms.Button();
+            this.ReturnInformationButton = new System.Windows.Forms.Button();
             this.OrderButton = new System.Windows.Forms.Button();
             this.returnButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             // 
             // AcceptanceListButton
             // 
-            this.AcceptanceListButton.Location = new System.Drawing.Point(646, 156);
+            this.AcceptanceListButton.Location = new System.Drawing.Point(463, 156);
             this.AcceptanceListButton.Name = "AcceptanceListButton";
             this.AcceptanceListButton.Size = new System.Drawing.Size(75, 75);
             this.AcceptanceListButton.TabIndex = 1;
@@ -55,18 +55,19 @@
             this.AcceptanceListButton.UseVisualStyleBackColor = true;
             this.AcceptanceListButton.Click += new System.EventHandler(this.AcceptanceListButton_Click);
             // 
-            // OrderInformationButton
+            // ReturnInformationButton
             // 
-            this.OrderInformationButton.Location = new System.Drawing.Point(459, 156);
-            this.OrderInformationButton.Name = "OrderInformationButton";
-            this.OrderInformationButton.Size = new System.Drawing.Size(75, 75);
-            this.OrderInformationButton.TabIndex = 3;
-            this.OrderInformationButton.Text = "订单信息";
-            this.OrderInformationButton.UseVisualStyleBackColor = true;
+            this.ReturnInformationButton.Location = new System.Drawing.Point(647, 156);
+            this.ReturnInformationButton.Name = "ReturnInformationButton";
+            this.ReturnInformationButton.Size = new System.Drawing.Size(75, 75);
+            this.ReturnInformationButton.TabIndex = 3;
+            this.ReturnInformationButton.Text = "退货信息";
+            this.ReturnInformationButton.UseVisualStyleBackColor = true;
+            this.ReturnInformationButton.Click += new System.EventHandler(this.ReturnInformationButton_Click);
             // 
             // OrderButton
             // 
-            this.OrderButton.Location = new System.Drawing.Point(272, 156);
+            this.OrderButton.Location = new System.Drawing.Point(264, 156);
             this.OrderButton.Name = "OrderButton";
             this.OrderButton.Size = new System.Drawing.Size(75, 75);
             this.OrderButton.TabIndex = 4;
@@ -76,7 +77,7 @@
             // 
             // returnButton
             // 
-            this.returnButton.Location = new System.Drawing.Point(360, 303);
+            this.returnButton.Location = new System.Drawing.Point(366, 303);
             this.returnButton.Name = "returnButton";
             this.returnButton.Size = new System.Drawing.Size(75, 50);
             this.returnButton.TabIndex = 5;
@@ -91,7 +92,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.OrderButton);
-            this.Controls.Add(this.OrderInformationButton);
+            this.Controls.Add(this.ReturnInformationButton);
             this.Controls.Add(this.AcceptanceListButton);
             this.Controls.Add(this.InterviewListButton);
             this.MaximizeBox = false;
@@ -108,8 +109,8 @@
 
         private System.Windows.Forms.Button InterviewListButton;
         private System.Windows.Forms.Button AcceptanceListButton;
-        private System.Windows.Forms.Button OrderInformationButton;
         private System.Windows.Forms.Button OrderButton;
         private System.Windows.Forms.Button returnButton;
+        private System.Windows.Forms.Button ReturnInformationButton;
     }
 }

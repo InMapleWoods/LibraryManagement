@@ -18,25 +18,60 @@ namespace LibraryManagement.Bll
         /// </summary>
         UserManagementDal userManagementDal = new UserManagementDal();
 
+        #region 管理员操作
         /// <summary>
         /// 增加一条读者记录
         /// </summary>
         /// <param name="info">读者信息</param>
-        /// <param name="errorMsg">错误信息</param>
         /// <returns>增加成功与否</returns>
         public bool addANewReader(UserManagementReaderInfo info, ref List<string> errorMsg)
         {
-            bool result;
+            bool result = false;
             try
             {
-                result = userManagementDal.addANewReader(info);
+                if (!UserManagementReaderInfo.isNull(info))
+                {
+                    if (UserManagementReaderInfo.isNormative(info, ref errorMsg))
+                    {
+                        result = userManagementDal.addANewReader(info);
+                    }
+                }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
             }
             return result;
         }
+        #endregion
+
+        #region 管理员登陆
+        /// <summary>
+        /// 管理员登陆
+        /// </summary>
+        /// <param name="login">登录信息</param>
+        /// <returns>登录是否成功</returns>
+        public bool adminLogin(UserManagementLogin login, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!UserManagementLogin.isNull(login))//是否有空项
+                {
+                    if(UserManagementLogin.isNormative(login, ref errorMsg))//是否符合规范
+                    {
+                        result = userManagementDal.adminLogin(login);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        #endregion
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.InterviewDataGridView = new System.Windows.Forms.DataGridView();
             this.IdLabel = new System.Windows.Forms.Label();
             this.InterviewIdTextBox = new System.Windows.Forms.TextBox();
             this.AuthorLabel = new System.Windows.Forms.Label();
@@ -43,28 +43,28 @@
             this.DocumentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.OrderStatusComboBox = new System.Windows.Forms.ComboBox();
             this.PublishingHouseComboBox = new System.Windows.Forms.ComboBox();
-            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             this.BookNameLabel = new System.Windows.Forms.Label();
             this.BookNameTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
+            ((System.ComponentModel.ISupportInitialize)(this.InterviewDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // InterviewDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 415);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(814, 193);
-            this.dataGridView1.TabIndex = 20;
-            this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.InterviewDataGridView.AllowUserToAddRows = false;
+            this.InterviewDataGridView.AllowUserToDeleteRows = false;
+            this.InterviewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.InterviewDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.InterviewDataGridView.Location = new System.Drawing.Point(0, 399);
+            this.InterviewDataGridView.Name = "InterviewDataGridView";
+            this.InterviewDataGridView.ReadOnly = true;
+            this.InterviewDataGridView.RowHeadersVisible = false;
+            this.InterviewDataGridView.RowHeadersWidth = 51;
+            this.InterviewDataGridView.RowTemplate.Height = 27;
+            this.InterviewDataGridView.Size = new System.Drawing.Size(814, 209);
+            this.InterviewDataGridView.TabIndex = 20;
+            this.InterviewDataGridView.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
+            this.InterviewDataGridView.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // IdLabel
             // 
@@ -193,14 +193,6 @@
             this.PublishingHouseComboBox.Size = new System.Drawing.Size(100, 23);
             this.PublishingHouseComboBox.TabIndex = 33;
             // 
-            // scriptUserControl1
-            // 
-            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(814, 88);
-            this.scriptUserControl1.TabIndex = 38;
-            // 
             // BookNameLabel
             // 
             this.BookNameLabel.AutoSize = true;
@@ -216,6 +208,14 @@
             this.BookNameTextBox.Name = "BookNameTextBox";
             this.BookNameTextBox.Size = new System.Drawing.Size(100, 25);
             this.BookNameTextBox.TabIndex = 31;
+            // 
+            // scriptUserControl1
+            // 
+            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.scriptUserControl1.Name = "scriptUserControl1";
+            this.scriptUserControl1.Size = new System.Drawing.Size(814, 88);
+            this.scriptUserControl1.TabIndex = 38;
             // 
             // InterviewListForm
             // 
@@ -239,15 +239,15 @@
             this.Controls.Add(this.AuthorLabel);
             this.Controls.Add(this.InterviewIdTextBox);
             this.Controls.Add(this.IdLabel);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.InterviewDataGridView);
             this.MaximizeBox = false;
             this.Name = "InterviewListForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InterviewListForm";
+            this.Text = "采访清单";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InterviewListForm_FormClosing);
             this.Load += new System.EventHandler(this.InterviewListForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InterviewDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,7 +255,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView InterviewDataGridView;
         private System.Windows.Forms.Label IdLabel;
         private System.Windows.Forms.TextBox InterviewIdTextBox;
         private System.Windows.Forms.Label AuthorLabel;

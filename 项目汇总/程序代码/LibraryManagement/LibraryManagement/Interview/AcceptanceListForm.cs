@@ -396,10 +396,5 @@ namespace LibraryManagement.Interview
             PublishingHouseComboBox.ValueMember = "Key";
             PublishingHouseComboBox.DisplayMember = "Value";
         }
-
-        private void OrdererTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

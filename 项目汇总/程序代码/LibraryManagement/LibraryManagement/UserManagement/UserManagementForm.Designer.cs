@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.adminLoginButton = new System.Windows.Forms.Button();
-            this.loginTextBox = new System.Windows.Forms.TextBox();
+            this.txb_Login = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.txb_Password = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // adminLoginButton
@@ -45,12 +45,12 @@
             this.adminLoginButton.UseVisualStyleBackColor = true;
             this.adminLoginButton.Click += new System.EventHandler(this.adminLoginButton_Click);
             // 
-            // loginTextBox
+            // txb_Login
             // 
-            this.loginTextBox.Location = new System.Drawing.Point(185, 84);
-            this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(215, 25);
-            this.loginTextBox.TabIndex = 2;
+            this.txb_Login.Location = new System.Drawing.Point(185, 84);
+            this.txb_Login.Name = "txb_Login";
+            this.txb_Login.Size = new System.Drawing.Size(215, 25);
+            this.txb_Login.TabIndex = 2;
             // 
             // label1
             // 
@@ -70,23 +70,23 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "登陆密码";
             // 
-            // passwordTextBox
+            // txb_Password
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(185, 168);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(215, 25);
-            this.passwordTextBox.TabIndex = 5;
-            this.passwordTextBox.UseSystemPasswordChar = true;
+            this.txb_Password.Location = new System.Drawing.Point(185, 168);
+            this.txb_Password.Name = "txb_Password";
+            this.txb_Password.Size = new System.Drawing.Size(215, 25);
+            this.txb_Password.TabIndex = 5;
+            this.txb_Password.UseSystemPasswordChar = true;
             // 
             // UserManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 337);
-            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.txb_Password);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.loginTextBox);
+            this.Controls.Add(this.txb_Login);
             this.Controls.Add(this.adminLoginButton);
             this.Name = "UserManagementForm";
             this.Text = "UserManagementForm";
@@ -99,9 +99,9 @@
         #endregion
 
         private System.Windows.Forms.Button adminLoginButton;
-        private System.Windows.Forms.TextBox loginTextBox;
+        private System.Windows.Forms.TextBox txb_Login;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.TextBox txb_Password;
     }
 }

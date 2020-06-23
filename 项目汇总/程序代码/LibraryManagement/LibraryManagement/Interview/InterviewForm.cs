@@ -43,5 +43,12 @@ namespace LibraryManagement.Interview
             form.Show();
             Hide();
         }
+
+        private void ReturnInformationButton_Click(object sender, System.EventArgs e)
+        {
+            var form = new ReturnListForm(this);
+            form.Show();
+            Hide();
+        }
     }
 }

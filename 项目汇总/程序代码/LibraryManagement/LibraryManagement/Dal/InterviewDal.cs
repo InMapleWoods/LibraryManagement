@@ -27,7 +27,7 @@ namespace LibraryManagement.Dal
         /// <returns>增加成功与否</returns>
         public bool AddPurchaseOrder(InterviewPurchaseOrder order)
         {
-            string sqlStr = "INSERT INTO tb_PurchaseOrder (" +
+            string sqlStr = "INSERT INTO tb_InterviewPurchaseOrder (" +
                 "Id," +
                 "SubDate," +
                 "ISBN," +
@@ -77,7 +77,7 @@ namespace LibraryManagement.Dal
         /// <returns>删除成功与否</returns>
         public bool DeletePurchaseOrder(int orderId)
         {
-            string sqlStr = "Delete from tb_PurchaseOrder where Id=@id;";
+            string sqlStr = "Delete from tb_InterviewPurchaseOrder where Id=@id;";
             //储存Datatable        
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
@@ -101,7 +101,7 @@ namespace LibraryManagement.Dal
         /// <returns>修改成功与否</returns>
         public bool UpdatePurchaseOrder(InterviewPurchaseOrder order)
         {
-            string sqlStr = "UPDATE tb_PurchaseOrder SET " +
+            string sqlStr = "UPDATE tb_InterviewPurchaseOrder SET " +
                 "SubDate=@subDate, " +
                 "ISBN=@iSBN, " +
                 "OrdererId=@ordererId, " +
@@ -139,20 +139,20 @@ namespace LibraryManagement.Dal
         public DataTable GerAllPurchaseOrders()
         {
             string sqlstr = "select " +
-                "tb_PurchaseOrder.Id as 订单号," +
-                "tb_PurchaseOrder.SubDate as 订单日期," +
-                "tb_PurchaseOrder.ISBN as ISBN号," +
+                "tb_InterviewPurchaseOrder.Id as 订单号," +
+                "tb_InterviewPurchaseOrder.SubDate as 订单日期," +
+                "tb_InterviewPurchaseOrder.ISBN as ISBN号," +
                 "tb_BasicInformation.UserName as 订购人," +
-                "tb_PurchaseOrder.BookName as 书名," +
-                "tb_PurchaseOrder.Price as 价格," +
+                "tb_InterviewPurchaseOrder.BookName as 书名," +
+                "tb_InterviewPurchaseOrder.Price as 价格," +
                 "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
-                "tb_PurchaseOrder.DocumentType as 文献类型" +
+                "tb_InterviewPurchaseOrder.DocumentType as 文献类型" +
                 " from " +
-                "tb_PurchaseOrder inner join " +
+                "tb_InterviewPurchaseOrder inner join " +
                 "tb_DictionaryPublishingHouse inner join " +
                 "tb_BasicInformation " +
-                "on tb_PurchaseOrder.OrdererId=tb_BasicInformation.UserId " +
-                "and tb_PurchaseOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
+                "on tb_InterviewPurchaseOrder.OrdererId=tb_BasicInformation.UserId " +
+                "and tb_InterviewPurchaseOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;

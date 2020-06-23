@@ -19,6 +19,7 @@ namespace LibraryManagement.Dal
         /// </summary>
         SQLHelper helper = new SQLHelper();
 
+        #region 管理员操作
         /// <summary>
         /// 添加一条读者记录
         /// </summary>
@@ -110,5 +111,42 @@ namespace LibraryManagement.Dal
                 return false;
             }
         }
+        #endregion
+
+        #region 管理员登录
+        /// <summary>
+        /// 管理员登陆
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        public bool adminLogin(UserManagementLogin login)
+        {
+            bool result;
+            SQLHelper helper = new SQLHelper();
+            string pwd = helper.GetMD5(login.Password);
+            string sql = "SELECT * " + 
+                "FROM tb_Login, tb_BasicInformation " +
+                "WHERE " +
+                "tb_Login.UserId = tb_BasicInformation.UserId " +
+                "AND tb_BasicInformation.UserNumber = @userNumber "+
+                "AND tb_Login.Password = @password";
+            MySqlParameter[] adminPara = new MySqlParameter[]
+            {
+                new MySqlParameter("@userNumber", login.UserNumber),
+                new MySqlParameter("@password", pwd)
+            };
+            DataTable dt = helper.ExecuteQuery(sql, adminPara, CommandType.Text);
+            if(dt.Rows.Count == 1)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
+        }
+        #endregion
+
     }
 }

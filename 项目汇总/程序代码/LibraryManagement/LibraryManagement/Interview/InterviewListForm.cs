@@ -190,17 +190,17 @@ namespace LibraryManagement.Interview
             {
                 //若不选择整行，selectRows是没有元素的，所以需要进行判断
                 int index;
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (InterviewDataGridView.SelectedRows.Count > 0)
                 {
-                    index = dataGridView1.SelectedRows[0].Index;
+                    index = InterviewDataGridView.SelectedRows[0].Index;
                 }
                 else
                 {
-                    index = dataGridView1.CurrentRow.Index;
+                    index = InterviewDataGridView.CurrentRow.Index;
                 }
-                dataGridView1.Rows[index].Selected = false;//放弃选择当前行
-                index = index + 1 >= dataGridView1.RowCount ? dataGridView1.RowCount - 1 : index + 1;
-                dataGridView1.Rows[index].Selected = true;//选择下一行
+                InterviewDataGridView.Rows[index].Selected = false;//放弃选择当前行
+                index = index + 1 >= InterviewDataGridView.RowCount ? InterviewDataGridView.RowCount - 1 : index + 1;
+                InterviewDataGridView.Rows[index].Selected = true;//选择下一行
             }
             catch (Exception ex)
             {
@@ -217,17 +217,17 @@ namespace LibraryManagement.Interview
             {
                 //若不选择整行，selectRows是没有元素的，所以需要进行判断
                 int index;
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (InterviewDataGridView.SelectedRows.Count > 0)
                 {
-                    index = dataGridView1.SelectedRows[0].Index;
+                    index = InterviewDataGridView.SelectedRows[0].Index;
                 }
                 else
                 {
-                    index = dataGridView1.CurrentRow.Index;
+                    index = InterviewDataGridView.CurrentRow.Index;
                 }
-                dataGridView1.Rows[index].Selected = false;//放弃选择当前行
+                InterviewDataGridView.Rows[index].Selected = false;//放弃选择当前行
                 index = index - 1 <= 0 ? 0 : index - 1;
-                dataGridView1.Rows[index].Selected = true;//选择上一行
+                InterviewDataGridView.Rows[index].Selected = true;//选择上一行
             }
             catch (Exception ex)
             {
@@ -336,7 +336,7 @@ namespace LibraryManagement.Interview
         private void DataBind()
         {
             //下方总窗体数据绑定
-            dataGridView1.DataSource = interviewListBll.GetAllInterviewList();
+            InterviewDataGridView.DataSource = interviewListBll.GetAllInterviewList();
 
             //出版社数据绑定
             BindingSource bs_PublishingHouse = new BindingSource();
@@ -351,9 +351,9 @@ namespace LibraryManagement.Interview
         /// </summary>
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (InterviewDataGridView.SelectedRows.Count > 0)
             {
-                SetInterviewList(dataGridView1.SelectedRows[0]);
+                SetInterviewList(InterviewDataGridView.SelectedRows[0]);
             }
         }
 
@@ -362,9 +362,9 @@ namespace LibraryManagement.Interview
         /// </summary>
         private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+            if (InterviewDataGridView.CurrentRow != null)
             {
-                SetInterviewList(dataGridView1.CurrentRow);
+                SetInterviewList(InterviewDataGridView.CurrentRow);
             }
         }
 
