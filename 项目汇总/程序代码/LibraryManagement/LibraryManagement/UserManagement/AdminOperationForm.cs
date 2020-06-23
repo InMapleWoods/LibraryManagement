@@ -127,7 +127,18 @@ namespace LibraryManagement.UserManagement
         /// </summary>
         private void DataBind()
         {
+            // 下方总窗体数据绑定
+            dataGridView1.DataSource = userManagementBll.GetAllReadersInfo();
 
+            // 所在院系数据绑定
+            BindingSource bs_DepartmentName = new BindingSource();
+            bs_DepartmentName.DataSource = utilBll.GetReaderDepartmentName();
+            cbb_Department.DataSource = bs_DepartmentName;
+            cbb_Department.ValueMember = "Key";
+            cbb_Department.DisplayMember = "Value";
+
+            cbb_Gender.SelectedIndex = 0;// 性别
+            cbb_BuildingNo.SelectedIndex = 0;// 楼号
         }
 
         ///// <summary>

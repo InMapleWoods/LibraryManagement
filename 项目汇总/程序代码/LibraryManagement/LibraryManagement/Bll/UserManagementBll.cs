@@ -2,6 +2,7 @@
 using LibraryManagement.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,25 @@ namespace LibraryManagement.Bll
                 throw e;
             }
             return result;
+        }
+
+        /// <summary>
+        /// 获取全部读者信息
+        /// </summary>
+        /// <returns>全部读者信息</returns>
+        public DataTable GetAllReadersInfo()
+        {
+            DataTable dt;
+            try
+            {
+                dt = userManagementDal.GetAllReadersInfo();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return dt;
         }
         #endregion
 
