@@ -20,6 +20,7 @@ namespace LibraryManagement.Dal
         private SQLHelper helper = new SQLHelper();
 
         #region 采购订单
+
         /// <summary>
         /// 增加一条采购订单记录
         /// </summary>
@@ -132,6 +133,7 @@ namespace LibraryManagement.Dal
                 return false;
             }
         }
+
         /// <summary>
         /// 获取全部订单
         /// </summary>
@@ -160,6 +162,7 @@ namespace LibraryManagement.Dal
         #endregion
 
         #region 采访清单
+
         /// <summary>
         /// 增加一条采访清单记录
         /// </summary>
@@ -425,6 +428,85 @@ namespace LibraryManagement.Dal
                 "on tb_AcceptanceList.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
                 "and tb_AcceptanceList.BookSellerId=tb_DictionaryBookSeller.Id " +
                 "and tb_AcceptanceList.OrdererId=tb_AdminInformation.UserId ;"; 
+            MySqlParameter[] paras = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
+        #endregion
+
+        #region 退货清单
+
+        /// <summary>
+        /// 增加一条退货清单记录
+        /// </summary>
+        /// <param name="list">退货清单</param>
+        /// <returns>增加成功与否</returns>
+        public bool AddReturnList(InterviewReturnList list)
+        {
+            string sqlStr = "INSERT INTO tb_InterviewReturnList (" +
+                "Id," +
+                "SubDate," +
+                "ISBN," +
+                "OrdererId," +
+                "BookName," +
+                "Price," +
+                "PublishingHouseId," +
+                "DocumentType" +
+                ")" +
+                "VALUES(" +
+                "@id," +
+                "@subDate," +
+                "@iSBN," +
+                "@ordererId," +
+                "@bookName," +
+                "@price," +
+                "@publishingHouseId," +
+                "@documentType" +
+                ")";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",list.Id),
+                new MySqlParameter("@subDate",list.SubDate),
+                new MySqlParameter("@iSBN",list.ISBN),
+                new MySqlParameter("@ordererId",list.OrdererId),
+                new MySqlParameter("@bookName",list.BookName),
+                new MySqlParameter("@price",list.Price),
+                new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
+                new MySqlParameter("@documentType",list.DocumentType),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 获取全部清单
+        /// </summary>
+        /// <returns>全部清单</returns>
+        public DataTable GetAllReturnList()
+        {
+            string sqlstr = "select " +
+                "tb_InterviewReturnList.Id as 订单号," +
+                "tb_InterviewReturnList.SubDate as 订单日期," +
+                "tb_InterviewReturnList.ISBN as ISBN号," +
+                "tb_BasicInformation.UserName as 订购人," +
+                "tb_InterviewReturnList.BookName as 书名," +
+                "tb_InterviewReturnList.Price as 价格," +
+                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
+                "tb_InterviewReturnList.DocumentType as 文献类型" +
+                " from " +
+                "tb_InterviewReturnList inner join " +
+                "tb_DictionaryPublishingHouse inner join " +
+                "tb_BasicInformation " +
+                "on tb_InterviewReturnList.OrdererId=tb_BasicInformation.UserId " +
+                "and tb_InterviewReturnList.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;

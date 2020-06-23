@@ -187,8 +187,8 @@
             this.OrderDataGridView.RowTemplate.Height = 27;
             this.OrderDataGridView.Size = new System.Drawing.Size(866, 185);
             this.OrderDataGridView.TabIndex = 19;
-            this.OrderDataGridView.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
-            this.OrderDataGridView.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.OrderDataGridView.CurrentCellChanged += new System.EventHandler(this.OrderDataGridView_CurrentCellChanged);
+            this.OrderDataGridView.SelectionChanged += new System.EventHandler(this.OrderDataGridView_SelectionChanged);
             // 
             // subDatePicker
             // 

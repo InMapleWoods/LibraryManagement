@@ -18,7 +18,7 @@ namespace LibraryManagement.Interview
     {
 
         Form parentForm;//父窗体
-        InterviewListBll interviewListBll = new InterviewListBll();//采访用户操作类
+        InterviewBll interviewBll = new InterviewBll();//采访用户操作类
         UtilBll utilBll = new UtilBll();//复用部分用户操作类
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace LibraryManagement.Interview
                 //获取根据当前页面内容生成的清单（若有错误会被添加到错误列表中）
                 InterviewList list = GetInterviewList(ref errorList);
                 //判断是否添加清单成功
-                if (interviewListBll.AddInterviewList(list, ref errorList))
+                if (interviewBll.AddInterviewList(list, ref errorList))
                 {
                     MessageBox.Show("添加成功");
                 }
@@ -124,7 +124,7 @@ namespace LibraryManagement.Interview
                         MessageBox.Show("订单编号错误");
                         return;
                     }
-                    if (interviewListBll.DeleteInterviewList(id))//调用订单删除方法
+                    if (interviewBll.DeleteInterviewList(id))//调用订单删除方法
                     {
                         MessageBox.Show("删除成功");
                     }
@@ -160,7 +160,7 @@ namespace LibraryManagement.Interview
                 InterviewList list = GetInterviewList(ref errorList);
                 list.Id = id;//设置清单号
                 //判断是否添加清单成功
-                if (interviewListBll.UpdateInterviewList(list, ref errorList))
+                if (interviewBll.UpdateInterviewList(list, ref errorList))
                 {
                     MessageBox.Show("修改成功");
                 }
@@ -336,7 +336,7 @@ namespace LibraryManagement.Interview
         private void DataBind()
         {
             //下方总窗体数据绑定
-            InterviewDataGridView.DataSource = interviewListBll.GetAllInterviewList();
+            InterviewDataGridView.DataSource = interviewBll.GetAllInterviewList();
 
             //出版社数据绑定
             BindingSource bs_PublishingHouse = new BindingSource();

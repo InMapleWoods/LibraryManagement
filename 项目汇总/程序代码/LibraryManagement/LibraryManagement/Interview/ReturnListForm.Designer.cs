@@ -46,6 +46,9 @@
             this.orderDateLabel = new System.Windows.Forms.Label();
             this.NumTextBox = new System.Windows.Forms.TextBox();
             this.NumberLabel = new System.Windows.Forms.Label();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.PrintButton = new System.Windows.Forms.Button();
+            this.ReturnButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReturnListDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -78,14 +81,14 @@
             // 
             this.publishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.publishingHouseComboBox.FormattingEnabled = true;
-            this.publishingHouseComboBox.Location = new System.Drawing.Point(574, 349);
+            this.publishingHouseComboBox.Location = new System.Drawing.Point(577, 294);
             this.publishingHouseComboBox.Name = "publishingHouseComboBox";
             this.publishingHouseComboBox.Size = new System.Drawing.Size(149, 23);
             this.publishingHouseComboBox.TabIndex = 38;
             // 
             // subDatePicker
             // 
-            this.subDatePicker.Location = new System.Drawing.Point(142, 293);
+            this.subDatePicker.Location = new System.Drawing.Point(145, 238);
             this.subDatePicker.Name = "subDatePicker";
             this.subDatePicker.Size = new System.Drawing.Size(149, 25);
             this.subDatePicker.TabIndex = 37;
@@ -100,7 +103,7 @@
             "论文",
             "专利",
             "电子文献"});
-            this.documentTypeComboBox.Location = new System.Drawing.Point(574, 404);
+            this.documentTypeComboBox.Location = new System.Drawing.Point(577, 349);
             this.documentTypeComboBox.Name = "documentTypeComboBox";
             this.documentTypeComboBox.Size = new System.Drawing.Size(149, 23);
             this.documentTypeComboBox.TabIndex = 36;
@@ -108,7 +111,7 @@
             // literatureTypeLabel
             // 
             this.literatureTypeLabel.AutoSize = true;
-            this.literatureTypeLabel.Location = new System.Drawing.Point(492, 407);
+            this.literatureTypeLabel.Location = new System.Drawing.Point(495, 352);
             this.literatureTypeLabel.Name = "literatureTypeLabel";
             this.literatureTypeLabel.Size = new System.Drawing.Size(67, 15);
             this.literatureTypeLabel.TabIndex = 35;
@@ -117,7 +120,7 @@
             // publisherLabel
             // 
             this.publisherLabel.AutoSize = true;
-            this.publisherLabel.Location = new System.Drawing.Point(507, 349);
+            this.publisherLabel.Location = new System.Drawing.Point(510, 294);
             this.publisherLabel.Name = "publisherLabel";
             this.publisherLabel.Size = new System.Drawing.Size(52, 15);
             this.publisherLabel.TabIndex = 34;
@@ -125,15 +128,16 @@
             // 
             // priceTextBox
             // 
-            this.priceTextBox.Location = new System.Drawing.Point(574, 292);
+            this.priceTextBox.Location = new System.Drawing.Point(577, 237);
             this.priceTextBox.Name = "priceTextBox";
+            this.priceTextBox.ReadOnly = true;
             this.priceTextBox.Size = new System.Drawing.Size(149, 25);
             this.priceTextBox.TabIndex = 33;
             // 
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(522, 295);
+            this.priceLabel.Location = new System.Drawing.Point(525, 240);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(37, 15);
             this.priceLabel.TabIndex = 32;
@@ -141,15 +145,16 @@
             // 
             // bookNameTextBox
             // 
-            this.bookNameTextBox.Location = new System.Drawing.Point(574, 234);
+            this.bookNameTextBox.Location = new System.Drawing.Point(577, 179);
             this.bookNameTextBox.Name = "bookNameTextBox";
+            this.bookNameTextBox.ReadOnly = true;
             this.bookNameTextBox.Size = new System.Drawing.Size(149, 25);
             this.bookNameTextBox.TabIndex = 31;
             // 
             // bookNameLabel
             // 
             this.bookNameLabel.AutoSize = true;
-            this.bookNameLabel.Location = new System.Drawing.Point(522, 237);
+            this.bookNameLabel.Location = new System.Drawing.Point(525, 182);
             this.bookNameLabel.Name = "bookNameLabel";
             this.bookNameLabel.Size = new System.Drawing.Size(37, 15);
             this.bookNameLabel.TabIndex = 30;
@@ -157,7 +162,7 @@
             // 
             // SubscriberTextBox
             // 
-            this.SubscriberTextBox.Location = new System.Drawing.Point(142, 404);
+            this.SubscriberTextBox.Location = new System.Drawing.Point(145, 349);
             this.SubscriberTextBox.Name = "SubscriberTextBox";
             this.SubscriberTextBox.Size = new System.Drawing.Size(149, 25);
             this.SubscriberTextBox.TabIndex = 29;
@@ -165,7 +170,7 @@
             // subscriberLabel
             // 
             this.subscriberLabel.AutoSize = true;
-            this.subscriberLabel.Location = new System.Drawing.Point(59, 407);
+            this.subscriberLabel.Location = new System.Drawing.Point(62, 352);
             this.subscriberLabel.Name = "subscriberLabel";
             this.subscriberLabel.Size = new System.Drawing.Size(68, 15);
             this.subscriberLabel.TabIndex = 28;
@@ -173,15 +178,16 @@
             // 
             // ISBNtextBox
             // 
-            this.ISBNtextBox.Location = new System.Drawing.Point(142, 349);
+            this.ISBNtextBox.Location = new System.Drawing.Point(145, 294);
             this.ISBNtextBox.Name = "ISBNtextBox";
+            this.ISBNtextBox.ReadOnly = true;
             this.ISBNtextBox.Size = new System.Drawing.Size(149, 25);
             this.ISBNtextBox.TabIndex = 27;
             // 
             // ISBNlabel
             // 
             this.ISBNlabel.AutoSize = true;
-            this.ISBNlabel.Location = new System.Drawing.Point(88, 352);
+            this.ISBNlabel.Location = new System.Drawing.Point(91, 297);
             this.ISBNlabel.Name = "ISBNlabel";
             this.ISBNlabel.Size = new System.Drawing.Size(39, 15);
             this.ISBNlabel.TabIndex = 26;
@@ -190,7 +196,7 @@
             // orderDateLabel
             // 
             this.orderDateLabel.AutoSize = true;
-            this.orderDateLabel.Location = new System.Drawing.Point(60, 295);
+            this.orderDateLabel.Location = new System.Drawing.Point(63, 240);
             this.orderDateLabel.Name = "orderDateLabel";
             this.orderDateLabel.Size = new System.Drawing.Size(67, 15);
             this.orderDateLabel.TabIndex = 25;
@@ -198,25 +204,58 @@
             // 
             // NumTextBox
             // 
-            this.NumTextBox.Location = new System.Drawing.Point(142, 234);
+            this.NumTextBox.Location = new System.Drawing.Point(145, 179);
             this.NumTextBox.Name = "NumTextBox";
+            this.NumTextBox.ReadOnly = true;
             this.NumTextBox.Size = new System.Drawing.Size(149, 25);
             this.NumTextBox.TabIndex = 24;
             // 
             // NumberLabel
             // 
             this.NumberLabel.AutoSize = true;
-            this.NumberLabel.Location = new System.Drawing.Point(75, 237);
+            this.NumberLabel.Location = new System.Drawing.Point(78, 182);
             this.NumberLabel.Name = "NumberLabel";
             this.NumberLabel.Size = new System.Drawing.Size(37, 15);
             this.NumberLabel.TabIndex = 23;
             this.NumberLabel.Text = "单号";
+            // 
+            // AddButton
+            // 
+            this.AddButton.Location = new System.Drawing.Point(132, 406);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(75, 75);
+            this.AddButton.TabIndex = 39;
+            this.AddButton.Text = "添加";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // PrintButton
+            // 
+            this.PrintButton.Location = new System.Drawing.Point(371, 406);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(75, 75);
+            this.PrintButton.TabIndex = 40;
+            this.PrintButton.Text = "打印";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            // 
+            // ReturnButton
+            // 
+            this.ReturnButton.Location = new System.Drawing.Point(608, 406);
+            this.ReturnButton.Name = "ReturnButton";
+            this.ReturnButton.Size = new System.Drawing.Size(75, 75);
+            this.ReturnButton.TabIndex = 41;
+            this.ReturnButton.Text = "返回";
+            this.ReturnButton.UseVisualStyleBackColor = true;
+            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
             // ReturnListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 682);
+            this.Controls.Add(this.ReturnButton);
+            this.Controls.Add(this.PrintButton);
+            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.publishingHouseComboBox);
             this.Controls.Add(this.subDatePicker);
             this.Controls.Add(this.documentTypeComboBox);
@@ -240,6 +279,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "退货信息";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReturnListForm_FormClosing);
             this.Load += new System.EventHandler(this.ReturnListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReturnListDataGridView)).EndInit();
@@ -253,7 +293,6 @@
         private System.Windows.Forms.DataGridView OrderDataGridView;
         private System.Windows.Forms.DataGridView ReturnListDataGridView;
         private System.Windows.Forms.ComboBox publishingHouseComboBox;
-        private System.Windows.Forms.DateTimePicker subDatePicker;
         private System.Windows.Forms.ComboBox documentTypeComboBox;
         private System.Windows.Forms.Label literatureTypeLabel;
         private System.Windows.Forms.Label publisherLabel;
@@ -268,5 +307,9 @@
         private System.Windows.Forms.Label orderDateLabel;
         private System.Windows.Forms.TextBox NumTextBox;
         private System.Windows.Forms.Label NumberLabel;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button PrintButton;
+        private System.Windows.Forms.DateTimePicker subDatePicker;
+        private System.Windows.Forms.Button ReturnButton;
     }
 }

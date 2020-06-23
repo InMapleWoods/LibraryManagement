@@ -17,8 +17,7 @@ namespace LibraryManagement.Interview
     public partial class BookOrderForm : Form
     {
         Form parentForm;//父窗体
-        InterviewPurchaseBll interviewPurchaseBll = new InterviewPurchaseBll();//采访订单用户操作类
-        InterviewListBll interviewListBll = new InterviewListBll();//采访清单用户操作类
+        InterviewBll interviewBll = new InterviewBll();//采访子系统用户操作类
         UtilBll utilBll = new UtilBll();//复用部分用户操作类
 
         /// <summary>
@@ -67,7 +66,7 @@ namespace LibraryManagement.Interview
                 //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
                 InterviewPurchaseOrder order = GetPurchaseOrder(ref errorList);
                 //判断是否添加订单成功
-                if(interviewPurchaseBll.AddPurchaseOrder(order, ref errorList))
+                if(interviewBll.AddPurchaseOrder(order, ref errorList))
                 {
                     MessageBox.Show("添加成功");
                 }
@@ -124,7 +123,7 @@ namespace LibraryManagement.Interview
                         MessageBox.Show("订单编号错误");
                         return;
                     }
-                    if (interviewPurchaseBll.DeletePurchaseOrder(id))//调用订单删除方法
+                    if (interviewBll.DeletePurchaseOrder(id))//调用订单删除方法
                     {
                         MessageBox.Show("删除成功");
                     }
@@ -160,7 +159,7 @@ namespace LibraryManagement.Interview
                 InterviewPurchaseOrder order = GetPurchaseOrder(ref errorList);
                 order.Id = id;//设置订单ID
                 //判断是否添加订单成功
-                if (interviewPurchaseBll.UpdatePurchaseOrder(order, ref errorList))
+                if (interviewBll.UpdatePurchaseOrder(order, ref errorList))
                 {
                     MessageBox.Show("修改成功");
                 }
@@ -329,7 +328,7 @@ namespace LibraryManagement.Interview
         /// 设置某行的数据为当前窗体输入框内容
         /// </summary>
         /// <param name="row">行</param>
-        private void SetPurchaseOrder(DataGridViewRow row)
+        private void SetInformation(DataGridViewRow row)
         {
             orderNumTextBox.Text = row.Cells[0].Value.ToString();//订单编号
             subDatePicker.Value = (DateTime)row.Cells[1].Value;//订购时间
@@ -346,9 +345,9 @@ namespace LibraryManagement.Interview
         private void DataBind()
         {
             //上方总窗体数据绑定
-            InterviewDataGridView.DataSource = interviewListBll.GetAllInterviewList();
+            InterviewDataGridView.DataSource = interviewBll.GetAllInterviewList();
             //下方总窗体数据绑定
-            OrderDataGridView.DataSource = interviewPurchaseBll.GetAllPurchaseOrders();
+            OrderDataGridView.DataSource = interviewBll.GetAllPurchaseOrders();
 
             //出版社数据绑定
             BindingSource bs_PublishingHouse = new BindingSource();
@@ -361,22 +360,22 @@ namespace LibraryManagement.Interview
         /// <summary>
         /// 选择行更改
         /// </summary>
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void OrderDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (OrderDataGridView.SelectedRows.Count > 0)
             {
-                SetPurchaseOrder(OrderDataGridView.SelectedRows[0]);
+                SetInformation(OrderDataGridView.SelectedRows[0]);
             }
         }
 
         /// <summary>
         /// 当前行更改
         /// </summary>
-        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        private void OrderDataGridView_CurrentCellChanged(object sender, EventArgs e)
         {
             if (OrderDataGridView.CurrentRow != null)
             {
-                SetPurchaseOrder(OrderDataGridView.CurrentRow);
+                SetInformation(OrderDataGridView.CurrentRow);
             }
         }
 

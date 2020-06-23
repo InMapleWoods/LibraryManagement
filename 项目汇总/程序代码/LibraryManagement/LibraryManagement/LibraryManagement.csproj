@@ -89,13 +89,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bll\AcceptanceListBll.cs" />
     <Compile Include="Bll\CirculationBll.cs" />
     <Compile Include="Bll\CreateCatalogBll.cs" />
-    <Compile Include="Bll\InterviewListBll.cs" />
+    <Compile Include="Bll\InterviewBll.cs" />
     <Compile Include="Bll\MaintainaceBll.cs" />
     <Compile Include="Bll\PeriodicalBll.cs" />
-    <Compile Include="Bll\InterviewPurchaseBll.cs" />
     <Compile Include="Bll\StatisticalBll.cs" />
     <Compile Include="Bll\UserManagementBll.cs" />
     <Compile Include="Bll\UtilBll.cs" />
@@ -236,6 +234,7 @@
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
     <Compile Include="Model\InterviewCatalog.cs" />
     <Compile Include="Model\InterviewList.cs" />
+    <Compile Include="Model\InterviewReturnList.cs" />
     <Compile Include="Model\PeriodicalArrival.cs" />
     <Compile Include="Model\PeriodicalBinding.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
