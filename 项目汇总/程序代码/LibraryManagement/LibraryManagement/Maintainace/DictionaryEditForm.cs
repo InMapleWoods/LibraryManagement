@@ -48,7 +48,7 @@ namespace LibraryManagement.Maintainace
             
 
         }
-
+        #region 窗体点击事件
         private void Addlog_click(object sender, System.EventArgs e)
         {
             try
@@ -288,6 +288,7 @@ namespace LibraryManagement.Maintainace
                 MessageBox.Show(ex.Message);
             }
         }
+        #endregion
         /// <summary>
         /// 获取书商
         /// </summary>

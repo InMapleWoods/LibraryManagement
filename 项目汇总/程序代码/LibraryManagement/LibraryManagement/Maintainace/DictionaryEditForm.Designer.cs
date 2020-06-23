@@ -90,7 +90,6 @@
             // 
             this.textBox_Name.Location = new System.Drawing.Point(132, 110);
             this.textBox_Name.Name = "textBox_Name";
-            this.textBox_Name.ReadOnly = true;
             this.textBox_Name.Size = new System.Drawing.Size(100, 21);
             this.textBox_Name.TabIndex = 4;
             // 
