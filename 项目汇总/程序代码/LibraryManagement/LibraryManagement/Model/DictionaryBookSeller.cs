@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LibraryManagement.Model
@@ -79,7 +80,26 @@ namespace LibraryManagement.Model
         }
         public static bool isNormative(DictionaryBookSeller bookseller, ref List<string> errorMsg)
         {
-            return false;//待做
+            List<string> errorList = new List<string>();
+            if (bookseller.Id <= 0)
+            {
+                errorList.Add("BookSellerId Error");
+            }
+            Match matchCallNumber = Regex.Match(bookseller.CallNumber, @"^(\d{1,10})$");
+            if (!matchCallNumber.Success)
+            {
+                errorList.Add("CallNumber Error");
+            }
+            Match matchPostCodes = Regex.Match(bookseller.PostCodes.ToString(), @"^(\d{5,6})$");
+            if (!matchPostCodes.Success)
+            {
+                errorList.Add("CallNumber Error");
+            }
+            if (errorList.Count > 0)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
