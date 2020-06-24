@@ -69,12 +69,13 @@ namespace LibraryManagement.Bll
         #region 管理员登陆
         /// <summary>
         /// 管理员登陆
+        /// 格式错误 415
         /// </summary>
         /// <param name="login">登录信息</param>
-        /// <returns>登录是否成功</returns>
-        public bool adminLogin(UserManagementLogin login, ref List<string> errorMsg)
+        /// <returns>状态码</returns>
+        public int adminLogin(UserManagementLogin login, ref List<string> errorMsg)
         {
-            bool result = false;
+            int result = 415;
             try
             {
                 if (!UserManagementLogin.isNull(login))//是否有空项
