@@ -97,9 +97,9 @@ namespace LibraryManagement.Model
             }
             if (errorList.Count > 0)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

@@ -2,6 +2,7 @@
 using LibraryManagement.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,17 +45,37 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
+
+        /// <summary>
+        /// 获取全部读者信息
+        /// </summary>
+        /// <returns>全部读者信息</returns>
+        public DataTable GetAllReadersInfo()
+        {
+            DataTable dt;
+            try
+            {
+                dt = userManagementDal.GetAllReadersInfo();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return dt;
+        }
         #endregion
 
         #region 管理员登陆
         /// <summary>
         /// 管理员登陆
+        /// 格式错误 415
         /// </summary>
         /// <param name="login">登录信息</param>
-        /// <returns>登录是否成功</returns>
-        public bool adminLogin(UserManagementLogin login, ref List<string> errorMsg)
+        /// <returns>状态码</returns>
+        public int adminLogin(UserManagementLogin login, ref List<string> errorMsg)
         {
-            bool result = false;
+            int result = 415;
             try
             {
                 if (!UserManagementLogin.isNull(login))//是否有空项
