@@ -245,6 +245,7 @@
       <DependentUpon>StatisticalEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\AcceptanceList.cs" />
+    <Compile Include="Model\BackupInfo.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\BookLog.cs" />
     <Compile Include="Model\CreateCatalogList.cs" />

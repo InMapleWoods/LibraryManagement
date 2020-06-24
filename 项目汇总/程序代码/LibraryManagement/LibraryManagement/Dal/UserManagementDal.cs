@@ -156,33 +156,54 @@ namespace LibraryManagement.Dal
         #region 管理员登录
         /// <summary>
         /// 管理员登陆
+        /// 登陆成功 200
+        /// 密码不正确 401
+        /// 权限不足 403
         /// </summary>
         /// <param name="login"></param>
-        /// <returns></returns>
-        public bool adminLogin(UserManagementLogin login)
+        /// <returns>状态码</returns>
+        public int adminLogin(UserManagementLogin login)
         {
-            bool result;
+            int result;
             SQLHelper helper = new SQLHelper();
             string pwd = helper.GetMD5(login.Password);
-            string sql = "SELECT * " + 
-                "FROM tb_Login, tb_BasicInformation " +
+            string role = "Administrator";
+            string sql = "SELECT DISTINCT " +
+                "*, " +
+                "tb_Login.`Password`,  " +
+                "tb_BasicInformation.UserNumber,  " +
+                "tb_User.Role " +
+                "FROM " +
+                "tb_User, " +
+                "tb_BasicInformation " +
+                "INNER JOIN " +
+                "tb_Login " +
+                "ON  " +
+                "tb_BasicInformation.UserId = tb_Login.UserId " +
                 "WHERE " +
-                "tb_Login.UserId = tb_BasicInformation.UserId " +
-                "AND tb_BasicInformation.UserNumber = @userNumber "+
-                "AND tb_Login.Password = @password";
+                "tb_User.Role = @role " +
+                "AND " +
+                "tb_BasicInformation.UserNumber = @userNumber ";
             MySqlParameter[] adminPara = new MySqlParameter[]
             {
                 new MySqlParameter("@userNumber", login.UserNumber),
-                new MySqlParameter("@password", pwd)
+                new MySqlParameter("@role", role)
             };
             DataTable dt = helper.ExecuteQuery(sql, adminPara, CommandType.Text);
             if(dt.Rows.Count == 1)
             {
-                result = true;
+                if ((string)dt.Rows[0]["Password"] == pwd)
+                {
+                    result = 200;
+                }
+                else
+                {
+                    result = 401;
+                }
             }
             else
             {
-                result = false;
+                result = 403;
             }
             return result;
         }

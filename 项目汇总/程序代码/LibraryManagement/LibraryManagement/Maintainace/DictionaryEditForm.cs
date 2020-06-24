@@ -434,7 +434,7 @@ namespace LibraryManagement.Maintainace
                 textBox_BankName.Text = row.Cells[6].Value.ToString();//开户行
                 textBox_Postcodes.Text = row.Cells[5].Value.ToString();//邮编
                 textBox_Remark.Text = row.Cells[7].Value.ToString();
-                textBox_Name.ReadOnly = true;
+                //textBox_Name.ReadOnly = true;
  //           }
  /*           else if (comboBox_Dictionary.SelectedIndex == 1)
             {

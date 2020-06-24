@@ -335,8 +335,6 @@ namespace LibraryManagement.Interview
             IdTextBox.Text = row.Cells[0].Value.ToString();//清单号
             BookSellerComboBox.Text = row.Cells[1].Value.ToString();//书商
             PublishingHouseComboBox.Text = row.Cells[2].Value.ToString();//出版社
-            OrdererTextBox.Text = row.Cells[3].Value.ToString();//订购人
-            AcceptorTextBox.Text = row.Cells[4].Value.ToString();//验收人
             DocumentTypeComboBox.Text = row.Cells[5].Value.ToString();//文献类型
         }
 
