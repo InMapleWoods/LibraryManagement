@@ -38,5 +38,31 @@ namespace LibraryManagement.Circulation
             form.Show();
             Hide();
         }
+
+        private void CirculationForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                new Bll.CirculationBll().DealAllLog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void bookDamageButton_Click(object sender, EventArgs e)
+        {
+            var form = new BookDamageForm(this);
+            form.Show();
+            Hide();
+        }
+
+        private void defaultHandleButton_Click(object sender, EventArgs e)
+        {
+            var form = new DefaultHandleForm(this);
+            form.Show();
+            Hide();
+        }
     }
 }

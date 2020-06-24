@@ -109,7 +109,7 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("DocumentType Error");
             }
-            Match matchBookStatus = Regex.Match(book.BookStatus, @"\b(可借阅|已借出|已预约|已丢失|已合订)\b");
+            Match matchBookStatus = Regex.Match(book.BookStatus, @"\b(可借阅|已借出|已预约|已缺失|已合订)\b");
             if (!matchBookStatus.Success)
             {
                 errorList.Add("BookStatus Error");

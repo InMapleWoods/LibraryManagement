@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.bookBorrowButton = new System.Windows.Forms.Button();
-            this.defaultHandleButton = new System.Windows.Forms.Button();
+            this.bookDamageButton = new System.Windows.Forms.Button();
             this.bookAppointButton = new System.Windows.Forms.Button();
             this.bookReturnButton = new System.Windows.Forms.Button();
+            this.defaultHandleButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bookBorrowButton
@@ -44,14 +45,15 @@
             this.bookBorrowButton.UseVisualStyleBackColor = true;
             this.bookBorrowButton.Click += new System.EventHandler(this.bookBorrowButton_Click);
             // 
-            // defaultHandleButton
+            // bookDamageButton
             // 
-            this.defaultHandleButton.Location = new System.Drawing.Point(492, 126);
-            this.defaultHandleButton.Name = "defaultHandleButton";
-            this.defaultHandleButton.Size = new System.Drawing.Size(97, 98);
-            this.defaultHandleButton.TabIndex = 0;
-            this.defaultHandleButton.Text = "违约处理";
-            this.defaultHandleButton.UseVisualStyleBackColor = true;
+            this.bookDamageButton.Location = new System.Drawing.Point(482, 126);
+            this.bookDamageButton.Name = "bookDamageButton";
+            this.bookDamageButton.Size = new System.Drawing.Size(97, 98);
+            this.bookDamageButton.TabIndex = 0;
+            this.bookDamageButton.Text = "图书破损";
+            this.bookDamageButton.UseVisualStyleBackColor = true;
+            this.bookDamageButton.Click += new System.EventHandler(this.bookDamageButton_Click);
             // 
             // bookAppointButton
             // 
@@ -73,12 +75,23 @@
             this.bookReturnButton.UseVisualStyleBackColor = true;
             this.bookReturnButton.Click += new System.EventHandler(this.bookReturnButton_Click);
             // 
+            // defaultHandleButton
+            // 
+            this.defaultHandleButton.Location = new System.Drawing.Point(605, 126);
+            this.defaultHandleButton.Name = "defaultHandleButton";
+            this.defaultHandleButton.Size = new System.Drawing.Size(97, 98);
+            this.defaultHandleButton.TabIndex = 0;
+            this.defaultHandleButton.Text = "违约处理";
+            this.defaultHandleButton.UseVisualStyleBackColor = true;
+            this.defaultHandleButton.Click += new System.EventHandler(this.defaultHandleButton_Click);
+            // 
             // CirculationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.defaultHandleButton);
+            this.Controls.Add(this.bookDamageButton);
             this.Controls.Add(this.bookReturnButton);
             this.Controls.Add(this.bookAppointButton);
             this.Controls.Add(this.bookBorrowButton);
@@ -86,6 +99,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CirculationForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CirculationForm_FormClosing);
+            this.Load += new System.EventHandler(this.CirculationForm_Load);
             this.ResumeLayout(false);
 
         }
@@ -93,8 +107,9 @@
         #endregion
 
         private System.Windows.Forms.Button bookBorrowButton;
-        private System.Windows.Forms.Button defaultHandleButton;
+        private System.Windows.Forms.Button bookDamageButton;
         private System.Windows.Forms.Button bookAppointButton;
         private System.Windows.Forms.Button bookReturnButton;
+        private System.Windows.Forms.Button defaultHandleButton;
     }
 }
