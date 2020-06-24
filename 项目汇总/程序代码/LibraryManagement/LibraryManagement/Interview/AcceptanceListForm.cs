@@ -285,7 +285,7 @@ namespace LibraryManagement.Interview
 
             //判断验收人账号是否符合要求
             Match matchAcceptor = Regex.Match(AcceptorTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
-            if (!matchOrderer.Success)
+            if (!matchAcceptor.Success)
             {
                 errorList.Add("AcceptorId Error");
             }
