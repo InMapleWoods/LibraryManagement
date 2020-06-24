@@ -237,6 +237,7 @@
             this.PrintButton.TabIndex = 40;
             this.PrintButton.Text = "打印";
             this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
             // ReturnButton
             // 

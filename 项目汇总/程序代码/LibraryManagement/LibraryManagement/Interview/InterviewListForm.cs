@@ -311,6 +311,8 @@ namespace LibraryManagement.Interview
             DocumentTypeComboBox.Text = "";
             BookNameTextBox.Text = "";
             PriceTextBox.Text = "";
+            currencyTypeComboBox.Text = "";
+            subscriptionNumTextBox.Text = "";
             OrderStatusComboBox.Text = "";
         }
 
@@ -325,9 +327,11 @@ namespace LibraryManagement.Interview
             ISBNTextBox.Text = row.Cells[2].Value.ToString();//ISBN
             BookNameTextBox.Text = row.Cells[3].Value.ToString();//书名
             PriceTextBox.Text = row.Cells[4].Value.ToString();//价格
-            PublishingHouseComboBox.Text = row.Cells[5].Value.ToString();//出版社名称
-            DocumentTypeComboBox.Text = row.Cells[6].Value.ToString();//文献类型
-            OrderStatusComboBox.Text = row.Cells[7].Value.ToString();//订购状态
+            currencyTypeComboBox.Text = row.Cells[5].Value.ToString();//货币种类
+            subscriptionNumTextBox.Text = row.Cells[6].Value.ToString();//征订册数
+            PublishingHouseComboBox.Text = row.Cells[7].Value.ToString();//出版社名称
+            DocumentTypeComboBox.Text = row.Cells[8].Value.ToString();//文献类型
+            OrderStatusComboBox.Text = row.Cells[9].Value.ToString();//订购状态
         }
 
         /// <summary>
@@ -374,11 +378,6 @@ namespace LibraryManagement.Interview
         private void InterviewListForm_Load(object sender, EventArgs e)
         {
             DataBind();//数据绑定
-        }
-
-        private void scriptUserControl1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

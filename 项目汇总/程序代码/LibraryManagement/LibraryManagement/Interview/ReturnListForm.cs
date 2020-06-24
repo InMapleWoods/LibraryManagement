@@ -241,5 +241,29 @@ namespace LibraryManagement.Interview
         {
             DataBind();//数据绑定
         }
+
+        /// <summary>
+        /// 打印退货清单
+        /// </summary>
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)ReturnListDataGridView.DataSource);
+                if (print.PrintDataTable())//打印datagridview中的内容
+                {
+                    MessageBox.Show("打印成功");
+                }
+                else
+                {
+                    MessageBox.Show("打印失败");
+                }
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
