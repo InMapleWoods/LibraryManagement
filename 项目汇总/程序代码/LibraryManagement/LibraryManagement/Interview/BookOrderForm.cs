@@ -283,8 +283,10 @@ namespace LibraryManagement.Interview
                 OrdererId = ordererId,
                 BookName = bookNameTextBox.Text,
                 Price = price,
+                CurrencyType = currencyTypeComboBox.Text,
                 PublishingHouseId = publisherId,
                 DocumentType = documentTypeComboBox.Text,
+                Remark = RemarkTextBox.Text,
             };
             error = errorList;//返回错误列表
             return order;//返回订单
@@ -322,6 +324,8 @@ namespace LibraryManagement.Interview
             SubscriberTextBox.Text = "";
             bookNameTextBox.Text = "";
             pricetextBox.Text = "";
+            currencyTypeComboBox.Text = "";
+            RemarkTextBox.Text = "";
         }
 
         /// <summary>
@@ -335,8 +339,10 @@ namespace LibraryManagement.Interview
             ISBNtextBox.Text = row.Cells[2].Value.ToString();//ISBN
             bookNameTextBox.Text = row.Cells[4].Value.ToString();//书名
             pricetextBox.Text = row.Cells[5].Value.ToString();//价格
-            publishingHouseComboBox.Text = row.Cells[6].Value.ToString();//出版社名称
-            documentTypeComboBox.Text = row.Cells[7].Value.ToString();//文献类型
+            currencyTypeComboBox.Text = row.Cells[6].Value.ToString();//币种
+            publishingHouseComboBox.Text = row.Cells[7].Value.ToString();//出版社名称
+            documentTypeComboBox.Text = row.Cells[8].Value.ToString();//文献类型
+            RemarkTextBox.Text = row.Cells[9].Value.ToString();//备注
         }
 
         /// <summary>
@@ -385,6 +391,30 @@ namespace LibraryManagement.Interview
         private void BookOrderForm_Load(object sender, EventArgs e)
         {
             DataBind();//数据绑定
+        }
+
+        /// <summary>
+        /// 打印订单
+        /// </summary>
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)OrderDataGridView.DataSource);
+                if (print.PrintDataTable())//打印datagridview中的内容
+                {
+                    MessageBox.Show("打印成功");
+                }
+                else
+                {
+                    MessageBox.Show("打印失败");
+                }
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

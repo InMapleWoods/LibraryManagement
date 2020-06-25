@@ -260,8 +260,16 @@ namespace LibraryManagement.Interview
 
             double price;
 
-            //判断价格是否能被转换为整型
+            //判断价格是否能被转换为浮点型
             if (!double.TryParse(PriceTextBox.Text, out price))
+            {
+                errorList.Add("Price Error");
+            }
+
+            int subscriptionNum;
+
+            //判断征订册数是否能被转换为整型
+            if (!int.TryParse(subscriptionNumTextBox.Text, out subscriptionNum))
             {
                 errorList.Add("Price Error");
             }
@@ -273,6 +281,8 @@ namespace LibraryManagement.Interview
                 Author = AuthorTextBox.Text,
                 BookName = BookNameTextBox.Text,
                 Price = price,
+                CurrencyType = currencyTypeComboBox.Text,
+                SubscriptionNum = subscriptionNum,
                 PublishingHouseId = publisherId,
                 DocumentType = DocumentTypeComboBox.Text,
                 OrderStatus = OrderStatusComboBox.Text
@@ -311,6 +321,8 @@ namespace LibraryManagement.Interview
             DocumentTypeComboBox.Text = "";
             BookNameTextBox.Text = "";
             PriceTextBox.Text = "";
+            currencyTypeComboBox.Text = "";
+            subscriptionNumTextBox.Text = "";
             OrderStatusComboBox.Text = "";
         }
 
@@ -325,9 +337,11 @@ namespace LibraryManagement.Interview
             ISBNTextBox.Text = row.Cells[2].Value.ToString();//ISBN
             BookNameTextBox.Text = row.Cells[3].Value.ToString();//书名
             PriceTextBox.Text = row.Cells[4].Value.ToString();//价格
-            PublishingHouseComboBox.Text = row.Cells[5].Value.ToString();//出版社名称
-            DocumentTypeComboBox.Text = row.Cells[6].Value.ToString();//文献类型
-            OrderStatusComboBox.Text = row.Cells[7].Value.ToString();//订购状态
+            currencyTypeComboBox.Text = row.Cells[5].Value.ToString();//货币种类
+            subscriptionNumTextBox.Text = row.Cells[6].Value.ToString();//征订册数
+            PublishingHouseComboBox.Text = row.Cells[7].Value.ToString();//出版社名称
+            DocumentTypeComboBox.Text = row.Cells[8].Value.ToString();//文献类型
+            OrderStatusComboBox.Text = row.Cells[9].Value.ToString();//订购状态
         }
 
         /// <summary>
@@ -349,7 +363,7 @@ namespace LibraryManagement.Interview
         /// <summary>
         /// 选择行更改
         /// </summary>
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void InterviewDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (InterviewDataGridView.SelectedRows.Count > 0)
             {
@@ -360,7 +374,7 @@ namespace LibraryManagement.Interview
         /// <summary>
         /// 当前行更改
         /// </summary>
-        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        private void InterviewDataGridView_CurrentCellChanged(object sender, EventArgs e)
         {
             if (InterviewDataGridView.CurrentRow != null)
             {
@@ -376,9 +390,28 @@ namespace LibraryManagement.Interview
             DataBind();//数据绑定
         }
 
-        private void scriptUserControl1_Load(object sender, EventArgs e)
+        /// <summary>
+        /// 打印采访清单
+        /// </summary>
+        private void PrintButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)InterviewDataGridView.DataSource);
+                if (print.PrintDataTable())//打印datagridview中的内容
+                {
+                    MessageBox.Show("打印成功");
+                }
+                else
+                {
+                    MessageBox.Show("打印失败");
+                }
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

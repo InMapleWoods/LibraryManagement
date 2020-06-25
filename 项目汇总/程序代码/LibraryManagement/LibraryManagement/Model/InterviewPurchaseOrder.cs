@@ -43,6 +43,11 @@ namespace LibraryManagement.Model
         public double Price = 0;
 
         /// <summary>
+        /// 货币种类
+        /// </summary>
+        public string CurrencyType = "";
+
+        /// <summary>
         /// 出版社ID
         /// </summary>
         public int PublishingHouseId = 0;
@@ -51,6 +56,11 @@ namespace LibraryManagement.Model
         /// 文献类型
         /// </summary>
         public string DocumentType = "";
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark = "";
 
         /// <summary>
         /// 判断订单是否有空项
@@ -75,7 +85,11 @@ namespace LibraryManagement.Model
             {
                 return true;
             }
-            if(order.PublishingHouseId == 0)
+            if (order.CurrencyType == "")
+            {
+                return true;
+            }
+            if (order.PublishingHouseId == 0)
             {
                 return true;
             }

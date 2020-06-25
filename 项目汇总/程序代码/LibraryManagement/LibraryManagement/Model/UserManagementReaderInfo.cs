@@ -30,7 +30,18 @@ namespace LibraryManagement.Model
         /// <summary>
         /// 性别
         /// </summary>
-        public string Gender = "";
+        public int Gender = 0;
+
+        /// <summary>
+        /// 读者性别
+        /// </summary>
+        public string BitGender
+        {
+            set
+            {
+                Gender = (value == "男" ? 1 : 0);
+            }
+        }
 
         /// <summary>
         /// 出生日期
@@ -68,10 +79,6 @@ namespace LibraryManagement.Model
                 return true;
             }
             if (info.UserName == "")
-            {
-                return true;
-            }
-            if (info.Gender == "")
             {
                 return true;
             }

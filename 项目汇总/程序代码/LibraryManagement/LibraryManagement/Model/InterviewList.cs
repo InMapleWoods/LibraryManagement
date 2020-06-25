@@ -38,6 +38,16 @@ namespace LibraryManagement.Model
         public double Price = 0;
 
         /// <summary>
+        /// 货币种类
+        /// </summary>
+        public string CurrencyType = "";
+
+        /// <summary>
+        /// 征订册数
+        /// </summary>
+        public int SubscriptionNum = 0;
+
+        /// <summary>
         /// 出版社ID
         /// </summary>
         public int PublishingHouseId = 0;
@@ -72,6 +82,14 @@ namespace LibraryManagement.Model
                 return true;
             }
             if (list.Price == 0)
+            {
+                return true;
+            }
+            if (list.CurrencyType == "")
+            {
+                return true;
+            }
+            if (list.SubscriptionNum == 0)
             {
                 return true;
             }
@@ -111,6 +129,10 @@ namespace LibraryManagement.Model
             if (list.Price <= 0)
             {
                 errorList.Add("Price Error");
+            }
+            if (list.SubscriptionNum <= 0)
+            {
+                errorList.Add("SubscriptionNum Error");
             }
             if (list.PublishingHouseId <= 0)
             {

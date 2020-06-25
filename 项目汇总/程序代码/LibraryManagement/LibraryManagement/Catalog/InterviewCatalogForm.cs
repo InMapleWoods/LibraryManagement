@@ -20,8 +20,7 @@ namespace LibraryManagement.Catalog
     {
         Form parentForm;//父窗体
         CreateCatalogBll createCatalogBll = new CreateCatalogBll();//编目子系统操作类
-
-
+        InterviewBll interviewBll = new InterviewBll();//采访子系统操作类
         /// <summary>
         /// 构造函数
         /// </summary>
@@ -55,9 +54,9 @@ namespace LibraryManagement.Catalog
         private void DataBind()
         {
             // 上方窗体数据绑定
-            interviewDataGridView.DataSource = createCatalogBll.GetAllCatalogList();
+            interviewDataGridView.DataSource = interviewBll.GetAllInterviewList();
             // 下方窗体数据绑定
-            catalogDataGridView.DataSource = createCatalogBll.GetAllCatalogList();
+            catalogDataGridView.DataSource = createCatalogBll.GetAllInterviewCatalog();
             stateComboBox.SelectedIndex = 0;//状态
             SetEnable();
         }
@@ -140,7 +139,7 @@ namespace LibraryManagement.Catalog
             if (interviewDataGridView.CurrentRow != null)
             {
                 idTextBox.Text = "";//编号
-                interviewIdTextBox.Text = interviewDataGridView.CurrentRow.Cells["编号"].Value.ToString();//采访编号
+                interviewIdTextBox.Text = interviewDataGridView.CurrentRow.Cells[0].Value.ToString();//采访编号
                 stateComboBox.SelectedIndex = 0;//编目状态
             }
             SetEnable();//按钮启用
@@ -154,7 +153,7 @@ namespace LibraryManagement.Catalog
             if (interviewDataGridView.SelectedRows.Count > 0)
             {
                 idTextBox.Text = "";//编号
-                interviewIdTextBox.Text = interviewDataGridView.SelectedRows[0].Cells["编号"].Value.ToString();//采访编号
+                interviewIdTextBox.Text = interviewDataGridView.SelectedRows[0].Cells[0].Value.ToString();//采访编号
                 stateComboBox.SelectedIndex = 0;//编目状态
             }
             SetEnable();//按钮启用

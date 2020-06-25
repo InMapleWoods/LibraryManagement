@@ -125,6 +125,12 @@
     <Compile Include="Catalog\MoveCatalogForm.Designer.cs">
       <DependentUpon>MoveCatalogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Circulation\AddDamageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\AddDamageForm.Designer.cs">
+      <DependentUpon>AddDamageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Circulation\BookAppointForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,12 @@
     <Compile Include="Catalog\SerialNumberForm.Designer.cs">
       <DependentUpon>SerialNumberForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Circulation\BookDamageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\BookDamageForm.Designer.cs">
+      <DependentUpon>BookDamageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Circulation\BookReturnForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,7 +167,12 @@
     <Compile Include="Circulation\CirculationForm.Designer.cs">
       <DependentUpon>CirculationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dal\BackupDal.cs" />
+    <Compile Include="Circulation\DefaultHandleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\DefaultHandleForm.Designer.cs">
+      <DependentUpon>DefaultHandleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dal\CirculationDal.cs" />
     <Compile Include="Dal\CreateCatalogDal.cs" />
     <Compile Include="Dal\MaintainaceDal.cs" />
@@ -287,14 +304,23 @@
     <EmbeddedResource Include="Catalog\MoveCatalogForm.resx">
       <DependentUpon>MoveCatalogForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\AddDamageForm.resx">
+      <DependentUpon>AddDamageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Circulation\BookAppointForm.resx">
       <DependentUpon>BookAppointForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\BookDamageForm.resx">
+      <DependentUpon>BookDamageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Circulation\BookReturnForm.resx">
       <DependentUpon>BookReturnForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalog\InterviewCatalogForm.resx">
       <DependentUpon>InterviewCatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\DefaultHandleForm.resx">
+      <DependentUpon>DefaultHandleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\AcceptanceListForm.resx">
       <DependentUpon>AcceptanceListForm.cs</DependentUpon>

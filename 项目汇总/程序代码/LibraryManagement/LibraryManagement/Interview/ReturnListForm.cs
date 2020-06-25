@@ -227,7 +227,7 @@ namespace LibraryManagement.Interview
 
         private void ReturnListDataGridView_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (ReturnListDataGridView.SelectedRows != null)
+            if (ReturnListDataGridView.CurrentRow != null)
             {
                 SetInformation(ReturnListDataGridView.CurrentRow);
             }
@@ -240,6 +240,30 @@ namespace LibraryManagement.Interview
         private void ReturnListForm_Load(object sender, EventArgs e)
         {
             DataBind();//数据绑定
+        }
+
+        /// <summary>
+        /// 打印退货清单
+        /// </summary>
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)ReturnListDataGridView.DataSource);
+                if (print.PrintDataTable())//打印datagridview中的内容
+                {
+                    MessageBox.Show("打印成功");
+                }
+                else
+                {
+                    MessageBox.Show("打印失败");
+                }
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

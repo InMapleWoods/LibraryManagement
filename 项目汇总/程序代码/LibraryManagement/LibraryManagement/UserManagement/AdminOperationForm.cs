@@ -82,22 +82,22 @@ namespace LibraryManagement.UserManagement
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
 
-                ////获取根据当前页面内容生成的读者信息（若有错误会被添加到错误列表中）
-                //UserManagementReaderInfo info = GetReaderInfo(ref errorList);
+                //获取根据当前页面内容生成的读者信息（若有错误会被添加到错误列表中）
+                UserManagementReaderInfo info = GetReaderInfo(ref errorList);
 
-                ////判断是否添加读者成功
-                //if (userManagementBll.addANewReader(info, ref errorList))
-                //{
-                //    MessageBox.Show("添加成功");
-                //}
-                //else
-                //{
-                //    MessageBox.Show("添加失败");
-                //    foreach (var i in errorList)
-                //    {
-                //        MessageBox.Show(i);//逐条显示错误信息
-                //    }
-                //}
+                //判断是否添加读者成功
+                if (userManagementBll.addANewReader(info, ref errorList))
+                {
+                    MessageBox.Show("添加成功");
+                }
+                else
+                {
+                    MessageBox.Show("添加失败");
+                    foreach (var i in errorList)
+                    {
+                        MessageBox.Show(i);//逐条显示错误信息
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -141,28 +141,29 @@ namespace LibraryManagement.UserManagement
             cbb_BuildingNo.SelectedIndex = 0;// 楼号
         }
 
-        ///// <summary>
-        ///// 获取当前窗体表示的读者信息
-        ///// </summary>
-        ///// <param name="error">错误列表</param>
-        ///// <returns>读者信息</returns>
-        //private UserManagementReaderInfo GetReaderInfo(ref List<string> error)
-        //{
-        //    List<string> errorList = new List<string>();
+        /// <summary>
+        /// 获取当前窗体表示的读者信息
+        /// </summary>
+        /// <param name="error">错误列表</param>
+        /// <returns>读者信息</returns>
+        private UserManagementReaderInfo GetReaderInfo(ref List<string> error)
+        {
+            List<string> errorList = new List<string>();
 
-        //    UserManagementReaderInfo info = new UserManagementReaderInfo()
-        //    {
-        //        LibraryCardNum = txb_LibraryCardNum.Text,
-        //        UserNumber = txb_UserNumber.Text,
-        //        UserName = txb_UserName.Text,
-        //        Gender = cbb_Gender.Text,
-        //        Birthday = dtp_Birthday.Value,
-        //        Address = cbb_BuildingNo + "#" + txb_DormitoryNo,
-        //        Contact = txb_Contact.Text,
-        //        DepartmentNum = cbb_Department.Text
-        //    };
-        //    error = errorList;
-        //    return info;
-        //}
+
+            UserManagementReaderInfo info = new UserManagementReaderInfo()
+            {
+                LibraryCardNum = txb_LibraryCardNum.Text,
+                UserNumber = txb_UserNumber.Text,
+                UserName = txb_UserName.Text,
+                BitGender = cbb_Gender.Text,
+                Birthday = dtp_Birthday.Value,
+                Address = cbb_BuildingNo.Text + "#" + txb_DormitoryNo.Text,
+                Contact = txb_Contact.Text,
+                DepartmentName = cbb_Department.Text
+            };
+            error = errorList;//返回错误列表
+            return info;//返回读者信息
+        }
     }
 }
