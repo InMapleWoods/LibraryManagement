@@ -187,8 +187,10 @@ namespace LibraryManagement.Dal
                 "OrdererId," +
                 "BookName," +
                 "Price," +
+                "CurrencyType," +
                 "PublishingHouseId," +
-                "DocumentType" +
+                "DocumentType," +
+                "Remark " +
                 ")" +
                 "VALUES(" +
                 "@id," +
@@ -197,8 +199,10 @@ namespace LibraryManagement.Dal
                 "@ordererId," +
                 "@bookName," +
                 "@price," +
+                "@currencyType," +
                 "@publishingHouseId," +
-                "@documentType" +
+                "@documentType," +
+                "@remark " +
                 ")";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
@@ -209,8 +213,10 @@ namespace LibraryManagement.Dal
                 new MySqlParameter("@ordererId",order.OrdererId),
                 new MySqlParameter("@bookName",order.BookName),
                 new MySqlParameter("@price",order.Price),
+                new MySqlParameter("@currencyType",order.CurrencyType),
                 new MySqlParameter("@publishingHouseId",order.PublishingHouseId),
                 new MySqlParameter("@documentType",order.DocumentType),
+                new MySqlParameter("@remark",order.Remark),
             };
             int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (count > 0)
@@ -260,8 +266,10 @@ namespace LibraryManagement.Dal
                 "OrdererId=@ordererId, " +
                 "BookName=@bookName, " +
                 "Price=@price, " +
-                "PublishingHouseId=@publishingHouseId, " +
-                "DocumentType=@documentType " +
+                "CurrencyType=@currencyType, " +
+                "PublishingHouseId=@publishingHouseId," +
+                "DocumentType=@documentType, " +
+                "Remark=@remark " +
                 "where Id=@id;";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器 
@@ -272,8 +280,10 @@ namespace LibraryManagement.Dal
                 new MySqlParameter("@documentType",order.DocumentType),
                 new MySqlParameter("@bookName",order.BookName),
                 new MySqlParameter("@price",order.Price),
+                new MySqlParameter("@currencyType",order.CurrencyType),
                 new MySqlParameter("@publishingHouseId",order.PublishingHouseId),
                 new MySqlParameter("@id",order.Id),
+                new MySqlParameter("@remark",order.Remark),
             };
             int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (count > 0)
@@ -299,8 +309,10 @@ namespace LibraryManagement.Dal
                 "tb_BasicInformation.UserName as 订购人," +
                 "tb_InterviewPurchaseOrder.BookName as 书名," +
                 "tb_InterviewPurchaseOrder.Price as 价格," +
+                "tb_InterviewPurchaseOrder.CurrencyType as 货币类型," +
                 "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
-                "tb_InterviewPurchaseOrder.DocumentType as 文献类型" +
+                "tb_InterviewPurchaseOrder.DocumentType as 文献类型, " +
+                "tb_InterviewPurchaseOrder.Remark as 备注" +
                 " from " +
                 "tb_InterviewPurchaseOrder inner join " +
                 "tb_DictionaryPublishingHouse inner join " +
@@ -406,7 +418,6 @@ namespace LibraryManagement.Dal
                 new MySqlParameter("@ordererId",list.OrdererId),
                 new MySqlParameter("@acceptorId",list.AcceptorId),
                 new MySqlParameter("@documentType",list.DocumentType),
-                new MySqlParameter("@id",list.Id),
             };
             int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (count > 0)

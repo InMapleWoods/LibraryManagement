@@ -227,7 +227,7 @@ namespace LibraryManagement.Interview
 
         private void ReturnListDataGridView_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (ReturnListDataGridView.SelectedRows != null)
+            if (ReturnListDataGridView.CurrentRow != null)
             {
                 SetInformation(ReturnListDataGridView.CurrentRow);
             }

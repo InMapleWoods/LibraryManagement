@@ -55,10 +55,14 @@
             // 
             // OrderDataGridView
             // 
+            this.OrderDataGridView.AllowUserToAddRows = false;
+            this.OrderDataGridView.AllowUserToDeleteRows = false;
             this.OrderDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OrderDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.OrderDataGridView.Location = new System.Drawing.Point(0, 0);
             this.OrderDataGridView.Name = "OrderDataGridView";
+            this.OrderDataGridView.ReadOnly = true;
+            this.OrderDataGridView.RowHeadersVisible = false;
             this.OrderDataGridView.RowTemplate.Height = 27;
             this.OrderDataGridView.Size = new System.Drawing.Size(813, 150);
             this.OrderDataGridView.TabIndex = 0;
@@ -67,10 +71,14 @@
             // 
             // ReturnListDataGridView
             // 
+            this.ReturnListDataGridView.AllowUserToAddRows = false;
+            this.ReturnListDataGridView.AllowUserToDeleteRows = false;
             this.ReturnListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ReturnListDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ReturnListDataGridView.Location = new System.Drawing.Point(0, 504);
             this.ReturnListDataGridView.Name = "ReturnListDataGridView";
+            this.ReturnListDataGridView.ReadOnly = true;
+            this.ReturnListDataGridView.RowHeadersVisible = false;
             this.ReturnListDataGridView.RowTemplate.Height = 27;
             this.ReturnListDataGridView.Size = new System.Drawing.Size(813, 178);
             this.ReturnListDataGridView.TabIndex = 1;

@@ -92,6 +92,7 @@
             // 
             this.IdTextBox.Location = new System.Drawing.Point(119, 234);
             this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.ReadOnly = true;
             this.IdTextBox.Size = new System.Drawing.Size(121, 25);
             this.IdTextBox.TabIndex = 23;
             // 

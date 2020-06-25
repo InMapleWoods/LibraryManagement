@@ -130,11 +130,6 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("Price Error");
             }
-            Match matchCurrentType = Regex.Match(list.CurrencyType, @"\b(人民币￥|美元＄)\b");
-            if (!matchCurrentType.Success)
-            {
-                errorList.Add("CurrentType Error");
-            }
             if (list.SubscriptionNum <= 0)
             {
                 errorList.Add("SubscriptionNum Error");
