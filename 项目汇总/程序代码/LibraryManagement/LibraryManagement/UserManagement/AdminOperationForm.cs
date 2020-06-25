@@ -82,7 +82,7 @@ namespace LibraryManagement.UserManagement
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
 
-                ////获取根据当前页面内容生成的读者信息（若有错误会被添加到错误列表中）
+                //获取根据当前页面内容生成的读者信息（若有错误会被添加到错误列表中）
                 UserManagementReaderInfo info = GetReaderInfo(ref errorList);
 
                 //判断是否添加读者成功
@@ -127,7 +127,18 @@ namespace LibraryManagement.UserManagement
         /// </summary>
         private void DataBind()
         {
+            // 下方总窗体数据绑定
+            dataGridView1.DataSource = userManagementBll.GetAllReadersInfo();
 
+            // 所在院系数据绑定
+            BindingSource bs_DepartmentName = new BindingSource();
+            bs_DepartmentName.DataSource = utilBll.GetReaderDepartmentName();
+            cbb_Department.DataSource = bs_DepartmentName;
+            cbb_Department.ValueMember = "Key";
+            cbb_Department.DisplayMember = "Value";
+
+            cbb_Gender.SelectedIndex = 0;// 性别
+            cbb_BuildingNo.SelectedIndex = 0;// 楼号
         }
 
         /// <summary>
@@ -139,19 +150,20 @@ namespace LibraryManagement.UserManagement
         {
             List<string> errorList = new List<string>();
 
+
             UserManagementReaderInfo info = new UserManagementReaderInfo()
             {
                 LibraryCardNum = txb_LibraryCardNum.Text,
                 UserNumber = txb_UserNumber.Text,
                 UserName = txb_UserName.Text,
-                Gender = cbb_Gender.Text,
+                BitGender = cbb_Gender.Text,
                 Birthday = dtp_Birthday.Value,
-                Address = cbb_BuildingNo + "#" + txb_DormitoryNo,
+                Address = cbb_BuildingNo.Text + "#" + txb_DormitoryNo.Text,
                 Contact = txb_Contact.Text,
-                DepartmentNum = cbb_Department.Text
+                DepartmentName = cbb_Department.Text
             };
-            error = errorList;
-            return info;
+            error = errorList;//返回错误列表
+            return info;//返回读者信息
         }
     }
 }

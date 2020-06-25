@@ -37,9 +37,9 @@
             // 
             // adminLoginButton
             // 
-            this.adminLoginButton.Location = new System.Drawing.Point(190, 242);
+            this.adminLoginButton.Location = new System.Drawing.Point(185, 242);
             this.adminLoginButton.Name = "adminLoginButton";
-            this.adminLoginButton.Size = new System.Drawing.Size(90, 50);
+            this.adminLoginButton.Size = new System.Drawing.Size(103, 50);
             this.adminLoginButton.TabIndex = 0;
             this.adminLoginButton.Text = "管理员登录";
             this.adminLoginButton.UseVisualStyleBackColor = true;

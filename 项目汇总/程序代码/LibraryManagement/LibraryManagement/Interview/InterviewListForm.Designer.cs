@@ -45,7 +45,12 @@
             this.PublishingHouseComboBox = new System.Windows.Forms.ComboBox();
             this.BookNameLabel = new System.Windows.Forms.Label();
             this.BookNameTextBox = new System.Windows.Forms.TextBox();
+            this.currencyTypeLabel = new System.Windows.Forms.Label();
+            this.currencyTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.subscriptionNumLabel = new System.Windows.Forms.Label();
+            this.subscriptionNumTextBox = new System.Windows.Forms.TextBox();
             this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
+            this.PrintButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.InterviewDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,21 +60,21 @@
             this.InterviewDataGridView.AllowUserToDeleteRows = false;
             this.InterviewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.InterviewDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.InterviewDataGridView.Location = new System.Drawing.Point(0, 399);
+            this.InterviewDataGridView.Location = new System.Drawing.Point(0, 355);
             this.InterviewDataGridView.Name = "InterviewDataGridView";
             this.InterviewDataGridView.ReadOnly = true;
             this.InterviewDataGridView.RowHeadersVisible = false;
             this.InterviewDataGridView.RowHeadersWidth = 51;
             this.InterviewDataGridView.RowTemplate.Height = 27;
-            this.InterviewDataGridView.Size = new System.Drawing.Size(814, 209);
+            this.InterviewDataGridView.Size = new System.Drawing.Size(814, 253);
             this.InterviewDataGridView.TabIndex = 20;
-            this.InterviewDataGridView.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
-            this.InterviewDataGridView.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.InterviewDataGridView.CurrentCellChanged += new System.EventHandler(this.InterviewDataGridView_CurrentCellChanged);
+            this.InterviewDataGridView.SelectionChanged += new System.EventHandler(this.InterviewDataGridView_SelectionChanged);
             // 
             // IdLabel
             // 
             this.IdLabel.AutoSize = true;
-            this.IdLabel.Location = new System.Drawing.Point(74, 134);
+            this.IdLabel.Location = new System.Drawing.Point(77, 104);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(52, 15);
             this.IdLabel.TabIndex = 21;
@@ -77,7 +82,7 @@
             // 
             // InterviewIdTextBox
             // 
-            this.InterviewIdTextBox.Location = new System.Drawing.Point(132, 131);
+            this.InterviewIdTextBox.Location = new System.Drawing.Point(135, 101);
             this.InterviewIdTextBox.Name = "InterviewIdTextBox";
             this.InterviewIdTextBox.Size = new System.Drawing.Size(100, 25);
             this.InterviewIdTextBox.TabIndex = 22;
@@ -85,7 +90,7 @@
             // AuthorLabel
             // 
             this.AuthorLabel.AutoSize = true;
-            this.AuthorLabel.Location = new System.Drawing.Point(80, 185);
+            this.AuthorLabel.Location = new System.Drawing.Point(83, 155);
             this.AuthorLabel.Name = "AuthorLabel";
             this.AuthorLabel.Size = new System.Drawing.Size(37, 15);
             this.AuthorLabel.TabIndex = 23;
@@ -94,7 +99,7 @@
             // ISBNLabel
             // 
             this.ISBNLabel.AutoSize = true;
-            this.ISBNLabel.Location = new System.Drawing.Point(78, 240);
+            this.ISBNLabel.Location = new System.Drawing.Point(81, 210);
             this.ISBNLabel.Name = "ISBNLabel";
             this.ISBNLabel.Size = new System.Drawing.Size(39, 15);
             this.ISBNLabel.TabIndex = 24;
@@ -103,7 +108,7 @@
             // PublishingHouseLabel
             // 
             this.PublishingHouseLabel.AutoSize = true;
-            this.PublishingHouseLabel.Location = new System.Drawing.Point(484, 161);
+            this.PublishingHouseLabel.Location = new System.Drawing.Point(427, 204);
             this.PublishingHouseLabel.Name = "PublishingHouseLabel";
             this.PublishingHouseLabel.Size = new System.Drawing.Size(52, 15);
             this.PublishingHouseLabel.TabIndex = 25;
@@ -112,7 +117,7 @@
             // PriceLabel
             // 
             this.PriceLabel.AutoSize = true;
-            this.PriceLabel.Location = new System.Drawing.Point(80, 342);
+            this.PriceLabel.Location = new System.Drawing.Point(83, 312);
             this.PriceLabel.Name = "PriceLabel";
             this.PriceLabel.Size = new System.Drawing.Size(37, 15);
             this.PriceLabel.TabIndex = 26;
@@ -121,7 +126,7 @@
             // DocumentTypeLabel
             // 
             this.DocumentTypeLabel.AutoSize = true;
-            this.DocumentTypeLabel.Location = new System.Drawing.Point(469, 217);
+            this.DocumentTypeLabel.Location = new System.Drawing.Point(412, 260);
             this.DocumentTypeLabel.Name = "DocumentTypeLabel";
             this.DocumentTypeLabel.Size = new System.Drawing.Size(67, 15);
             this.DocumentTypeLabel.TabIndex = 27;
@@ -130,7 +135,7 @@
             // OrderStatusLabel
             // 
             this.OrderStatusLabel.AutoSize = true;
-            this.OrderStatusLabel.Location = new System.Drawing.Point(469, 268);
+            this.OrderStatusLabel.Location = new System.Drawing.Point(412, 311);
             this.OrderStatusLabel.Name = "OrderStatusLabel";
             this.OrderStatusLabel.Size = new System.Drawing.Size(67, 15);
             this.OrderStatusLabel.TabIndex = 28;
@@ -138,21 +143,21 @@
             // 
             // AuthorTextBox
             // 
-            this.AuthorTextBox.Location = new System.Drawing.Point(132, 182);
+            this.AuthorTextBox.Location = new System.Drawing.Point(135, 152);
             this.AuthorTextBox.Name = "AuthorTextBox";
             this.AuthorTextBox.Size = new System.Drawing.Size(100, 25);
             this.AuthorTextBox.TabIndex = 29;
             // 
             // ISBNTextBox
             // 
-            this.ISBNTextBox.Location = new System.Drawing.Point(132, 237);
+            this.ISBNTextBox.Location = new System.Drawing.Point(135, 207);
             this.ISBNTextBox.Name = "ISBNTextBox";
             this.ISBNTextBox.Size = new System.Drawing.Size(100, 25);
             this.ISBNTextBox.TabIndex = 30;
             // 
             // PriceTextBox
             // 
-            this.PriceTextBox.Location = new System.Drawing.Point(132, 339);
+            this.PriceTextBox.Location = new System.Drawing.Point(135, 309);
             this.PriceTextBox.Name = "PriceTextBox";
             this.PriceTextBox.Size = new System.Drawing.Size(100, 25);
             this.PriceTextBox.TabIndex = 32;
@@ -167,7 +172,7 @@
             "论文",
             "专利",
             "电子文献"});
-            this.DocumentTypeComboBox.Location = new System.Drawing.Point(560, 214);
+            this.DocumentTypeComboBox.Location = new System.Drawing.Point(503, 257);
             this.DocumentTypeComboBox.Name = "DocumentTypeComboBox";
             this.DocumentTypeComboBox.Size = new System.Drawing.Size(100, 23);
             this.DocumentTypeComboBox.TabIndex = 35;
@@ -179,7 +184,7 @@
             this.OrderStatusComboBox.Items.AddRange(new object[] {
             "采访",
             "验收"});
-            this.OrderStatusComboBox.Location = new System.Drawing.Point(560, 266);
+            this.OrderStatusComboBox.Location = new System.Drawing.Point(503, 309);
             this.OrderStatusComboBox.Name = "OrderStatusComboBox";
             this.OrderStatusComboBox.Size = new System.Drawing.Size(100, 23);
             this.OrderStatusComboBox.TabIndex = 36;
@@ -188,7 +193,7 @@
             // 
             this.PublishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PublishingHouseComboBox.FormattingEnabled = true;
-            this.PublishingHouseComboBox.Location = new System.Drawing.Point(560, 158);
+            this.PublishingHouseComboBox.Location = new System.Drawing.Point(503, 201);
             this.PublishingHouseComboBox.Name = "PublishingHouseComboBox";
             this.PublishingHouseComboBox.Size = new System.Drawing.Size(100, 23);
             this.PublishingHouseComboBox.TabIndex = 33;
@@ -196,7 +201,7 @@
             // BookNameLabel
             // 
             this.BookNameLabel.AutoSize = true;
-            this.BookNameLabel.Location = new System.Drawing.Point(80, 292);
+            this.BookNameLabel.Location = new System.Drawing.Point(83, 262);
             this.BookNameLabel.Name = "BookNameLabel";
             this.BookNameLabel.Size = new System.Drawing.Size(37, 15);
             this.BookNameLabel.TabIndex = 39;
@@ -204,10 +209,47 @@
             // 
             // BookNameTextBox
             // 
-            this.BookNameTextBox.Location = new System.Drawing.Point(132, 289);
+            this.BookNameTextBox.Location = new System.Drawing.Point(135, 259);
             this.BookNameTextBox.Name = "BookNameTextBox";
             this.BookNameTextBox.Size = new System.Drawing.Size(100, 25);
             this.BookNameTextBox.TabIndex = 31;
+            // 
+            // currencyTypeLabel
+            // 
+            this.currencyTypeLabel.AutoSize = true;
+            this.currencyTypeLabel.Location = new System.Drawing.Point(412, 104);
+            this.currencyTypeLabel.Name = "currencyTypeLabel";
+            this.currencyTypeLabel.Size = new System.Drawing.Size(67, 15);
+            this.currencyTypeLabel.TabIndex = 40;
+            this.currencyTypeLabel.Text = "货币种类";
+            // 
+            // currencyTypeComboBox
+            // 
+            this.currencyTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.currencyTypeComboBox.FormattingEnabled = true;
+            this.currencyTypeComboBox.Items.AddRange(new object[] {
+            "人民币￥",
+            "美元＄"});
+            this.currencyTypeComboBox.Location = new System.Drawing.Point(503, 101);
+            this.currencyTypeComboBox.Name = "currencyTypeComboBox";
+            this.currencyTypeComboBox.Size = new System.Drawing.Size(100, 23);
+            this.currencyTypeComboBox.TabIndex = 41;
+            // 
+            // subscriptionNumLabel
+            // 
+            this.subscriptionNumLabel.AutoSize = true;
+            this.subscriptionNumLabel.Location = new System.Drawing.Point(412, 155);
+            this.subscriptionNumLabel.Name = "subscriptionNumLabel";
+            this.subscriptionNumLabel.Size = new System.Drawing.Size(67, 15);
+            this.subscriptionNumLabel.TabIndex = 42;
+            this.subscriptionNumLabel.Text = "征订册数";
+            // 
+            // subscriptionNumTextBox
+            // 
+            this.subscriptionNumTextBox.Location = new System.Drawing.Point(503, 151);
+            this.subscriptionNumTextBox.Name = "subscriptionNumTextBox";
+            this.subscriptionNumTextBox.Size = new System.Drawing.Size(100, 25);
+            this.subscriptionNumTextBox.TabIndex = 43;
             // 
             // scriptUserControl1
             // 
@@ -217,11 +259,26 @@
             this.scriptUserControl1.Size = new System.Drawing.Size(814, 88);
             this.scriptUserControl1.TabIndex = 38;
             // 
+            // PrintButton
+            // 
+            this.PrintButton.Location = new System.Drawing.Point(689, 259);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(75, 75);
+            this.PrintButton.TabIndex = 44;
+            this.PrintButton.Text = "打印";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
+            // 
             // InterviewListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 608);
+            this.Controls.Add(this.PrintButton);
+            this.Controls.Add(this.subscriptionNumTextBox);
+            this.Controls.Add(this.subscriptionNumLabel);
+            this.Controls.Add(this.currencyTypeComboBox);
+            this.Controls.Add(this.currencyTypeLabel);
             this.Controls.Add(this.BookNameTextBox);
             this.Controls.Add(this.BookNameLabel);
             this.Controls.Add(this.scriptUserControl1);
@@ -273,5 +330,10 @@
         private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
         private System.Windows.Forms.Label BookNameLabel;
         private System.Windows.Forms.TextBox BookNameTextBox;
+        private System.Windows.Forms.Label currencyTypeLabel;
+        private System.Windows.Forms.ComboBox currencyTypeComboBox;
+        private System.Windows.Forms.Label subscriptionNumLabel;
+        private System.Windows.Forms.TextBox subscriptionNumTextBox;
+        private System.Windows.Forms.Button PrintButton;
     }
 }

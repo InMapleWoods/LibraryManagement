@@ -92,6 +92,7 @@
             this.btn_Backupcommit.TabIndex = 5;
             this.btn_Backupcommit.Text = "备份";
             this.btn_Backupcommit.UseVisualStyleBackColor = true;
+            this.btn_Backupcommit.Click += new System.EventHandler(this.btn_Backupcommit_Click);
             // 
             // checkBox_ClosingProgramBackupCheck
             // 

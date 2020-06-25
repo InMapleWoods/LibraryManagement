@@ -17,8 +17,7 @@ namespace LibraryManagement.Interview
     public partial class AcceptanceListForm : Form
     {
         Form parentForm;//父窗体
-        InterviewPurchaseBll interviewPurchaseBll = new InterviewPurchaseBll();//采访订单用户操作类
-        AcceptanceListBll acceptanceListBll = new AcceptanceListBll();//验收清单用户操作类
+        InterviewBll interviewBll = new InterviewBll();//采访子系统用户操作类
         UtilBll utilBll = new UtilBll();//复用部分用户操作类
 
         /// <summary>
@@ -67,7 +66,7 @@ namespace LibraryManagement.Interview
                 //获取根据当前页面内容生成的清单（若有错误会被添加到错误列表中）
                 AcceptanceList list = GetAcceptanceList(ref errorList);
                 //判断是否添加清单成功
-                if (acceptanceListBll.AddAcceptanceList(list, ref errorList))
+                if (interviewBll.AddAcceptanceList(list, ref errorList))
                 {
                     MessageBox.Show("添加成功");
                 }
@@ -124,7 +123,7 @@ namespace LibraryManagement.Interview
                         MessageBox.Show("清单编号错误");
                         return;
                     }
-                    if (acceptanceListBll.DeleteAcceptanceList(id))//调用清单删除方法
+                    if (interviewBll.DeleteAcceptanceList(id))//调用清单删除方法
                     {
                         MessageBox.Show("删除成功");
                     }
@@ -160,7 +159,7 @@ namespace LibraryManagement.Interview
                 AcceptanceList list = GetAcceptanceList(ref errorList);
                 list.Id = id;//设置清单ID
                 //判断是否添加清单成功
-                if (acceptanceListBll.UpdateAcceptanceList(list, ref errorList))
+                if (interviewBll.UpdateAcceptanceList(list, ref errorList))
                 {
                     MessageBox.Show("修改成功");
                 }
@@ -286,7 +285,7 @@ namespace LibraryManagement.Interview
 
             //判断验收人账号是否符合要求
             Match matchAcceptor = Regex.Match(AcceptorTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
-            if (!matchOrderer.Success)
+            if (!matchAcceptor.Success)
             {
                 errorList.Add("AcceptorId Error");
             }
@@ -336,8 +335,6 @@ namespace LibraryManagement.Interview
             IdTextBox.Text = row.Cells[0].Value.ToString();//清单号
             BookSellerComboBox.Text = row.Cells[1].Value.ToString();//书商
             PublishingHouseComboBox.Text = row.Cells[2].Value.ToString();//出版社
-            OrdererTextBox.Text = row.Cells[3].Value.ToString();//订购人
-            AcceptorTextBox.Text = row.Cells[4].Value.ToString();//验收人
             DocumentTypeComboBox.Text = row.Cells[5].Value.ToString();//文献类型
         }
 
@@ -377,10 +374,10 @@ namespace LibraryManagement.Interview
         private void DataBind()
         {
             //上方窗体数据绑定
-            PurchaseDataGridView.DataSource = interviewPurchaseBll.GetAllPurchaseOrders();
+            PurchaseDataGridView.DataSource = interviewBll.GetAllPurchaseOrders();
 
             //下方窗体数据绑定
-            AcceptanceDataGridView.DataSource = acceptanceListBll.GetAllAcceptanceList();
+            AcceptanceDataGridView.DataSource = interviewBll.GetAllAcceptanceList();
 
             //书商数据绑定
             BindingSource bs_BookSeller = new BindingSource();
