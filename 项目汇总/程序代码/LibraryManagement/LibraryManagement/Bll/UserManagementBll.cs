@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LibraryManagement.Bll
 {
@@ -39,6 +40,26 @@ namespace LibraryManagement.Bll
                 }
             }
             catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userNumber"></param>
+        /// <returns></returns>
+        public bool deleteAReader(string userNumber)
+        {
+            bool result;
+            try
+            {
+                result = userManagementDal.deleteAReader(userNumber);
+            }
+            catch(Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
