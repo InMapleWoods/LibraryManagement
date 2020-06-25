@@ -455,7 +455,6 @@ namespace LibraryManagement.Dal
         /// <returns></returns>
         public bool AddStatisticalInfo(StatisticalInfo statisticalInfo)
         {
-            bool result = false;
             string sqlStr = "INSERT INTO tb_StatisticalFormat ( " +
                 " TableName ," +
                 " Operation" +
@@ -486,7 +485,6 @@ namespace LibraryManagement.Dal
         /// <returns></returns>
         public bool UpdateStatisticalInfo(StatisticalInfo statisticalInfo)
         {
-            bool result = false;
             string sqlStr = "Update tb_StatisticalFormat SET " +
                 " TableName =@TableName ," +
                 " Operation = @Operation " +
@@ -509,7 +507,6 @@ namespace LibraryManagement.Dal
         }
         public bool DeleteStatisticalInfo(StatisticalInfo statisticalInfo)
         {
-            bool result = false;
             string sqlStr = "DELETE FROM tb_StatisticalFormat " +
                 " WHERE Id= @Id ;";
             MySqlParameter[] para = new MySqlParameter[]

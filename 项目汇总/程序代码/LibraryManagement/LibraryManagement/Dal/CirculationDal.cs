@@ -472,7 +472,7 @@ namespace LibraryManagement.Dal
         public bool BookLost(int Id)
         {
             string sqlStr = " UPDATE tb_CirculateBooks  " +
-                " SET BookStatus = '已丢失'  " +
+                " SET BookStatus = '已缺失'  " +
                 " WHERE " +
                 " Id = @id  " +
                 " AND BookStatus = '已借阅'; ";
