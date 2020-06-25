@@ -221,7 +221,7 @@
             // NumberLabel
             // 
             this.NumberLabel.AutoSize = true;
-            this.NumberLabel.Location = new System.Drawing.Point(78, 182);
+            this.NumberLabel.Location = new System.Drawing.Point(91, 182);
             this.NumberLabel.Name = "NumberLabel";
             this.NumberLabel.Size = new System.Drawing.Size(37, 15);
             this.NumberLabel.TabIndex = 23;
