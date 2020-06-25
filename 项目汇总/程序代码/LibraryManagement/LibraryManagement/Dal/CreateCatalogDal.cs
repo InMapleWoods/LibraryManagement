@@ -9,70 +9,70 @@ using System.Data;
 
 namespace LibraryManagement.Dal
 {
+    /// <summary>
+    /// 编目子系统数据操作类
+    /// </summary>
+    public class CatalogDal
+    {
         /// <summary>
-        /// 编目子系统数据操作类
+        /// 工具对象
         /// </summary>
-        public class CatalogDal
+        private SQLHelper helper = new SQLHelper();
+
+        #region 直接编目
+        /// <summary>
+        /// 增加一条直接编目记录
+        /// </summary>
+        /// <param name="list">编目清单</param>
+        /// <returns>增加成功与否</returns>
+        public bool AddCatalogList(CreateCatalogList list)
         {
-            /// <summary>
-            /// 工具对象
-            /// </summary>
-            private SQLHelper helper = new SQLHelper();
-
-            #region 直接编目
-            /// <summary>
-            /// 增加一条直接编目记录
-            /// </summary>
-            /// <param name="list">编目清单</param>
-            /// <returns>增加成功与否</returns>
-            public bool AddCatalogList(CreateCatalogList list)
+            string sqlStr = "INSERT INTO tb_CatalogForm (" +
+             "Id," +
+             "ISBN," +
+             "PositiveTitle," +
+             "FirstAuthor," +
+             "PublishingHouseId," +
+             "DocumentType," +
+             "PrimaryLiability," +
+             "CatalogerId," +
+             "CatalogingDate" +
+             ")" +
+             "VALUES(" +
+             "@id," +
+             "@iSBN," +
+             "@positiveTitel," +
+             "@firstAuther," +
+             "@publishingHouseId," +
+             "@documentType," +
+             "@primaryLiability," +
+             "@catalogerId," +
+             "@catalogingDate" +
+             ")";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
-                string sqlStr = "INSERT INTO tb_CatalogForm (" +
-                 "Id," +
-                 "ISBN," +
-                 "PositiveTitle," +
-                 "FirstAuthor," +
-                 "PublishingHouseId," +
-                 "DocumentType," +
-                 "PrimaryLiability," +
-                 "CatalogerId," +
-                 "CatalogingDate" +
-                 ")" +
-                 "VALUES(" +
-                 "@id," +
-                 "@iSBN," +
-                 "@positiveTitel," +
-                 "@firstAuther," +
-                 "@publishingHouseId," +
-                 "@documentType," +
-                 "@primaryLiability," +
-                 "@catalogerId," +
-                 "@catalogingDate" +
-                 ")";
-                //储存Datatable
-                MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
-                {
-                    new MySqlParameter("@id",list.Id),
-                    new MySqlParameter("@iSBN",list.ISBN),
-                    new MySqlParameter("@positiveTitel",list.PositiveTitle),
-                    new MySqlParameter("@firstAuther",list.FirstAuthor),
-                    new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
-                    new MySqlParameter("@documentType",list.DocumentType),
-                    new MySqlParameter("@primaryLiability",list.PrimaryLiability),
-                    new MySqlParameter("@catalogerId",list.CatalogerId),
-                    new MySqlParameter("@catalogingDate",list.CatalogingDate),
+                new MySqlParameter("@id",list.Id),
+                new MySqlParameter("@iSBN",list.ISBN),
+                new MySqlParameter("@positiveTitel",list.PositiveTitle),
+                new MySqlParameter("@firstAuther",list.FirstAuthor),
+                new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
+                new MySqlParameter("@documentType",list.DocumentType),
+                new MySqlParameter("@primaryLiability",list.PrimaryLiability),
+                new MySqlParameter("@catalogerId",list.CatalogerId),
+                new MySqlParameter("@catalogingDate",list.CatalogingDate),
 
-                };
-                int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
-                if (count > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
             }
+            else
+            {
+                return false;
+            }
+        }
         /// <summary>
         /// 删除一条直接编目记录
         /// </summary>
@@ -105,7 +105,7 @@ namespace LibraryManagement.Dal
         {
             string sqlStr = "UPDATE tb_CatalogForm SET " +
                 "ISBN=@iSBN, " +
-                "PositiveTitle=@positiveTitel, " +
+                "PositiveTitle=@positiveTitle, " +
                 "FirstAuthor=@firstAuthor, " +
                 "PublishingHouseId=@publishingHouseId, " +
                 "DocumentType=@documentType, " +
@@ -116,10 +116,10 @@ namespace LibraryManagement.Dal
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
-               
+
                 new MySqlParameter("@iSBN",list.ISBN),
                 new MySqlParameter("@documentType",list.DocumentType),
-                new MySqlParameter("@positiveTitel",list.PositiveTitle),
+                new MySqlParameter("@positiveTitle",list.PositiveTitle),
                 new MySqlParameter("@firstAuthor",list.FirstAuthor),
                 new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
                 new MySqlParameter("@primaryLiability",list.PrimaryLiability),
@@ -145,19 +145,19 @@ namespace LibraryManagement.Dal
         {
             string sqlstr = "select " +
                 "tb_CatalogForm.Id as ID," +
-                "tb_CatalogForm.FirstAuthor as 第一作者,"+            
+                "tb_CatalogForm.FirstAuthor as 第一作者," +
                 "tb_CatalogForm.ISBN as ISBN号," +
                  "tb_CatalogForm.PositiveTitle as 正题名," +
                 "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
                 "tb_CatalogForm.PrimaryLiability as 第一责任," +
                 "tb_CatalogForm.DocumentType as 文献类型," +
-                "tb_BasicInformation.UserName as 编目人员," +             
+                "tb_BasicInformation.UserName as 编目人员," +
                 "tb_CatalogForm.CatalogingDate as 编目日期" +
                 " from " +
                 "tb_CatalogForm inner join " +
                  "tb_DictionaryPublishingHouse inner join " +
-                 "tb_BasicInformation "+
-                "on tb_CatalogForm.PublishingHouseId=tb_DictionaryPublishingHouse.Id "+
+                 "tb_BasicInformation " +
+                "on tb_CatalogForm.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
                 "and tb_CatalogForm.CatalogerId=tb_BasicInformation.UserId ";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
@@ -295,7 +295,7 @@ namespace LibraryManagement.Dal
 
         #region 编目移送
 
-        public CreateCatalogList MoveCatalog(int id)
+        public bool MoveCatalog(int Id)
         {
             string sqlStr = " SELECT " +
                " tb_CatalogForm.Id AS `图书编号`, " +
@@ -308,15 +308,15 @@ namespace LibraryManagement.Dal
                " FROM " +
                " tb_CatalogForm  " +
                " WHERE " +
-               " tb_CirculateBooks.Id = @bookId " +
-               " AND tb_CirculateBooks.State = '可借阅' ;";
+               " tb_CatalogForm.Id = @id " +
+               " AND tb_CatalogForm.State = '可借阅' ;";
             MySqlParameter[] paras = new MySqlParameter[]
-           {
-                new MySqlParameter("@bookId",id),
-           };
+            {
+                new MySqlParameter("@id",Id),
+            };
             DataTable dataTable = helper.ExecuteQuery(sqlStr, paras, CommandType.Text);
             if (dataTable.Rows.Count <= 0)
-                return new CreateCatalogList();
+                return false;
             DataRow row = dataTable.Rows[0];
             CreateCatalogList createCatalogList = new CreateCatalogList()
             {
@@ -328,10 +328,43 @@ namespace LibraryManagement.Dal
                 DocumentType = row["文献类型"].ToString(),
                 State = row["图书状态"].ToString(),
             };
-            return createCatalogList;
+            // return createCatalogList;
+            sqlStr = "INSERT INTO tb_CirculateBooks (" +
+                " tb_CirculateBooks.ISBN," +
+                " tb_CirculateBooks.FirstAuthor," +
+                " tb_CirculateBooks.DocumentType, " +
+                "tb_CirculateBooks.BookStatus, " +
+                "tb_CirculateBooks.OfficialTitle, " +
+                "tb_CirculateBooks.PublishingHouseId" +
+                " )VALUES" +
+                "(" +                
+                 "@iSBN," +
+                 "@firstAuther," +
+                 "@documentType," +
+                 "@bookStatus," +
+                 "@officialTitle," +
+                 "@publishingHouseId" +
+                 ")";
+            paras= new MySqlParameter[]
+            {
+                new MySqlParameter("@iSBN",createCatalogList.ISBN),
+                new MySqlParameter("@firstAuther",createCatalogList.FirstAuthor),
+                new MySqlParameter("@documentType",createCatalogList.DocumentType),
+                new MySqlParameter("@bookStatus","可借阅"),
+                new MySqlParameter("@officialTitle",createCatalogList.PositiveTitle),
+                new MySqlParameter("@publishingHouseId",createCatalogList.PublishingHouseId),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, paras, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         #endregion
-
 
     }
 

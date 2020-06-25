@@ -264,35 +264,28 @@ namespace LibraryManagement.Bll
         }
         #endregion
 
-        //#region 编目移送
+        #region 编目移送
 
-        ///// <summary>
-        ///// 移送一条编目清单
-        ///// </summary>
-        ///// <param name="list">编目清单</param>
-        ///// <returns>增加成功与否</returns>
-        //public bool MoveCatalog(CreateCatalogList list, ref List<string> errorMsg)
-        //{
-        //    bool result = false;
-        //    try
-        //    {
-        //        if (!CreateCatalogList.isNull(list))//是否有空项
-        //        {
-        //            if (CreateCatalogList.isNormative(list, ref errorMsg))//是否符合规范
-        //            {
-        //                result = CatalogDal.MoveCatalog(list);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine(e.Message);
-        //        throw e;
-        //    }
-        //    return result;
-        //}
-
-
-        //#endregion
+        /// <summary>
+        /// 移送一条编目清单
+        /// </summary>
+        /// <param name="list">编目清单</param>
+        /// <returns>增加成功与否</returns>
+        public bool MoveCatalog(int Id)
+        {
+            bool result = false;
+            try
+            {
+                result = createDal.MoveCatalog(Id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+ 
+        #endregion
     }
 }
