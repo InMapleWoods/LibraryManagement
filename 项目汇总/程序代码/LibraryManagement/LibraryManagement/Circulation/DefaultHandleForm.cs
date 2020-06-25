@@ -15,6 +15,7 @@ namespace LibraryManagement.Circulation
     {
         Form parentForm;
         CirculationBll circulationBll = new CirculationBll();
+        int readerId;
         public DefaultHandleForm(Form form)
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace LibraryManagement.Circulation
             try
             {
                 //通过借书证号获取id
-                int readerId = circulationBll.GetReaderIdByNum(borrowCardNumTextBox.Text);
+                readerId = circulationBll.GetReaderIdByNum(borrowCardNumTextBox.Text);
                 if (readerId == -1)
                     return;
                 dataGridView1.DataSource = circulationBll.GetDisHonestyLog(readerId);
@@ -86,30 +87,85 @@ namespace LibraryManagement.Circulation
 
         private void button_lost_Click(object sender, EventArgs e)
         {
-            getMoney();
+            int id = int.Parse(bookCodeTextBox.Text);
+            if (circulationBll.BookLost(id))
+            {
+                getMoney();
+            }
+            else
+            {
+                MessageBox.Show("书籍丢失状态写入失败");
+            }
         }
 
         private bool getMoney()
         {
-            DialogResult result;
-            do
+            try
             {
-                result = MessageBox.Show("是否收费成功", "收费成功", MessageBoxButtons.YesNoCancel);
-                if (result == DialogResult.Yes)
-                {
-                    return true;
-                }
-                else if (result == DialogResult.Cancel)
-                {
+                if (readerId <= 0)
                     return false;
-                }
-            } while (result == DialogResult.No);
+                DialogResult result;
+                do
+                {
+                    result = MessageBox.Show("是否收费成功", "收费成功", MessageBoxButtons.YesNoCancel);
+                    if (result == DialogResult.Yes)
+                    {
+                        if (circulationBll.MoneyReceived(readerId))
+                        {
+                            MessageBox.Show("收费成功");
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("收费失败");
+                            return false;
+                        }
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        return false;
+                    }
+                } while (result == DialogResult.No);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             return false;
         }
 
         private void btn_return_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                getMoney();
+                if (readerId <= 0)
+                    return;
+                DialogResult result;
+                do
+                {
+                    result = MessageBox.Show("是否收费成功", "收费成功", MessageBoxButtons.YesNoCancel);
+                    if (result == DialogResult.Yes)
+                    {
+                        if (circulationBll.BookReceived(readerId))
+                        {
+                            MessageBox.Show("收书成功");
+                        }
+                        else
+                        {
+                            MessageBox.Show("收书失败");
+                        }
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                } while (result == DialogResult.No);               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
