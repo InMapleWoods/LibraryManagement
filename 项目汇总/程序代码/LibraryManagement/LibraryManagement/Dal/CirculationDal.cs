@@ -269,7 +269,8 @@ namespace LibraryManagement.Dal
                 " FROM " +
                 " tb_BookDamageLog " +
                 " INNER JOIN tb_BasicInformation ON tb_BookDamageLog.CheckerId = tb_BasicInformation.UserId " +
-                " INNER JOIN tb_CirculateBooks ON tb_BookDamageLog.BookId = tb_CirculateBooks.Id ;";
+                " INNER JOIN tb_CirculateBooks ON tb_BookDamageLog.BookId = tb_CirculateBooks.Id " +
+                " WHERE tb_BookDamageLog.State='待修复'; ";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
@@ -364,7 +365,7 @@ namespace LibraryManagement.Dal
                 " tb_DishonestyLog " +
                 " INNER JOIN tb_BasicInformation ON tb_DishonestyLog.ReaderId = tb_BasicInformation.UserId " +
                 " INNER JOIN tb_CirculateBooks ON tb_DishonestyLog.BookId = tb_CirculateBooks.Id " +
-                "WHERE tb_DishonestyLog.ReaderId = @readerId;"; 
+                " WHERE tb_DishonestyLog.ReaderId = @readerId;";
             MySqlParameter[] paras = new MySqlParameter[]
             {
                 new MySqlParameter("@readerId", readerId),
@@ -381,10 +382,10 @@ namespace LibraryManagement.Dal
         public int GetDisHonestyLogBookId(int Id)
         {
             string strSql = " SELECT " +
-                " tb_DishonestyLog.BookId AS `编号`"+
+                " tb_DishonestyLog.BookId AS `编号`" +
                 " FROM " +
-                " tb_DishonestyLog "+
-                "WHERE tb_DishonestyLog.Id = @Id;"; 
+                " tb_DishonestyLog " +
+                "WHERE tb_DishonestyLog.Id = @Id;";
             MySqlParameter[] paras = new MySqlParameter[]
             {
                 new MySqlParameter("@Id", Id),
@@ -396,6 +397,101 @@ namespace LibraryManagement.Dal
             }
             return (int)dataTable.Rows[0]["编号"];
         }
+
+        /// <summary>
+        /// 罚金已收到
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public bool MoneyReceived(int Id)
+        {
+            string sqlStr = " UPDATE tb_DishonestyLog  " +
+                " SET tb_DishonestyLog.State = '未交书'  " +
+                " WHERE " +
+                " tb_DishonestyLog.Id = @id  " +
+                " AND tb_DishonestyLog.State = '待处理'; " +
+                " UPDATE tb_DishonestyLog  " +
+                " SET tb_DishonestyLog.State = '已处理'  " +
+                " WHERE " +
+                " tb_DishonestyLog.Id = @id  " +
+                " AND tb_DishonestyLog.State = '未缴费'; ";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 书本已收到
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public bool BookReceived(int Id)
+        {
+            string sqlStr = " UPDATE tb_DishonestyLog  " +
+                " SET tb_DishonestyLog.State = '未缴费'  " +
+                " WHERE " +
+                " tb_DishonestyLog.Id = @id  " +
+                " AND tb_DishonestyLog.State = '待处理'; " +
+                " UPDATE tb_DishonestyLog  " +
+                " SET tb_DishonestyLog.State = '已处理'  " +
+                " WHERE " +
+                " tb_DishonestyLog.Id = @id  " +
+                " AND tb_DishonestyLog.State = '未交书'; ";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 书籍丢失
+        /// </summary>
+        /// <param name="Id">书籍丢失</param>
+        /// <returns></returns>
+        public bool BookLost(int Id)
+        {
+            string sqlStr = " UPDATE tb_CirculateBooks  " +
+                " SET BookStatus = '已丢失'  " +
+                " WHERE " +
+                " Id = @id  " +
+                " AND BookStatus = '已借阅'; ";
+            //储存Datatable
+            MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@id",Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         #endregion
         /// <summary>
         /// 根据读者借书证号获取读者编号

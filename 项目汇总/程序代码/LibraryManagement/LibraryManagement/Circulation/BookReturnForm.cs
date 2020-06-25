@@ -174,6 +174,20 @@ namespace LibraryManagement.Circulation
         {
             try
             {
+                int id;
+                if (!int.TryParse(logId, out id))//将其转换为数字失败
+                {
+                    MessageBox.Show("书籍编号格式错误");
+                    return;
+                }
+                if (circulationBll.ReturnBorrowedBook(id))//调用还书方法
+                {
+                    MessageBox.Show("还书成功");
+                }
+                else
+                {
+                    MessageBox.Show("还书失败");
+                }
                 List<string> errorList = new List<string>();//创建一个错误列表
                 BookDamageLog log = new BookDamageLog();
                 var form = new AddDamageForm(this, log);
@@ -181,13 +195,13 @@ namespace LibraryManagement.Circulation
                 DialogResult dialogResult = form.ShowDialog();
                 if (dialogResult == DialogResult.Yes)//如果选择确认按钮
                 {
-                    int id;
-                    if (!int.TryParse(bookCodeTextBox.Text, out id))//将其转换为数字失败
+                    int bookid;
+                    if (!int.TryParse(bookCodeTextBox.Text, out bookid))//将其转换为数字失败
                     {
                         MessageBox.Show("书籍编号格式错误");
                         return;
                     }
-                    log.BookId = id;
+                    log.BookId = bookid;
                     log.RepairState = "待修复";
                     if (circulationBll.AddDamageLog(log, ref errorList))//添加破损记录
                     {

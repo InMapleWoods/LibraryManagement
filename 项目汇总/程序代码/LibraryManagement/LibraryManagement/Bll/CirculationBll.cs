@@ -345,11 +345,68 @@ namespace LibraryManagement.Bll
         /// <returns>书籍编号</returns>
         public int GetDisHonestyLogBookId(int Id)
         {
-
             int result = -1;
             try
             {
                 result = circulationDal.GetDisHonestyLogBookId(Id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// 罚金已收到
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public bool MoneyReceived(int Id)
+        {
+            bool result = false;
+            try
+            {
+                result = circulationDal.MoneyReceived(Id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 书本已收到
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public bool BookReceived(int Id)
+        {
+            bool result = false;
+            try
+            {
+                result = circulationDal.BookReceived(Id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            return result;
+        }
+        /// <summary>
+        /// 书籍丢失
+        /// </summary>
+        /// <param name="Id">书籍丢失</param>
+        /// <returns></returns>
+        public bool BookLost(int Id)
+        {
+            bool result = false;
+            try
+            {
+                result = circulationDal.BookLost(Id);
             }
             catch (Exception ex)
             {
