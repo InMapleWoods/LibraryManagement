@@ -184,9 +184,9 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
-        /// 更改一条期刊登到记录
+        /// 更改一条编目记录
         /// </summary>
-        /// <param name="arrival">期刊登到记录</param>
+        /// <param name="list">编目记录</param>
         /// <returns>更改成功与否</returns>
         public bool UpdateInterviewCatalog(InterviewCatalog list, ref List<string> errorMsg)
         {
@@ -245,7 +245,7 @@ namespace LibraryManagement.Bll
             }
         }
         /// <summary>
-        /// 将完好期刊写入流通库
+        /// 将完好书籍写入流通库
         /// </summary>
         /// <returns>更改成功与否</returns>
         public bool MoveInterviewCatalogToCirculate()

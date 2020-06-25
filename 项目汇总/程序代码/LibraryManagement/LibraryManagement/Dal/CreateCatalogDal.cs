@@ -309,7 +309,7 @@ namespace LibraryManagement.Dal
                " tb_CatalogForm  " +
                " WHERE " +
                " tb_CatalogForm.Id = @id " +
-               " AND tb_CatalogForm.State = '可借阅' ;";
+               " AND tb_CatalogForm.State = '未处理';";
             MySqlParameter[] paras = new MySqlParameter[]
             {
                 new MySqlParameter("@id",Id),

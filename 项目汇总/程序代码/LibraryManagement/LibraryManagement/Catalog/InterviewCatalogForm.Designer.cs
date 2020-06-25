@@ -46,10 +46,14 @@
             // 
             // interviewDataGridView
             // 
+            this.interviewDataGridView.AllowUserToAddRows = false;
+            this.interviewDataGridView.AllowUserToDeleteRows = false;
             this.interviewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.interviewDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.interviewDataGridView.Location = new System.Drawing.Point(0, 0);
             this.interviewDataGridView.Name = "interviewDataGridView";
+            this.interviewDataGridView.ReadOnly = true;
+            this.interviewDataGridView.RowHeadersVisible = false;
             this.interviewDataGridView.RowHeadersWidth = 62;
             this.interviewDataGridView.RowTemplate.Height = 30;
             this.interviewDataGridView.Size = new System.Drawing.Size(1050, 211);
@@ -59,10 +63,14 @@
             // 
             // catalogDataGridView
             // 
+            this.catalogDataGridView.AllowUserToAddRows = false;
+            this.catalogDataGridView.AllowUserToDeleteRows = false;
             this.catalogDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.catalogDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.catalogDataGridView.Location = new System.Drawing.Point(0, 427);
             this.catalogDataGridView.Name = "catalogDataGridView";
+            this.catalogDataGridView.ReadOnly = true;
+            this.catalogDataGridView.RowHeadersVisible = false;
             this.catalogDataGridView.RowHeadersWidth = 62;
             this.catalogDataGridView.RowTemplate.Height = 30;
             this.catalogDataGridView.Size = new System.Drawing.Size(1050, 217);
@@ -143,7 +151,11 @@
             // 
             // stateComboBox
             // 
+            this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateComboBox.FormattingEnabled = true;
+            this.stateComboBox.Items.AddRange(new object[] {
+            "可编目",
+            "退回"});
             this.stateComboBox.Location = new System.Drawing.Point(318, 358);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(236, 26);

@@ -44,10 +44,13 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 256);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.Size = new System.Drawing.Size(1037, 320);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // moveBtn
             // 
@@ -57,7 +60,8 @@
             this.moveBtn.TabIndex = 1;
             this.moveBtn.Text = "移送";
             this.moveBtn.UseVisualStyleBackColor = true;
-            
+            this.moveBtn.Click += new System.EventHandler(this.moveBtn_Click);
+            // 
             // IdLabel
             // 
             this.IdLabel.AutoSize = true;
@@ -84,7 +88,10 @@
             this.Controls.Add(this.moveBtn);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MoveCatalogForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MoveCatalogForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MoveCatalogForm_FormClosing);
+            this.Load += new System.EventHandler(this.MoveCatalogForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
