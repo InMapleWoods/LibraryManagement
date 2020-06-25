@@ -42,6 +42,7 @@
             this.appointmentNumTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             this.validityTermTextBox = new System.Windows.Forms.TextBox();
             this.validityTermLabel = new System.Windows.Forms.Label();
             this.appointDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -62,7 +63,7 @@
             this.borrowCardNumLabel = new System.Windows.Forms.Label();
             this.appointDateLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
+            this.label_day = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -190,6 +191,7 @@
             // 
             // mainSplitContainer.Panel2
             // 
+            this.mainSplitContainer.Panel2.Controls.Add(this.label_day);
             this.mainSplitContainer.Panel2.Controls.Add(this.validityTermTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.validityTermLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.appointDatePicker);
@@ -227,13 +229,20 @@
             this.mainSplitContainer.SplitterDistance = 82;
             this.mainSplitContainer.TabIndex = 5;
             // 
+            // scriptUserControl1
+            // 
+            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.scriptUserControl1.Name = "scriptUserControl1";
+            this.scriptUserControl1.Size = new System.Drawing.Size(1050, 82);
+            this.scriptUserControl1.TabIndex = 0;
+            // 
             // validityTermTextBox
             // 
             this.validityTermTextBox.Location = new System.Drawing.Point(620, 175);
             this.validityTermTextBox.Name = "validityTermTextBox";
-            this.validityTermTextBox.Size = new System.Drawing.Size(330, 25);
+            this.validityTermTextBox.Size = new System.Drawing.Size(300, 25);
             this.validityTermTextBox.TabIndex = 26;
-            this.validityTermTextBox.TextChanged += new System.EventHandler(this.validityTermTextBox_TextChanged);
             // 
             // validityTermLabel
             // 
@@ -411,13 +420,14 @@
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // scriptUserControl1
+            // label_day
             // 
-            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(1050, 82);
-            this.scriptUserControl1.TabIndex = 0;
+            this.label_day.AutoSize = true;
+            this.label_day.Location = new System.Drawing.Point(926, 180);
+            this.label_day.Name = "label_day";
+            this.label_day.Size = new System.Drawing.Size(22, 15);
+            this.label_day.TabIndex = 28;
+            this.label_day.Text = "天";
             // 
             // BookAppointForm
             // 
@@ -427,7 +437,7 @@
             this.Controls.Add(this.mainSplitContainer);
             this.Name = "BookAppointForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BookAppointForm";
+            this.Text = "图书预约";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookAppointForm_FormClosing);
             this.Load += new System.EventHandler(this.BookAppointForm_Load);
             this.mainSplitContainer.Panel1.ResumeLayout(false);
@@ -476,5 +486,6 @@
         private System.Windows.Forms.DateTimePicker appointDatePicker;
         private System.Windows.Forms.TextBox validityTermTextBox;
         private System.Windows.Forms.Label validityTermLabel;
+        private System.Windows.Forms.Label label_day;
     }
 }

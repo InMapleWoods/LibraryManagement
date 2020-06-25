@@ -300,7 +300,7 @@ namespace LibraryManagement.Circulation
             nameTextBox.Text = reader.Name;
             genderTextBox.Text = reader.Sex;
             workplaceTextBox.Text = reader.Department;
-            borrowNumTextBox.Text = reader.AppointNum.ToString();
+            borrowNumTextBox.Text = reader.BorrowNum.ToString();
             appointmentNumTextBox.Text = reader.AppointNum.ToString();
             penaltyMultipleTextBox.Text = reader.ForfeitMultiples.ToString();
             fineAmountTextBox.Text = reader.ExtendedForfeit.ToString();
@@ -350,7 +350,6 @@ namespace LibraryManagement.Circulation
             {
                 errorList.Add("ExpireDate Error");
             }
-            expireDate = expireDate.Substring(0, expireDate.Length - 1);
             DateTime date = appointDatePicker.Value;
             DateTime expireDateTime = date.AddDays(double.Parse(expireDate));
             BookAppointLog bookAppointLog = new BookAppointLog()
@@ -363,17 +362,6 @@ namespace LibraryManagement.Circulation
             };
             error = errorList;
             return bookAppointLog;
-        }
-
-        private void validityTermTextBox_TextChanged(object sender, EventArgs e)
-        {
-            string expireDate = validityTermTextBox.Text;
-            Match matchExpireDate = Regex.Match(borrowCardNumTextBox.Text, @"^([0-9]+)$");
-            if (matchExpireDate.Success)
-            {
-                expireDate = expireDate + "天";
-            }
-            validityTermTextBox.Text = expireDate;
         }
     }
 }
