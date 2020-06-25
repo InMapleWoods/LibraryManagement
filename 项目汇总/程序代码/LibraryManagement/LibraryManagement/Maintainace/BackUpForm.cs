@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryManagement.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +45,18 @@ namespace LibraryManagement.Maintainace
         private void btn_Backupcommit_Click(object sender, EventArgs e)
         {
 
+        }
+        private BackupInfo getBackupInfo(ref List<string> error)
+        {
+            List<string> errorList = new List<string>();
+            BackupInfo backupInfo = new BackupInfo()
+            {
+                BackupTime = DateTime.Now,
+                BackupPath = textBox_Path.Text.ToString(),
+
+            };
+            error = errorList;
+            return backupInfo;
         }
     }
 }

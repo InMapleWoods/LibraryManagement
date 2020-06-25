@@ -121,9 +121,7 @@
     <Compile Include="Catalog\InterviewCatalogForm.Designer.cs">
       <DependentUpon>InterviewCatalogForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalog\MoveCatalogForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Catalog\MoveCatalogForm.cs" />
     <Compile Include="Catalog\MoveCatalogForm.Designer.cs">
       <DependentUpon>MoveCatalogForm.cs</DependentUpon>
     </Compile>
@@ -157,6 +155,7 @@
     <Compile Include="Circulation\CirculationForm.Designer.cs">
       <DependentUpon>CirculationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dal\BackupDal.cs" />
     <Compile Include="Dal\CirculationDal.cs" />
     <Compile Include="Dal\CreateCatalogDal.cs" />
     <Compile Include="Dal\MaintainaceDal.cs" />
