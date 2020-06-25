@@ -75,7 +75,7 @@ namespace LibraryManagement.Bll
                     BookBorrowLog log = new BookBorrowLog()
                     {
                         Id = (int)dr["编号"],
-                        BorrowTime = (DateTime)dr["借阅时间"],                        
+                        BorrowTime = (DateTime)dr["借阅时间"],
                     };
                     result.Add(log);
                 }
@@ -337,7 +337,7 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
-        
+
         /// <summary>
         /// 获取违约记录书籍编号
         /// </summary>
@@ -474,6 +474,30 @@ namespace LibraryManagement.Bll
             {
                 Console.WriteLine(ex.Message);
                 throw ex;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 获取所有流通图书
+        /// </summary>
+        /// <param name="isbn">ISBN</param>
+        /// <param name="title">正题名</param>
+        /// <param name="author">作者</param>
+        /// <param name="documentType">文献类型</param>
+        /// <returns>流通图书</returns>
+        public DataTable GetAllBooks(string isbn, string title, string author, string documentType)
+        {
+            DataTable result = null;
+            try
+            {
+                result = circulationDal.GetAllBooks(isbn, title, author, documentType);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
             }
             return result;
         }

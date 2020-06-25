@@ -64,5 +64,12 @@ namespace LibraryManagement.Circulation
             form.Show();
             Hide();
         }
+
+        private void getAllBookButton_Click(object sender, EventArgs e)
+        {
+            var form = new GetAllCirculateBooks(this);
+            form.Show();
+            Hide();
+        }
     }
 }

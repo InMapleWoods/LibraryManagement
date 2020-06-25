@@ -121,7 +121,9 @@
     <Compile Include="Catalog\InterviewCatalogForm.Designer.cs">
       <DependentUpon>InterviewCatalogForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalog\MoveCatalogForm.cs" />
+    <Compile Include="Catalog\MoveCatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Catalog\MoveCatalogForm.Designer.cs">
       <DependentUpon>MoveCatalogForm.cs</DependentUpon>
     </Compile>
@@ -172,6 +174,12 @@
     </Compile>
     <Compile Include="Circulation\DefaultHandleForm.Designer.cs">
       <DependentUpon>DefaultHandleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Circulation\GetAllCirculateBooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\GetAllCirculateBooks.Designer.cs">
+      <DependentUpon>GetAllCirculateBooks.cs</DependentUpon>
     </Compile>
     <Compile Include="Dal\CirculationDal.cs" />
     <Compile Include="Dal\CreateCatalogDal.cs" />
@@ -321,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Circulation\DefaultHandleForm.resx">
       <DependentUpon>DefaultHandleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\GetAllCirculateBooks.resx">
+      <DependentUpon>GetAllCirculateBooks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\AcceptanceListForm.resx">
       <DependentUpon>AcceptanceListForm.cs</DependentUpon>

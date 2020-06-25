@@ -428,7 +428,7 @@
             this.Name = "BookBorrowForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "图书借阅";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookCirculationForm_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookBorrowForm_FormClosing);
             this.Load += new System.EventHandler(this.BookBorrowForm_Load);
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel2.ResumeLayout(false);
