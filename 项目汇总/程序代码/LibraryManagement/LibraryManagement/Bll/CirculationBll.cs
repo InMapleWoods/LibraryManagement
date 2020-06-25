@@ -13,7 +13,7 @@ namespace LibraryManagement.Bll
     public class CirculationBll
     {
         /// <summary>
-        /// 期刊数据操作对象
+        /// 流通用户操作对象
         /// </summary>
         CirculationDal circulationDal = new CirculationDal();
 

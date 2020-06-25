@@ -31,15 +31,15 @@ namespace LibraryManagement.Dal
             MySqlParameter[] paras = new MySqlParameter[]
             {
                 new MySqlParameter("@returnValue", MySqlDbType.Int32, 1),
-                new MySqlParameter("@userName", info.UserName),
-                new MySqlParameter("@userNumber", info.UserNumber),
-                new MySqlParameter("@gender", info.Gender),
-                new MySqlParameter("@birthday", info.Birthday),
-                new MySqlParameter("@address", info.Address),
-                new MySqlParameter("@contact", info.Contact),
-                new MySqlParameter("@libraryCardNum", info.LibraryCardNum),
-                new MySqlParameter("@departmentName", info.DepartmentName),
-                new MySqlParameter("@password", helper.GetMD5(info.Contact.Substring(5, 6)))
+                new MySqlParameter("@_userName", info.UserName),
+                new MySqlParameter("@_userNumber", info.UserNumber),
+                new MySqlParameter("@_gender", info.Gender),
+                new MySqlParameter("@_birthday", info.Birthday),
+                new MySqlParameter("@_address", info.Address),
+                new MySqlParameter("@_contact", info.Contact),
+                new MySqlParameter("@_libraryCardNum", info.LibraryCardNum),
+                new MySqlParameter("@_departmentName", info.DepartmentName),
+                new MySqlParameter("@_password", helper.GetMD5(info.Contact.Substring(5, 6)))
             };
             paras[0].Direction = ParameterDirection.Output;//将第一个变量设置为输出变量
             int count = helper.ExecuteNonQuery(sqlStr, paras, CommandType.StoredProcedure);
@@ -94,7 +94,7 @@ namespace LibraryManagement.Dal
                 "tb_ReaderInformation.DepartmentId = tb_ReaderDepartment.Id, " +
                 "tb_User ";
             MySqlParameter[] para = new MySqlParameter[] { };
-            DataTable dataTable = helper.ExecuteQuery(sql, para, CommandType.Text);
+            DataTable dataTable = helper.ExecuteQuery(sql, para, CommandType.Text); 
             return dataTable;
         }
         #endregion

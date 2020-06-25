@@ -185,7 +185,7 @@
             this.DocumentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DocumentTypeComboBox.FormattingEnabled = true;
             this.DocumentTypeComboBox.Items.AddRange(new object[] {
-            "期刊",
+            "专著",
             "文献"});
             this.DocumentTypeComboBox.Location = new System.Drawing.Point(637, 206);
             this.DocumentTypeComboBox.Name = "DocumentTypeComboBox";
