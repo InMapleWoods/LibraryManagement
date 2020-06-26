@@ -25,10 +25,10 @@ namespace LibraryManagement.UserManagement
             scriptUserControl1.AddContorlClickMethod(AddLog_Click, ScriptUserControl.ControlNames.addButton);
             scriptUserControl1.AddContorlClickMethod(ChangeLog_Click, ScriptUserControl.ControlNames.changeButton);
             scriptUserControl1.AddContorlClickMethod(DeleteLog_Click, ScriptUserControl.ControlNames.emptyButton);
-            //scriptUserControl1.AddContorlClickMethod(SaveLog_Click, ScriptUserControl.ControlNames.saveButton);
-            //scriptUserControl1.AddContorlClickMethod(NextLog_Click, ScriptUserControl.ControlNames.nextButton);
-            //scriptUserControl1.AddContorlClickMethod(PreviousLog_Click, ScriptUserControl.ControlNames.previousButton);
-            //scriptUserControl1.AddContorlClickMethod(ExitLog_Click, ScriptUserControl.ControlNames.exitButton);
+            scriptUserControl1.AddContorlClickMethod(SaveLog_Click, ScriptUserControl.ControlNames.saveButton);
+            scriptUserControl1.AddContorlClickMethod(NextLog_Click, ScriptUserControl.ControlNames.nextButton);
+            scriptUserControl1.AddContorlClickMethod(PreviousLog_Click, ScriptUserControl.ControlNames.previousButton);
+            scriptUserControl1.AddContorlClickMethod(ExitLog_Click, ScriptUserControl.ControlNames.exitButton);
         }
 
         /// <summary>
@@ -148,6 +148,116 @@ namespace LibraryManagement.UserManagement
             }
             DataBind();//数据绑定
             ChangeControlEnableState();
+        }
+
+        /// <summary>
+        /// 保存记录
+        /// </summary>
+        private void SaveLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<string> errorList = new List<string>();//创建一个错误列表
+                //获取根据当前页面内容生成的读者信息（若有错误会被添加到错误列表中）
+                int selectRow = dataGridView1.CurrentCell.RowIndex;//获取选中行的索引值
+                string userId = dataGridView1.Rows[selectRow].Cells[0].Value.ToString();
+                int id;
+                if (!int.TryParse(userId, out id))//将其转换为数字失败
+                {
+                    MessageBox.Show("用户编号错误");
+                    return;
+                }
+                UserManagementReaderInfo info = GetReaderInfo(ref errorList);
+                //判断是否修改读者信息成功
+                if (userManagementBll.UpdateReaderInfo(info, id, ref errorList))
+                {
+                    MessageBox.Show("修改成功");
+                }
+                else
+                {
+                    MessageBox.Show("修改失败");
+                    foreach (var i in errorList)
+                    {
+                        MessageBox.Show(i);//逐条显示错误信息
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            DataBind();//数据绑定
+            ChangeControlEnableState();//改变菜单按钮启用状态
+        }
+
+        /// <summary>
+        /// 下一条记录
+        /// </summary>
+        private void NextLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //若不选择整行，selectRows是没有元素的，所以需要进行判断
+                int index;
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    index = dataGridView1.SelectedRows[0].Index;
+                }
+                else
+                {
+                    index = dataGridView1.CurrentRow.Index;
+                }
+                dataGridView1.Rows[index].Selected = false;//放弃选择当前行
+                index = index + 1 >= dataGridView1.RowCount ? dataGridView1.RowCount - 1 : index + 1;
+                dataGridView1.Rows[index].Selected = true;//选择下一行
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 上一条记录
+        /// </summary>
+        private void PreviousLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //若不选择整行，selectRows是没有元素的，所以需要进行判断
+                int index;
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    index = dataGridView1.SelectedRows[0].Index;
+                }
+                else
+                {
+                    index = dataGridView1.CurrentRow.Index;
+                }
+                dataGridView1.Rows[index].Selected = false;//放弃选择当前行
+                index = index - 1 <= 0 ? 0 : index - 1;
+                dataGridView1.Rows[index].Selected = true;//选择上一行
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 退出
+        /// </summary>
+        private void ExitLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                parentForm.Show();//显示父窗体
+                Hide();//隐藏本窗体
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
 

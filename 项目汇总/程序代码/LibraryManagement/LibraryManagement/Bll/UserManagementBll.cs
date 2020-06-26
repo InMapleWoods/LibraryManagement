@@ -67,6 +67,38 @@ namespace LibraryManagement.Bll
             return result;
         }
 
+
+        /// <summary>
+        /// 修改一条读者信息记录
+        /// </summary>
+        /// <param name="order">读者信息</param>
+        /// <returns>修改成功与否</returns>
+        public bool UpdateReaderInfo(UserManagementReaderInfo info, int id, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (info.UserNumber == "")
+                {
+                    errorMsg.Add("UserNumber Error");
+                    return false;
+                }
+                if (!UserManagementReaderInfo.isNull(info))//是否有空项
+                {
+                    if (UserManagementReaderInfo.isNormative(info, ref errorMsg))//是否符合规范
+                    {
+                        result = userManagementDal.UpdateReaderInfo(info, id);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
         /// <summary>
         /// 获取全部读者信息
         /// </summary>

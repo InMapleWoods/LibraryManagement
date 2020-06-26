@@ -93,6 +93,46 @@ namespace LibraryManagement.Dal
         }
 
         /// <summary>
+        /// 修改一条读者信息记录
+        /// </summary>
+        /// <param name="info">读者信息</param>
+        /// <param name="id">读者编号</param>
+        /// <returns>修改成功与否</returns>
+        public bool UpdateReaderInfo(UserManagementReaderInfo info, int id)
+        {
+            string sqlStr = "UpdateReaderInfo";
+            //储存Datatable
+            MySqlParameter[] paras = new MySqlParameter[]//存储相应参数的容器
+            {
+                new MySqlParameter("@returnValue", MySqlDbType.Int32, 1),
+                new MySqlParameter("@_userId", id),
+                new MySqlParameter("@_userName", info.UserName),
+                new MySqlParameter("@_userNumber", info.UserNumber),
+                new MySqlParameter("@_gender", info.Gender),
+                new MySqlParameter("@_birthday", info.Birthday),
+                new MySqlParameter("@_address", info.Address),
+                new MySqlParameter("@_contact", info.Contact),
+                new MySqlParameter("@_libraryCardNum", info.LibraryCardNum),
+                new MySqlParameter("@_departmentName", info.DepartmentName),
+            };
+            paras[0].Direction = ParameterDirection.Output;//将第一个变量设置为输出变量
+            int count = helper.ExecuteNonQuery(sqlStr, paras, CommandType.StoredProcedure);
+            if (paras[0].Value.ToString() == "-1")
+            {
+                throw new Exception("获取院系编号失败");
+            }
+            else if (paras[0].Value.ToString() == "-2")
+            {
+                throw new Exception("修改基本信息表失败");
+            }
+            else if (paras[0].Value.ToString() == "-3")
+            {
+                throw new Exception("修改读者信息表失败");
+            }
+            return paras[0].Value.ToString() == "1";
+        }
+
+        /// <summary>
         /// 获取全部读者信息
         /// </summary>
         /// <returns>全部读者信息</returns>
