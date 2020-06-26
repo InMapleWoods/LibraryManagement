@@ -3,12 +3,6 @@ using LibraryManagement.Model;
 using LibraryManagement.Tools;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagement.Maintainace
@@ -62,7 +56,7 @@ namespace LibraryManagement.Maintainace
                 if (maintainaceBll.BackupDb(backupInfo))
                 {
 
-                    MessageBox.Show("备份成功","提示");
+                    MessageBox.Show("备份成功", "提示");
                 }
                 else
                 {

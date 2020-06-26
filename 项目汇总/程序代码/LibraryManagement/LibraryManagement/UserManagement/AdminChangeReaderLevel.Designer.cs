@@ -273,6 +273,7 @@
             this.Controls.Add(this.scriptUserControl1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "AdminChangeReaderLevel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminChangeReaderLevel";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminChangeReaderLevel_FormClosing);
             this.Load += new System.EventHandler(this.AdminChangeReaderLevel_Load);

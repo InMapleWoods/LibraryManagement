@@ -189,7 +189,7 @@
             this.Controls.Add(this.catalogDataGridView);
             this.Controls.Add(this.interviewDataGridView);
             this.Name = "InterviewCatalogForm";
-            this.Text = "InterviewCatalogForm";
+            this.Text = "采访编目";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InterviewCatalogForm_FormClosing);
             this.Load += new System.EventHandler(this.InterviewCatalogForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.interviewDataGridView)).EndInit();

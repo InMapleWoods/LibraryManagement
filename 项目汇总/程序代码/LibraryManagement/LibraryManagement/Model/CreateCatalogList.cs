@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 namespace LibraryManagement.Model
@@ -69,7 +66,7 @@ namespace LibraryManagement.Model
         /// </summary>
         /// <param name="list">待判断列表</param>
         /// <returns>是否有空项</returns>
-        public static bool isNull(CreateCatalogList  list)
+        public static bool isNull(CreateCatalogList list)
         {
             if (list.ISBN == "")
             {
@@ -79,7 +76,7 @@ namespace LibraryManagement.Model
             {
                 return true;
             }
-            if (list.PositiveTitle  == "")
+            if (list.PositiveTitle == "")
             {
                 return true;
             }
@@ -112,7 +109,7 @@ namespace LibraryManagement.Model
         /// <param name="errorMsg">错误信息</param>
         /// <returns>是否规范</returns>
 
-        public static bool isNormative(CreateCatalogList list , ref List<string> errorMsg)
+        public static bool isNormative(CreateCatalogList list, ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
             if (list.CatalogerId <= 0)

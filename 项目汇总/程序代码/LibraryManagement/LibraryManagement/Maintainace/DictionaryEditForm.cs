@@ -45,7 +45,7 @@ namespace LibraryManagement.Maintainace
                 lab_CorPL.Text = "出版地";
                 DataBind();
             }
-            
+
 
         }
         #region 窗体点击事件
@@ -102,7 +102,7 @@ namespace LibraryManagement.Maintainace
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Createlog_click(object sender,System.EventArgs e)
+        private void Createlog_click(object sender, System.EventArgs e)
         {
             //textWritableChange();
             textBindclear();
@@ -130,7 +130,7 @@ namespace LibraryManagement.Maintainace
             ChangeControlEnableState();
         }
         private void SaveLog_Click(object sender, System.EventArgs e)
-        { 
+        {
             try
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
@@ -188,7 +188,7 @@ namespace LibraryManagement.Maintainace
                 DialogResult dialogResult = MessageBox.Show("是否删除该条记录", "删除确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
                 List<string> errorList = new List<string>();//创建一个错误列表
                 //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
-                if(dialogResult == DialogResult.Yes)
+                if (dialogResult == DialogResult.Yes)
                 {
                     if (comboBox_Dictionary.SelectedIndex == 0)
                     {
@@ -334,7 +334,7 @@ namespace LibraryManagement.Maintainace
             DictionaryPublishingHouse publishingHouse = new DictionaryPublishingHouse()
             {
                 //出版社编号
-                Id =  currentID,
+                Id = currentID,
                 //出版社名称
                 PublishingHouse = textBox_Name.Text.Trim(),
                 //地址
@@ -378,11 +378,11 @@ namespace LibraryManagement.Maintainace
             {
                 this.showSelect(dataGV_DictionaryShow.SelectedRows[0]);
             }
-            
+
         }
-  /// <summary>
-  /// 解除text数据绑定
-  /// </summary>
+        /// <summary>
+        /// 解除text数据绑定
+        /// </summary>
         private void textBindclear()
         {
             textBox_Name.Text = null;
@@ -390,7 +390,7 @@ namespace LibraryManagement.Maintainace
             textBox_CorPL.Text = null;
             textBox_Call.Text = null;
             textBox_BankName.Text = null;
-            textBox_Postcodes.Text =null;
+            textBox_Postcodes.Text = null;
             textBox_Remark.Text = null;
         }
 
@@ -398,23 +398,23 @@ namespace LibraryManagement.Maintainace
         {
             if (textBox_Name.ReadOnly)
             {
-                textBox_Name.ReadOnly=false;
- /*               textBox_Adress.ReadOnly=false;
-                textBox_CorPL.ReadOnly=false;
-                textBox_Call.ReadOnly=false;
-                textBox_BankName.ReadOnly=false;
-                textBox_Postcodes.ReadOnly=false;
-                textBox_Remark.ReadOnly=false; */
+                textBox_Name.ReadOnly = false;
+                /*               textBox_Adress.ReadOnly=false;
+                               textBox_CorPL.ReadOnly=false;
+                               textBox_Call.ReadOnly=false;
+                               textBox_BankName.ReadOnly=false;
+                               textBox_Postcodes.ReadOnly=false;
+                               textBox_Remark.ReadOnly=false; */
             }
             else
             {
                 textBox_Name.ReadOnly = true;
- /*               textBox_Adress.ReadOnly = true;
-                textBox_CorPL.ReadOnly = true;
-                textBox_Call.ReadOnly = true;
-                textBox_BankName.ReadOnly = true;
-                textBox_Postcodes.ReadOnly = true;
-                textBox_Remark.ReadOnly = true; */
+                /*               textBox_Adress.ReadOnly = true;
+                               textBox_CorPL.ReadOnly = true;
+                               textBox_Call.ReadOnly = true;
+                               textBox_BankName.ReadOnly = true;
+                               textBox_Postcodes.ReadOnly = true;
+                               textBox_Remark.ReadOnly = true; */
             }
         }
         /// <summary>
@@ -426,27 +426,27 @@ namespace LibraryManagement.Maintainace
                 return;
             //           if (comboBox_Dictionary.SelectedIndex == 0)
             //           {
-                currentID = int.Parse(row.Cells[0].Value.ToString());
-                textBox_Name.Text = row.Cells[1].Value.ToString();//书商or出版社名字
-                textBox_Adress.Text = row.Cells[2].Value.ToString();//地址
-                textBox_CorPL.Text = row.Cells[3].Value.ToString();//联系人or出版地
-                textBox_Call.Text = row.Cells[4].Value.ToString();//电话
-                textBox_BankName.Text = row.Cells[6].Value.ToString();//开户行
-                textBox_Postcodes.Text = row.Cells[5].Value.ToString();//邮编
-                textBox_Remark.Text = row.Cells[7].Value.ToString();
-                //textBox_Name.ReadOnly = true;
- //           }
- /*           else if (comboBox_Dictionary.SelectedIndex == 1)
-            {
-                textBox_Name.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["出版社名字"].Value.ToString();
-                textBox_Adress.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["地址"].Value.ToString();
-                textBox_CorPL.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["出版地"].Value.ToString();
-                textBox_Call.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["电话"].Value.ToString();
-                textBox_BankName.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["开户行"].Value.ToString();
-                textBox_Postcodes.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["邮编"].Value.ToString();
-                textBox_Remark.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["备注"].Value.ToString();
-            }
-            */
+            currentID = int.Parse(row.Cells[0].Value.ToString());
+            textBox_Name.Text = row.Cells[1].Value.ToString();//书商or出版社名字
+            textBox_Adress.Text = row.Cells[2].Value.ToString();//地址
+            textBox_CorPL.Text = row.Cells[3].Value.ToString();//联系人or出版地
+            textBox_Call.Text = row.Cells[4].Value.ToString();//电话
+            textBox_BankName.Text = row.Cells[6].Value.ToString();//开户行
+            textBox_Postcodes.Text = row.Cells[5].Value.ToString();//邮编
+            textBox_Remark.Text = row.Cells[7].Value.ToString();
+            //textBox_Name.ReadOnly = true;
+            //           }
+            /*           else if (comboBox_Dictionary.SelectedIndex == 1)
+                       {
+                           textBox_Name.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["出版社名字"].Value.ToString();
+                           textBox_Adress.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["地址"].Value.ToString();
+                           textBox_CorPL.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["出版地"].Value.ToString();
+                           textBox_Call.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["电话"].Value.ToString();
+                           textBox_BankName.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["开户行"].Value.ToString();
+                           textBox_Postcodes.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["邮编"].Value.ToString();
+                           textBox_Remark.Text = this.dataGV_DictionaryShow.CurrentRow.Cells["备注"].Value.ToString();
+                       }
+                       */
         }
         /// <summary>
         /// 按钮状态改变

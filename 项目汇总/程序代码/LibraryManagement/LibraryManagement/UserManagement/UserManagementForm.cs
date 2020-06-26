@@ -1,15 +1,7 @@
 ﻿using LibraryManagement.Bll;
-using LibraryManagement.Dal;
 using LibraryManagement.Model;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagement.UserManagement
@@ -40,28 +32,33 @@ namespace LibraryManagement.UserManagement
             {
                 List<string> errorList = new List<string>();
                 UserManagementLogin login = GetAllLoginInformation();
-                int responseCode = userManagementBll.adminLogin(login, ref errorList);
-                if (responseCode == 200)
+                UserManagementAdmin admin = new UserManagementAdmin();
+                int responseCode = userManagementBll.adminLogin(login, out admin, ref errorList);
+                if (responseCode == 200 && admin != null)
                 {
                     MessageBox.Show("登陆成功");
-                    var form = new UserManagementAdminChoice(this);
+                    var form = new AdminForm(this, admin);
                     form.Show();
                     Hide();
                 }
-                else if(responseCode == 401)
+                else if (responseCode == 401)
                 {
                     MessageBox.Show("密码不正确，请重新输入");
                 }
-                else if(responseCode == 403)
+                else if (responseCode == 403)
                 {
                     MessageBox.Show("权限不足，禁止登陆");
                 }
-                else
+                else if (responseCode == 415)
                 {
                     MessageBox.Show("输入格式有误，请重新输入");
                 }
+                else
+                {
+                    MessageBox.Show("登录失败");
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

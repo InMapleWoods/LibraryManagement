@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace LibraryManagement.Model
 {
@@ -28,10 +24,10 @@ namespace LibraryManagement.Model
             }
             return false;
         }
-    public static bool isNormative(StatisticalInfo statisticalInfo , ref List<string> errorMsg)
+        public static bool isNormative(StatisticalInfo statisticalInfo, ref List<string> errorMsg)
         {
-           return false;//待做
+            return false;//待做
         }
     }
-    
+
 }

@@ -1,12 +1,5 @@
 ﻿using LibraryManagement.Bll;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagement.Circulation
@@ -160,7 +153,7 @@ namespace LibraryManagement.Circulation
                     {
                         return;
                     }
-                } while (result == DialogResult.No);               
+                } while (result == DialogResult.No);
             }
             catch (Exception ex)
             {

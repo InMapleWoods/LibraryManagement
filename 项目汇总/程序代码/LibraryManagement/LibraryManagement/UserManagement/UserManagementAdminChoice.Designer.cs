@@ -30,6 +30,7 @@
         {
             this.btn_AddReader = new System.Windows.Forms.Button();
             this.btn_ChangeReaderLevel = new System.Windows.Forms.Button();
+            this.button_addAdmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_AddReader
@@ -44,7 +45,7 @@
             // 
             // btn_ChangeReaderLevel
             // 
-            this.btn_ChangeReaderLevel.Location = new System.Drawing.Point(373, 117);
+            this.btn_ChangeReaderLevel.Location = new System.Drawing.Point(307, 117);
             this.btn_ChangeReaderLevel.Name = "btn_ChangeReaderLevel";
             this.btn_ChangeReaderLevel.Size = new System.Drawing.Size(118, 82);
             this.btn_ChangeReaderLevel.TabIndex = 1;
@@ -52,14 +53,26 @@
             this.btn_ChangeReaderLevel.UseVisualStyleBackColor = true;
             this.btn_ChangeReaderLevel.Click += new System.EventHandler(this.btn_ChangeReaderLevel_Click);
             // 
+            // button_addAdmin
+            // 
+            this.button_addAdmin.Location = new System.Drawing.Point(465, 117);
+            this.button_addAdmin.Name = "button_addAdmin";
+            this.button_addAdmin.Size = new System.Drawing.Size(118, 82);
+            this.button_addAdmin.TabIndex = 1;
+            this.button_addAdmin.Text = "增加管理员";
+            this.button_addAdmin.UseVisualStyleBackColor = true;
+            this.button_addAdmin.Click += new System.EventHandler(this.button_addAdmin_Click);
+            // 
             // UserManagementAdminChoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 328);
+            this.ClientSize = new System.Drawing.Size(704, 346);
+            this.Controls.Add(this.button_addAdmin);
             this.Controls.Add(this.btn_ChangeReaderLevel);
             this.Controls.Add(this.btn_AddReader);
             this.Name = "UserManagementAdminChoice";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserManagementAdminChoice";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserManagementAdminChoice_FormClosing);
             this.ResumeLayout(false);
@@ -70,5 +83,6 @@
 
         private System.Windows.Forms.Button btn_AddReader;
         private System.Windows.Forms.Button btn_ChangeReaderLevel;
+        private System.Windows.Forms.Button button_addAdmin;
     }
 }

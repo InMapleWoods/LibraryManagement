@@ -1,13 +1,5 @@
 ﻿using LibraryManagement.Bll;
-using LibraryManagement.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagement.Catalog
@@ -66,14 +58,14 @@ namespace LibraryManagement.Catalog
             }
         }
 
-        
+
         /// <summary>
         /// 获取Id
         /// </summary>
         /// <returns></returns>
         private int getMoveCatalogId()
         {
-            int id=int.Parse( textBox1.Text);
+            int id = int.Parse(textBox1.Text);
 
             return id;
         }

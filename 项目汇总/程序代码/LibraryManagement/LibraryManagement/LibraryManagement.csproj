@@ -89,6 +89,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bll\CirculationBll.cs" />
     <Compile Include="Bll\CreateCatalogBll.cs" />
     <Compile Include="Bll\InterviewBll.cs" />
@@ -144,12 +150,6 @@
     </Compile>
     <Compile Include="Circulation\BookBorrowForm.Designer.cs">
       <DependentUpon>BookBorrowForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Catalog\SerialNumberForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Catalog\SerialNumberForm.Designer.cs">
-      <DependentUpon>SerialNumberForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Circulation\BookDamageForm.cs">
       <SubType>Form</SubType>
@@ -308,6 +308,9 @@
     <Compile Include="Statistical\StatisticalForm.Designer.cs">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalog\CatalogQueryForm.resx">
       <DependentUpon>CatalogQueryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -393,9 +396,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Circulation\CirculationForm.resx">
       <DependentUpon>CirculationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Catalog\SerialNumberForm.resx">
-      <DependentUpon>SerialNumberForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\InterviewForm.resx">
       <DependentUpon>InterviewForm.cs</DependentUpon>

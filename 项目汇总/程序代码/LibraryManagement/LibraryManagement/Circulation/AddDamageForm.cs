@@ -1,14 +1,7 @@
 ﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagement.Circulation
@@ -19,7 +12,7 @@ namespace LibraryManagement.Circulation
         Form parentForm;
         CirculationBll circulationBll = new CirculationBll();
         UtilBll utilBll = new UtilBll();
-        public AddDamageForm(Form form,BookDamageLog log)
+        public AddDamageForm(Form form, BookDamageLog log)
         {
             InitializeComponent();
             parentForm = form;
@@ -40,7 +33,7 @@ namespace LibraryManagement.Circulation
             {
                 MessageBox.Show("AcceptorId Error");
                 return;
-            }            
+            }
             damageLog.CheckerId = utilBll.GetUserIdFormNumber(textBox_checkerNum.Text);
             damageLog.CheckTime = DateTime.Now;
             DialogResult = DialogResult.Yes;

@@ -2,12 +2,7 @@
 using LibraryManagement.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagement.Maintainace
@@ -20,7 +15,7 @@ namespace LibraryManagement.Maintainace
         MaintainaceBll maintainaceBll = new MaintainaceBll();
         public StatisticalEditForm(Form form)
         {
-            
+
             InitializeComponent();
             parentForm = form;
         }
@@ -32,7 +27,7 @@ namespace LibraryManagement.Maintainace
 
         private void btn_Excude_Click(object sender, EventArgs e)
         {
-            dataGridView_StatisticalInfo.DataSource =maintainaceBll.getPreviewResult(textBox_Option.Text.ToString());
+            dataGridView_StatisticalInfo.DataSource = maintainaceBll.getPreviewResult(textBox_Option.Text.ToString());
             ChangeBtnState();
         }
 
@@ -89,7 +84,7 @@ namespace LibraryManagement.Maintainace
             else
             {
                 btn_Add.Enabled = false;
-            }   
+            }
         }
         private void DataBind()
         {
@@ -108,7 +103,7 @@ namespace LibraryManagement.Maintainace
                 currentId = int.Parse(currentTable.Rows[comboBox_TableName.SelectedIndex][0].ToString());
                 textBox_Option.Text = currentTable.Rows[comboBox_TableName.SelectedIndex][2].ToString();
             }
-            
+
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
@@ -146,7 +141,7 @@ namespace LibraryManagement.Maintainace
                 List<string> errorList = new List<string>();
                 StatisticalInfo statisticalInfo = GetStatisticalInfo(ref errorList);
                 DialogResult dialogResult = MessageBox.Show("是否删除该条记录", "删除确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
-                if(dialogResult == DialogResult.Yes)
+                if (dialogResult == DialogResult.Yes)
                 {
                     if (maintainaceBll.DeleteStatisticalInfo(statisticalInfo))
                     {
@@ -161,7 +156,7 @@ namespace LibraryManagement.Maintainace
 
                 DataBind();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
                 throw ex;
