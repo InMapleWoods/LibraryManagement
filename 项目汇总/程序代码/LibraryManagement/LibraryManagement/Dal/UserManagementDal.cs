@@ -179,6 +179,7 @@ namespace LibraryManagement.Dal
         /// 登陆成功 200
         /// 密码不正确 401
         /// 权限不足 403
+        /// 未知错误 420
         /// </summary>
         /// <param name="login"></param>
         /// <returns>状态码</returns>
@@ -188,18 +189,14 @@ namespace LibraryManagement.Dal
             SQLHelper helper = new SQLHelper();
             string pwd = helper.GetMD5(login.Password);
             string role = "Administrator";
-            string sql = "SELECT DISTINCT " +
-                "*, " +
-                "tb_Login.`Password`,  " +
-                "tb_BasicInformation.UserNumber,  " +
-                "tb_User.Role " +
-                "FROM " +
-                "tb_User, " +
-                "tb_BasicInformation " +
-                "INNER JOIN " +
-                "tb_Login " +
-                "ON  " +
-                "tb_BasicInformation.UserId = tb_Login.UserId " +
+            string sql = " SELECT " +
+                " tb_Login.`Password`, " +
+                " tb_BasicInformation.UserNumber, " +
+                " tb_User.Role  " +
+                " FROM " +
+                " tb_User " +
+                " INNER JOIN tb_BasicInformation ON tb_User.Id = tb_BasicInformation.UserId " +
+                " INNER JOIN tb_Login ON tb_BasicInformation.UserId = tb_Login.UserId " +
                 "WHERE " +
                 "tb_User.Role = @role " +
                 "AND " +
@@ -221,32 +218,65 @@ namespace LibraryManagement.Dal
                     result = 401;
                 }
             }
-            else
+            else if(dt.Rows.Count == 0)
             {
                 result = 403;
+            }
+            else
+            {
+                result = 420;
             }
             return result;
         }
         #endregion
 
         #region 读者权限管理
+        public DataTable GetAllReadersLevel()
+        {
+            string sql = "SELECT " +
+                "tb_BasicInformation.UserName AS `姓名`,  " +
+                "tb_BasicInformation.UserNumber AS `学号/教工号`,  " +
+                "tb_BasicInformation.Contact AS `联系电话`,  " +
+                "tb_ReaderLevel.ReaderLevelName AS `读者级别`,  " +
+                "tb_ReaderLevel.BorrowBookNumber AS `可借阅图书数目`,  " +
+                "tb_ReaderLevel.ReserveBookNumber AS `可预约图书数目`,  " +
+                "tb_ReaderLevel.BorrowBookDays AS `可借天数`,  " +
+                "tb_ReaderLevel.RenewBookDays AS `可续借天数`,  " +
+                "tb_ReaderLevel.ForfeitMultiples AS `罚款倍数`,  " +
+                "tb_ReaderLevel.RenewBookNumber AS `续借册数` " +
+                "FROM " +
+                "tb_ReaderLevel " +
+                "INNER JOIN " +
+                "tb_ReaderInformation " +
+                "ON  " +
+                "tb_ReaderLevel.Id = tb_ReaderInformation.ReaderLevelId " +
+                "INNER JOIN " +
+                "tb_BasicInformation " +
+                "ON  " +
+                "tb_ReaderInformation.UserId = tb_BasicInformation.UserId ";
+            MySqlParameter[] para = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sql, para, CommandType.Text);
+            return dataTable;
+        }
+
         /// <summary>
         /// 修改读者权限级别为 1
         /// </summary>
         /// <param name="info">读者信息</param>
         /// <returns>修改是否成功</returns>
-        private bool ChangeReaderLevelToOne(UserManagementReaderInfo info)
+        public bool ChangeReaderLevelToOne(UserManagementReaderLevel level)
         {
-            string sqlStr = "UPDATE tb_ReaderInformation " +
+            string sqlStr = "UPDATE tb_ReaderInformation," +
+                "tb_BasicInformation " +
                 "SET " +
                 "ReaderLevelId = 1 " +
                 "WHERE " +
                 "tb_ReaderInformation.UserId = tb_BasicInformation.UserId " +
                 "AND " +
-                "tb_BasicInformation.UserNumber = @userNumber";
+                "tb_BasicInformation.UserNumber = @_userNumber";
             MySqlParameter[] para = new MySqlParameter[]
             {
-                new MySqlParameter("@userNumber", info.UserNumber)
+                new MySqlParameter("@_userNumber", level.UserNumber)
             };
             int countUpdate = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (countUpdate > 0)
@@ -264,18 +294,19 @@ namespace LibraryManagement.Dal
         /// </summary>
         /// <param name="info">读者信息</param>
         /// <returns>修改是否成功</returns>
-        private bool ChangeReaderLevelToTwo(UserManagementReaderInfo info)
+        public bool ChangeReaderLevelToTwo(UserManagementReaderLevel level)
         {
-            string sqlStr = "UPDATE tb_ReaderInformation " +
+            string sqlStr = "UPDATE tb_ReaderInformation, " +
+                "tb_BasicInformation " +
                 "SET " +
                 "ReaderLevelId = 2 " +
                 "WHERE " +
                 "tb_ReaderInformation.UserId = tb_BasicInformation.UserId " +
                 "AND " +
-                "tb_BasicInformation.UserNumber = @userNumber";
+                "tb_BasicInformation.UserNumber = @_userNumber";
             MySqlParameter[] para = new MySqlParameter[]
             {
-                new MySqlParameter("@userNumber", info.UserNumber)
+                new MySqlParameter("@_userNumber", level.UserNumber)
             };
             int countUpdate = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (countUpdate > 0)
@@ -293,18 +324,19 @@ namespace LibraryManagement.Dal
         /// </summary>
         /// <param name="info">读者信息</param>
         /// <returns>修改是否成功</returns>
-        private bool ChangeReaderLevelToThree(UserManagementReaderInfo info)
+        public bool ChangeReaderLevelToThree(UserManagementReaderLevel level)
         {
-            string sqlStr = "UPDATE tb_ReaderInformation " +
+            string sqlStr = "UPDATE tb_ReaderInformation, " +
+                "tb_BasicInformation " +
                 "SET " +
                 "ReaderLevelId = 3 " +
                 "WHERE " +
                 "tb_ReaderInformation.UserId = tb_BasicInformation.UserId " +
                 "AND " +
-                "tb_BasicInformation.UserNumber = @userNumber";
+                "tb_BasicInformation.UserNumber = @_userNumber";
             MySqlParameter[] para = new MySqlParameter[]
             {
-                new MySqlParameter("@userNumber", info.UserNumber)
+                new MySqlParameter("@_userNumber", level.UserNumber)
             };
             int countUpdate = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (countUpdate > 0)
@@ -322,18 +354,19 @@ namespace LibraryManagement.Dal
         /// </summary>
         /// <param name="info">读者信息</param>
         /// <returns>修改是否成功</returns>
-        private bool ChangeReaderLevelToFour(UserManagementReaderInfo info)
+        public bool ChangeReaderLevelToFour(UserManagementReaderLevel level)
         {
-            string sqlStr = "UPDATE tb_ReaderInformation " +
+            string sqlStr = "UPDATE tb_ReaderInformation, " +
+                "tb_BasicInformation " +
                 "SET " +
                 "ReaderLevelId = 4 " +
                 "WHERE " +
                 "tb_ReaderInformation.UserId = tb_BasicInformation.UserId " +
                 "AND " +
-                "tb_BasicInformation.UserNumber = @userNumber";
+                "tb_BasicInformation.UserNumber = @_userNumber";
             MySqlParameter[] para = new MySqlParameter[]
             {
-                new MySqlParameter("@userNumber", info.UserNumber)
+                new MySqlParameter("@_userNumber", level.UserNumber)
             };
             int countUpdate = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (countUpdate > 0)
@@ -351,18 +384,19 @@ namespace LibraryManagement.Dal
         /// </summary>
         /// <param name="info">读者信息</param>
         /// <returns>修改是否成功</returns>
-        private bool ChangeReaderLevelToFive(UserManagementReaderInfo info)
+        public bool ChangeReaderLevelToFive(UserManagementReaderLevel level)
         {
-            string sqlStr = "UPDATE tb_ReaderInformation " +
+            string sqlStr = "UPDATE tb_ReaderInformation, " +
+                "tb_BasicInformation " +
                 "SET " +
                 "ReaderLevelId = 5 " +
                 "WHERE " +
                 "tb_ReaderInformation.UserId = tb_BasicInformation.UserId " +
                 "AND " +
-                "tb_BasicInformation.UserNumber = @userNumber";
+                "tb_BasicInformation.UserNumber = @_userNumber";
             MySqlParameter[] para = new MySqlParameter[]
             {
-                new MySqlParameter("@userNumber", info.UserNumber)
+                new MySqlParameter("@_userNumber", level.UserNumber)
             };
             int countUpdate = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (countUpdate > 0)

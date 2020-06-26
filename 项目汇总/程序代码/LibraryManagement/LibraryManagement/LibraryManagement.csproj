@@ -268,6 +268,7 @@
     <Compile Include="Model\StatisticalInfo.cs" />
     <Compile Include="Model\UserManagementLogin.cs" />
     <Compile Include="Model\UserManagementReaderInfo.cs" />
+    <Compile Include="Model\UserManagementReaderLevel.cs" />
     <Compile Include="Periodical\PeriodicalArrivalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,11 +357,23 @@
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\RunCmd.cs" />
+    <Compile Include="UserManagement\AdminChangeReaderLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement\AdminChangeReaderLevel.Designer.cs">
+      <DependentUpon>AdminChangeReaderLevel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\AdminOperationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserManagement\AdminOperationForm.Designer.cs">
       <DependentUpon>AdminOperationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UserManagementAdminChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement\UserManagementAdminChoice.Designer.cs">
+      <DependentUpon>UserManagementAdminChoice.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\UserManagementForm.cs">
       <SubType>Form</SubType>
@@ -428,8 +441,14 @@
     <EmbeddedResource Include="Tools\MyUserControl\ScriptUserControl.resx">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\AdminChangeReaderLevel.resx">
+      <DependentUpon>AdminChangeReaderLevel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\AdminOperationForm.resx">
       <DependentUpon>AdminOperationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\UserManagementAdminChoice.resx">
+      <DependentUpon>UserManagementAdminChoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\UserManagementForm.resx">
       <DependentUpon>UserManagementForm.cs</DependentUpon>

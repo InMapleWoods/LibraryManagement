@@ -147,5 +147,72 @@ namespace LibraryManagement.Bll
             return result;
         }
         #endregion
+
+        #region 读者权限管理
+        public bool UpdateReaderLevel(UserManagementReaderLevel level, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (level.UserNumber == "")
+                {
+                    errorMsg.Add("UserNumber Error");
+                    return false;
+                }
+                if (!UserManagementReaderLevel.isNull(level))//是否有空项
+                {
+                    if (UserManagementReaderLevel.isNormative(level, ref errorMsg))//是否符合规范
+                    {
+                        switch (level.ReaderLevelName)
+                        {
+                            case "1":
+                                result = userManagementDal.ChangeReaderLevelToOne(level);
+                                break;
+                            case "2":
+                                result = userManagementDal.ChangeReaderLevelToTwo(level);
+                                break;
+                            case "3":
+                                result = userManagementDal.ChangeReaderLevelToThree(level);
+                                break;
+                            case "4":
+                                result = userManagementDal.ChangeReaderLevelToFour(level);
+                                break;
+                            case "5":
+                                result = userManagementDal.ChangeReaderLevelToFive(level);
+                                break;
+                            default:
+                                result = false;
+                                break;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取全部读者权限
+        /// </summary>
+        /// <returns>全部读者权限</returns>
+        public DataTable GetAllReadersLevel()
+        {
+            DataTable dt;
+            try
+            {
+                dt = userManagementDal.GetAllReadersLevel();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return dt;
+        }
+        #endregion
     }
 }
