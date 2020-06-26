@@ -8,9 +8,21 @@ namespace LibraryManagement.Model
 {
     class BackupInfo
     {
-        int Id;
-        DateTime BackupTime;
-        String BackupPath;
+       public int Id;
+       public DateTime BackupTime;
+       public String BackupPath;
+       public static bool isNull(BackupInfo backupInfo)
+       {
 
+            if (backupInfo.BackupTime == null)
+            {
+                return true;
+            }
+            if (backupInfo.BackupPath == "")
+            {
+                return true;
+            }
+            return false;
+       }
     }
 }

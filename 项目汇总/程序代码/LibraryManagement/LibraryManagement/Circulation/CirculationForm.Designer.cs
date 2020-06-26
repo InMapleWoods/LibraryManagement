@@ -33,11 +33,12 @@
             this.bookAppointButton = new System.Windows.Forms.Button();
             this.bookReturnButton = new System.Windows.Forms.Button();
             this.defaultHandleButton = new System.Windows.Forms.Button();
+            this.getAllBookButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bookBorrowButton
             // 
-            this.bookBorrowButton.Location = new System.Drawing.Point(92, 126);
+            this.bookBorrowButton.Location = new System.Drawing.Point(212, 126);
             this.bookBorrowButton.Name = "bookBorrowButton";
             this.bookBorrowButton.Size = new System.Drawing.Size(97, 98);
             this.bookBorrowButton.TabIndex = 0;
@@ -47,7 +48,7 @@
             // 
             // bookDamageButton
             // 
-            this.bookDamageButton.Location = new System.Drawing.Point(482, 126);
+            this.bookDamageButton.Location = new System.Drawing.Point(602, 126);
             this.bookDamageButton.Name = "bookDamageButton";
             this.bookDamageButton.Size = new System.Drawing.Size(97, 98);
             this.bookDamageButton.TabIndex = 0;
@@ -57,7 +58,7 @@
             // 
             // bookAppointButton
             // 
-            this.bookAppointButton.Location = new System.Drawing.Point(226, 126);
+            this.bookAppointButton.Location = new System.Drawing.Point(346, 126);
             this.bookAppointButton.Name = "bookAppointButton";
             this.bookAppointButton.Size = new System.Drawing.Size(97, 98);
             this.bookAppointButton.TabIndex = 0;
@@ -67,7 +68,7 @@
             // 
             // bookReturnButton
             // 
-            this.bookReturnButton.Location = new System.Drawing.Point(356, 126);
+            this.bookReturnButton.Location = new System.Drawing.Point(476, 126);
             this.bookReturnButton.Name = "bookReturnButton";
             this.bookReturnButton.Size = new System.Drawing.Size(97, 98);
             this.bookReturnButton.TabIndex = 0;
@@ -77,7 +78,7 @@
             // 
             // defaultHandleButton
             // 
-            this.defaultHandleButton.Location = new System.Drawing.Point(605, 126);
+            this.defaultHandleButton.Location = new System.Drawing.Point(725, 126);
             this.defaultHandleButton.Name = "defaultHandleButton";
             this.defaultHandleButton.Size = new System.Drawing.Size(97, 98);
             this.defaultHandleButton.TabIndex = 0;
@@ -85,15 +86,26 @@
             this.defaultHandleButton.UseVisualStyleBackColor = true;
             this.defaultHandleButton.Click += new System.EventHandler(this.defaultHandleButton_Click);
             // 
+            // getAllBookButton
+            // 
+            this.getAllBookButton.Location = new System.Drawing.Point(81, 126);
+            this.getAllBookButton.Name = "getAllBookButton";
+            this.getAllBookButton.Size = new System.Drawing.Size(97, 98);
+            this.getAllBookButton.TabIndex = 0;
+            this.getAllBookButton.Text = "全部图书";
+            this.getAllBookButton.UseVisualStyleBackColor = true;
+            this.getAllBookButton.Click += new System.EventHandler(this.getAllBookButton_Click);
+            // 
             // CirculationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(939, 459);
             this.Controls.Add(this.defaultHandleButton);
             this.Controls.Add(this.bookDamageButton);
             this.Controls.Add(this.bookReturnButton);
             this.Controls.Add(this.bookAppointButton);
+            this.Controls.Add(this.getAllBookButton);
             this.Controls.Add(this.bookBorrowButton);
             this.Name = "CirculationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -111,5 +123,6 @@
         private System.Windows.Forms.Button bookAppointButton;
         private System.Windows.Forms.Button bookReturnButton;
         private System.Windows.Forms.Button defaultHandleButton;
+        private System.Windows.Forms.Button getAllBookButton;
     }
 }

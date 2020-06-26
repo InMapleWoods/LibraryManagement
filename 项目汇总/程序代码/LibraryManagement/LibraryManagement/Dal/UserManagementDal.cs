@@ -59,6 +59,40 @@ namespace LibraryManagement.Dal
         }
 
         /// <summary>
+        /// 删除一条读者记录
+        /// </summary>
+        /// <param name="userNumber">读者编号</param>
+        /// <returns>删除成功与否</returns>
+        public bool deleteAReader(string userNumber)
+        {
+            string sql = "DeleteAReader";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@returnValue", MySqlDbType.Int32, 1),
+                new MySqlParameter("@_userNumber", userNumber)
+            };
+            paras[0].Direction = ParameterDirection.Output;//将第一个变量设置为输出变量
+            int count = helper.ExecuteNonQuery(sql, paras, CommandType.StoredProcedure);
+            if (paras[0].Value.ToString() == "-1")
+            {
+                throw new Exception("获取 UserId 失败");
+            }
+            else if (paras[0].Value.ToString() == "-2")
+            {
+                throw new Exception("删除读者信息表失败");
+            }
+            else if (paras[0].Value.ToString() == "-3")
+            {
+                throw new Exception("删除登录表失败");
+            }
+            else if (paras[0].Value.ToString() == "-4")
+            {
+                throw new Exception("删除基本信息表失败");
+            }
+            return paras[0].Value.ToString() == "1";
+        }
+
+        /// <summary>
         /// 获取全部读者信息
         /// </summary>
         /// <returns>全部读者信息</returns>

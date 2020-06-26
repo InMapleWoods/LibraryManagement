@@ -36,6 +36,7 @@
             this.textBox_FileName = new System.Windows.Forms.TextBox();
             this.btn_Backupcommit = new System.Windows.Forms.Button();
             this.checkBox_ClosingProgramBackupCheck = new System.Windows.Forms.CheckBox();
+            this.btn_Recovery = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_FilePath
@@ -86,7 +87,7 @@
             // 
             // btn_Backupcommit
             // 
-            this.btn_Backupcommit.Location = new System.Drawing.Point(165, 166);
+            this.btn_Backupcommit.Location = new System.Drawing.Point(72, 166);
             this.btn_Backupcommit.Name = "btn_Backupcommit";
             this.btn_Backupcommit.Size = new System.Drawing.Size(75, 23);
             this.btn_Backupcommit.TabIndex = 5;
@@ -104,11 +105,21 @@
             this.checkBox_ClosingProgramBackupCheck.Text = "每次关闭软件时自动备份？";
             this.checkBox_ClosingProgramBackupCheck.UseVisualStyleBackColor = true;
             // 
+            // btn_Recovery
+            // 
+            this.btn_Recovery.Location = new System.Drawing.Point(208, 165);
+            this.btn_Recovery.Name = "btn_Recovery";
+            this.btn_Recovery.Size = new System.Drawing.Size(75, 23);
+            this.btn_Recovery.TabIndex = 7;
+            this.btn_Recovery.Text = "恢复";
+            this.btn_Recovery.UseVisualStyleBackColor = true;
+            // 
             // BackUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 236);
+            this.Controls.Add(this.btn_Recovery);
             this.Controls.Add(this.checkBox_ClosingProgramBackupCheck);
             this.Controls.Add(this.btn_Backupcommit);
             this.Controls.Add(this.textBox_FileName);
@@ -135,5 +146,6 @@
         private System.Windows.Forms.TextBox textBox_FileName;
         private System.Windows.Forms.Button btn_Backupcommit;
         private System.Windows.Forms.CheckBox checkBox_ClosingProgramBackupCheck;
+        private System.Windows.Forms.Button btn_Recovery;
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace LibraryManagement.Circulation
+﻿namespace LibraryManagementFunctionTest.Circulation
 {
-    partial class BookBorrowForm
+    partial class BookAppointForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.idLabel = new System.Windows.Forms.Label();
-            this.idTextBox = new System.Windows.Forms.TextBox();
-            this.borrowDatePicker = new System.Windows.Forms.DateTimePicker();
             this.officialTitleTextBox = new System.Windows.Forms.TextBox();
             this.officialTitleLabel = new System.Windows.Forms.Label();
             this.authorTextBox = new System.Windows.Forms.TextBox();
@@ -39,17 +35,26 @@
             this.typeNumLabel = new System.Windows.Forms.Label();
             this.IsbnTextBox = new System.Windows.Forms.TextBox();
             this.IsbnLabel = new System.Windows.Forms.Label();
-            this.validityTermTextBox = new System.Windows.Forms.TextBox();
             this.bookCodeTextBox = new System.Windows.Forms.TextBox();
             this.fineAmountTextBox = new System.Windows.Forms.TextBox();
             this.penaltyMultipleTextBox = new System.Windows.Forms.TextBox();
             this.workplaceTextBox = new System.Windows.Forms.TextBox();
             this.appointmentNumTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.btn_reflashCase = new System.Windows.Forms.Button();
+            this.btn_removeCase = new System.Windows.Forms.Button();
+            this.btn_addCase = new System.Windows.Forms.Button();
+            this.label_day = new System.Windows.Forms.Label();
+            this.validityTermTextBox = new System.Windows.Forms.TextBox();
+            this.validityTermLabel = new System.Windows.Forms.Label();
+            this.appointDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.idLabel = new System.Windows.Forms.Label();
+            this.idTextBox = new System.Windows.Forms.TextBox();
             this.genderTextBox = new System.Windows.Forms.TextBox();
             this.borrowNumTextBox = new System.Windows.Forms.TextBox();
             this.fineAmountLabel = new System.Windows.Forms.Label();
-            this.borrowCardNumTextBox = new System.Windows.Forms.TextBox();
+            this.readerIdTextBox = new System.Windows.Forms.TextBox();
             this.penaltyMultipleLabel = new System.Windows.Forms.Label();
             this.authorLabel = new System.Windows.Forms.Label();
             this.workplaceLabel = new System.Windows.Forms.Label();
@@ -58,93 +63,15 @@
             this.genderLabel = new System.Windows.Forms.Label();
             this.borrowNumLabel = new System.Windows.Forms.Label();
             this.bookCodeLabel = new System.Windows.Forms.Label();
-            this.validityTermLabel = new System.Windows.Forms.Label();
-            this.borrowDateLabel = new System.Windows.Forms.Label();
-            this.borrowCardNumLabel = new System.Windows.Forms.Label();
+            this.readerIdLabel = new System.Windows.Forms.Label();
+            this.appointDateLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
             this.mainSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // mainSplitContainer
-            // 
-            this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainSplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.mainSplitContainer.Name = "mainSplitContainer";
-            this.mainSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // mainSplitContainer.Panel1
-            // 
-            this.mainSplitContainer.Panel1.Controls.Add(this.scriptUserControl1);
-            // 
-            // mainSplitContainer.Panel2
-            // 
-            this.mainSplitContainer.Panel2.Controls.Add(this.idLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.idTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.borrowDatePicker);
-            this.mainSplitContainer.Panel2.Controls.Add(this.officialTitleTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.officialTitleLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.authorTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.typeNumTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.typeNumLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.IsbnTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.IsbnLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.validityTermTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.bookCodeTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.fineAmountTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.penaltyMultipleTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.workplaceTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.appointmentNumTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.nameTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.genderTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.borrowNumTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.fineAmountLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.borrowCardNumTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(this.penaltyMultipleLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.authorLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.workplaceLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.appointmentNumLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.nameLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.genderLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.borrowNumLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.bookCodeLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.validityTermLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.borrowDateLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.borrowCardNumLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
-            this.mainSplitContainer.Size = new System.Drawing.Size(1050, 701);
-            this.mainSplitContainer.SplitterDistance = 82;
-            this.mainSplitContainer.TabIndex = 4;
-            // 
-            // idLabel
-            // 
-            this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(540, 210);
-            this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(37, 15);
-            this.idLabel.TabIndex = 19;
-            this.idLabel.Text = "编号";
-            this.idLabel.Visible = false;
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.Location = new System.Drawing.Point(620, 205);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(330, 25);
-            this.idTextBox.TabIndex = 18;
-            this.idTextBox.Visible = false;
-            // 
-            // borrowDatePicker
-            // 
-            this.borrowDatePicker.Location = new System.Drawing.Point(620, 145);
-            this.borrowDatePicker.Name = "borrowDatePicker";
-            this.borrowDatePicker.Size = new System.Drawing.Size(330, 25);
-            this.borrowDatePicker.TabIndex = 17;
             // 
             // officialTitleTextBox
             // 
@@ -205,21 +132,12 @@
             this.IsbnLabel.TabIndex = 13;
             this.IsbnLabel.Text = "I S B N";
             // 
-            // validityTermTextBox
-            // 
-            this.validityTermTextBox.Location = new System.Drawing.Point(620, 175);
-            this.validityTermTextBox.Name = "validityTermTextBox";
-            this.validityTermTextBox.ReadOnly = true;
-            this.validityTermTextBox.Size = new System.Drawing.Size(330, 25);
-            this.validityTermTextBox.TabIndex = 9;
-            // 
             // bookCodeTextBox
             // 
             this.bookCodeTextBox.Location = new System.Drawing.Point(620, 25);
             this.bookCodeTextBox.Name = "bookCodeTextBox";
             this.bookCodeTextBox.Size = new System.Drawing.Size(330, 25);
             this.bookCodeTextBox.TabIndex = 9;
-            this.bookCodeTextBox.TextChanged += new System.EventHandler(this.bookCodeTextBox_TextChanged);
             // 
             // fineAmountTextBox
             // 
@@ -261,6 +179,140 @@
             this.nameTextBox.Size = new System.Drawing.Size(330, 25);
             this.nameTextBox.TabIndex = 9;
             // 
+            // mainSplitContainer
+            // 
+            this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.mainSplitContainer.Name = "mainSplitContainer";
+            this.mainSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // mainSplitContainer.Panel1
+            // 
+            this.mainSplitContainer.Panel1.Controls.Add(this.btn_reflashCase);
+            this.mainSplitContainer.Panel1.Controls.Add(this.btn_removeCase);
+            this.mainSplitContainer.Panel1.Controls.Add(this.btn_addCase);
+            // 
+            // mainSplitContainer.Panel2
+            // 
+            this.mainSplitContainer.Panel2.Controls.Add(this.label_day);
+            this.mainSplitContainer.Panel2.Controls.Add(this.validityTermTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.validityTermLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.appointDatePicker);
+            this.mainSplitContainer.Panel2.Controls.Add(this.idLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.idTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.officialTitleTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.officialTitleLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.authorTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.typeNumTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.typeNumLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.IsbnTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.IsbnLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.bookCodeTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.fineAmountTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.penaltyMultipleTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.workplaceTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.appointmentNumTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.nameTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.genderTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.borrowNumTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.fineAmountLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.readerIdTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.penaltyMultipleLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.authorLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.workplaceLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.appointmentNumLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.nameLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.genderLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.borrowNumLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.bookCodeLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.readerIdLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.appointDateLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
+            this.mainSplitContainer.Size = new System.Drawing.Size(1050, 701);
+            this.mainSplitContainer.SplitterDistance = 82;
+            this.mainSplitContainer.TabIndex = 5;
+            // 
+            // btn_reflashCase
+            // 
+            this.btn_reflashCase.Location = new System.Drawing.Point(716, 11);
+            this.btn_reflashCase.Name = "btn_reflashCase";
+            this.btn_reflashCase.Size = new System.Drawing.Size(160, 51);
+            this.btn_reflashCase.TabIndex = 34;
+            this.btn_reflashCase.Text = "刷新用例";
+            this.btn_reflashCase.UseVisualStyleBackColor = true;
+            this.btn_reflashCase.Click += new System.EventHandler(this.btn_reflashCase_Click);
+            // 
+            // btn_removeCase
+            // 
+            this.btn_removeCase.Location = new System.Drawing.Point(448, 12);
+            this.btn_removeCase.Name = "btn_removeCase";
+            this.btn_removeCase.Size = new System.Drawing.Size(161, 51);
+            this.btn_removeCase.TabIndex = 33;
+            this.btn_removeCase.Text = "删除用例";
+            this.btn_removeCase.UseVisualStyleBackColor = true;
+            this.btn_removeCase.Click += new System.EventHandler(this.btn_removeCase_Click);
+            // 
+            // btn_addCase
+            // 
+            this.btn_addCase.Location = new System.Drawing.Point(189, 12);
+            this.btn_addCase.Name = "btn_addCase";
+            this.btn_addCase.Size = new System.Drawing.Size(169, 51);
+            this.btn_addCase.TabIndex = 32;
+            this.btn_addCase.Text = "增加用例";
+            this.btn_addCase.UseVisualStyleBackColor = true;
+            this.btn_addCase.Click += new System.EventHandler(this.btn_addCase_Click);
+            // 
+            // label_day
+            // 
+            this.label_day.AutoSize = true;
+            this.label_day.Location = new System.Drawing.Point(926, 180);
+            this.label_day.Name = "label_day";
+            this.label_day.Size = new System.Drawing.Size(22, 15);
+            this.label_day.TabIndex = 28;
+            this.label_day.Text = "天";
+            // 
+            // validityTermTextBox
+            // 
+            this.validityTermTextBox.Location = new System.Drawing.Point(620, 175);
+            this.validityTermTextBox.Name = "validityTermTextBox";
+            this.validityTermTextBox.Size = new System.Drawing.Size(300, 25);
+            this.validityTermTextBox.TabIndex = 26;
+            // 
+            // validityTermLabel
+            // 
+            this.validityTermLabel.AutoSize = true;
+            this.validityTermLabel.Location = new System.Drawing.Point(540, 180);
+            this.validityTermLabel.Name = "validityTermLabel";
+            this.validityTermLabel.Size = new System.Drawing.Size(52, 15);
+            this.validityTermLabel.TabIndex = 25;
+            this.validityTermLabel.Text = "有效期";
+            // 
+            // appointDatePicker
+            // 
+            this.appointDatePicker.Location = new System.Drawing.Point(620, 145);
+            this.appointDatePicker.Name = "appointDatePicker";
+            this.appointDatePicker.Size = new System.Drawing.Size(330, 25);
+            this.appointDatePicker.TabIndex = 24;
+            // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(540, 210);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(37, 15);
+            this.idLabel.TabIndex = 23;
+            this.idLabel.Text = "编号";
+            this.idLabel.Visible = false;
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.Location = new System.Drawing.Point(620, 205);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.ReadOnly = true;
+            this.idTextBox.Size = new System.Drawing.Size(330, 25);
+            this.idTextBox.TabIndex = 22;
+            this.idTextBox.Visible = false;
+            // 
             // genderTextBox
             // 
             this.genderTextBox.Location = new System.Drawing.Point(115, 85);
@@ -286,18 +338,17 @@
             this.fineAmountLabel.TabIndex = 1;
             this.fineAmountLabel.Text = "罚款金额";
             // 
-            // borrowCardNumTextBox
+            // readerIdTextBox
             // 
-            this.borrowCardNumTextBox.Location = new System.Drawing.Point(115, 25);
-            this.borrowCardNumTextBox.Name = "borrowCardNumTextBox";
-            this.borrowCardNumTextBox.Size = new System.Drawing.Size(330, 25);
-            this.borrowCardNumTextBox.TabIndex = 9;
-            this.borrowCardNumTextBox.TextChanged += new System.EventHandler(this.borrowCardNumTextBox_TextChanged);
+            this.readerIdTextBox.Location = new System.Drawing.Point(115, 25);
+            this.readerIdTextBox.Name = "readerIdTextBox";
+            this.readerIdTextBox.Size = new System.Drawing.Size(330, 25);
+            this.readerIdTextBox.TabIndex = 9;
             // 
             // penaltyMultipleLabel
             // 
             this.penaltyMultipleLabel.AutoSize = true;
-            this.penaltyMultipleLabel.Location = new System.Drawing.Point(35, 209);
+            this.penaltyMultipleLabel.Location = new System.Drawing.Point(35, 210);
             this.penaltyMultipleLabel.Name = "penaltyMultipleLabel";
             this.penaltyMultipleLabel.Size = new System.Drawing.Size(67, 15);
             this.penaltyMultipleLabel.TabIndex = 1;
@@ -366,32 +417,23 @@
             this.bookCodeLabel.TabIndex = 1;
             this.bookCodeLabel.Text = "书本条码号";
             // 
-            // validityTermLabel
+            // readerIdLabel
             // 
-            this.validityTermLabel.AutoSize = true;
-            this.validityTermLabel.Location = new System.Drawing.Point(540, 180);
-            this.validityTermLabel.Name = "validityTermLabel";
-            this.validityTermLabel.Size = new System.Drawing.Size(52, 15);
-            this.validityTermLabel.TabIndex = 2;
-            this.validityTermLabel.Text = "有效期";
+            this.readerIdLabel.AutoSize = true;
+            this.readerIdLabel.Location = new System.Drawing.Point(35, 30);
+            this.readerIdLabel.Name = "readerIdLabel";
+            this.readerIdLabel.Size = new System.Drawing.Size(67, 15);
+            this.readerIdLabel.TabIndex = 1;
+            this.readerIdLabel.Text = "读者编号";
             // 
-            // borrowDateLabel
+            // appointDateLabel
             // 
-            this.borrowDateLabel.AutoSize = true;
-            this.borrowDateLabel.Location = new System.Drawing.Point(540, 150);
-            this.borrowDateLabel.Name = "borrowDateLabel";
-            this.borrowDateLabel.Size = new System.Drawing.Size(67, 15);
-            this.borrowDateLabel.TabIndex = 2;
-            this.borrowDateLabel.Text = "借阅日期";
-            // 
-            // borrowCardNumLabel
-            // 
-            this.borrowCardNumLabel.AutoSize = true;
-            this.borrowCardNumLabel.Location = new System.Drawing.Point(35, 30);
-            this.borrowCardNumLabel.Name = "borrowCardNumLabel";
-            this.borrowCardNumLabel.Size = new System.Drawing.Size(67, 15);
-            this.borrowCardNumLabel.TabIndex = 1;
-            this.borrowCardNumLabel.Text = "借书证号";
+            this.appointDateLabel.AutoSize = true;
+            this.appointDateLabel.Location = new System.Drawing.Point(540, 150);
+            this.appointDateLabel.Name = "appointDateLabel";
+            this.appointDateLabel.Size = new System.Drawing.Size(67, 15);
+            this.appointDateLabel.TabIndex = 2;
+            this.appointDateLabel.Text = "预约日期";
             // 
             // dataGridView1
             // 
@@ -411,25 +453,17 @@
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // scriptUserControl1
-            // 
-            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(1050, 82);
-            this.scriptUserControl1.TabIndex = 0;
-            // 
-            // BookBorrowForm
+            // BookAppointForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 701);
             this.Controls.Add(this.mainSplitContainer);
-            this.Name = "BookBorrowForm";
+            this.Name = "BookAppointForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "图书借阅";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookBorrowForm_FormClosing);
-            this.Load += new System.EventHandler(this.BookBorrowForm_Load);
+            this.Text = "图书预约";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookAppointForm_FormClosing);
+            this.Load += new System.EventHandler(this.BookAppointForm_Load);
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel2.ResumeLayout(false);
             this.mainSplitContainer.Panel2.PerformLayout();
@@ -441,41 +475,43 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.SplitContainer mainSplitContainer;
-        private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
-        private System.Windows.Forms.Label bookCodeLabel;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox bookCodeTextBox;
-        private System.Windows.Forms.TextBox workplaceTextBox;
-        private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.TextBox genderTextBox;
-        private System.Windows.Forms.TextBox borrowNumTextBox;
-        private System.Windows.Forms.TextBox borrowCardNumTextBox;
-        private System.Windows.Forms.Label workplaceLabel;
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Label genderLabel;
-        private System.Windows.Forms.Label borrowNumLabel;
-        private System.Windows.Forms.Label borrowCardNumLabel;
-        private System.Windows.Forms.Label validityTermLabel;
+        private System.Windows.Forms.TextBox officialTitleTextBox;
+        private System.Windows.Forms.Label officialTitleLabel;
+        private System.Windows.Forms.TextBox authorTextBox;
         private System.Windows.Forms.TextBox typeNumTextBox;
         private System.Windows.Forms.Label typeNumLabel;
         private System.Windows.Forms.TextBox IsbnTextBox;
         private System.Windows.Forms.Label IsbnLabel;
-        private System.Windows.Forms.Label authorLabel;
-        private System.Windows.Forms.TextBox authorTextBox;
-        private System.Windows.Forms.TextBox officialTitleTextBox;
-        private System.Windows.Forms.Label officialTitleLabel;
-        private System.Windows.Forms.Label borrowDateLabel;
-        private System.Windows.Forms.DateTimePicker borrowDatePicker;
+        private System.Windows.Forms.TextBox bookCodeTextBox;
         private System.Windows.Forms.TextBox fineAmountTextBox;
         private System.Windows.Forms.TextBox penaltyMultipleTextBox;
-        private System.Windows.Forms.Label fineAmountLabel;
-        private System.Windows.Forms.Label penaltyMultipleLabel;
+        private System.Windows.Forms.TextBox workplaceTextBox;
         private System.Windows.Forms.TextBox appointmentNumTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.SplitContainer mainSplitContainer;
+        private System.Windows.Forms.TextBox genderTextBox;
+        private System.Windows.Forms.TextBox borrowNumTextBox;
+        private System.Windows.Forms.Label fineAmountLabel;
+        private System.Windows.Forms.TextBox readerIdTextBox;
+        private System.Windows.Forms.Label penaltyMultipleLabel;
+        private System.Windows.Forms.Label authorLabel;
+        private System.Windows.Forms.Label workplaceLabel;
         private System.Windows.Forms.Label appointmentNumLabel;
-        private System.Windows.Forms.TextBox validityTermTextBox;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label genderLabel;
+        private System.Windows.Forms.Label borrowNumLabel;
+        private System.Windows.Forms.Label bookCodeLabel;
+        private System.Windows.Forms.Label readerIdLabel;
+        private System.Windows.Forms.Label appointDateLabel;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.DateTimePicker appointDatePicker;
+        private System.Windows.Forms.TextBox validityTermTextBox;
+        private System.Windows.Forms.Label validityTermLabel;
+        private System.Windows.Forms.Label label_day;
+        private System.Windows.Forms.Button btn_reflashCase;
+        private System.Windows.Forms.Button btn_removeCase;
+        private System.Windows.Forms.Button btn_addCase;
     }
 }
