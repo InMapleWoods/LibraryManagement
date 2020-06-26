@@ -266,6 +266,7 @@
     <Compile Include="Model\InterviewPurchaseOrder.cs" />
     <Compile Include="Model\Reader.cs" />
     <Compile Include="Model\StatisticalInfo.cs" />
+    <Compile Include="Model\UserManagementAdmin.cs" />
     <Compile Include="Model\UserManagementLogin.cs" />
     <Compile Include="Model\UserManagementReaderInfo.cs" />
     <Compile Include="Periodical\PeriodicalArrivalForm.cs">
