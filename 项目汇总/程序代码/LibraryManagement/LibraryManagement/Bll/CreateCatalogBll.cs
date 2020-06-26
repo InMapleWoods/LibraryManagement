@@ -285,7 +285,30 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
- 
+
         #endregion
+
+        #region 编目查询
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public DataTable GetAllQueryPeriodOrders(string id)
+        {
+            DataTable result = null;
+            try
+            {
+                result = createDal.GetAllQueryCatalogForm( id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        #endregion
+
     }
 }

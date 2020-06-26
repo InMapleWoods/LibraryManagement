@@ -63,7 +63,7 @@ namespace LibraryManagement.Periodical
         /// 已验收勾选状态变化
         /// </summary>
         private void checkBox_arrived_CheckedChanged(object sender, EventArgs e)
-        {
+        { 
             DataBind();
         }
 

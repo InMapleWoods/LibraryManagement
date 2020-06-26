@@ -337,7 +337,7 @@ namespace LibraryManagement.Dal
                 "tb_CirculateBooks.OfficialTitle, " +
                 "tb_CirculateBooks.PublishingHouseId" +
                 " )VALUES" +
-                "(" +                
+                "(" +
                  "@iSBN," +
                  "@firstAuther," +
                  "@documentType," +
@@ -345,7 +345,7 @@ namespace LibraryManagement.Dal
                  "@officialTitle," +
                  "@publishingHouseId" +
                  ")";
-            paras= new MySqlParameter[]
+            paras = new MySqlParameter[]
             {
                 new MySqlParameter("@iSBN",createCatalogList.ISBN),
                 new MySqlParameter("@firstAuther",createCatalogList.FirstAuthor),
@@ -366,8 +366,44 @@ namespace LibraryManagement.Dal
         }
         #endregion
 
-    }
+        #region 编目查询
+        /// <summary>
+        /// 获取全部编目
+        /// </summary>
+        /// <returns>全部编目</returns>
+        public DataTable GetAllQueryCatalogForm(string id)
+        {
+            id = "%" + id + "%";
+            string sqlstr = "select " +
+                "tb_CatalogForm.Id as 编号," +
+                "tb_CatalogForm.ISBN as ISBN号," +
+                "tb_CatalogForm.DocumentType as 文献类型," +
+                "tb_CatalogForm.PositiveTitle as 正刊名," +
+                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
+                "tb_CatalogForm.PrimaryLiability as 第一责任," +
+                "tb_CatalogForm.FirstAuthor as 第一作者," +
+                "tb_CatalogForm.CatalogingDate as 编目日期," +
+                "tb_BasicInformation.UserName as 编目人员" +
 
+                " from " +
+                "tb_CatalogForm inner join " +
+                "tb_DictionaryPublishingHouse inner join " +
+                "tb_BasicInformation " +
+                "on tb_CatalogForm.CatalogerId=tb_BasicInformation.UserId " +
+                "and tb_CatalogForm.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
+                "and tb_CatalogForm.Id LIKE @id ;";
+            MySqlParameter[] paras = new MySqlParameter[]
+           {
+                new MySqlParameter("@id",id),
+
+           };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+
+            #endregion
+
+        }
+    }
 }
 
 
