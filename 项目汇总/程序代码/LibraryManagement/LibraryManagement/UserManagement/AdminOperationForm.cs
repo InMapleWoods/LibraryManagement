@@ -305,7 +305,6 @@ namespace LibraryManagement.UserManagement
         {
             List<string> errorList = new List<string>();
 
-
             UserManagementReaderInfo info = new UserManagementReaderInfo()
             {
                 LibraryCardNum = txb_LibraryCardNum.Text,
@@ -324,7 +323,7 @@ namespace LibraryManagement.UserManagement
         /// <summary>
         /// 设置某行的数据为当前窗体输入框内容
         /// </summary>
-        /// <param name="row"></param>
+        /// <param name="row">选中行</param>
         private void SetReaderInfo(DataGridViewRow row)
         {
             txb_LibraryCardNum.Text = row.Cells[1].Value.ToString();//借书证号

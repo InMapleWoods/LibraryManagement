@@ -44,7 +44,7 @@ namespace LibraryManagement.UserManagement
                 if (responseCode == 200)
                 {
                     MessageBox.Show("登陆成功");
-                    var form = new AdminOperationForm(this);
+                    var form = new UserManagementAdminChoice(this);
                     form.Show();
                     Hide();
                 }
@@ -84,8 +84,6 @@ namespace LibraryManagement.UserManagement
         /// <summary>
         /// 窗口关闭时执行的操作
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void UserManagementForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
