@@ -28,86 +28,104 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.queryDataGridView = new System.Windows.Forms.DataGridView();
             this.idLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.scriptUserControl1 = new LibraryManagement.Tools.MyUserControl.ScriptUserControl();
+            this.iDTextBox = new System.Windows.Forms.TextBox();
             this.queryBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.printBtn = new System.Windows.Forms.Button();
+            this.previewBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.queryDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // queryDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 306);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(984, 208);
-            this.dataGridView1.TabIndex = 1;
+            this.queryDataGridView.AllowUserToAddRows = false;
+            this.queryDataGridView.AllowUserToDeleteRows = false;
+            this.queryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.queryDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.queryDataGridView.Location = new System.Drawing.Point(0, 249);
+            this.queryDataGridView.Name = "queryDataGridView";
+            this.queryDataGridView.ReadOnly = true;
+            this.queryDataGridView.RowHeadersWidth = 62;
+            this.queryDataGridView.RowTemplate.Height = 30;
+            this.queryDataGridView.Size = new System.Drawing.Size(1145, 355);
+            this.queryDataGridView.TabIndex = 1;
             // 
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(212, 165);
+            this.idLabel.Location = new System.Drawing.Point(54, 127);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(26, 18);
+            this.idLabel.Size = new System.Drawing.Size(44, 18);
             this.idLabel.TabIndex = 2;
-            this.idLabel.Text = "ID";
+            this.idLabel.Text = "编号";
             this.idLabel.Click += new System.EventHandler(this.idLabel_Click);
             // 
-            // textBox1
+            // iDTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(274, 162);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(392, 28);
-            this.textBox1.TabIndex = 12;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // scriptUserControl1
-            // 
-            this.scriptUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.scriptUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.scriptUserControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.scriptUserControl1.Name = "scriptUserControl1";
-            this.scriptUserControl1.Size = new System.Drawing.Size(984, 107);
-            this.scriptUserControl1.TabIndex = 0;
-            this.scriptUserControl1.Load += new System.EventHandler(this.scriptUserControl1_Load);
+            this.iDTextBox.Location = new System.Drawing.Point(157, 124);
+            this.iDTextBox.Name = "iDTextBox";
+            this.iDTextBox.Size = new System.Drawing.Size(211, 28);
+            this.iDTextBox.TabIndex = 12;
+            this.iDTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // queryBtn
             // 
-            this.queryBtn.Location = new System.Drawing.Point(417, 232);
+            this.queryBtn.Location = new System.Drawing.Point(465, 116);
             this.queryBtn.Name = "queryBtn";
             this.queryBtn.Size = new System.Drawing.Size(92, 40);
             this.queryBtn.TabIndex = 13;
             this.queryBtn.Text = "查询";
             this.queryBtn.UseVisualStyleBackColor = true;
+            this.queryBtn.Click += new System.EventHandler(this.queryBtn_Click);
+            // 
+            // printBtn
+            // 
+            this.printBtn.Location = new System.Drawing.Point(613, 116);
+            this.printBtn.Name = "printBtn";
+            this.printBtn.Size = new System.Drawing.Size(98, 40);
+            this.printBtn.TabIndex = 14;
+            this.printBtn.Text = "打印";
+            this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
+            // 
+            // previewBtn
+            // 
+            this.previewBtn.Location = new System.Drawing.Point(775, 116);
+            this.previewBtn.Name = "previewBtn";
+            this.previewBtn.Size = new System.Drawing.Size(96, 40);
+            this.previewBtn.TabIndex = 15;
+            this.previewBtn.Text = "打印预览";
+            this.previewBtn.UseVisualStyleBackColor = true;
+            this.previewBtn.Click += new System.EventHandler(this.previewBtn_Click);
             // 
             // CatalogQueryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 514);
+            this.ClientSize = new System.Drawing.Size(1145, 604);
+            this.Controls.Add(this.previewBtn);
+            this.Controls.Add(this.printBtn);
             this.Controls.Add(this.queryBtn);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.iDTextBox);
             this.Controls.Add(this.idLabel);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.scriptUserControl1);
+            this.Controls.Add(this.queryDataGridView);
             this.Name = "CatalogQueryForm";
             this.Text = "编目查询";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CatalogQueryForm_FormClosing);
+            this.Load += new System.EventHandler(this.CatalogQueryForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.queryDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView queryDataGridView;
         private System.Windows.Forms.Label idLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox iDTextBox;
         private System.Windows.Forms.Button queryBtn;
+        private System.Windows.Forms.Button printBtn;
+        private System.Windows.Forms.Button previewBtn;
     }
 }

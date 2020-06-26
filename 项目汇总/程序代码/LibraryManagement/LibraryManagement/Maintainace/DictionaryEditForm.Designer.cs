@@ -223,7 +223,7 @@
             this.Controls.Add(this.lab_Location);
             this.Name = "DictionaryEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DictionaryEditForm";
+            this.Text = "字典编辑";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DictionaryEditForm_FormClosing);
             this.Load += new System.EventHandler(this.DictionaryEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_DictionaryShow)).EndInit();

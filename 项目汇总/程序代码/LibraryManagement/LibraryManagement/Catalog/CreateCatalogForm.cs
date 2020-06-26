@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using LibraryManagement.Bll;
+﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
 using LibraryManagement.Tools.MyUserControl;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace LibraryManagement.Catalog
 {
@@ -38,7 +31,7 @@ namespace LibraryManagement.Catalog
             scriptUserControl1.AddContorlClickMethod(ExitLog_Click, ScriptUserControl.ControlNames.exitButton);
         }
 
-       
+
 
         /// <summary>
         /// 窗体关闭函数
@@ -264,7 +257,7 @@ namespace LibraryManagement.Catalog
             List<string> errorList = new List<string>();//错误列表
 
             //出版社Id
-            int publisherId = ((KeyValuePair<int, string>)PublishingHouseComboBox.SelectedItem ).Key;
+            int publisherId = ((KeyValuePair<int, string>)PublishingHouseComboBox.SelectedItem).Key;
             //编目人员ID
             int catalogerId = utilBll.GetUserIdFormNumber(CatalogerIdTextBox.Text);
 
@@ -275,11 +268,11 @@ namespace LibraryManagement.Catalog
                 ISBN = ISBNTextBox.Text,
                 FirstAuthor = AuthorTextBox.Text,
                 PositiveTitle = BookNameTextBox.Text,
-                CatalogingDate = CatalogDateTimePicker.Value ,
+                CatalogingDate = CatalogDateTimePicker.Value,
                 PublishingHouseId = publisherId,
                 DocumentType = DocumentTypeComboBox.Text,
                 CatalogerId = catalogerId,
-                PrimaryLiability= PrimaryLiabilityLabelTextBox.Text 
+                PrimaryLiability = PrimaryLiabilityLabelTextBox.Text
             };
             error = errorList;//返回错误列表
             return list;//返回清单
@@ -342,8 +335,8 @@ namespace LibraryManagement.Catalog
             PublishingHouseComboBox.DisplayMember = "Value";
 
             DocumentTypeComboBox.SelectedIndex = 0;//文献类型
-          
-            
+
+
         }
 
         /// <summary>
@@ -375,73 +368,6 @@ namespace LibraryManagement.Catalog
         {
             DataBind();//数据绑定
         }
-        private void serialNumberBtn_Click(object sender, EventArgs e)
-        {
-            var form = new SerialNumberForm(this);
-            form.Show();
-            Hide();
-        }
 
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            var form = new CreateCatalogForm(this);
-            form.Show();
-            Hide();
-        }
-
-        private void pringBtn_Click(object sender, EventArgs e)
-        {
-            var form = new CreateCatalogForm(this);
-            form.Show();
-            Hide();
-        }
-
-        private void catalogQueryBtn_Click(object sender, EventArgs e)
-        {
-            var form = new CreateCatalogForm(this);
-            form.Show();
-            Hide();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void catalogingDatLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void firstAuthorLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void documentTypeLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void scriptUserControl1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void idLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CatalogerIdTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -25,7 +25,7 @@ namespace LibraryManagement.Circulation
             scriptUserControl1.AddContorlClickMethod(ExitLog_Click, ScriptUserControl.ControlNames.exitButton);
         }
 
-        private void BookCirculationForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void BookBorrowForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();//显示上层窗体
             Hide();//隐藏当前窗体

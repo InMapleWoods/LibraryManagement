@@ -89,6 +89,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bll\CirculationBll.cs" />
     <Compile Include="Bll\CreateCatalogBll.cs" />
     <Compile Include="Bll\InterviewBll.cs" />
@@ -145,12 +151,6 @@
     <Compile Include="Circulation\BookBorrowForm.Designer.cs">
       <DependentUpon>BookBorrowForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalog\SerialNumberForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Catalog\SerialNumberForm.Designer.cs">
-      <DependentUpon>SerialNumberForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Circulation\BookDamageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +174,12 @@
     </Compile>
     <Compile Include="Circulation\DefaultHandleForm.Designer.cs">
       <DependentUpon>DefaultHandleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Circulation\GetAllCirculateBooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\GetAllCirculateBooks.Designer.cs">
+      <DependentUpon>GetAllCirculateBooks.cs</DependentUpon>
     </Compile>
     <Compile Include="Dal\CirculationDal.cs" />
     <Compile Include="Dal\CreateCatalogDal.cs" />
@@ -260,8 +266,10 @@
     <Compile Include="Model\InterviewPurchaseOrder.cs" />
     <Compile Include="Model\Reader.cs" />
     <Compile Include="Model\StatisticalInfo.cs" />
+    <Compile Include="Model\UserManagementAdmin.cs" />
     <Compile Include="Model\UserManagementLogin.cs" />
     <Compile Include="Model\UserManagementReaderInfo.cs" />
+    <Compile Include="Model\UserManagementReaderLevel.cs" />
     <Compile Include="Periodical\PeriodicalArrivalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +308,9 @@
     <Compile Include="Statistical\StatisticalForm.Designer.cs">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalog\CatalogQueryForm.resx">
       <DependentUpon>CatalogQueryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -324,6 +335,9 @@
     <EmbeddedResource Include="Circulation\DefaultHandleForm.resx">
       <DependentUpon>DefaultHandleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\GetAllCirculateBooks.resx">
+      <DependentUpon>GetAllCirculateBooks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interview\AcceptanceListForm.resx">
       <DependentUpon>AcceptanceListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,11 +360,24 @@
     <Compile Include="Tools\MyUserControl\ScriptUserControl.Designer.cs">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\RunCmd.cs" />
+    <Compile Include="UserManagement\AdminChangeReaderLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement\AdminChangeReaderLevel.Designer.cs">
+      <DependentUpon>AdminChangeReaderLevel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\AdminOperationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserManagement\AdminOperationForm.Designer.cs">
       <DependentUpon>AdminOperationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UserManagementAdminChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement\UserManagementAdminChoice.Designer.cs">
+      <DependentUpon>UserManagementAdminChoice.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\UserManagementForm.cs">
       <SubType>Form</SubType>
@@ -369,9 +396,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Circulation\CirculationForm.resx">
       <DependentUpon>CirculationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Catalog\SerialNumberForm.resx">
-      <DependentUpon>SerialNumberForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\InterviewForm.resx">
       <DependentUpon>InterviewForm.cs</DependentUpon>
@@ -418,8 +442,14 @@
     <EmbeddedResource Include="Tools\MyUserControl\ScriptUserControl.resx">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\AdminChangeReaderLevel.resx">
+      <DependentUpon>AdminChangeReaderLevel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\AdminOperationForm.resx">
       <DependentUpon>AdminOperationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\UserManagementAdminChoice.resx">
+      <DependentUpon>UserManagementAdminChoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\UserManagementForm.resx">
       <DependentUpon>UserManagementForm.cs</DependentUpon>

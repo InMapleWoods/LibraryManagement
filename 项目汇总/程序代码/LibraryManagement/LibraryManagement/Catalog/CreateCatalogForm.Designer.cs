@@ -92,7 +92,6 @@
             this.CatalogerIdTextBox.Name = "CatalogerIdTextBox";
             this.CatalogerIdTextBox.Size = new System.Drawing.Size(199, 28);
             this.CatalogerIdTextBox.TabIndex = 14;
-            this.CatalogerIdTextBox.TextChanged += new System.EventHandler(this.CatalogerIdTextBox_TextChanged);
             // 
             // isbnNumberLabel
             // 
@@ -120,7 +119,6 @@
             this.firstAuthorLabel.Size = new System.Drawing.Size(80, 18);
             this.firstAuthorLabel.TabIndex = 18;
             this.firstAuthorLabel.Text = "第一作者";
-            this.firstAuthorLabel.Click += new System.EventHandler(this.firstAuthorLabel_Click);
             // 
             // publishingHouseLabel
             // 
@@ -130,7 +128,6 @@
             this.publishingHouseLabel.Size = new System.Drawing.Size(62, 18);
             this.publishingHouseLabel.TabIndex = 19;
             this.publishingHouseLabel.Text = "出版社";
-            this.publishingHouseLabel.Click += new System.EventHandler(this.label4_Click);
             // 
             // documentTypeLabel
             // 
@@ -140,7 +137,6 @@
             this.documentTypeLabel.Size = new System.Drawing.Size(80, 18);
             this.documentTypeLabel.TabIndex = 20;
             this.documentTypeLabel.Text = "文献类型";
-            this.documentTypeLabel.Click += new System.EventHandler(this.documentTypeLabel_Click);
             // 
             // primaryLiabilityLabel
             // 
@@ -168,7 +164,6 @@
             this.catalogingDatLabel.Size = new System.Drawing.Size(80, 18);
             this.catalogingDatLabel.TabIndex = 23;
             this.catalogingDatLabel.Text = "编目日期";
-            this.catalogingDatLabel.Click += new System.EventHandler(this.catalogingDatLabel_Click);
             // 
             // idLabel
             // 
@@ -178,7 +173,6 @@
             this.idLabel.Size = new System.Drawing.Size(26, 18);
             this.idLabel.TabIndex = 24;
             this.idLabel.Text = "ID";
-            this.idLabel.Click += new System.EventHandler(this.idLabel_Click);
             // 
             // DocumentTypeComboBox
             // 
@@ -216,7 +210,6 @@
             this.scriptUserControl1.Name = "scriptUserControl1";
             this.scriptUserControl1.Size = new System.Drawing.Size(1029, 104);
             this.scriptUserControl1.TabIndex = 28;
-            this.scriptUserControl1.Load += new System.EventHandler(this.scriptUserControl1_Load);
             // 
             // dataGridView1
             // 
@@ -233,7 +226,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1029, 234);
             this.dataGridView1.TabIndex = 29;
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
-            this.dataGridView1.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridView1_CurrentCellDirtyStateChanged);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // CreateCatalogForm

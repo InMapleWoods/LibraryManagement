@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Model
 {
@@ -100,7 +97,7 @@ namespace LibraryManagement.Model
         /// <summary>
         /// 判断读者信息是否符合规范
         /// </summary>
-        /// <param name="info">带判定读者信息</param>
+        /// <param name="info">待判定读者信息</param>
         /// <returns>读者信息是否符合规范</returns>
         public static bool isNormative(UserManagementReaderInfo info, ref List<string> errorMsg)
         {

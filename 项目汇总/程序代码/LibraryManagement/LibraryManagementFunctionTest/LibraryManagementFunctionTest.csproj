@@ -73,11 +73,23 @@
     <Compile Include="Catalog\SerialNumberForm.Designer.cs">
       <DependentUpon>SerialNumberForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Circulation\BookCirculationForm.cs">
+    <Compile Include="Circulation\BookAppointForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Circulation\BookCirculationForm.Designer.cs">
-      <DependentUpon>BookCirculationForm.cs</DependentUpon>
+    <Compile Include="Circulation\BookAppointForm.Designer.cs">
+      <DependentUpon>BookAppointForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Circulation\BookBorrowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\BookBorrowForm.Designer.cs">
+      <DependentUpon>BookBorrowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Circulation\BookDamageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circulation\BookDamageForm.Designer.cs">
+      <DependentUpon>BookDamageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Circulation\CirculationForm.cs">
       <SubType>Form</SubType>
@@ -85,11 +97,11 @@
     <Compile Include="Circulation\CirculationForm.Designer.cs">
       <DependentUpon>CirculationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interview\AcceptanceListForm.cs">
+    <Compile Include="Circulation\DefaultHandleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interview\AcceptanceListForm.Designer.cs">
-      <DependentUpon>AcceptanceListForm.cs</DependentUpon>
+    <Compile Include="Circulation\DefaultHandleForm.Designer.cs">
+      <DependentUpon>DefaultHandleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interview\BookOrderForm.cs">
       <SubType>Form</SubType>
@@ -102,18 +114,6 @@
     </Compile>
     <Compile Include="Interview\InterviewForm.Designer.cs">
       <DependentUpon>InterviewForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interview\InterviewListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interview\InterviewListForm.Designer.cs">
-      <DependentUpon>InterviewListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interview\ReturnListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interview\ReturnListForm.Designer.cs">
-      <DependentUpon>ReturnListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -139,15 +139,14 @@
     <Compile Include="Maintainace\MaitainanceForm.Designer.cs">
       <DependentUpon>MaitainanceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\AcceptanceList.cs" />
     <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\BookLog.cs" />
     <Compile Include="Model\DictionaryBookSeller.cs" />
     <Compile Include="Model\DictionaryPublishingHouse.cs" />
-    <Compile Include="Model\InterviewList.cs" />
     <Compile Include="Model\InterviewPurchaseOrder.cs" />
-    <Compile Include="Model\InterviewReturnList.cs" />
     <Compile Include="Model\PeriodicalArrival.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
+    <Compile Include="Model\Reader.cs" />
     <Compile Include="Periodical\PeriodicalArrivalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,26 +204,26 @@
     <EmbeddedResource Include="Catalog\SerialNumberForm.resx">
       <DependentUpon>SerialNumberForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Circulation\BookCirculationForm.resx">
-      <DependentUpon>BookCirculationForm.cs</DependentUpon>
+    <EmbeddedResource Include="Circulation\BookAppointForm.resx">
+      <DependentUpon>BookAppointForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\BookBorrowForm.resx">
+      <DependentUpon>BookBorrowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circulation\BookDamageForm.resx">
+      <DependentUpon>BookDamageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Circulation\CirculationForm.resx">
       <DependentUpon>CirculationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interview\AcceptanceListForm.resx">
-      <DependentUpon>AcceptanceListForm.cs</DependentUpon>
+    <EmbeddedResource Include="Circulation\DefaultHandleForm.resx">
+      <DependentUpon>DefaultHandleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\BookOrderForm.resx">
       <DependentUpon>BookOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interview\InterviewForm.resx">
       <DependentUpon>InterviewForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interview\InterviewListForm.resx">
-      <DependentUpon>InterviewListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interview\ReturnListForm.resx">
-      <DependentUpon>ReturnListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

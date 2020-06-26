@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Model
 {
@@ -338,7 +335,7 @@ namespace LibraryManagement.Model
         /// <returns>是否规范</returns>
         public static bool isNormative(DisHonestyLog log, ref List<string> errorMsg)
         {
-            List<string> errorlog = new List<string>(); 
+            List<string> errorlog = new List<string>();
             if (log.BookId <= 0)
             {
                 errorlog.Add("BookId Error");

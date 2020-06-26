@@ -31,7 +31,7 @@ namespace LibraryManagement.Bll
                         {
                             result = maintainaceDal.AddDicBookSeller(bookSeller);
                         }
-                       
+
                     }
                 }
             }
@@ -97,9 +97,9 @@ namespace LibraryManagement.Bll
                     {
                         if (this.AddCaseNameCheckPH(publishingHouse))
                         {
-                             result = maintainaceDal.AddDicPublishingHouse(publishingHouse);
+                            result = maintainaceDal.AddDicPublishingHouse(publishingHouse);
                         }
-                       
+
                     }
                 }
             }
@@ -133,7 +133,7 @@ namespace LibraryManagement.Bll
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
@@ -177,7 +177,7 @@ namespace LibraryManagement.Bll
             {
                 result = maintainaceDal.DeleteBookSellerById(Id);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
@@ -245,17 +245,17 @@ namespace LibraryManagement.Bll
         public bool AddCaseNameCheckBS(DictionaryBookSeller dictionaryBookSeller)
         {
             DataTable result = null;
-                
+
             try
             {
-                    result = maintainaceDal.getBookSellerByName(dictionaryBookSeller);
+                result = maintainaceDal.getBookSellerByName(dictionaryBookSeller);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
             }
-            if(result.Rows.Count == 0)
+            if (result.Rows.Count == 0)
             {
                 return true;
             }
@@ -309,7 +309,7 @@ namespace LibraryManagement.Bll
                 Console.WriteLine(e.Message);
                 throw e;
             }
-            if (result.Rows.Count <=1)
+            if (result.Rows.Count <= 1)
             {
                 return true;
             }
@@ -358,7 +358,7 @@ namespace LibraryManagement.Bll
             {
                 result = maintainaceDal.getStatisticResult(sqlStr);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
@@ -376,7 +376,7 @@ namespace LibraryManagement.Bll
             {
                 result = maintainaceDal.getStatisticInfo();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
@@ -481,6 +481,20 @@ namespace LibraryManagement.Bll
             try
             {
                 result = maintainaceDal.DeleteStatisticalInfo(statisticalInfo);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+        public bool BackupDb(BackupInfo backupInfo)
+        {
+            bool result = false;
+            try
+            {
+                result = maintainaceDal.BackUpDB(backupInfo);
             }
             catch (Exception e)
             {

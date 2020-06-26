@@ -220,7 +220,7 @@
             this.Name = "AcceptanceListForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AcceptanceListForm";
+            this.Text = "验收清单";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AcceptanceListForm_FormClosing);
             this.Load += new System.EventHandler(this.AcceptanceListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PurchaseDataGridView)).EndInit();

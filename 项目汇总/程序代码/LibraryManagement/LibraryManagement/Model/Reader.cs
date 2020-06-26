@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-
-namespace LibraryManagement.Model
+﻿namespace LibraryManagement.Model
 {
     /// <summary>
     /// 流通读者
@@ -38,7 +34,7 @@ namespace LibraryManagement.Model
         /// <summary>
         /// 读者单位
         /// </summary>
-        public string Department="";
+        public string Department = "";
 
         /// <summary>
         /// 可借数目

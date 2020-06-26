@@ -23,7 +23,7 @@ namespace LibraryManagement.Statistical
         }
 
         private void Databind()
-        { 
+        {
             statisticalInfo = statisticalBll.getStatisticalInfo();
             BindingSource bs_chooseTableTool = new BindingSource();
             bs_chooseTableTool.DataSource = statisticalInfo;

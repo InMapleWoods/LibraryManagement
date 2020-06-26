@@ -3,9 +3,6 @@ using LibraryManagement.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Bll
 {
@@ -47,6 +44,58 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userNumber"></param>
+        /// <returns></returns>
+        public bool deleteAReader(string userNumber)
+        {
+            bool result;
+            try
+            {
+                result = userManagementDal.deleteAReader(userNumber);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 修改一条读者信息记录
+        /// </summary>
+        /// <param name="order">读者信息</param>
+        /// <returns>修改成功与否</returns>
+        public bool UpdateReaderInfo(UserManagementReaderInfo info, int id, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (info.UserNumber == "")
+                {
+                    errorMsg.Add("UserNumber Error");
+                    return false;
+                }
+                if (!UserManagementReaderInfo.isNull(info))//是否有空项
+                {
+                    if (UserManagementReaderInfo.isNormative(info, ref errorMsg))//是否符合规范
+                    {
+                        result = userManagementDal.UpdateReaderInfo(info, id);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
         /// 获取全部读者信息
         /// </summary>
         /// <returns>全部读者信息</returns>
@@ -57,7 +106,7 @@ namespace LibraryManagement.Bll
             {
                 dt = userManagementDal.GetAllReadersInfo();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw e;
@@ -80,7 +129,7 @@ namespace LibraryManagement.Bll
             {
                 if (!UserManagementLogin.isNull(login))//是否有空项
                 {
-                    if(UserManagementLogin.isNormative(login, ref errorMsg))//是否符合规范
+                    if (UserManagementLogin.isNormative(login, ref errorMsg))//是否符合规范
                     {
                         result = userManagementDal.adminLogin(login);
                     }
@@ -92,6 +141,101 @@ namespace LibraryManagement.Bll
                 throw e;
             }
             return result;
+        }
+
+        /// <summary>
+        /// 管理员登陆
+        /// 格式错误 415
+        /// </summary>
+        /// <param name="login">登录信息</param>
+        /// <returns>状态码</returns>
+        public int adminLogin(UserManagementLogin login, out UserManagementAdmin admin, ref List<string> errorMsg)
+        {
+            int result = 415;
+            try
+            {
+                if (!UserManagementLogin.isNull(login))//是否有空项
+                {
+                    if (UserManagementLogin.isNormative(login, ref errorMsg))//是否符合规范
+                    {
+                        return userManagementDal.adminLogin(login, out admin);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            admin = null;
+            return result;
+        }
+        #endregion
+
+        #region 读者权限管理
+        public bool UpdateReaderLevel(UserManagementReaderLevel level, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (level.UserNumber == "")
+                {
+                    errorMsg.Add("UserNumber Error");
+                    return false;
+                }
+                if (!UserManagementReaderLevel.isNull(level))//是否有空项
+                {
+                    if (UserManagementReaderLevel.isNormative(level, ref errorMsg))//是否符合规范
+                    {
+                        switch (level.ReaderLevelName)
+                        {
+                            case "1":
+                                result = userManagementDal.ChangeReaderLevelToOne(level);
+                                break;
+                            case "2":
+                                result = userManagementDal.ChangeReaderLevelToTwo(level);
+                                break;
+                            case "3":
+                                result = userManagementDal.ChangeReaderLevelToThree(level);
+                                break;
+                            case "4":
+                                result = userManagementDal.ChangeReaderLevelToFour(level);
+                                break;
+                            case "5":
+                                result = userManagementDal.ChangeReaderLevelToFive(level);
+                                break;
+                            default:
+                                result = false;
+                                break;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取全部读者权限
+        /// </summary>
+        /// <returns>全部读者权限</returns>
+        public DataTable GetAllReadersLevel()
+        {
+            DataTable dt;
+            try
+            {
+                dt = userManagementDal.GetAllReadersLevel();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return dt;
         }
         #endregion
     }

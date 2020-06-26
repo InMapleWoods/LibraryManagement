@@ -239,6 +239,8 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(873, 395);
             this.dataGridView1.TabIndex = 43;
+            this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // scriptUserControl1
             // 
@@ -274,7 +276,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.scriptUserControl1);
             this.Name = "AdminOperationForm";
-            this.Text = "AdminOperationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "用户管理子系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminOperationForm_FormClosing);
             this.Load += new System.EventHandler(this.AdminOperationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

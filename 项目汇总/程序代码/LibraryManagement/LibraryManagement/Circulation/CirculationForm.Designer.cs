@@ -37,7 +37,7 @@
             // 
             // bookBorrowButton
             // 
-            this.bookBorrowButton.Location = new System.Drawing.Point(92, 126);
+            this.bookBorrowButton.Location = new System.Drawing.Point(154, 141);
             this.bookBorrowButton.Name = "bookBorrowButton";
             this.bookBorrowButton.Size = new System.Drawing.Size(97, 98);
             this.bookBorrowButton.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // bookDamageButton
             // 
-            this.bookDamageButton.Location = new System.Drawing.Point(482, 126);
+            this.bookDamageButton.Location = new System.Drawing.Point(544, 141);
             this.bookDamageButton.Name = "bookDamageButton";
             this.bookDamageButton.Size = new System.Drawing.Size(97, 98);
             this.bookDamageButton.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             // bookAppointButton
             // 
-            this.bookAppointButton.Location = new System.Drawing.Point(226, 126);
+            this.bookAppointButton.Location = new System.Drawing.Point(288, 141);
             this.bookAppointButton.Name = "bookAppointButton";
             this.bookAppointButton.Size = new System.Drawing.Size(97, 98);
             this.bookAppointButton.TabIndex = 0;
@@ -67,7 +67,7 @@
             // 
             // bookReturnButton
             // 
-            this.bookReturnButton.Location = new System.Drawing.Point(356, 126);
+            this.bookReturnButton.Location = new System.Drawing.Point(418, 141);
             this.bookReturnButton.Name = "bookReturnButton";
             this.bookReturnButton.Size = new System.Drawing.Size(97, 98);
             this.bookReturnButton.TabIndex = 0;
@@ -77,7 +77,7 @@
             // 
             // defaultHandleButton
             // 
-            this.defaultHandleButton.Location = new System.Drawing.Point(605, 126);
+            this.defaultHandleButton.Location = new System.Drawing.Point(667, 141);
             this.defaultHandleButton.Name = "defaultHandleButton";
             this.defaultHandleButton.Size = new System.Drawing.Size(97, 98);
             this.defaultHandleButton.TabIndex = 0;
@@ -89,7 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(939, 459);
             this.Controls.Add(this.defaultHandleButton);
             this.Controls.Add(this.bookDamageButton);
             this.Controls.Add(this.bookReturnButton);
@@ -97,7 +97,7 @@
             this.Controls.Add(this.bookBorrowButton);
             this.Name = "CirculationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CirculationForm";
+            this.Text = "流通子系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CirculationForm_FormClosing);
             this.Load += new System.EventHandler(this.CirculationForm_Load);
             this.ResumeLayout(false);

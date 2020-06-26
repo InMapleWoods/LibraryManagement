@@ -1,12 +1,7 @@
 ﻿using LibraryManagement.Model;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Deployment.Internal;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Dal
 {
@@ -472,7 +467,7 @@ namespace LibraryManagement.Dal
         public bool BookLost(int Id)
         {
             string sqlStr = " UPDATE tb_CirculateBooks  " +
-                " SET BookStatus = '已丢失'  " +
+                " SET BookStatus = '已缺失'  " +
                 " WHERE " +
                 " Id = @id  " +
                 " AND BookStatus = '已借阅'; ";
@@ -591,6 +586,47 @@ namespace LibraryManagement.Dal
                 BookStatus = row["图书状态"].ToString(),
             };
             return book;
+        }
+
+        /// <summary>
+        /// 获取所有流通图书
+        /// </summary>
+        /// <param name="isbn">ISBN</param>
+        /// <param name="title">正题名</param>
+        /// <param name="author">作者</param>
+        /// <param name="documentType">文献类型</param>
+        /// <returns>流通图书</returns>
+        public DataTable GetAllBooks(string isbn, string title, string author, string documentType)
+        {
+            isbn = "%" + isbn + "%";
+            author = "%" + author + "%";
+            title = "%" + title + "%";
+            documentType = "%" + documentType + "%";
+            string strSql = " SELECT " +
+                " tb_CirculateBooks.Id AS `编号`, " +
+                " tb_CirculateBooks.OfficialTitle AS `题目`, " +
+                " tb_CirculateBooks.ISBN AS `ISBN号`, " +
+                " tb_CirculateBooks.FirstAuthor AS `作者`, " +
+                " tb_DictionaryPublishingHouse.PublishingHouse AS `出版社`, " +
+                " tb_CirculateBooks.DocumentType AS `类型`  " +
+                " FROM " +
+                " tb_CirculateBooks " +
+                " INNER JOIN tb_DictionaryPublishingHouse ON tb_CirculateBooks.PublishingHouseId = tb_DictionaryPublishingHouse.Id  " +
+                " WHERE " +
+                " tb_CirculateBooks.ISBN LIKE @isbn  " +
+                " AND tb_CirculateBooks.FirstAuthor LIKE @author  " +
+                " AND tb_CirculateBooks.OfficialTitle LIKE @title  " +
+                " AND tb_CirculateBooks.DocumentType LIKE @documentType " +
+                " AND tb_CirculateBooks.BookStatus ='可借阅'  ;";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@isbn", isbn),
+                new MySqlParameter("@author", author),
+                new MySqlParameter("@title", title),
+                new MySqlParameter("@documentType", documentType),
+            };
+            DataTable dataTable = helper.ExecuteQuery(strSql, paras, CommandType.Text);
+            return dataTable;
         }
 
         /// <summary>

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Model
 {
@@ -51,7 +47,7 @@ namespace LibraryManagement.Model
         /// <returns></returns>
         public static bool isNull(DictionaryBookSeller bookseller)
         {
-            
+
             if (bookseller.BookSeller == "")
             {
                 return true;
