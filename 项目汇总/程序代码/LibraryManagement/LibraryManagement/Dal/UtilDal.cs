@@ -90,15 +90,38 @@ namespace LibraryManagement.Dal
             string sqlStr = "select Id, DepartmentName from tb_ReaderDepartment";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlStr, paras, CommandType.Text);
-            if(dataTable == null || dataTable.Rows.Count == 0)
+            if (dataTable == null || dataTable.Rows.Count == 0)
             {
                 return null;
             }
             Dictionary<int, string> result = new Dictionary<int, string>();
-            foreach(DataRow i in dataTable.Rows)
+            foreach (DataRow i in dataTable.Rows)
             {
                 int idResult = (int)i["Id"];
                 string departmentNameResult = (string)i["DepartmentName"];
+                result.Add(idResult, departmentNameResult);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取读者级别
+        /// </summary>
+        /// <returns>读者级别</returns>
+        public Dictionary<int, string> GetReaderLevel()
+        {
+            string sqlStr = "select Id, ReaderLevelName from tb_ReaderLevel";
+            MySqlParameter[] paras = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlStr, paras, CommandType.Text);
+            if (dataTable == null || dataTable.Rows.Count == 0)
+            {
+                return null;
+            }
+            Dictionary<int, string> result = new Dictionary<int, string>();
+            foreach (DataRow i in dataTable.Rows)
+            {
+                int idResult = (int)i["Id"];
+                string departmentNameResult = (string)i["ReaderLevelName"];
                 result.Add(idResult, departmentNameResult);
             }
             return result;

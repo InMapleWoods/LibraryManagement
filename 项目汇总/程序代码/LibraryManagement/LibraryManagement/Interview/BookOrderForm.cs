@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using LibraryManagement.Tools.MyUserControl;
+﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
-using LibraryManagement.Bll;
+using LibraryManagement.Tools.MyUserControl;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace LibraryManagement.Interview
 {
@@ -58,7 +53,7 @@ namespace LibraryManagement.Interview
         /// <summary>
         /// 添加记录
         /// </summary>
-        private void AddLog_Click(object sender,EventArgs e)
+        private void AddLog_Click(object sender, EventArgs e)
         {
             try
             {
@@ -66,7 +61,7 @@ namespace LibraryManagement.Interview
                 //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
                 InterviewPurchaseOrder order = GetPurchaseOrder(ref errorList);
                 //判断是否添加订单成功
-                if(interviewBll.AddPurchaseOrder(order, ref errorList))
+                if (interviewBll.AddPurchaseOrder(order, ref errorList))
                 {
                     MessageBox.Show("添加成功");
                 }
@@ -256,7 +251,7 @@ namespace LibraryManagement.Interview
 
             //出版社Id
             int publisherId = ((KeyValuePair<int, string>)publishingHouseComboBox.SelectedItem).Key;
-            
+
             //判断订购人账号是否符合要求
             Match matchOrderer = Regex.Match(SubscriberTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
             if (!matchOrderer.Success)

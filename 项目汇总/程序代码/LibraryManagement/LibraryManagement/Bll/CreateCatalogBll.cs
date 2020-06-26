@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LibraryManagement.Dal;
+﻿using LibraryManagement.Dal;
 using LibraryManagement.Model;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
 
 namespace LibraryManagement.Bll
 {
@@ -15,7 +12,7 @@ namespace LibraryManagement.Bll
         /// <summary>
         /// 订单数据操作对象
         /// </summary>
-        CatalogDal createDal= new CatalogDal();
+        CatalogDal createDal = new CatalogDal();
 
         #region 直接编目
         /// <summary>
@@ -34,7 +31,7 @@ namespace LibraryManagement.Bll
                 {
                     if (CreateCatalogList.isNormative(list, ref errorMsg))//是否符合规范
                     {
-                        result = createDal.AddCatalogList(list );
+                        result = createDal.AddCatalogList(list);
                     }
                 }
             }
@@ -299,7 +296,7 @@ namespace LibraryManagement.Bll
             DataTable result = null;
             try
             {
-                result = createDal.GetAllQueryCatalogForm( id);
+                result = createDal.GetAllQueryCatalogForm(id);
             }
             catch (Exception e)
             {

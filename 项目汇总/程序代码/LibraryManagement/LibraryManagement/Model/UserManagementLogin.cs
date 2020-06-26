@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Model
 {
@@ -28,11 +24,11 @@ namespace LibraryManagement.Model
         /// <returns></returns>
         public static bool isNull(UserManagementLogin login)
         {
-            if(login.UserNumber == "")
+            if (login.UserNumber == "")
             {
                 return true;
             }
-            if(login.Password == "")
+            if (login.Password == "")
             {
                 return true;
             }
@@ -48,17 +44,17 @@ namespace LibraryManagement.Model
         {
             List<string> errorList = new List<string>();
             Match matchUserNumber = Regex.Match(login.UserNumber, @"(\d{12}|\d{10}|\d{8})");
-            if(!matchUserNumber.Success)
+            if (!matchUserNumber.Success)
             {
                 errorList.Add("UserNumber Error");
             }
             Match matchPassword = Regex.Match(login.Password, @"\S{6,16}");
-            if(!matchPassword.Success)
+            if (!matchPassword.Success)
             {
                 errorList.Add("Password Error");
             }
             errorMsg = errorList;
-            if(errorList.Count > 0)
+            if (errorList.Count > 0)
             {
                 return false;
             }

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 namespace LibraryManagementFunctionTest.Model
@@ -37,7 +40,12 @@ namespace LibraryManagementFunctionTest.Model
         /// <summary>
         /// 价格
         /// </summary>
-        public int Price = 0;
+        public double Price = 0;
+
+        /// <summary>
+        /// 货币种类
+        /// </summary>
+        public string CurrencyType = "";
 
         /// <summary>
         /// 出版社ID
@@ -50,26 +58,34 @@ namespace LibraryManagementFunctionTest.Model
         public string DocumentType = "";
 
         /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark = "";
+
+        /// <summary>
         /// 判断订单是否有空项
         /// </summary>
         /// <param name="order">待判断订单</param>
         /// <returns>是否有空项</returns>
-
         public static bool isNull(InterviewPurchaseOrder order)
         {
-            if (order.ISBN == "")
+            if(order.ISBN == "")
             {
                 return true;
             }
-            if (order.OrdererId == 0)
+            if(order.OrdererId == 0)
             {
                 return true;
             }
-            if (order.BookName == "")
+            if(order.BookName == "")
             {
                 return true;
             }
-            if (order.Price == 0)
+            if(order.Price == 0)
+            {
+                return true;
+            }
+            if (order.CurrencyType == "")
             {
                 return true;
             }
@@ -77,7 +93,7 @@ namespace LibraryManagementFunctionTest.Model
             {
                 return true;
             }
-            if (order.DocumentType == "")
+            if(order.DocumentType == "")
             {
                 return true;
             }
@@ -90,8 +106,7 @@ namespace LibraryManagementFunctionTest.Model
         /// <param name="order">待判断订单</param>
         /// <param name="errorMsg">错误信息</param>
         /// <returns>是否规范</returns>
-
-        public static bool isNormative(InterviewPurchaseOrder order, ref List<string> errorMsg)
+        public static bool isNormative(InterviewPurchaseOrder order , ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
             if (order.OrdererId <= 0)
@@ -103,7 +118,7 @@ namespace LibraryManagementFunctionTest.Model
             {
                 errorList.Add("ISBN Error");
             }
-            if (order.Price <= 0)
+            if(order.Price <= 0)
             {
                 errorList.Add("Price Error");
             }
@@ -111,7 +126,7 @@ namespace LibraryManagementFunctionTest.Model
             {
                 errorList.Add("PublishingHouseId Error");
             }
-            Match matchDocumentType = Regex.Match(order.DocumentType, @"\b(期刊|专著)\b");
+            Match matchDocumentType = Regex.Match(order.DocumentType, @"\b(期刊|专著|论文|电子文献|专利)\b");
             if (!matchDocumentType.Success)
             {
                 errorList.Add("DocumentType Error");

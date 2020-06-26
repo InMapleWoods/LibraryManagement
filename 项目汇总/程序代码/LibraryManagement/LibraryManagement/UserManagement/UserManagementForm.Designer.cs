@@ -89,7 +89,8 @@
             this.Controls.Add(this.txb_Login);
             this.Controls.Add(this.adminLoginButton);
             this.Name = "UserManagementForm";
-            this.Text = "UserManagementForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "登录";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserManagementForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

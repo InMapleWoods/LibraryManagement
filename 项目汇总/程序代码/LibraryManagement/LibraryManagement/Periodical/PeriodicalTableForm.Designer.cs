@@ -188,7 +188,7 @@
             this.Controls.Add(this.orderNumLabel);
             this.Name = "PeriodicalTableForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PeriodicalTableForm";
+            this.Text = "期刊报表查询";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PeriodicalTableForm_FormClosing);
             this.Load += new System.EventHandler(this.PeriodicalTableForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

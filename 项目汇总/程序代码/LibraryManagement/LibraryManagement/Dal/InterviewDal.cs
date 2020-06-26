@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LibraryManagement.Model;
+﻿using LibraryManagement.Model;
 using MySql.Data.MySqlClient;
 using System.Data;
 
@@ -450,7 +445,7 @@ namespace LibraryManagement.Dal
                 "tb_AdminInformation " +
                 "on tb_AcceptanceList.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
                 "and tb_AcceptanceList.BookSellerId=tb_DictionaryBookSeller.Id " +
-                "and tb_AcceptanceList.OrdererId=tb_AdminInformation.UserId ;"; 
+                "and tb_AcceptanceList.OrdererId=tb_AdminInformation.UserId ;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;

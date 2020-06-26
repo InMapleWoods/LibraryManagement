@@ -89,7 +89,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "MoveCatalogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MoveCatalogForm";
+            this.Text = "编目移送";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MoveCatalogForm_FormClosing);
             this.Load += new System.EventHandler(this.MoveCatalogForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -81,5 +81,24 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
+
+        /// <summary>
+        /// 获取读者级别
+        /// </summary>
+        /// <returns>读者级别</returns>
+        public Dictionary<int, string> GetReaderLevel()
+        {
+            Dictionary<int, string> result = new Dictionary<int, string>();
+            try
+            {
+                result = utilDal.GetReaderLevel();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
     }
 }

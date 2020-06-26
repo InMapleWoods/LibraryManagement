@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using LibraryManagement.Bll;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryManagement.Bll;
-using LibraryManagement.Dal;
-using LibraryManagement.Model;
 
 namespace LibraryManagement.Catalog
 {
@@ -46,9 +38,9 @@ namespace LibraryManagement.Catalog
         /// </summary>
         private void DataBind()
         {
-            string id= iDTextBox.Text;
+            string id = iDTextBox.Text;
             queryDataGridView.DataSource = createCatalogBll.GetAllQueryPeriodOrders(id);
-          
+
         }
 
         /// <summary>
@@ -98,7 +90,7 @@ namespace LibraryManagement.Catalog
                 MessageBox.Show(ex.Message);
             }
         }
-       
+
 
         private void scriptUserControl1_Load(object sender, EventArgs e)
         {

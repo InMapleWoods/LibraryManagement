@@ -76,7 +76,7 @@
             this.Controls.Add(this.Btn_dictionaryEdit);
             this.Name = "MaitainanceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MaitainanceForm";
+            this.Text = "系统维护子系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MaitainanceForm_FormClosing);
             this.Load += new System.EventHandler(this.MaitainanceForm_Load);
             this.ResumeLayout(false);
