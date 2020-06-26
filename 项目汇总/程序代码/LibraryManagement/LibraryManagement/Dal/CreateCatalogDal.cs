@@ -321,7 +321,7 @@ namespace LibraryManagement.Dal
                 FirstAuthor = row["第一作者"].ToString(),
                 PublishingHouseId = int.Parse(row["出版社编号"].ToString()),
                 DocumentType = row["文献类型"].ToString(),
-                State = row["图书状态"].ToString(),
+                
             };
             // return createCatalogList;
             sqlStr = "INSERT INTO tb_CirculateBooks (" +

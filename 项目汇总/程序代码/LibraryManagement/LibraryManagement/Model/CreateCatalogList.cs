@@ -56,11 +56,7 @@ namespace LibraryManagement.Model
         /// </summary>
         public string PrimaryLiability = "";
 
-        /// <summary>
-        /// 状态
-        /// </summary>
-        public string State = "";
-
+       
         /// <summary>
         /// 判断列表是否有空项
         /// </summary>
@@ -96,10 +92,7 @@ namespace LibraryManagement.Model
             {
                 return true;
             }
-            if (list.State == "")
-            {
-                return true;
-            }
+           
             return false;
         }
         /// <summary>
