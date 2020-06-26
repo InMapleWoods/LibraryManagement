@@ -11,6 +11,7 @@ namespace LibraryManagement.Model
        public int Id;
        public DateTime BackupTime;
        public String BackupPath;
+       public String MysqldumpPath;
        public static bool isNull(BackupInfo backupInfo)
        {
 
@@ -19,6 +20,10 @@ namespace LibraryManagement.Model
                 return true;
             }
             if (backupInfo.BackupPath == "")
+            {
+                return true;
+            }
+            if (backupInfo.MysqldumpPath == "")
             {
                 return true;
             }

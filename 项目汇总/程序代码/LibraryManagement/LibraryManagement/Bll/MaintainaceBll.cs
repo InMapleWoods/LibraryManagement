@@ -489,5 +489,18 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
+        public bool BackupDb(BackupInfo backupInfo)
+        {
+            bool result = false;
+            try
+            {
+                result=maintainaceDal.BackUpDB(backupInfo);
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
     }
 }

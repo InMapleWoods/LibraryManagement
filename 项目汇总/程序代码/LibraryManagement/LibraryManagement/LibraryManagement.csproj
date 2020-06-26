@@ -355,6 +355,7 @@
     <Compile Include="Tools\MyUserControl\ScriptUserControl.Designer.cs">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\RunCmd.cs" />
     <Compile Include="UserManagement\AdminOperationForm.cs">
       <SubType>Form</SubType>
     </Compile>

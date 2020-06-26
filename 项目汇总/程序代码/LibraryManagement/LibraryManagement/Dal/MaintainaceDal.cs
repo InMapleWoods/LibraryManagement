@@ -1,11 +1,14 @@
 ﻿using LibraryManagement.Model;
+using LibraryManagement.Tools;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LibraryManagement.Dal
 {
@@ -154,7 +157,7 @@ namespace LibraryManagement.Dal
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
-                
+
                 new MySqlParameter("@BookSeller",bookSeller.BookSeller),
                 new MySqlParameter("@Location",bookSeller.Location),
                 new MySqlParameter("@Contact",bookSeller.Contact),
@@ -523,5 +526,35 @@ namespace LibraryManagement.Dal
                 return false;
             }
         }
+        public bool BackUpDB(BackupInfo backupInfo)
+        {
+
+            //调用mysqldump备份mysql数据库的语句
+            string backupsql = string.Format("mysqldump --host={0} --port={1} --user={2} --password={3} --default-character-set=gbk --lock-tables  --routines --force --quick  ", "152.136.73.240", "1733", "Lsa","llfllf");
+            //mysqldump的路径
+            string mysqldump = backupInfo.MysqldumpPath;
+            //需要备份的数据库名称
+            string strDB = "db_LibraryManagement";
+            //备份数据库的路径
+            string strDBpath = backupInfo.BackupPath;
+
+            //判断备份的数据库路径是否存在
+            if (!Directory.Exists(strDBpath))
+            {
+                Directory.CreateDirectory(strDBpath);
+            }
+
+            //备份数据库
+            if (!string.IsNullOrEmpty(strDB))
+            {
+                string filePath = strDBpath +@"\"+ backupInfo.BackupTime.ToString("yyyyMMdd_HHmmss") + strDB + ".sql";
+                string cmd = backupsql + strDB + " > " + filePath;
+                RunCmd r = new RunCmd();
+                string result=r.runCmd(mysqldump, cmd);
+                return true;
+            }
+            return false;
+        }
+
     }
 }
