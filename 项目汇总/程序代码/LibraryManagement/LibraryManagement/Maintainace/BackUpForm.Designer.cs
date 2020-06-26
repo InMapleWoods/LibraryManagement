@@ -38,6 +38,7 @@
             this.checkBox_ClosingProgramBackupCheck = new System.Windows.Forms.CheckBox();
             this.btn_Recovery = new System.Windows.Forms.Button();
             this.btn_selectDumpPath = new System.Windows.Forms.Button();
+            this.label_msg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_FilePath
@@ -55,6 +56,7 @@
             this.textBox_Path.Name = "textBox_Path";
             this.textBox_Path.Size = new System.Drawing.Size(100, 21);
             this.textBox_Path.TabIndex = 1;
+            this.textBox_Path.Text = "D:\\DbLibraryManagementBackup";
             // 
             // folderBrowserDialog1
             // 
@@ -126,11 +128,22 @@
             this.btn_selectDumpPath.UseVisualStyleBackColor = true;
             this.btn_selectDumpPath.Click += new System.EventHandler(this.btn_selectDumpPath_Click);
             // 
+            // label_msg
+            // 
+            this.label_msg.AutoSize = true;
+            this.label_msg.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label_msg.Location = new System.Drawing.Point(12, 105);
+            this.label_msg.Name = "label_msg";
+            this.label_msg.Size = new System.Drawing.Size(29, 12);
+            this.label_msg.TabIndex = 9;
+            this.label_msg.Text = "必选";
+            // 
             // BackUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 236);
+            this.Controls.Add(this.label_msg);
             this.Controls.Add(this.btn_selectDumpPath);
             this.Controls.Add(this.btn_Recovery);
             this.Controls.Add(this.checkBox_ClosingProgramBackupCheck);
@@ -161,5 +174,6 @@
         private System.Windows.Forms.CheckBox checkBox_ClosingProgramBackupCheck;
         private System.Windows.Forms.Button btn_Recovery;
         private System.Windows.Forms.Button btn_selectDumpPath;
+        private System.Windows.Forms.Label label_msg;
     }
 }
