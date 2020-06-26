@@ -59,14 +59,21 @@ namespace LibraryManagement.Maintainace
             {
                 List<string> errorList = new List<string>();
                 BackupInfo backupInfo = getBackupInfo(ref errorList);
-                if (maintainaceBll.BackupDb(backupInfo))
+                if (!BackupInfo.isNull(backupInfo))
                 {
+                    if (maintainaceBll.BackupDb(backupInfo))
+                    {
 
-                    MessageBox.Show("备份成功","提示");
+                        MessageBox.Show("备份成功", "提示");
+                    }
+                    else
+                    {
+                        MessageBox.Show("备份失败", "提示");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("备份失败", "提示");
+                    MessageBox.Show("格式错误","提示");
                 }
             }
             catch (Exception ex)
