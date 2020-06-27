@@ -37,15 +37,23 @@ namespace LibraryManagement.UserManagement
             Hide();
         }
 
+        /// <summary>
+        /// 添加管理员窗体
+        /// </summary>
+        private void button_addAdmin_Click(object sender, EventArgs e)
+        {
+            var form = new AdminAddNewAdmin(this);
+            form.Show();
+            Hide();
+        }
+
+        /// <summary>
+        /// 窗体关闭函数
+        /// </summary>
         private void UserManagementAdminChoice_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
             Hide();
-        }
-
-        private void button_addAdmin_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("待完善");
         }
     }
 }
