@@ -40,7 +40,7 @@
             this.adminLoginButton.Location = new System.Drawing.Point(185, 242);
             this.adminLoginButton.Name = "adminLoginButton";
             this.adminLoginButton.Size = new System.Drawing.Size(103, 50);
-            this.adminLoginButton.TabIndex = 0;
+            this.adminLoginButton.TabIndex = 2;
             this.adminLoginButton.Text = "管理员登录";
             this.adminLoginButton.UseVisualStyleBackColor = true;
             this.adminLoginButton.Click += new System.EventHandler(this.adminLoginButton_Click);
@@ -50,7 +50,8 @@
             this.txb_Login.Location = new System.Drawing.Point(185, 84);
             this.txb_Login.Name = "txb_Login";
             this.txb_Login.Size = new System.Drawing.Size(215, 25);
-            this.txb_Login.TabIndex = 2;
+            this.txb_Login.TabIndex = 0;
+            this.txb_Login.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txb_Login_KeyDown);
             // 
             // label1
             // 
@@ -75,8 +76,9 @@
             this.txb_Password.Location = new System.Drawing.Point(185, 168);
             this.txb_Password.Name = "txb_Password";
             this.txb_Password.Size = new System.Drawing.Size(215, 25);
-            this.txb_Password.TabIndex = 5;
+            this.txb_Password.TabIndex = 1;
             this.txb_Password.UseSystemPasswordChar = true;
+            this.txb_Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txb_Password_KeyDown);
             // 
             // UserManagementForm
             // 
