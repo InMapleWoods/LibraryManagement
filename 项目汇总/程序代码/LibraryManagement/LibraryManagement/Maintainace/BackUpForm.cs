@@ -3,6 +3,7 @@ using LibraryManagement.Model;
 using LibraryManagement.Tools;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace LibraryManagement.Maintainace
@@ -53,22 +54,31 @@ namespace LibraryManagement.Maintainace
             {
                 List<string> errorList = new List<string>();
                 BackupInfo backupInfo = getBackupInfo(ref errorList);
+
                 if (!BackupInfo.isNull(backupInfo))
                 {
-                    if (maintainaceBll.BackupDb(backupInfo))
+                    if (File.Exists(backupInfo.MysqldumpPath + "\\mysqldump.exe"))
                     {
+                        if (maintainaceBll.BackupDb(backupInfo))
+                        {
 
-                        MessageBox.Show("备份成功", "提示");
+                            MessageBox.Show("备份成功", "提示");
+                        }
+                        else
+                        {
+                            MessageBox.Show("备份失败", "提示");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("备份失败", "提示");
+                        MessageBox.Show("mysqldump路径错误", "提示");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("格式错误","提示");
+                    MessageBox.Show("格式错误", "提示");
                 }
+
             }
             catch (Exception ex)
             {
@@ -90,26 +100,35 @@ namespace LibraryManagement.Maintainace
 
         private void btn_Recovery_Click(object sender, EventArgs e)
         {
-
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
+            string mysqldump = textBox_MysqlDumpPath.Text.ToString();
+            if (File.Exists(mysqldump + "//mysqldump.exe"))
             {
-                //调用mysqldump备份mysql数据库的语句
-                string backupsql = string.Format("mysql --host={0} --default-character-set=gbk  --port={1} --user={2} --password={3} ", "152.136.73.240", "1733", "Lsa", "llfllf");
-                //mysql的路径
-                string mysqldump = textBox_MysqlDumpPath.Text.ToString();
-                //需要备份的数据库名称
-                string strDB = "db_LibraryManagement";
+                //存在
+                OpenFileDialog ofd = new OpenFileDialog();
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    //调用mysqldump备份mysql数据库的语句
+                    string backupsql = string.Format("mysql --host={0} --default-character-set=gbk  --port={1} --user={2} --password={3} ", "152.136.73.240", "1733", "Lsa", "llfllf");
+                    //mysql的路径
 
-                string filePath = ofd.FileName;
-                MessageBox.Show(filePath, "当前选择的路径");
+                    //需要备份的数据库名称
+                    string strDB = "db_backuptest";
 
-                string cmd = backupsql + strDB + " < \"" + filePath + "\"";
-                RunCmd r = new RunCmd();
-                string result = r.runCmd(mysqldump, cmd);
+                    string filePath = ofd.FileName;
+                    MessageBox.Show(filePath, "当前选择的路径");
 
-                MessageBox.Show("数据库恢复成功!", "MySQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string cmd = backupsql + strDB + " < \"" + filePath + "\"";
+                    RunCmd r = new RunCmd();
+                    string result = r.runCmd(mysqldump, cmd);
+
+                    MessageBox.Show("数据库恢复成功!", "MySQL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+            else
+            {
+                MessageBox.Show("mysqldump路径错误", "提示");
+            }
+
         }
 
     }

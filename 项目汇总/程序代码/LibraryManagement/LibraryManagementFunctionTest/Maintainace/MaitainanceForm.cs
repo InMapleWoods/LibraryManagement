@@ -19,7 +19,7 @@ namespace LibraryManagementFunctionTest.Maintainace
 
         private void Btn_dictionaryEdit_Click(object sender, EventArgs e)
         {
-            var form = new DictionaryEditForm(this);
+            var form = new DictionaryBookSeller(this);
             form.Show();
             Hide();
         }

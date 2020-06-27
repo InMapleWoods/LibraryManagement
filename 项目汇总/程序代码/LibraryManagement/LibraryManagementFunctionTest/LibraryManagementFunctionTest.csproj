@@ -121,17 +121,17 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Maintainace\BackUpForm.cs">
+    <Compile Include="Maintainace\DictionaryPublishingHouseEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Maintainace\BackUpForm.Designer.cs">
-      <DependentUpon>BackUpForm.cs</DependentUpon>
+    <Compile Include="Maintainace\DictionaryPublishingHouseEdit.Designer.cs">
+      <DependentUpon>DictionaryPublishingHouseEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Maintainace\DictionaryEditForm.cs">
+    <Compile Include="Maintainace\DictionaryBookSellerEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Maintainace\DictionaryEditForm.Designer.cs">
-      <DependentUpon>DictionaryEditForm.cs</DependentUpon>
+    <Compile Include="Maintainace\DictionaryBookSellerEdit.Designer.cs">
+      <DependentUpon>DictionaryBookSellerEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Maintainace\MaitainanceForm.cs">
       <SubType>Form</SubType>
@@ -147,6 +147,7 @@
     <Compile Include="Model\PeriodicalArrival.cs" />
     <Compile Include="Model\PeriodicalOrder.cs" />
     <Compile Include="Model\Reader.cs" />
+    <Compile Include="Model\StatisticalInfo.cs" />
     <Compile Include="Periodical\PeriodicalArrivalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,11 +229,11 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Maintainace\BackUpForm.resx">
-      <DependentUpon>BackUpForm.cs</DependentUpon>
+    <EmbeddedResource Include="Maintainace\DictionaryPublishingHouseEdit.resx">
+      <DependentUpon>DictionaryPublishingHouseEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Maintainace\DictionaryEditForm.resx">
-      <DependentUpon>DictionaryEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="Maintainace\DictionaryBookSellerEdit.resx">
+      <DependentUpon>DictionaryBookSellerEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintainace\MaitainanceForm.resx">
       <DependentUpon>MaitainanceForm.cs</DependentUpon>
