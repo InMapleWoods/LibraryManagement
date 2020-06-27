@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace LibraryManagementFunctionTest.Model
 {
     /// <summary>
-    /// 采购订单
+    /// 退货清单
     /// </summary>
-    public class InterviewPurchaseOrder
+    public class InterviewReturnList
     {
         /// <summary>
-        /// 订单号
+        /// 单号
         /// </summary>
         public int Id = 0;
 
@@ -43,11 +43,6 @@ namespace LibraryManagementFunctionTest.Model
         public double Price = 0;
 
         /// <summary>
-        /// 货币种类
-        /// </summary>
-        public string CurrencyType = "";
-
-        /// <summary>
         /// 出版社ID
         /// </summary>
         public int PublishingHouseId = 0;
@@ -58,42 +53,33 @@ namespace LibraryManagementFunctionTest.Model
         public string DocumentType = "";
 
         /// <summary>
-        /// 备注
+        /// 判断清单是否有空项
         /// </summary>
-        public string Remark = "";
-
-        /// <summary>
-        /// 判断订单是否有空项
-        /// </summary>
-        /// <param name="order">待判断订单</param>
+        /// <param name="list">待判断清单</param>
         /// <returns>是否有空项</returns>
-        public static bool isNull(InterviewPurchaseOrder order)
+        public static bool isNull(InterviewReturnList list)
         {
-            if(order.ISBN == "")
+            if (list.ISBN == "")
             {
                 return true;
             }
-            if(order.OrdererId == 0)
+            if (list.OrdererId == 0)
             {
                 return true;
             }
-            if(order.BookName == "")
+            if (list.BookName == "")
             {
                 return true;
             }
-            if(order.Price == 0)
+            if (list.Price == 0)
             {
                 return true;
             }
-            if (order.CurrencyType == "")
+            if (list.PublishingHouseId == 0)
             {
                 return true;
             }
-            if (order.PublishingHouseId == 0)
-            {
-                return true;
-            }
-            if(order.DocumentType == "")
+            if (list.DocumentType == "")
             {
                 return true;
             }
@@ -101,32 +87,32 @@ namespace LibraryManagementFunctionTest.Model
         }
 
         /// <summary>
-        /// 判断订单是否规范
+        /// 判断清单是否规范
         /// </summary>
-        /// <param name="order">待判断订单</param>
+        /// <param name="list">待判断清单</param>
         /// <param name="errorMsg">错误信息</param>
         /// <returns>是否规范</returns>
-        public static bool isNormative(InterviewPurchaseOrder order , ref List<string> errorMsg)
+        public static bool isNormative(InterviewReturnList list, ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
-            if (order.OrdererId <= 0)
+            if (list.OrdererId <= 0)
             {
                 errorList.Add("OrdererId Error");
             }
-            Match matchISBN = Regex.Match(order.ISBN, @"^(\d{10})$");
+            Match matchISBN = Regex.Match(list.ISBN, @"^(\d{10})$");
             if (!matchISBN.Success)
             {
                 errorList.Add("ISBN Error");
             }
-            if(order.Price <= 0)
+            if (list.Price <= 0)
             {
                 errorList.Add("Price Error");
             }
-            if (order.PublishingHouseId <= 0)
+            if (list.PublishingHouseId <= 0)
             {
                 errorList.Add("PublishingHouseId Error");
             }
-            Match matchDocumentType = Regex.Match(order.DocumentType, @"\b(期刊|专著|论文|电子文献|专利)\b");
+            Match matchDocumentType = Regex.Match(list.DocumentType, @"\b(期刊|专著|论文|电子文献|专利)\b");
             if (!matchDocumentType.Success)
             {
                 errorList.Add("DocumentType Error");
