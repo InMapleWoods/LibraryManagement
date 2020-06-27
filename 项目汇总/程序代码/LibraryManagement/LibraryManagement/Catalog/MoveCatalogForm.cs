@@ -1,6 +1,7 @@
 ﻿using LibraryManagement.Bll;
 using System;
 using System.Windows.Forms;
+using System.Data;
 
 namespace LibraryManagement.Catalog
 {
@@ -93,6 +94,47 @@ namespace LibraryManagement.Catalog
                 MessageBox.Show(ex.Message);
             }
             DataBind();//数据绑定
+        }
+
+        /// <summary>
+        /// 打印按钮点击事件
+        /// </summary>
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)dataGridView1.DataSource);
+                if (print.PrintDataTable())//打印datagridview中的内容
+                {
+                    MessageBox.Show("打印成功");
+                }
+                else
+                {
+                    MessageBox.Show("打印失败");
+                }
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 打印预览按钮事件
+        /// </summary>
+        private void previewBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)dataGridView1.DataSource);
+                print.PrintPreview();//显示打印预览
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
