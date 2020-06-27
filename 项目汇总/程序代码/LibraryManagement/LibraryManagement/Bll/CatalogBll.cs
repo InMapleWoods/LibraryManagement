@@ -7,7 +7,7 @@ using System.Data;
 
 namespace LibraryManagement.Bll
 {
-    public class CreateCatalogBll
+    public class CatalogBll
     {
         /// <summary>
         /// 订单数据操作对象

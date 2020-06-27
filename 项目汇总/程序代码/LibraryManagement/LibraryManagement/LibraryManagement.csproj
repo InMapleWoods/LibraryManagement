@@ -96,7 +96,7 @@
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bll\CirculationBll.cs" />
-    <Compile Include="Bll\CreateCatalogBll.cs" />
+    <Compile Include="Bll\CatalogBll.cs" />
     <Compile Include="Bll\InterviewBll.cs" />
     <Compile Include="Bll\MaintainaceBll.cs" />
     <Compile Include="Bll\PeriodicalBll.cs" />
@@ -182,7 +182,7 @@
       <DependentUpon>GetAllCirculateBooks.cs</DependentUpon>
     </Compile>
     <Compile Include="Dal\CirculationDal.cs" />
-    <Compile Include="Dal\CreateCatalogDal.cs" />
+    <Compile Include="Dal\CatalogDal.cs" />
     <Compile Include="Dal\MaintainaceDal.cs" />
     <Compile Include="Dal\PeriodicalDal.cs" />
     <Compile Include="Dal\InterviewDal.cs" />
