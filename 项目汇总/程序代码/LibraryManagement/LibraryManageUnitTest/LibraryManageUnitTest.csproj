@@ -49,6 +49,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Circulation\BookAppointUnitTest.cs" />
+    <Compile Include="Circulation\BookBorrowUnitTest.cs" />
+    <Compile Include="Circulation\BookReturnUnitTest.cs" />
+    <Compile Include="Circulation\BookDamageUnitTest.cs" />
+    <Compile Include="Circulation\BookDishonesty.cs" />
+    <Compile Include="Circulation\BookAutoMethod.cs" />
     <Compile Include="Periodical\PeriodicalOrderUnitTest.cs" />
     <Compile Include="Periodical\PeriodicalArrivalUnitTest.cs" />
     <Compile Include="Periodical\PeriodicalBindingUnitTest.cs" />
@@ -67,7 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Catalog\" />
-    <Folder Include="Circulation\" />
     <Folder Include="Interview\" />
     <Folder Include="Maintainace\" />
     <Folder Include="Statistical\" />

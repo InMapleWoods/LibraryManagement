@@ -14,7 +14,7 @@ namespace LibraryManageUnitTest.Periodical
         [TestMethod]
         public void TestAddPeriodicalArrival()
         {
-            Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"C:\Users\96464\Desktop\软件工程\Add_PeriodicalArrival.xls");
+            Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"C:\Users\96464\Desktop\软件工程\测试用例\Add_PeriodicalArrival.xls");
             IEnumerable periodicalArrivals = userCaseHandle.GetUserCases();
             List<string> errorList = new List<string>();
             foreach (var i in periodicalArrivals)
