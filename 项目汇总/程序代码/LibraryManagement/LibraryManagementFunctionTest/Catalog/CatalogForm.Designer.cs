@@ -28,54 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.createCatalogBtn = new System.Windows.Forms.Button();
-            this.newBookBtn = new System.Windows.Forms.Button();
-            this.cancelBookBtn = new System.Windows.Forms.Button();
+            this.directCatalogBtn = new System.Windows.Forms.Button();
+            this.catalogingTransferBtn = new System.Windows.Forms.Button();
+            this.interviewCatalogBtn = new System.Windows.Forms.Button();
+            this.catalogQueryBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // createCatalogBtn
+            // directCatalogBtn
             // 
-            this.createCatalogBtn.Location = new System.Drawing.Point(283, 95);
-            this.createCatalogBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.createCatalogBtn.Name = "createCatalogBtn";
-            this.createCatalogBtn.Size = new System.Drawing.Size(100, 75);
-            this.createCatalogBtn.TabIndex = 0;
-            this.createCatalogBtn.Text = "新书编目";
-            this.createCatalogBtn.UseVisualStyleBackColor = true;
-            this.createCatalogBtn.Click += new System.EventHandler(this.createCatalogBtn_Click);
+            this.directCatalogBtn.Location = new System.Drawing.Point(96, 114);
+            this.directCatalogBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.directCatalogBtn.Name = "directCatalogBtn";
+            this.directCatalogBtn.Size = new System.Drawing.Size(112, 90);
+            this.directCatalogBtn.TabIndex = 0;
+            this.directCatalogBtn.Text = "直接编目";
+            this.directCatalogBtn.UseVisualStyleBackColor = true;
+            this.directCatalogBtn.Click += new System.EventHandler(this.createCatalogBtn_Click);
             // 
-            // newBookBtn
+            // catalogingTransferBtn
             // 
-            this.newBookBtn.Location = new System.Drawing.Point(84, 95);
-            this.newBookBtn.Name = "newBookBtn";
-            this.newBookBtn.Size = new System.Drawing.Size(100, 75);
-            this.newBookBtn.TabIndex = 1;
-            this.newBookBtn.Text = "新书通报";
-            this.newBookBtn.UseVisualStyleBackColor = true;
-            this.newBookBtn.Click += new System.EventHandler(this.newBookBtn_Click);
+            this.catalogingTransferBtn.Location = new System.Drawing.Point(280, 114);
+            this.catalogingTransferBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.catalogingTransferBtn.Name = "catalogingTransferBtn";
+            this.catalogingTransferBtn.Size = new System.Drawing.Size(112, 90);
+            this.catalogingTransferBtn.TabIndex = 1;
+            this.catalogingTransferBtn.Text = "编目移送";
+            this.catalogingTransferBtn.UseVisualStyleBackColor = true;
             // 
-            // cancelBookBtn
+            // interviewCatalogBtn
             // 
-            this.cancelBookBtn.Location = new System.Drawing.Point(477, 96);
-            this.cancelBookBtn.Name = "cancelBookBtn";
-            this.cancelBookBtn.Size = new System.Drawing.Size(100, 75);
-            this.cancelBookBtn.TabIndex = 2;
-            this.cancelBookBtn.Text = "注销报损";
-            this.cancelBookBtn.UseVisualStyleBackColor = true;
-            this.cancelBookBtn.Click += new System.EventHandler(this.cancelBookBtn_Click);
+            this.interviewCatalogBtn.Location = new System.Drawing.Point(665, 114);
+            this.interviewCatalogBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.interviewCatalogBtn.Name = "interviewCatalogBtn";
+            this.interviewCatalogBtn.Size = new System.Drawing.Size(112, 90);
+            this.interviewCatalogBtn.TabIndex = 2;
+            this.interviewCatalogBtn.Text = "采访编目";
+            this.interviewCatalogBtn.UseVisualStyleBackColor = true;
+            // 
+            // catalogQueryBtn
+            // 
+            this.catalogQueryBtn.Location = new System.Drawing.Point(454, 114);
+            this.catalogQueryBtn.Name = "catalogQueryBtn";
+            this.catalogQueryBtn.Size = new System.Drawing.Size(138, 90);
+            this.catalogQueryBtn.TabIndex = 3;
+            this.catalogQueryBtn.Text = "编目查询";
+            this.catalogQueryBtn.UseVisualStyleBackColor = true;
             // 
             // CatalogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cancelBookBtn);
-            this.Controls.Add(this.newBookBtn);
-            this.Controls.Add(this.createCatalogBtn);
+            this.ClientSize = new System.Drawing.Size(900, 540);
+            this.Controls.Add(this.catalogQueryBtn);
+            this.Controls.Add(this.interviewCatalogBtn);
+            this.Controls.Add(this.catalogingTransferBtn);
+            this.Controls.Add(this.directCatalogBtn);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CatalogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CatalogForm";
+            this.Text = "编目子系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CatalogForm_FormClosing);
             this.ResumeLayout(false);
 
@@ -83,8 +94,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button createCatalogBtn;
-        private System.Windows.Forms.Button newBookBtn;
-        private System.Windows.Forms.Button cancelBookBtn;
+        private System.Windows.Forms.Button directCatalogBtn;
+        private System.Windows.Forms.Button catalogingTransferBtn;
+        private System.Windows.Forms.Button interviewCatalogBtn;
+        private System.Windows.Forms.Button catalogQueryBtn;
     }
 }
