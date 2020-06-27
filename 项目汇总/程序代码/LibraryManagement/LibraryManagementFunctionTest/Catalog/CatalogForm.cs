@@ -5,7 +5,7 @@ namespace LibraryManagementFunctionTest.Catalog
 {
     public partial class CatalogForm : Form
     {
-        Form parentForm;
+        public Form parentForm;
         public CatalogForm(Form form)
         {
             InitializeComponent();

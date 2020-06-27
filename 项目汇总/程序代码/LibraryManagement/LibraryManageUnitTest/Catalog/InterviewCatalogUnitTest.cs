@@ -6,29 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagement.Bll.Tests
+namespace LibraryManageUnitTest.Catalog
 {
     [TestClass()]
-    public class CreateCatalogBllTests
+    public class InterviewCatalogUnitTest
     {
-        [TestMethod()]
-        public void AddCatalogListTest()
-        {
-
-        }
-
-        [TestMethod()]
-        public void DeleteCatalogListTest()
-        {
-
-        }
-
-        [TestMethod()]
-        public void UpdateCatalogListTest()
-        {
-
-        }
-
         [TestMethod()]
         public void AddInterviewCatalogTest()
         {
