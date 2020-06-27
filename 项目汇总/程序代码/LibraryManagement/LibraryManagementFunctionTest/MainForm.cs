@@ -27,9 +27,7 @@ namespace LibraryManagementFunctionTest
 
         private void interviewSystemButton_Click(object sender, EventArgs e)
         {
-            var form = new Interview.InterviewForm(this);
-            form.Show();
-            Hide();
+
         }
 
         private void maintainaceSystemButton_Click(object sender, EventArgs e)

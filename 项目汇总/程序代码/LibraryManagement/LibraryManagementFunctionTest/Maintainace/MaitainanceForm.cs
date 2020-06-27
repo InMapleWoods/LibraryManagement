@@ -17,13 +17,6 @@ namespace LibraryManagementFunctionTest.Maintainace
 
         }
 
-        private void Btn_dictionaryEdit_Click(object sender, EventArgs e)
-        {
-            var form = new DictionaryEditForm(this);
-            form.Show();
-            Hide();
-        }
-
         private void MaitainanceForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();

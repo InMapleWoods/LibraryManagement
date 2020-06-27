@@ -8,7 +8,7 @@ namespace LibraryManagement.Catalog
     public partial class CatalogQueryForm : Form
     {
         Form parentForm;
-        CreateCatalogBll createCatalogBll = new CreateCatalogBll();//编目用户操作类
+        CatalogBll createCatalogBll = new CatalogBll();//编目用户操作类
         public CatalogQueryForm(Form form)
         {
             InitializeComponent();

@@ -5,7 +5,7 @@ namespace LibraryManagementFunctionTest.Catalog
 {
     public partial class CatalogForm : Form
     {
-        Form parentForm;
+        public Form parentForm;
         public CatalogForm(Form form)
         {
             InitializeComponent();
@@ -19,22 +19,11 @@ namespace LibraryManagementFunctionTest.Catalog
             Hide();
         }
 
+
         private void CatalogForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
             Hide();
-        }
-
-        private void cancelBookBtn_Click(object sender, EventArgs e)
-        {
-            var form = new CancelBookForm(this);
-            form.Show();
-            Hide();
-        }
-
-        private void newBookBtn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

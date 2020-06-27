@@ -49,6 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalog\CreateCatalogListTest.cs" />
+    <Compile Include="Catalog\InterviewCatalogUnitTest.cs" />
     <Compile Include="Circulation\BookAppointUnitTest.cs" />
     <Compile Include="Circulation\BookBorrowUnitTest.cs" />
     <Compile Include="Circulation\BookReturnUnitTest.cs" />
@@ -72,6 +74,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Circulation\" />
     <Folder Include="Catalog\" />
     <Folder Include="Interview\" />
     <Folder Include="Maintainace\" />

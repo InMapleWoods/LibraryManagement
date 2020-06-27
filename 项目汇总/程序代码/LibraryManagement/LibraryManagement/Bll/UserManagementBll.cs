@@ -44,10 +44,10 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
-        /// 
+        /// 删除一条读者记录
         /// </summary>
-        /// <param name="userNumber"></param>
-        /// <returns></returns>
+        /// <param name="userNumber">读者编号</param>
+        /// <returns>删除是否成功</returns>
         public bool deleteAReader(string userNumber)
         {
             bool result;
@@ -229,6 +229,73 @@ namespace LibraryManagement.Bll
             try
             {
                 dt = userManagementDal.GetAllReadersLevel();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return dt;
+        }
+        #endregion
+
+        #region 添加管理员
+        /// <summary>
+        /// 增加一条管理员记录
+        /// </summary>
+        /// <param name="info">管理员信息</param>
+        /// <returns>增加成功与否</returns>
+        public bool addANewAdmin(UserManagementAdminInfo info, ref List<string> errorMsg)
+        {
+            bool result = false;
+            try
+            {
+                if (!UserManagementAdminInfo.isNull(info))
+                {
+                    if (UserManagementAdminInfo.isNormative(info, ref errorMsg))
+                    {
+                        result = userManagementDal.addANewAdmin(info);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 删除一条管理员记录
+        /// </summary>
+        /// <param name="userNumber">管理员信息</param>
+        /// <returns>删除是否成功</returns>
+        public bool deleteAAdmin(UserManagementAdminInfo info)
+        {
+            bool result;
+            try
+            {
+                result = userManagementDal.deleteAAdmin(info);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取全部管理员信息
+        /// </summary>
+        /// <returns>全部管理员信息</returns>
+        public DataTable GetAllAdminInfo()
+        {
+            DataTable dt;
+            try
+            {
+                dt = userManagementDal.GetAllAdminInfo();
             }
             catch (Exception e)
             {

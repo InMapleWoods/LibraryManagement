@@ -4,13 +4,14 @@ using LibraryManagement.Tools.MyUserControl;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Data;
 
 namespace LibraryManagement.Catalog
 {
     public partial class CreateCatalogForm : Form
     {
         Form parentForm;//父窗体
-        CreateCatalogBll createCatalogBll = new CreateCatalogBll();//编目用户操作类
+        CatalogBll createCatalogBll = new CatalogBll();//编目用户操作类
         UtilBll utilBll = new UtilBll();//复用部分用户操作类
 
         /// <summary>
@@ -367,6 +368,47 @@ namespace LibraryManagement.Catalog
         private void CreateCatalogListForm_Load(object sender, EventArgs e)
         {
             DataBind();//数据绑定
+        }
+
+        /// <summary>
+        /// 打印按钮点击事件
+        /// </summary>
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)dataGridView1.DataSource);
+                if (print.PrintDataTable())//打印datagridview中的内容
+                {
+                    MessageBox.Show("打印成功");
+                }
+                else
+                {
+                    MessageBox.Show("打印失败");
+                }
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 打印预览按钮事件
+        /// </summary>
+        private void previewBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)dataGridView1.DataSource);
+                print.PrintPreview();//显示打印预览
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

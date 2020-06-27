@@ -41,7 +41,6 @@
             this.Btn_dictionaryEdit.TabIndex = 0;
             this.Btn_dictionaryEdit.Text = "字典编辑";
             this.Btn_dictionaryEdit.UseVisualStyleBackColor = true;
-            this.Btn_dictionaryEdit.Click += new System.EventHandler(this.Btn_dictionaryEdit_Click);
             // 
             // Btn_statisticalEdit
             // 

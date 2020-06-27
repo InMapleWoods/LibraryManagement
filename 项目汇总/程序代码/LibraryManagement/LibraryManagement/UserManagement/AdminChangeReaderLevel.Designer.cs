@@ -144,6 +144,7 @@
             // 
             this.txb_userName.Location = new System.Drawing.Point(200, 111);
             this.txb_userName.Name = "txb_userName";
+            this.txb_userName.ReadOnly = true;
             this.txb_userName.Size = new System.Drawing.Size(175, 25);
             this.txb_userName.TabIndex = 12;
             // 
@@ -217,6 +218,7 @@
             // 
             this.txb_userNum.Location = new System.Drawing.Point(200, 160);
             this.txb_userNum.Name = "txb_userNum";
+            this.txb_userNum.ReadOnly = true;
             this.txb_userNum.Size = new System.Drawing.Size(175, 25);
             this.txb_userNum.TabIndex = 24;
             // 
@@ -274,7 +276,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "AdminChangeReaderLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminChangeReaderLevel";
+            this.Text = "权限修改";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminChangeReaderLevel_FormClosing);
             this.Load += new System.EventHandler(this.AdminChangeReaderLevel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

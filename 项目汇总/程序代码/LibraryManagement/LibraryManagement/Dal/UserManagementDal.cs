@@ -290,6 +290,10 @@ namespace LibraryManagement.Dal
         #endregion
 
         #region 读者权限管理
+        /// <summary>
+        /// 获取全部读者权限
+        /// </summary>
+        /// <returns>全部读者权限</returns>
         public DataTable GetAllReadersLevel()
         {
             string sql = "SELECT " +
@@ -466,6 +470,87 @@ namespace LibraryManagement.Dal
             {
                 return false;
             }
+        }
+        #endregion
+
+        #region 添加管理员
+        /// <summary>
+        /// 添加一条管理员记录
+        /// </summary>
+        /// <param name="info">管理员信息</param>
+        /// <returns>增加成功与否</returns>
+        public bool addANewAdmin(UserManagementAdminInfo info)
+        {
+            string sqlStr = "AddNewAdmin";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@returnValue", MySqlDbType.Int32, 1),
+                new MySqlParameter("@_userNumber", info.UserNumber),
+                new MySqlParameter("@_adminDepartment", info.AdminDepartment),
+                new MySqlParameter("@_adminRole", info.AdminRole)
+            };
+            paras[0].Direction = ParameterDirection.Output;//将第一个变量设置为输出变量
+            int count = helper.ExecuteNonQuery(sqlStr, paras, CommandType.StoredProcedure);
+            if (paras[0].Value.ToString() == "-2")
+            {
+                throw new Exception("获取 UserId 失败");
+            }
+            else if (paras[0].Value.ToString() == "-3")
+            {
+                throw new Exception("添加管理员失败");
+            }
+            return paras[0].Value.ToString() == "1";
+        }
+
+        /// <summary>
+        /// 删除一条管理员记录
+        /// </summary>
+        /// <param name="info">管理员信息</param>
+        /// <returns>删除成功与否</returns>
+        public bool deleteAAdmin(UserManagementAdminInfo info)
+        {
+            string sql = "DeleteAAdmin";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@returnValue", MySqlDbType.Int32, 1),
+                new MySqlParameter("@_userNumber", info.UserNumber),
+                new MySqlParameter("@_adminDepartment", info.AdminDepartment),
+                new MySqlParameter("@_adminRole", info.AdminRole)
+            };
+            paras[0].Direction = ParameterDirection.Output;//将第一个变量设置为输出变量
+            int count = helper.ExecuteNonQuery(sql, paras, CommandType.StoredProcedure);
+            if (paras[0].Value.ToString() == "-2")
+            {
+                throw new Exception("获取 UserId 失败");
+            }
+            else if (paras[0].Value.ToString() == "-3")
+            {
+                throw new Exception("删除管理员失败");
+            }
+            return paras[0].Value.ToString() == "1";
+        }
+
+        /// <summary>
+        /// 获取全部管理员信息
+        /// </summary>
+        /// <returns>全部管理员信息</returns>
+        public DataTable GetAllAdminInfo()
+        {
+            string sql = "SELECT " +
+                "tb_AdminInformation.UserId AS `用户编号`,  " +
+                "tb_BasicInformation.UserNumber AS `学号/教工号`,  " +
+                "tb_BasicInformation.UserName AS `姓名`,  " +
+                "tb_AdminInformation.AdminDepartment AS `管理员科室`,  " +
+                "tb_AdminInformation.AdminRole AS `管理员角色` " +
+                "FROM " +
+                "tb_AdminInformation " +
+                "INNER JOIN " +
+                "tb_BasicInformation " +
+                "ON  " +
+                "tb_AdminInformation.UserId = tb_BasicInformation.UserId";
+            MySqlParameter[] para = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sql, para, CommandType.Text);
+            return dataTable;
         }
         #endregion
     }
