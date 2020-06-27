@@ -348,6 +348,10 @@ namespace LibraryManagement.Interview
         /// </summary>
         private void AcceptanceDataGridView_CurrentCellChanged(object sender, EventArgs e)
         {
+            if (AcceptanceDataGridView.CurrentRow != null)
+            {
+                SetAcceptanceList(AcceptanceDataGridView.CurrentRow);
+            }
         }
 
         /// <summary>
