@@ -267,6 +267,7 @@
     <Compile Include="Model\Reader.cs" />
     <Compile Include="Model\StatisticalInfo.cs" />
     <Compile Include="Model\UserManagementAdmin.cs" />
+    <Compile Include="Model\UserManagementAdminInfo.cs" />
     <Compile Include="Model\UserManagementLogin.cs" />
     <Compile Include="Model\UserManagementReaderInfo.cs" />
     <Compile Include="Model\UserManagementReaderLevel.cs" />
@@ -361,6 +362,12 @@
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\RunCmd.cs" />
+    <Compile Include="UserManagement\AdminAddNewAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement\AdminAddNewAdmin.Designer.cs">
+      <DependentUpon>AdminAddNewAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\AdminChangeReaderLevel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -441,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\MyUserControl\ScriptUserControl.resx">
       <DependentUpon>ScriptUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\AdminAddNewAdmin.resx">
+      <DependentUpon>AdminAddNewAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\AdminChangeReaderLevel.resx">
       <DependentUpon>AdminChangeReaderLevel.cs</DependentUpon>

@@ -3,6 +3,7 @@ using LibraryManagement.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Data;
 
 
 namespace LibraryManagement.Catalog
@@ -91,6 +92,37 @@ namespace LibraryManagement.Catalog
         /// </summary>
         private void changeStateBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                List<string> errorList = new List<string>();//创建一个错误列表
+                //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）                
+                int id;
+                if (!int.TryParse(idTextBox.Text, out id))//将其转换为数字失败
+                {
+                    MessageBox.Show("采访编号错误");
+                    return;
+                }
+                InterviewCatalog list = GetAllCatalogList(ref errorList);
+                list.Id = id;//设置编目ID
+                //判断是否修改状态成功
+                if (createCatalogBll.UpdateInterviewCatalog(list, ref errorList))
+                {
+                    MessageBox.Show("修改成功");
+                }
+                else
+                {
+                    MessageBox.Show("修改失败");
+                    foreach (var i in errorList)
+                    {
+                        MessageBox.Show(i);//逐条显示错误信息
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            DataBind();//数据绑定
 
         }
         /// <summary>
@@ -98,7 +130,32 @@ namespace LibraryManagement.Catalog
         /// </summary>
         private void cancelCatalogBtn_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("是否删除该条记录", "删除确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
+                if (dialogResult == DialogResult.Yes)//如果选择确认按钮
+                {
+                    int id;
+                    if (!int.TryParse(idTextBox.Text, out id))//将其转换为数字失败
+                    {
+                        MessageBox.Show("编号错误");
+                        return;
+                    }
+                    if (createCatalogBll.DeleteInterviewCatalog (id))//调用登到删除方法
+                    {
+                        MessageBox.Show("删除成功");
+                    }
+                    else
+                    {
+                        MessageBox.Show("删除失败");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            DataBind();//数据绑定
         }
 
         /// <summary>
@@ -205,7 +262,7 @@ namespace LibraryManagement.Catalog
             {
                 return;
             }
-            if ((idTextBox.Text == row.Cells["编号"].Value.ToString()) && (interviewIdTextBox.Text == row.Cells["订单编号"].Value.ToString()) && (stateComboBox.Text == row.Cells["状态"].Value.ToString()))
+            if ((idTextBox.Text == row.Cells["编号"].Value.ToString()) && (interviewIdTextBox.Text == row.Cells["采访编号"].Value.ToString()) && (stateComboBox.Text == row.Cells["状态"].Value.ToString()))
             {
                 changeStateBtn.Enabled = true;
                 cancelCatalogBtn.Enabled = true;
@@ -245,6 +302,47 @@ namespace LibraryManagement.Catalog
                 MessageBox.Show(ex.Message);
             }
             DataBind();//数据绑定
+        }
+
+        /// <summary>
+        /// 打印按钮点击事件
+        /// </summary>
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)catalogDataGridView.DataSource);
+                if (print.PrintDataTable())//打印datagridview中的内容
+                {
+                    MessageBox.Show("打印成功");
+                }
+                else
+                {
+                    MessageBox.Show("打印失败");
+                }
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 打印预览按钮事件
+        /// </summary>
+        private void previewBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.PrintService print = new Tools.PrintService((DataTable)catalogDataGridView.DataSource);
+                print.PrintPreview();//显示打印预览
+                Focus();//该窗体获取焦点
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

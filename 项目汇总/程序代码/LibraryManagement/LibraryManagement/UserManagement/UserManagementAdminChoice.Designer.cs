@@ -73,7 +73,7 @@
             this.Controls.Add(this.btn_AddReader);
             this.Name = "UserManagementAdminChoice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UserManagementAdminChoice";
+            this.Text = "操作内容选择";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserManagementAdminChoice_FormClosing);
             this.ResumeLayout(false);
 
