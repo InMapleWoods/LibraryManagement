@@ -284,18 +284,18 @@ namespace LibraryManagement.Catalog
         {
             try
             {
-                DialogResult dialogResult = MessageBox.Show("是否全部进入编目", "进入编目确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
-                if (dialogResult == DialogResult.Yes)//如果选择确认按钮
-                {
-                    if (createCatalogBll.MoveInterviewCatalogToCirculate())//调用全部进入编目方法
-                    {
-                        MessageBox.Show("全部进入编目成功");
-                    }
-                    else
-                    {
-                        MessageBox.Show("全部进入编目失败");
-                    }
-                }
+            //    DialogResult dialogResult = MessageBox.Show("是否全部进入编目", "进入编目确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
+            //    if (dialogResult == DialogResult.Yes)//如果选择确认按钮
+            //    {
+            //        if (createCatalogBll.MoveInterviewCatalogToCirculate())//调用全部进入编目方法
+            //        {
+            //            MessageBox.Show("全部进入编目成功");
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("全部进入编目失败");
+            //        }
+            //    }
             }
             catch (Exception ex)
             {
