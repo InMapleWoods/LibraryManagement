@@ -336,7 +336,7 @@ namespace LibraryManagement.Catalog
             PublishingHouseComboBox.DisplayMember = "Value";
 
             DocumentTypeComboBox.SelectedIndex = 0;//文献类型
-
+            CatalogerIdTextBox.Text = AdminForm.admin.Number;
 
         }
 

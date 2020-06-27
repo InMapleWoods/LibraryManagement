@@ -348,10 +348,6 @@ namespace LibraryManagement.Interview
         /// </summary>
         private void AcceptanceDataGridView_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (AcceptanceDataGridView.CurrentRow != null)
-            {
-                SetAcceptanceList(AcceptanceDataGridView.CurrentRow);
-            }
         }
 
         /// <summary>
@@ -386,6 +382,16 @@ namespace LibraryManagement.Interview
             PublishingHouseComboBox.DataSource = bs_PublishingHouse;
             PublishingHouseComboBox.ValueMember = "Key";
             PublishingHouseComboBox.DisplayMember = "Value";
+
+            AcceptorTextBox.Text = AdminForm.admin.Number;
+        }
+
+        private void PurchaseDataGridView_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (PurchaseDataGridView.CurrentRow != null)
+            {
+                OrdererTextBox.Text = utilBll.GetUserNumberFormId(interviewBll.GetOrdererIdByNum(PurchaseDataGridView.CurrentRow.Cells[0].Value.ToString()).ToString());
+            }
         }
     }
 }

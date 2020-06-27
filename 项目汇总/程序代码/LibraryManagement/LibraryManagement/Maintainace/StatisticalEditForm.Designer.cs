@@ -43,9 +43,10 @@
             // btn_Add
             // 
             this.btn_Add.Enabled = false;
-            this.btn_Add.Location = new System.Drawing.Point(416, 24);
+            this.btn_Add.Location = new System.Drawing.Point(555, 30);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(75, 23);
+            this.btn_Add.Size = new System.Drawing.Size(100, 29);
             this.btn_Add.TabIndex = 0;
             this.btn_Add.Text = "增加";
             this.btn_Add.UseVisualStyleBackColor = true;
@@ -53,44 +54,51 @@
             // 
             // textBox_Option
             // 
-            this.textBox_Option.Location = new System.Drawing.Point(109, 107);
+            this.textBox_Option.Location = new System.Drawing.Point(145, 134);
+            this.textBox_Option.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_Option.Multiline = true;
             this.textBox_Option.Name = "textBox_Option";
-            this.textBox_Option.Size = new System.Drawing.Size(586, 21);
+            this.textBox_Option.Size = new System.Drawing.Size(780, 173);
             this.textBox_Option.TabIndex = 2;
             // 
             // dataGridView_StatisticalInfo
             // 
             this.dataGridView_StatisticalInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_StatisticalInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView_StatisticalInfo.Location = new System.Drawing.Point(0, 165);
+            this.dataGridView_StatisticalInfo.Location = new System.Drawing.Point(0, 341);
+            this.dataGridView_StatisticalInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView_StatisticalInfo.Name = "dataGridView_StatisticalInfo";
+            this.dataGridView_StatisticalInfo.RowHeadersWidth = 51;
             this.dataGridView_StatisticalInfo.RowTemplate.Height = 23;
-            this.dataGridView_StatisticalInfo.Size = new System.Drawing.Size(800, 285);
+            this.dataGridView_StatisticalInfo.Size = new System.Drawing.Size(1067, 221);
             this.dataGridView_StatisticalInfo.TabIndex = 3;
             // 
             // lab_TableName
             // 
             this.lab_TableName.AutoSize = true;
-            this.lab_TableName.Location = new System.Drawing.Point(28, 54);
+            this.lab_TableName.Location = new System.Drawing.Point(37, 68);
+            this.lab_TableName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lab_TableName.Name = "lab_TableName";
-            this.lab_TableName.Size = new System.Drawing.Size(53, 12);
+            this.lab_TableName.Size = new System.Drawing.Size(67, 15);
             this.lab_TableName.TabIndex = 4;
             this.lab_TableName.Text = "统计表名";
             // 
             // lab_Option
             // 
             this.lab_Option.AutoSize = true;
-            this.lab_Option.Location = new System.Drawing.Point(34, 110);
+            this.lab_Option.Location = new System.Drawing.Point(45, 138);
+            this.lab_Option.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lab_Option.Name = "lab_Option";
-            this.lab_Option.Size = new System.Drawing.Size(47, 12);
+            this.lab_Option.Size = new System.Drawing.Size(61, 15);
             this.lab_Option.TabIndex = 5;
             this.lab_Option.Text = "sql语句";
             // 
             // btn_PreView
             // 
-            this.btn_PreView.Location = new System.Drawing.Point(315, 24);
+            this.btn_PreView.Location = new System.Drawing.Point(420, 30);
+            this.btn_PreView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_PreView.Name = "btn_PreView";
-            this.btn_PreView.Size = new System.Drawing.Size(75, 23);
+            this.btn_PreView.Size = new System.Drawing.Size(100, 29);
             this.btn_PreView.TabIndex = 6;
             this.btn_PreView.Text = "预览";
             this.btn_PreView.UseVisualStyleBackColor = true;
@@ -98,9 +106,10 @@
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(611, 24);
+            this.btn_Delete.Location = new System.Drawing.Point(815, 30);
+            this.btn_Delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_Delete.Size = new System.Drawing.Size(100, 29);
             this.btn_Delete.TabIndex = 7;
             this.btn_Delete.Text = "删除";
             this.btn_Delete.UseVisualStyleBackColor = true;
@@ -108,9 +117,10 @@
             // 
             // btn_Update
             // 
-            this.btn_Update.Location = new System.Drawing.Point(512, 24);
+            this.btn_Update.Location = new System.Drawing.Point(683, 30);
+            this.btn_Update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(75, 23);
+            this.btn_Update.Size = new System.Drawing.Size(100, 29);
             this.btn_Update.TabIndex = 8;
             this.btn_Update.Text = "更改";
             this.btn_Update.UseVisualStyleBackColor = true;
@@ -119,17 +129,18 @@
             // comboBox_TableName
             // 
             this.comboBox_TableName.FormattingEnabled = true;
-            this.comboBox_TableName.Location = new System.Drawing.Point(109, 54);
+            this.comboBox_TableName.Location = new System.Drawing.Point(145, 68);
+            this.comboBox_TableName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_TableName.Name = "comboBox_TableName";
-            this.comboBox_TableName.Size = new System.Drawing.Size(121, 20);
+            this.comboBox_TableName.Size = new System.Drawing.Size(160, 23);
             this.comboBox_TableName.TabIndex = 9;
             this.comboBox_TableName.SelectedIndexChanged += new System.EventHandler(this.comboBox_TableName_SelectedIndexChanged);
             // 
             // StatisticalEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.comboBox_TableName);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Delete);
@@ -139,6 +150,7 @@
             this.Controls.Add(this.dataGridView_StatisticalInfo);
             this.Controls.Add(this.textBox_Option);
             this.Controls.Add(this.btn_Add);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "StatisticalEditForm";
             this.Text = "统计格式设计";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StatisticalEditForm_FormClosing);

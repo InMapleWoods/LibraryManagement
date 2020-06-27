@@ -124,11 +124,11 @@
             // interviewIdLabel
             // 
             this.interviewIdLabel.AutoSize = true;
-            this.interviewIdLabel.Location = new System.Drawing.Point(205, 252);
+            this.interviewIdLabel.Location = new System.Drawing.Point(180, 253);
             this.interviewIdLabel.Name = "interviewIdLabel";
-            this.interviewIdLabel.Size = new System.Drawing.Size(67, 15);
+            this.interviewIdLabel.Size = new System.Drawing.Size(97, 15);
             this.interviewIdLabel.TabIndex = 6;
-            this.interviewIdLabel.Text = "采访编号";
+            this.interviewIdLabel.Text = "采访验收编号";
             // 
             // interviewIdTextBox
             // 
@@ -145,7 +145,7 @@
             this.allCatalogBtn.Name = "allCatalogBtn";
             this.allCatalogBtn.Size = new System.Drawing.Size(100, 68);
             this.allCatalogBtn.TabIndex = 8;
-            this.allCatalogBtn.Text = "可编目书籍全部入库";
+            this.allCatalogBtn.Text = "可编目书籍进入编目表";
             this.allCatalogBtn.UseVisualStyleBackColor = true;
             this.allCatalogBtn.Click += new System.EventHandler(this.allCatalogBtn_Click);
             // 
@@ -223,6 +223,7 @@
             this.Controls.Add(this.interviewDataGridView);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InterviewCatalogForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "采访编目";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InterviewCatalogForm_FormClosing);
             this.Load += new System.EventHandler(this.InterviewCatalogForm_Load);
