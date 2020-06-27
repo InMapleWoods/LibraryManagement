@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalog\CreateCatalogTests.cs" />
     <Compile Include="Periodical\PeriodicalOrderUnitTest.cs" />
     <Compile Include="Periodical\PeriodicalArrivalUnitTest.cs" />
     <Compile Include="Periodical\PeriodicalBindingUnitTest.cs" />
@@ -66,7 +67,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Catalog\" />
     <Folder Include="Circulation\" />
     <Folder Include="Interview\" />
     <Folder Include="Maintainace\" />
