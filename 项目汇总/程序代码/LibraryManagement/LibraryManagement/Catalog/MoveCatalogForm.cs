@@ -8,7 +8,7 @@ namespace LibraryManagement.Catalog
     public partial class MoveCatalogForm : Form
     {
         Form parentForm;//父窗体
-        CreateCatalogBll createCatalogBll = new CreateCatalogBll();//编目子系统操作类
+        CatalogBll createCatalogBll = new CatalogBll();//编目子系统操作类
         public MoveCatalogForm(Form form)
         {
             InitializeComponent();

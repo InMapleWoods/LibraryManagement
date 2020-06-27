@@ -11,7 +11,7 @@ namespace LibraryManagement.Catalog
     public partial class CreateCatalogForm : Form
     {
         Form parentForm;//父窗体
-        CreateCatalogBll createCatalogBll = new CreateCatalogBll();//编目用户操作类
+        CatalogBll createCatalogBll = new CatalogBll();//编目用户操作类
         UtilBll utilBll = new UtilBll();//复用部分用户操作类
 
         /// <summary>

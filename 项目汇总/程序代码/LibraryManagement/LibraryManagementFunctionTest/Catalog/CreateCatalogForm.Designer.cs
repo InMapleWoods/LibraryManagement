@@ -242,7 +242,6 @@
             this.printBtn.TabIndex = 30;
             this.printBtn.Text = "打印";
             this.printBtn.UseVisualStyleBackColor = true;
-            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // previewBtn
             // 
@@ -252,7 +251,6 @@
             this.previewBtn.TabIndex = 31;
             this.previewBtn.Text = "打印预览";
             this.previewBtn.UseVisualStyleBackColor = true;
-            this.previewBtn.Click += new System.EventHandler(this.previewBtn_Click);
             // 
             // btn_addCase
             // 
@@ -262,6 +260,7 @@
             this.btn_addCase.TabIndex = 33;
             this.btn_addCase.Text = "增加用例";
             this.btn_addCase.UseVisualStyleBackColor = true;
+            this.btn_addCase.Click += new System.EventHandler(this.btn_addCase_Click);
             // 
             // btn_removeCase
             // 
@@ -271,6 +270,7 @@
             this.btn_removeCase.TabIndex = 34;
             this.btn_removeCase.Text = "删除用例";
             this.btn_removeCase.UseVisualStyleBackColor = true;
+            this.btn_removeCase.Click += new System.EventHandler(this.btn_removeCase_Click);
             // 
             // btn_reflashCase
             // 
@@ -280,6 +280,7 @@
             this.btn_reflashCase.TabIndex = 35;
             this.btn_reflashCase.Text = "刷新用例";
             this.btn_reflashCase.UseVisualStyleBackColor = true;
+            this.btn_reflashCase.Click += new System.EventHandler(this.btn_reflashCase_Click);
             // 
             // comboBox_chooseType
             // 
@@ -292,6 +293,7 @@
             this.comboBox_chooseType.Name = "comboBox_chooseType";
             this.comboBox_chooseType.Size = new System.Drawing.Size(121, 23);
             this.comboBox_chooseType.TabIndex = 36;
+            this.comboBox_chooseType.SelectedIndexChanged += new System.EventHandler(this.comboBox_chooseType_SelectedIndexChanged);
             // 
             // CreateCatalogForm
             // 
