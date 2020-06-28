@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace LibraryManagement.Model
+namespace LibraryManagementFunctionTest.Model
 {
     /// <summary>
     /// 采访清单
