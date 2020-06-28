@@ -6,30 +6,77 @@ using System.Windows.Forms;
 
 namespace LibraryManagementFunctionTest.UserManagement
 {
-    public partial class UserManagementForm : Form
+    public partial class AdminAddNewAdmin : Form
     {
         Form parentForm;//父窗体
         Tools.UserCaseHandle userCaseHandle;
         int selectIndex = -1;
 
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        /// <param name="form">父窗体</param>
-        public UserManagementForm(Form form)
+        public AdminAddNewAdmin(Form form)
         {
             InitializeComponent();
             parentForm = form;
-            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((UserManagementAdminChoice)form).parentForm).folderSrc + "\\Add_UserManagementLogin.xls");
+            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((UserManagementAdminChoice)form).parentForm).folderSrc + "\\Add_UserManagementAdminInfo.xls");
         }
 
-        /// <summary>
-        /// 窗体关闭函数
-        /// </summary>
-        private void UserManagementForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void AdminAddNewAdmin_Load(object sender, EventArgs e)
+        {
+            DataBind();
+        }
+
+        private void AdminAddNewAdmin_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();//显示上层窗体
             Hide();//隐藏当前窗体
+        }
+
+        private void DataBind()
+        {
+            try
+            {
+                dataGridView1.DataSource = userCaseHandle.GetUserCasesDataTable();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        /// <summary>
+        /// 获取当前窗体表示的读者信息
+        /// </summary>
+        /// <param name="error">错误列表</param>
+        /// <returns>读者信息</returns>
+        private UserManagementAdminInfo GetAdminInfo(ref List<string> error)
+        {
+            List<string> errorList = new List<string>();
+
+            UserManagementAdminInfo info = new UserManagementAdminInfo()
+            {
+                UserNumber = txb_userNumber.Text,
+                UserName = txb_userName.Text,
+                AdminDepartment = txb_adminDepartment.Text,
+                AdminRole = txb_adminRole.Text
+
+            };
+            error = errorList;//返回错误列表
+            return info;//返回读者信息
+        }
+
+        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                selectIndex = dataGridView1.CurrentRow.Index;
+            }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                selectIndex = dataGridView1.SelectedRows[0].Index;
+            }
         }
 
         private void btn_addCase_Click(object sender, EventArgs e)
@@ -38,7 +85,7 @@ namespace LibraryManagementFunctionTest.UserManagement
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
                 //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
-                var list = new UserManagementLogin[] { GetAllLoginInformation() };
+                var list = new UserManagementAdminInfo[] { GetAdminInfo(ref errorList) };
                 if (errorList.Count == 0)
                 {
                     if (userCaseHandle.AddUserCases(list.ToList()))
@@ -96,51 +143,6 @@ namespace LibraryManagementFunctionTest.UserManagement
         private void btn_reflashCase_Click(object sender, EventArgs e)
         {
             DataBind();
-        }
-
-        /// <summary>
-        /// 数据绑定
-        /// </summary>
-        private void DataBind()
-        {
-            try
-            {
-                dataGridView1.DataSource = userCaseHandle.GetUserCasesDataTable();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
-
-        /// <summary>
-        /// 获取登录页面用户输入的信息
-        /// </summary>
-        /// <returns>登录信息</returns>
-        private UserManagementLogin GetAllLoginInformation()
-        {
-            UserManagementLogin login = new UserManagementLogin()
-            {
-                UserNumber = txb_Login.Text,
-                Password = txb_Password.Text
-            };
-            return login;
-        }
-
-        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-                selectIndex = dataGridView1.CurrentRow.Index;
-            }
-        }
-
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                selectIndex = dataGridView1.SelectedRows[0].Index;
-            }
         }
     }
 }

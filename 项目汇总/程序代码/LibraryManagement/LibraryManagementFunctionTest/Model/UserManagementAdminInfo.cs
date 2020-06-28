@@ -5,12 +5,12 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace LibraryManagement.Model
+namespace LibraryManagementFunctionTest.Model
 {
     /// <summary>
     /// 管理员信息
     /// </summary>
-    public class UserManagementAdminInfo
+    class UserManagementAdminInfo
     {
         /// <summary>
         /// 读者编号

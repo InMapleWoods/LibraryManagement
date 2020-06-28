@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace LibraryManagement.Model
+namespace LibraryManagementFunctionTest.Model
 {
     /// <summary>
     /// 读者信息
     /// </summary>
-    public class UserManagementReaderInfo
+    class UserManagementReaderInfo
     {
         /// <summary>
         /// 借书证号

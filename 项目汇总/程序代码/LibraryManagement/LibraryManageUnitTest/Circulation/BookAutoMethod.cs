@@ -1,18 +1,16 @@
 ﻿using LibraryManagement.Bll;
-using LibraryManagement.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace LibraryManageUnitTest.Circulation
 {
     [TestClass]
     public class BookAutoMethod
     {
+        CirculationBll circulationBll = new CirculationBll();
         [TestMethod()]
         public void DealAllLogTest()
         {
-
+            circulationBll.DealAllLog();
         }
     }
 }

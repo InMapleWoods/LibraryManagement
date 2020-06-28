@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace LibraryManagementFunctionTest.Model
 {
@@ -17,19 +14,9 @@ namespace LibraryManagementFunctionTest.Model
         public int Id = 0;
 
         /// <summary>
-        /// 书商编号
+        /// 订单编号
         /// </summary>
-        public int BookSellerId = 0;
-
-        /// <summary>
-        /// 出版社编号
-        /// </summary>
-        public int PublishingHouseId = 0;
-
-        /// <summary>
-        /// 订购人编号
-        /// </summary>
-        public int OrdererId = 0;
+        public int OrderId = 0;
 
         /// <summary>
         /// 验收人编号
@@ -37,9 +24,9 @@ namespace LibraryManagementFunctionTest.Model
         public int AcceptorId = 0;
 
         /// <summary>
-        /// 文献类型
+        /// 状态
         /// </summary>
-        public string DocumentType = "";
+        public string State = "";
 
         /// <summary>
         /// 判断清单是否有空项
@@ -48,15 +35,7 @@ namespace LibraryManagementFunctionTest.Model
         /// <returns>是否有空项</returns>
         public static bool isNull(AcceptanceList list)
         {
-            if (list.BookSellerId == 0)
-            {
-                return true;
-            }
-            if (list.PublishingHouseId == 0)
-            {
-                return true;
-            }
-            if (list.OrdererId == 0)
+            if (list.OrderId == 0)
             {
                 return true;
             }
@@ -64,7 +43,7 @@ namespace LibraryManagementFunctionTest.Model
             {
                 return true;
             }
-            if (list.DocumentType == "")
+            if (list.State == "")
             {
                 return true;
             }
@@ -84,21 +63,18 @@ namespace LibraryManagementFunctionTest.Model
             {
                 errorList.Add("Id Error");
             }
-            if (list.BookSellerId < 0)
+            if (list.OrderId < 0)
             {
-                errorList.Add("BookSellerId Error");
-            }
-            if (list.PublishingHouseId < 0)
-            {
-                errorList.Add("PublishingHouseId Error");
-            }
-            if (list.OrdererId < 0)
-            {
-                errorList.Add("OrdererId Error");
+                errorList.Add("OrderId Error");
             }
             if (list.AcceptorId < 0)
             {
                 errorList.Add("AcceptorId Error");
+            }
+            Match matchState = Regex.Match(list.State, @"(已编目|未处理)");
+            if (!matchState.Success)
+            {
+                errorList.Add("State Error");
             }
             errorMsg = errorList;
             if (errorList.Count > 0)

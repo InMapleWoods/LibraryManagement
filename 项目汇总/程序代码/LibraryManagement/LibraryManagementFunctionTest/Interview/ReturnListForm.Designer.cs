@@ -1,4 +1,4 @@
-﻿namespace LibraryManagement.Interview
+﻿namespace LibraryManagementFunctionTest.Interview
 {
     partial class ReturnListForm
     {
@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.OrderDataGridView = new System.Windows.Forms.DataGridView();
             this.ReturnListDataGridView = new System.Windows.Forms.DataGridView();
-            this.publishingHouseComboBox = new System.Windows.Forms.ComboBox();
             this.subDatePicker = new System.Windows.Forms.DateTimePicker();
             this.documentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.literatureTypeLabel = new System.Windows.Forms.Label();
@@ -46,28 +44,13 @@
             this.orderDateLabel = new System.Windows.Forms.Label();
             this.NumTextBox = new System.Windows.Forms.TextBox();
             this.NumberLabel = new System.Windows.Forms.Label();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.PrintButton = new System.Windows.Forms.Button();
-            this.ReturnButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).BeginInit();
+            this.comboBox_chooseType = new System.Windows.Forms.ComboBox();
+            this.btn_reflashCase = new System.Windows.Forms.Button();
+            this.btn_removeCase = new System.Windows.Forms.Button();
+            this.btn_addCase = new System.Windows.Forms.Button();
+            this.PublishingHouseTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ReturnListDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // OrderDataGridView
-            // 
-            this.OrderDataGridView.AllowUserToAddRows = false;
-            this.OrderDataGridView.AllowUserToDeleteRows = false;
-            this.OrderDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OrderDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.OrderDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.OrderDataGridView.Name = "OrderDataGridView";
-            this.OrderDataGridView.ReadOnly = true;
-            this.OrderDataGridView.RowHeadersVisible = false;
-            this.OrderDataGridView.RowTemplate.Height = 27;
-            this.OrderDataGridView.Size = new System.Drawing.Size(813, 150);
-            this.OrderDataGridView.TabIndex = 0;
-            this.OrderDataGridView.CurrentCellChanged += new System.EventHandler(this.OrderDataGridView_CurrentCellChanged);
-            this.OrderDataGridView.SelectionChanged += new System.EventHandler(this.OrderDataGridView_SelectionChanged);
             // 
             // ReturnListDataGridView
             // 
@@ -75,28 +58,20 @@
             this.ReturnListDataGridView.AllowUserToDeleteRows = false;
             this.ReturnListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ReturnListDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ReturnListDataGridView.Location = new System.Drawing.Point(0, 504);
+            this.ReturnListDataGridView.Location = new System.Drawing.Point(0, 368);
             this.ReturnListDataGridView.Name = "ReturnListDataGridView";
             this.ReturnListDataGridView.ReadOnly = true;
             this.ReturnListDataGridView.RowHeadersVisible = false;
+            this.ReturnListDataGridView.RowHeadersWidth = 51;
             this.ReturnListDataGridView.RowTemplate.Height = 27;
-            this.ReturnListDataGridView.Size = new System.Drawing.Size(813, 178);
+            this.ReturnListDataGridView.Size = new System.Drawing.Size(813, 249);
             this.ReturnListDataGridView.TabIndex = 1;
             this.ReturnListDataGridView.CurrentCellChanged += new System.EventHandler(this.ReturnListDataGridView_CurrentCellChanged);
             this.ReturnListDataGridView.SelectionChanged += new System.EventHandler(this.ReturnListDataGridView_SelectionChanged);
             // 
-            // publishingHouseComboBox
-            // 
-            this.publishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.publishingHouseComboBox.FormattingEnabled = true;
-            this.publishingHouseComboBox.Location = new System.Drawing.Point(577, 294);
-            this.publishingHouseComboBox.Name = "publishingHouseComboBox";
-            this.publishingHouseComboBox.Size = new System.Drawing.Size(149, 23);
-            this.publishingHouseComboBox.TabIndex = 38;
-            // 
             // subDatePicker
             // 
-            this.subDatePicker.Location = new System.Drawing.Point(145, 238);
+            this.subDatePicker.Location = new System.Drawing.Point(151, 112);
             this.subDatePicker.Name = "subDatePicker";
             this.subDatePicker.Size = new System.Drawing.Size(149, 25);
             this.subDatePicker.TabIndex = 37;
@@ -111,7 +86,7 @@
             "论文",
             "专利",
             "电子文献"});
-            this.documentTypeComboBox.Location = new System.Drawing.Point(577, 349);
+            this.documentTypeComboBox.Location = new System.Drawing.Point(583, 223);
             this.documentTypeComboBox.Name = "documentTypeComboBox";
             this.documentTypeComboBox.Size = new System.Drawing.Size(149, 23);
             this.documentTypeComboBox.TabIndex = 36;
@@ -119,7 +94,7 @@
             // literatureTypeLabel
             // 
             this.literatureTypeLabel.AutoSize = true;
-            this.literatureTypeLabel.Location = new System.Drawing.Point(495, 352);
+            this.literatureTypeLabel.Location = new System.Drawing.Point(501, 226);
             this.literatureTypeLabel.Name = "literatureTypeLabel";
             this.literatureTypeLabel.Size = new System.Drawing.Size(67, 15);
             this.literatureTypeLabel.TabIndex = 35;
@@ -128,7 +103,7 @@
             // publisherLabel
             // 
             this.publisherLabel.AutoSize = true;
-            this.publisherLabel.Location = new System.Drawing.Point(510, 294);
+            this.publisherLabel.Location = new System.Drawing.Point(516, 168);
             this.publisherLabel.Name = "publisherLabel";
             this.publisherLabel.Size = new System.Drawing.Size(52, 15);
             this.publisherLabel.TabIndex = 34;
@@ -136,16 +111,15 @@
             // 
             // priceTextBox
             // 
-            this.priceTextBox.Location = new System.Drawing.Point(577, 237);
+            this.priceTextBox.Location = new System.Drawing.Point(583, 111);
             this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.ReadOnly = true;
             this.priceTextBox.Size = new System.Drawing.Size(149, 25);
             this.priceTextBox.TabIndex = 33;
             // 
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(525, 240);
+            this.priceLabel.Location = new System.Drawing.Point(531, 114);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(37, 15);
             this.priceLabel.TabIndex = 32;
@@ -153,16 +127,15 @@
             // 
             // bookNameTextBox
             // 
-            this.bookNameTextBox.Location = new System.Drawing.Point(577, 179);
+            this.bookNameTextBox.Location = new System.Drawing.Point(583, 53);
             this.bookNameTextBox.Name = "bookNameTextBox";
-            this.bookNameTextBox.ReadOnly = true;
             this.bookNameTextBox.Size = new System.Drawing.Size(149, 25);
             this.bookNameTextBox.TabIndex = 31;
             // 
             // bookNameLabel
             // 
             this.bookNameLabel.AutoSize = true;
-            this.bookNameLabel.Location = new System.Drawing.Point(525, 182);
+            this.bookNameLabel.Location = new System.Drawing.Point(531, 56);
             this.bookNameLabel.Name = "bookNameLabel";
             this.bookNameLabel.Size = new System.Drawing.Size(37, 15);
             this.bookNameLabel.TabIndex = 30;
@@ -170,7 +143,7 @@
             // 
             // SubscriberTextBox
             // 
-            this.SubscriberTextBox.Location = new System.Drawing.Point(145, 349);
+            this.SubscriberTextBox.Location = new System.Drawing.Point(151, 223);
             this.SubscriberTextBox.Name = "SubscriberTextBox";
             this.SubscriberTextBox.Size = new System.Drawing.Size(149, 25);
             this.SubscriberTextBox.TabIndex = 29;
@@ -178,7 +151,7 @@
             // subscriberLabel
             // 
             this.subscriberLabel.AutoSize = true;
-            this.subscriberLabel.Location = new System.Drawing.Point(62, 352);
+            this.subscriberLabel.Location = new System.Drawing.Point(68, 226);
             this.subscriberLabel.Name = "subscriberLabel";
             this.subscriberLabel.Size = new System.Drawing.Size(68, 15);
             this.subscriberLabel.TabIndex = 28;
@@ -186,16 +159,15 @@
             // 
             // ISBNtextBox
             // 
-            this.ISBNtextBox.Location = new System.Drawing.Point(145, 294);
+            this.ISBNtextBox.Location = new System.Drawing.Point(151, 168);
             this.ISBNtextBox.Name = "ISBNtextBox";
-            this.ISBNtextBox.ReadOnly = true;
             this.ISBNtextBox.Size = new System.Drawing.Size(149, 25);
             this.ISBNtextBox.TabIndex = 27;
             // 
             // ISBNlabel
             // 
             this.ISBNlabel.AutoSize = true;
-            this.ISBNlabel.Location = new System.Drawing.Point(91, 297);
+            this.ISBNlabel.Location = new System.Drawing.Point(97, 171);
             this.ISBNlabel.Name = "ISBNlabel";
             this.ISBNlabel.Size = new System.Drawing.Size(39, 15);
             this.ISBNlabel.TabIndex = 26;
@@ -204,7 +176,7 @@
             // orderDateLabel
             // 
             this.orderDateLabel.AutoSize = true;
-            this.orderDateLabel.Location = new System.Drawing.Point(63, 240);
+            this.orderDateLabel.Location = new System.Drawing.Point(69, 114);
             this.orderDateLabel.Name = "orderDateLabel";
             this.orderDateLabel.Size = new System.Drawing.Size(67, 15);
             this.orderDateLabel.TabIndex = 25;
@@ -212,60 +184,84 @@
             // 
             // NumTextBox
             // 
-            this.NumTextBox.Location = new System.Drawing.Point(145, 179);
+            this.NumTextBox.Location = new System.Drawing.Point(151, 53);
             this.NumTextBox.Name = "NumTextBox";
-            this.NumTextBox.ReadOnly = true;
             this.NumTextBox.Size = new System.Drawing.Size(149, 25);
             this.NumTextBox.TabIndex = 24;
             // 
             // NumberLabel
             // 
             this.NumberLabel.AutoSize = true;
-            this.NumberLabel.Location = new System.Drawing.Point(91, 182);
+            this.NumberLabel.Location = new System.Drawing.Point(97, 56);
             this.NumberLabel.Name = "NumberLabel";
             this.NumberLabel.Size = new System.Drawing.Size(37, 15);
             this.NumberLabel.TabIndex = 23;
             this.NumberLabel.Text = "单号";
             // 
-            // AddButton
+            // comboBox_chooseType
             // 
-            this.AddButton.Location = new System.Drawing.Point(132, 406);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(75, 75);
-            this.AddButton.TabIndex = 39;
-            this.AddButton.Text = "添加";
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.comboBox_chooseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_chooseType.FormattingEnabled = true;
+            this.comboBox_chooseType.Items.AddRange(new object[] {
+            "增加",
+            "修改"});
+            this.comboBox_chooseType.Location = new System.Drawing.Point(640, 320);
+            this.comboBox_chooseType.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_chooseType.Name = "comboBox_chooseType";
+            this.comboBox_chooseType.Size = new System.Drawing.Size(160, 23);
+            this.comboBox_chooseType.TabIndex = 53;
+            this.comboBox_chooseType.SelectedIndexChanged += new System.EventHandler(this.ComboBox_chooseType_SelectedIndexChanged);
             // 
-            // PrintButton
+            // btn_reflashCase
             // 
-            this.PrintButton.Location = new System.Drawing.Point(371, 406);
-            this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(75, 75);
-            this.PrintButton.TabIndex = 40;
-            this.PrintButton.Text = "打印";
-            this.PrintButton.UseVisualStyleBackColor = true;
-            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
+            this.btn_reflashCase.Location = new System.Drawing.Point(445, 292);
+            this.btn_reflashCase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_reflashCase.Name = "btn_reflashCase";
+            this.btn_reflashCase.Size = new System.Drawing.Size(160, 51);
+            this.btn_reflashCase.TabIndex = 52;
+            this.btn_reflashCase.Text = "刷新用例";
+            this.btn_reflashCase.UseVisualStyleBackColor = true;
+            this.btn_reflashCase.Click += new System.EventHandler(this.Btn_reflashCase_Click);
             // 
-            // ReturnButton
+            // btn_removeCase
             // 
-            this.ReturnButton.Location = new System.Drawing.Point(608, 406);
-            this.ReturnButton.Name = "ReturnButton";
-            this.ReturnButton.Size = new System.Drawing.Size(75, 75);
-            this.ReturnButton.TabIndex = 41;
-            this.ReturnButton.Text = "返回";
-            this.ReturnButton.UseVisualStyleBackColor = true;
-            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
+            this.btn_removeCase.Location = new System.Drawing.Point(237, 292);
+            this.btn_removeCase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_removeCase.Name = "btn_removeCase";
+            this.btn_removeCase.Size = new System.Drawing.Size(161, 51);
+            this.btn_removeCase.TabIndex = 51;
+            this.btn_removeCase.Text = "删除用例";
+            this.btn_removeCase.UseVisualStyleBackColor = true;
+            this.btn_removeCase.Click += new System.EventHandler(this.Btn_removeCase_Click);
+            // 
+            // btn_addCase
+            // 
+            this.btn_addCase.Location = new System.Drawing.Point(25, 292);
+            this.btn_addCase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_addCase.Name = "btn_addCase";
+            this.btn_addCase.Size = new System.Drawing.Size(169, 51);
+            this.btn_addCase.TabIndex = 50;
+            this.btn_addCase.Text = "增加用例";
+            this.btn_addCase.UseVisualStyleBackColor = true;
+            this.btn_addCase.Click += new System.EventHandler(this.Btn_addCase_Click);
+            // 
+            // PublishingHouseTextBox
+            // 
+            this.PublishingHouseTextBox.Location = new System.Drawing.Point(583, 165);
+            this.PublishingHouseTextBox.Name = "PublishingHouseTextBox";
+            this.PublishingHouseTextBox.Size = new System.Drawing.Size(149, 25);
+            this.PublishingHouseTextBox.TabIndex = 55;
             // 
             // ReturnListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 682);
-            this.Controls.Add(this.ReturnButton);
-            this.Controls.Add(this.PrintButton);
-            this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.publishingHouseComboBox);
+            this.ClientSize = new System.Drawing.Size(813, 617);
+            this.Controls.Add(this.PublishingHouseTextBox);
+            this.Controls.Add(this.comboBox_chooseType);
+            this.Controls.Add(this.btn_reflashCase);
+            this.Controls.Add(this.btn_removeCase);
+            this.Controls.Add(this.btn_addCase);
             this.Controls.Add(this.subDatePicker);
             this.Controls.Add(this.documentTypeComboBox);
             this.Controls.Add(this.literatureTypeLabel);
@@ -282,7 +278,6 @@
             this.Controls.Add(this.NumTextBox);
             this.Controls.Add(this.NumberLabel);
             this.Controls.Add(this.ReturnListDataGridView);
-            this.Controls.Add(this.OrderDataGridView);
             this.MaximizeBox = false;
             this.Name = "ReturnListForm";
             this.ShowIcon = false;
@@ -290,7 +285,6 @@
             this.Text = "退货信息";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReturnListForm_FormClosing);
             this.Load += new System.EventHandler(this.ReturnListForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReturnListDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -298,10 +292,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView OrderDataGridView;
         private System.Windows.Forms.DataGridView ReturnListDataGridView;
-        private System.Windows.Forms.ComboBox publishingHouseComboBox;
         private System.Windows.Forms.ComboBox documentTypeComboBox;
         private System.Windows.Forms.Label literatureTypeLabel;
         private System.Windows.Forms.Label publisherLabel;
@@ -316,9 +307,11 @@
         private System.Windows.Forms.Label orderDateLabel;
         private System.Windows.Forms.TextBox NumTextBox;
         private System.Windows.Forms.Label NumberLabel;
-        private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Button PrintButton;
         private System.Windows.Forms.DateTimePicker subDatePicker;
-        private System.Windows.Forms.Button ReturnButton;
+        private System.Windows.Forms.ComboBox comboBox_chooseType;
+        private System.Windows.Forms.Button btn_reflashCase;
+        private System.Windows.Forms.Button btn_removeCase;
+        private System.Windows.Forms.Button btn_addCase;
+        private System.Windows.Forms.TextBox PublishingHouseTextBox;
     }
 }

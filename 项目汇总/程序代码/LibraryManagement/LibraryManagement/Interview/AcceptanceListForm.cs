@@ -59,6 +59,7 @@ namespace LibraryManagement.Interview
                 List<string> errorList = new List<string>();//创建一个错误列表
                 //获取根据当前页面内容生成的清单（若有错误会被添加到错误列表中）
                 AcceptanceList list = GetAcceptanceList(ref errorList);
+                list.State = "未处理";
                 //判断是否添加清单成功
                 if (interviewBll.AddAcceptanceList(list, ref errorList))
                 {
@@ -245,11 +246,8 @@ namespace LibraryManagement.Interview
         private void EmptyAcceptanceList()
         {
             IdTextBox.Text = "";
-            BookSellerComboBox.Text = "";
-            PublishingHouseComboBox.Text = "";
-            OrdererTextBox.Text = "";
             AcceptorTextBox.Text = "";
-            DocumentTypeComboBox.Text = "";
+            textBox_orderId.Text = "";
         }
 
         /// <summary>
@@ -260,22 +258,6 @@ namespace LibraryManagement.Interview
         private AcceptanceList GetAcceptanceList(ref List<string> error)
         {
             List<string> errorList = new List<string>();//错误列表
-
-            //书商Id
-            int bookSellerId = ((KeyValuePair<int, string>)BookSellerComboBox.SelectedItem).Key;
-
-            //出版社Id
-            int publisherId = ((KeyValuePair<int, string>)PublishingHouseComboBox.SelectedItem).Key;
-
-            //判断订购人账号是否符合要求
-            Match matchOrderer = Regex.Match(OrdererTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
-            if (!matchOrderer.Success)
-            {
-                errorList.Add("OrdererId Error");
-            }
-
-            //通过订购人账号获取id
-            int ordererId = utilBll.GetUserIdFormNumber(OrdererTextBox.Text);
 
             //判断验收人账号是否符合要求
             Match matchAcceptor = Regex.Match(AcceptorTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
@@ -290,11 +272,9 @@ namespace LibraryManagement.Interview
             //根据页面内容构造清单
             AcceptanceList list = new AcceptanceList()
             {
-                BookSellerId = bookSellerId,
-                PublishingHouseId = publisherId,
-                OrdererId = ordererId,
+                OrderId = int.Parse(textBox_orderId.Text),
                 AcceptorId = acceptorId,
-                DocumentType = DocumentTypeComboBox.Text,
+                State = comboBox_State.Text,
             };
             error = errorList;//返回错误列表
             return list;//返回订单
@@ -327,9 +307,9 @@ namespace LibraryManagement.Interview
         private void SetAcceptanceList(DataGridViewRow row)
         {
             IdTextBox.Text = row.Cells[0].Value.ToString();//清单号
-            BookSellerComboBox.Text = row.Cells[1].Value.ToString();//书商
-            PublishingHouseComboBox.Text = row.Cells[2].Value.ToString();//出版社
-            DocumentTypeComboBox.Text = row.Cells[5].Value.ToString();//文献类型
+            textBox_orderId.Text = row.Cells[2].Value.ToString();//订单号
+            AcceptorTextBox.Text = "";//验收人编号
+            comboBox_State.Text = row.Cells[3].Value.ToString();//状态
         }
 
         /// <summary>
@@ -373,19 +353,7 @@ namespace LibraryManagement.Interview
             //下方窗体数据绑定
             AcceptanceDataGridView.DataSource = interviewBll.GetAllAcceptanceList();
 
-            //书商数据绑定
-            BindingSource bs_BookSeller = new BindingSource();
-            bs_BookSeller.DataSource = utilBll.GetBookSellerNames();
-            BookSellerComboBox.DataSource = bs_BookSeller;
-            BookSellerComboBox.ValueMember = "Key";
-            BookSellerComboBox.DisplayMember = "Value";
-
-            //出版社数据绑定
-            BindingSource bs_PublishingHouse = new BindingSource();
-            bs_PublishingHouse.DataSource = utilBll.GetPublishingHouseNames();
-            PublishingHouseComboBox.DataSource = bs_PublishingHouse;
-            PublishingHouseComboBox.ValueMember = "Key";
-            PublishingHouseComboBox.DisplayMember = "Value";
+            comboBox_State.SelectedIndex = 0;
 
             AcceptorTextBox.Text = AdminForm.admin.Number;
         }
@@ -394,7 +362,15 @@ namespace LibraryManagement.Interview
         {
             if (PurchaseDataGridView.CurrentRow != null)
             {
-                OrdererTextBox.Text = utilBll.GetUserNumberFormId(interviewBll.GetOrdererIdByNum(PurchaseDataGridView.CurrentRow.Cells[0].Value.ToString()).ToString());
+                textBox_orderId.Text = PurchaseDataGridView.CurrentRow.Cells[0].Value.ToString();
+            }
+        }
+
+        private void PurchaseDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (PurchaseDataGridView.SelectedRows.Count > 0)
+            {
+                textBox_orderId.Text = PurchaseDataGridView.SelectedRows[0].Cells[0].Value.ToString();
             }
         }
     }

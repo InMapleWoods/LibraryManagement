@@ -480,6 +480,34 @@ namespace LibraryManagement.Bll
 
 
         /// <summary>
+        /// 获取所有流通图书数组
+        /// </summary>
+        /// <returns>流通图书数组</returns>
+        public IEnumerable GetAllBooksArray()
+        {
+            List<Book> result = new List<Book>();
+            try
+            {
+                DataTable datatable =circulationDal.GetAllBooks("", "", "", "");
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    Book book = new Book()
+                    {
+                        Id = (int)dr["编号"],
+                    };
+                    result.Add(book);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+        
+
+        /// <summary>
         /// 获取所有流通图书
         /// </summary>
         /// <param name="isbn">ISBN</param>
@@ -516,6 +544,26 @@ namespace LibraryManagement.Bll
                 Console.WriteLine(ex.Message);
                 throw ex;
             }
+        }
+
+        /// <summary>
+        /// 获取最大id
+        /// </summary>
+        /// <param name="tableName">目标表</param>
+        /// <returns>最大id</returns>
+        public int GetMaxId(string tableName)
+        {
+            int result = -1;
+            try
+            {
+                result = circulationDal.GetMaxId(tableName);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            return result;
         }
     }
 }

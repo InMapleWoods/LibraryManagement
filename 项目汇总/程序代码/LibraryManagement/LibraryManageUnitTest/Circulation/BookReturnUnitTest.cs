@@ -1,18 +1,21 @@
 ﻿using LibraryManagement.Bll;
-using LibraryManagement.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace LibraryManageUnitTest.Circulation
 {
     [TestClass]
     public class BookReturnUnitTest
     {
+        CirculationBll circulationBll = new CirculationBll();
         [TestMethod()]
         public void ReturnBorrowedBookTest()
         {
-
+            int maxId = circulationBll.GetMaxId("Borrow");
+            if (maxId > 0)
+            {
+                Assert.AreEqual(true, circulationBll.ReturnBorrowedBook(maxId));
+            }
+            Assert.AreEqual(false, circulationBll.ReturnBorrowedBook(-1));
         }
     }
 }

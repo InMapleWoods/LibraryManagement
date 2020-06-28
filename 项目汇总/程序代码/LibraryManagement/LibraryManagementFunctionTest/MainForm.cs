@@ -27,7 +27,9 @@ namespace LibraryManagementFunctionTest
 
         private void interviewSystemButton_Click(object sender, EventArgs e)
         {
-
+            var form = new Interview.InterviewForm(this);
+            form.Show();
+            Hide();
         }
 
         private void maintainaceSystemButton_Click(object sender, EventArgs e)
@@ -53,7 +55,7 @@ namespace LibraryManagementFunctionTest
 
         private void userManagementSystemButton_Click(object sender, EventArgs e)
         {
-            var form = new UserManagement.UserManagementForm(this);
+            var form = new UserManagement.UserManagementAdminChoice(this);
             form.Show();
             Hide();
         }

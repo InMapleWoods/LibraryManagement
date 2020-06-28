@@ -24,7 +24,6 @@ namespace LibraryManagement.Dal
         public bool AddInterviewList(InterviewList list)
         {
             string sqlStr = "INSERT INTO tb_InterviewList (" +
-                "Id," +
                 "Author," +
                 "ISBN," +
                 "OrderStatus," +
@@ -36,7 +35,6 @@ namespace LibraryManagement.Dal
                 "DocumentType" +
                 ")" +
                 "VALUES(" +
-                "@id," +
                 "@author," +
                 "@iSBN," +
                 "@orderStatus," +
@@ -50,7 +48,6 @@ namespace LibraryManagement.Dal
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
-                new MySqlParameter("@id",list.Id),
                 new MySqlParameter("@author",list.Author),
                 new MySqlParameter("@iSBN",list.ISBN),
                 new MySqlParameter("@bookName",list.BookName),
@@ -295,25 +292,25 @@ namespace LibraryManagement.Dal
         /// 获取全部订单
         /// </summary>
         /// <returns>全部订单</returns>
-        public DataTable GerAllPurchaseOrders()
+        public DataTable GetAllPurchaseOrders()
         {
-            string sqlstr = "select " +
-                "tb_InterviewPurchaseOrder.Id as 订单号," +
-                "tb_InterviewPurchaseOrder.SubDate as 订单日期," +
-                "tb_InterviewPurchaseOrder.ISBN as ISBN号," +
-                "tb_BasicInformation.UserName as 订购人," +
-                "tb_InterviewPurchaseOrder.BookName as 书名," +
-                "tb_InterviewPurchaseOrder.Price as 价格," +
-                "tb_InterviewPurchaseOrder.CurrencyType as 货币类型," +
-                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
-                "tb_InterviewPurchaseOrder.DocumentType as 文献类型, " +
-                "tb_InterviewPurchaseOrder.Remark as 备注" +
-                " from " +
-                "tb_InterviewPurchaseOrder inner join " +
-                "tb_DictionaryPublishingHouse inner join " +
-                "tb_BasicInformation " +
-                "on tb_InterviewPurchaseOrder.OrdererId=tb_BasicInformation.UserId " +
-                "and tb_InterviewPurchaseOrder.PublishingHouseId=tb_DictionaryPublishingHouse.Id ;";
+            string sqlstr = " SELECT " +
+                " tb_InterviewPurchaseOrder.Id AS `订单号`, " +
+                " tb_InterviewPurchaseOrder.SubDate AS `订单日期`, " +
+                " tb_InterviewPurchaseOrder.ISBN AS `ISBN号`, " +
+                " tb_BasicInformation.UserName AS `订购人`, " +
+                " tb_InterviewPurchaseOrder.BookName AS `书名`, " +
+                " tb_InterviewPurchaseOrder.Price AS `价格`, " +
+                " tb_InterviewPurchaseOrder.CurrencyType AS `货币类型`, " +
+                " tb_DictionaryPublishingHouse.PublishingHouse AS `出版社`, " +
+                " tb_InterviewPurchaseOrder.DocumentType AS `文献类型`, " +
+                " tb_InterviewPurchaseOrder.Remark AS `备注`  " +
+                " FROM " +
+                " tb_InterviewPurchaseOrder " +
+                " INNER JOIN tb_DictionaryPublishingHouse ON tb_InterviewPurchaseOrder.PublishingHouseId = tb_DictionaryPublishingHouse.Id " +
+                " INNER JOIN tb_BasicInformation ON tb_InterviewPurchaseOrder.OrdererId = tb_BasicInformation.UserId  " +
+                " WHERE " +
+                " NOT EXISTS ( SELECT * FROM tb_AcceptanceList WHERE tb_AcceptanceList.OrderId = tb_InterviewPurchaseOrder.Id ); "; 
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
@@ -349,30 +346,21 @@ namespace LibraryManagement.Dal
         public bool AddAcceptanceList(AcceptanceList list)
         {
             string sqlStr = "INSERT INTO tb_AcceptanceList (" +
-                "Id," +
-                "BookSellerId," +
-                "PublishingHouseId," +
-                "OrdererId," +
+                "OrderId," +
                 "AcceptorId," +
-                "DocumentType" +
+                "State" +
                 ")" +
                 "VALUES(" +
-                "@id," +
-                "@bookSellerId," +
-                "@publishingHouseId," +
-                "@ordererId," +
+                "@orderId," +
                 "@acceptorId," +
-                "@documentType" +
+                "@state" +
                 ")";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
-                new MySqlParameter("@id",list.Id),
-                new MySqlParameter("@bookSellerId",list.BookSellerId),
-                new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
-                new MySqlParameter("@ordererId",list.OrdererId),
+                new MySqlParameter("@orderId",list.OrderId),
                 new MySqlParameter("@acceptorId",list.AcceptorId),
-                new MySqlParameter("@documentType",list.DocumentType),
+                new MySqlParameter("@state",list.State),
             };
             int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (count > 0)
@@ -417,21 +405,17 @@ namespace LibraryManagement.Dal
         public bool UpdateAcceptanceList(AcceptanceList list)
         {
             string sqlStr = "UPDATE tb_AcceptanceList SET " +
-                "BookSellerId=@bookSellerId, " +
-                "PublishingHouseId=@publishingHouseId, " +
-                "OrdererId=@ordererId, " +
+                "OrderId=@orderId, " +
                 "AcceptorId=@acceptorId, " +
-                "DocumentType=@documentType " +
+                "State=@state " +
                 "where Id=@id;";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器 
             {
                 new MySqlParameter("@id",list.Id),
-                new MySqlParameter("@bookSellerId",list.BookSellerId),
-                new MySqlParameter("@publishingHouseId",list.PublishingHouseId),
-                new MySqlParameter("@ordererId",list.OrdererId),
+                new MySqlParameter("@orderId",list.OrderId),
                 new MySqlParameter("@acceptorId",list.AcceptorId),
-                new MySqlParameter("@documentType",list.DocumentType),
+                new MySqlParameter("@state",list.State),
             };
             int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (count > 0)
@@ -451,18 +435,13 @@ namespace LibraryManagement.Dal
         public DataTable GetAllAcceptanceList()
         {
             string sqlstr = " SELECT " +
-                " tb_AcceptanceList.Id AS `清单号`, " +
-                " tb_DictionaryBookSeller.BookSeller AS `书商`, " +
-                " tb_DictionaryPublishingHouse.PublishingHouse AS `出版社`, " +
-                " t2.UserName AS 订购人, " +
-                " t1.UserName AS 验收人, " +
-                " tb_AcceptanceList.DocumentType AS `文献类型`  " +
+                " tb_AcceptanceList.Id AS `编号`, " +
+                " tb_BasicInformation.UserName AS `验收人`, " +
+                " tb_AcceptanceList.OrderId AS `订单编号`, " +
+                " tb_AcceptanceList.State AS `状态`  " +
                 " FROM " +
                 " tb_AcceptanceList " +
-                " INNER JOIN tb_DictionaryBookSeller ON tb_AcceptanceList.BookSellerId = tb_DictionaryBookSeller.Id " +
-                " INNER JOIN tb_DictionaryPublishingHouse ON tb_AcceptanceList.PublishingHouseId = tb_DictionaryPublishingHouse.Id " +
-                " INNER JOIN tb_BasicInformation AS t1 ON t1.UserId = tb_AcceptanceList.AcceptorId " +
-                " INNER JOIN tb_BasicInformation AS t2 ON t2.UserId = tb_AcceptanceList.OrdererId ;";
+                " INNER JOIN tb_BasicInformation ON tb_AcceptanceList.AcceptorId = tb_BasicInformation.UserId ;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;

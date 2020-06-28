@@ -104,6 +104,10 @@ namespace LibraryManagement.Dal
         /// <returns></returns>
         public bool RemoveBorrowLog(int id)
         {
+            if (id == -1)
+            {
+                return false;
+            }
             string sqlStr = "DeleteBookBorrowLog";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
@@ -188,6 +192,10 @@ namespace LibraryManagement.Dal
         /// <returns></returns>
         public bool RemoveAppointLog(int id)
         {
+            if (id == -1)
+            {
+                return false;
+            }
             string sqlStr = "DeleteBookAppointLog";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
@@ -400,6 +408,10 @@ namespace LibraryManagement.Dal
         /// <returns></returns>
         public bool MoneyReceived(int Id)
         {
+            if (Id == -1)
+            {
+                return false;
+            }
             string sqlStr = " UPDATE tb_DishonestyLog  " +
                 " SET tb_DishonestyLog.State = '未交书'  " +
                 " WHERE " +
@@ -433,6 +445,10 @@ namespace LibraryManagement.Dal
         /// <returns></returns>
         public bool BookReceived(int Id)
         {
+            if (Id == -1)
+            {
+                return false;
+            }
             string sqlStr = " UPDATE tb_DishonestyLog  " +
                 " SET tb_DishonestyLog.State = '未缴费'  " +
                 " WHERE " +
@@ -466,6 +482,10 @@ namespace LibraryManagement.Dal
         /// <returns></returns>
         public bool BookLost(int Id)
         {
+            if (Id == -1)
+            {
+                return false;
+            }
             string sqlStr = " UPDATE tb_CirculateBooks  " +
                 " SET BookStatus = '已缺失'  " +
                 " WHERE " +
@@ -638,6 +658,45 @@ namespace LibraryManagement.Dal
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[] { };
             helper.ExecuteNonQuery(sqlStr, para, CommandType.StoredProcedure);
+        }
+
+        /// <summary>
+        /// 获取最大id
+        /// </summary>
+        /// <param name="tableName">目标表</param>
+        /// <returns>最大id</returns>
+        public int GetMaxId(string tableName)
+        {
+            string strSql = " SELECT Max(Id) From ";
+            if (tableName == "Borrow")
+            {
+                strSql += "tb_BookBorrowLog where State='有效'";
+            }
+            else if (tableName == "Appoint")
+            {
+                strSql += "tb_BookAppointLog";
+            }
+            else if (tableName == "Damage")
+            {
+                strSql += "tb_BookDamageLog";
+            }
+            else if (tableName == "Dishonesty")
+            {
+                strSql += "tb_DishonestyLog";
+            }
+            else if (tableName == "Book")
+            {
+                strSql = "Select Max(Id) from tb_CirculateBooks where BookStatus = '已借阅'";
+            }
+            MySqlParameter[] paras = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(strSql, paras, CommandType.Text);
+            if (dataTable.Rows.Count <= 0)
+            {
+                return -1;
+            }
+            int result;
+            int.TryParse(dataTable.Rows[0][0].ToString(), out result);
+            return result;
         }
     }
 }
