@@ -281,12 +281,12 @@ namespace LibraryManagement.Bll
         /// 将完好书籍写入流通库
         /// </summary>
         /// <returns>更改成功与否</returns>
-        public bool MoveInterviewCatalogToCirculate()
+        public bool MoveInterviewCatalogToCirculate(int id)
         {
             bool result = false;
             try
             {
-                result = createDal.MoveInterviewCatalogToCirculate();
+                result = createDal.MoveInterviewCatalogToCirculate(id);
             }
             catch (Exception e)
             {
