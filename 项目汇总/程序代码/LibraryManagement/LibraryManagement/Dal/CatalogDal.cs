@@ -1,5 +1,6 @@
 ﻿using LibraryManagement.Model;
 using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 
 namespace LibraryManagement.Dal
@@ -275,16 +276,18 @@ namespace LibraryManagement.Dal
         /// 将完好编目写入流通库
         /// </summary>
         /// <returns>更改成功与否</returns>
-        public bool MoveInterviewCatalogToCirculate()
+        public bool MoveInterviewCatalogToCirculate(int id)
         {
-            string sqlStr = "";
+            string sqlStr = "MoveAcceptToCatalog";
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
                 new MySqlParameter("@result",MySqlDbType.Bit,1),
+                new MySqlParameter("@catalogId",id),
+                new MySqlParameter("@catalogDate",DateTime.Now),
             };
             para[0].Direction = ParameterDirection.Output;//将第一个变量设为输出变量
-            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
+            int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.StoredProcedure);
             return para[0].Value.ToString() == "1";
         }
         #endregion

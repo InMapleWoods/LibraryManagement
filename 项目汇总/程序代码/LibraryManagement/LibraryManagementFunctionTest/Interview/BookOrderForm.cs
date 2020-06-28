@@ -25,7 +25,6 @@ namespace LibraryManagementFunctionTest.Interview
             userCaseHandle = new Tools.UserCaseHandle(((MainForm)((InterviewForm)form).parentForm).folderSrc + "\\Add_InterviewPurchaseOrder.xls");
             comboBox_chooseType.SelectedIndex = 0;
             currencyTypeComboBox.SelectedIndex = 0;
-            publishingHouseComboBox.SelectedIndex = 0;
             documentTypeComboBox.SelectedIndex = 0;
         }
 
@@ -37,9 +36,6 @@ namespace LibraryManagementFunctionTest.Interview
         private InterviewPurchaseOrder GetPurchaseOrder(ref List<string> error)
         {
             List<string> errorList = new List<string>();//错误列表
-
-            //出版社Id
-            int publisherId = ((KeyValuePair<int, string>)publishingHouseComboBox.SelectedItem).Key;
 
             //判断订购人账号是否符合要求
             Match matchOrderer = Regex.Match(SubscriberTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
@@ -68,7 +64,7 @@ namespace LibraryManagementFunctionTest.Interview
                 BookName = bookNameTextBox.Text,
                 Price = price,
                 CurrencyType = currencyTypeComboBox.Text,
-                PublishingHouseId = publisherId,
+                PublishingHouseId = int.Parse(PublishingHouseTextBox.Text),
                 DocumentType = documentTypeComboBox.Text,
                 Remark = RemarkTextBox.Text,
             };

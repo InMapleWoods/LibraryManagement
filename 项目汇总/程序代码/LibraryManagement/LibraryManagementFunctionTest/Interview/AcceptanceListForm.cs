@@ -23,7 +23,6 @@ namespace LibraryManagementFunctionTest.Interview
             parentForm = form;
             userCaseHandle = new Tools.UserCaseHandle(((MainForm)((InterviewForm)form).parentForm).folderSrc + "\\Add_AcceptanceList.xls");
             BookSellerComboBox.SelectedIndex = 0;
-            PublishingHouseComboBox.SelectedIndex = 0;
             DocumentTypeComboBox.SelectedIndex = 0;
             comboBox_chooseType.SelectedIndex = 0;
 
@@ -38,28 +37,8 @@ namespace LibraryManagementFunctionTest.Interview
         {
             List<string> errorList = new List<string>();//错误列表
 
-            //书商Id
-            int bookSellerId = ((KeyValuePair<int, string>)BookSellerComboBox.SelectedItem).Key;
-
-            //出版社Id
-            int publisherId = ((KeyValuePair<int, string>)PublishingHouseComboBox.SelectedItem).Key;
-
-            //判断订购人账号是否符合要求
-            Match matchOrderer = Regex.Match(OrdererTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
-            if (!matchOrderer.Success)
-            {
-                errorList.Add("OrdererId Error");
-            }
-
             //通过订购人账号获取id
             int ordererId = int.Parse(OrdererTextBox.Text);
-
-            //判断验收人账号是否符合要求
-            Match matchAcceptor = Regex.Match(AcceptorTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
-            if (!matchAcceptor.Success)
-            {
-                errorList.Add("AcceptorId Error");
-            }
 
             //通过订购人账号获取id
             int acceptorId = int.Parse(AcceptorTextBox.Text);
@@ -67,11 +46,12 @@ namespace LibraryManagementFunctionTest.Interview
             //根据页面内容构造清单
             AcceptanceList list = new AcceptanceList()
             {
-                BookSellerId = bookSellerId,
-                PublishingHouseId = publisherId,
-                OrdererId = ordererId,
-                AcceptorId = acceptorId,
-                DocumentType = DocumentTypeComboBox.Text,
+                //Id = int.Parse(IdTextBox.Text),
+                //BookSellerId = BookSellerComboBox.SelectedIndex,
+                //PublishingHouseId = PublishingHouseComboBox.SelectedIndex,
+                //OrdererId = ordererId,
+                //AcceptorId = acceptorId,
+                //DocumentType = DocumentTypeComboBox.Text,
             };
             error = errorList;//返回错误列表
             return list;//返回订单

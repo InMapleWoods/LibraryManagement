@@ -43,7 +43,7 @@ namespace LibraryManageUnitTest.Periodical
         [TestMethod]
         public void TestUpdatePeriodicalOrder()
         {
-            Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"C:\Users\96464\Desktop\软件工程\Update_PeriodicalOrder.xls");
+            Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"C:\Users\96464\Desktop\软件工程\测试用例\Update_PeriodicalOrder.xls");
             IEnumerable periodicalOrders = userCaseHandle.GetUserCases();
             List<string> errorList = new List<string>();
             foreach (var i in periodicalOrders)
