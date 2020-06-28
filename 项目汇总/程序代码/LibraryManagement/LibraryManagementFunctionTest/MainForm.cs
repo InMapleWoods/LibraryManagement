@@ -55,7 +55,7 @@ namespace LibraryManagementFunctionTest
 
         private void userManagementSystemButton_Click(object sender, EventArgs e)
         {
-            var form = new UserManagement.UserManagementForm(this);
+            var form = new UserManagement.UserManagementAdminChoice(this);
             form.Show();
             Hide();
         }

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace LibraryManagement.Model
+namespace LibraryManagementFunctionTest.Model
 {
     /// <summary>
     /// 登录信息
     /// </summary>
-    public class UserManagementLogin
+    class UserManagementLogin
     {
         /// <summary>
         /// 读者编号

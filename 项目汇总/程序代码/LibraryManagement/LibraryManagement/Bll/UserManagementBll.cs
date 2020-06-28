@@ -1,6 +1,7 @@
 ﻿using LibraryManagement.Dal;
 using LibraryManagement.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 
@@ -9,7 +10,7 @@ namespace LibraryManagement.Bll
     /// <summary>
     /// 用户管理子系统操作类
     /// </summary>
-    class UserManagementBll
+    public class UserManagementBll
     {
         /// <summary>
         /// 用户管理数据操作对象
@@ -112,6 +113,40 @@ namespace LibraryManagement.Bll
                 throw e;
             }
             return dt;
+        }
+
+        /// <summary>
+        /// 获取全部读者信息
+        /// </summary>
+        /// <returns>读者信息</returns>
+        public IEnumerable GetAllReadersInfoArray()
+        {
+            List<UserManagementReaderInfo> result = new List<UserManagementReaderInfo>();
+            try
+            {
+                DataTable datatable = userManagementDal.GetAllReadersInfo();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    UserManagementReaderInfo userManagementReaderInfo = new UserManagementReaderInfo()
+                    {
+                        LibraryCardNum = dr["借书证号"].ToString(),
+                        UserNumber = dr["学号/职工号"].ToString(),
+                        UserName = dr["读者姓名"].ToString(),
+                        Gender = (int)dr["性别"],
+                        Birthday = (DateTime)dr["出生日期"],
+                        Address = dr["地址"].ToString(),
+                        Contact = dr["联系电话"].ToString(),
+                        DepartmentName = dr["所在院系"].ToString()
+                    };
+                    result.Add(userManagementReaderInfo);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
         }
         #endregion
 

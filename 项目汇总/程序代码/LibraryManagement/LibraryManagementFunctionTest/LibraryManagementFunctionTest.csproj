@@ -159,6 +159,11 @@
     <Compile Include="Model\PeriodicalOrder.cs" />
     <Compile Include="Model\Reader.cs" />
     <Compile Include="Model\StatisticalInfo.cs" />
+    <Compile Include="Model\UserManagementAdmin.cs" />
+    <Compile Include="Model\UserManagementAdminInfo.cs" />
+    <Compile Include="Model\UserManagementLogin.cs" />
+    <Compile Include="Model\UserManagementReaderInfo.cs" />
+    <Compile Include="Model\UserManagementReaderLevel.cs" />
     <Compile Include="Periodical\PeriodicalArrivalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,17 +191,23 @@
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\UserCaseHandle.cs" />
-    <Compile Include="UserManagement\AddReaderForm.cs">
+    <Compile Include="UserManagement\AdminAddNewAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserManagement\AddReaderForm.Designer.cs">
-      <DependentUpon>AddReaderForm.cs</DependentUpon>
+    <Compile Include="UserManagement\AdminAddNewAdmin.Designer.cs">
+      <DependentUpon>AdminAddNewAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\AdminOperationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserManagement\AdminOperationForm.Designer.cs">
       <DependentUpon>AdminOperationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UserManagementAdminChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement\UserManagementAdminChoice.Designer.cs">
+      <DependentUpon>UserManagementAdminChoice.cs</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\UserManagementForm.cs">
       <SubType>Form</SubType>
@@ -273,11 +284,14 @@
     <EmbeddedResource Include="Statistical\StatisticalForm.resx">
       <DependentUpon>StatisticalForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserManagement\AddReaderForm.resx">
-      <DependentUpon>AddReaderForm.cs</DependentUpon>
+    <EmbeddedResource Include="UserManagement\AdminAddNewAdmin.resx">
+      <DependentUpon>AdminAddNewAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\AdminOperationForm.resx">
       <DependentUpon>AdminOperationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\UserManagementAdminChoice.resx">
+      <DependentUpon>UserManagementAdminChoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\UserManagementForm.resx">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
