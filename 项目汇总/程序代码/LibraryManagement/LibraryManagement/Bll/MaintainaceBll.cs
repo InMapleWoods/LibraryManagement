@@ -1,6 +1,7 @@
 ﻿using LibraryManagement.Dal;
 using LibraryManagement.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 
@@ -9,7 +10,7 @@ namespace LibraryManagement.Bll
     /// <summary>
     /// 系统维护操作类
     /// </summary>
-    class MaintainaceBll
+    public class MaintainaceBll
     {
         MaintainaceDal maintainaceDal = new MaintainaceDal();
         /// <summary>
@@ -79,6 +80,65 @@ namespace LibraryManagement.Bll
                 throw e;
             }
             return result;
+        }
+        
+        public IEnumerable getAllDicBookSellerArry()
+        {
+            List<DictionaryBookSeller> result = new List<DictionaryBookSeller>();
+            try
+            {
+                DataTable datatable = maintainaceDal.getAllDicBookSeller();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    DictionaryBookSeller bookSeller = new DictionaryBookSeller()
+                    {
+                        Id = (int)dr["编号"],
+                        BookSeller = dr["书商名字"].ToString(),
+                        Location = dr["地址"].ToString(),
+                        Contact = dr["联系人"].ToString(),
+                        CallNumber = dr["电话"].ToString(),
+                        PostCodes = (int)dr["邮编"],
+                        BankName = dr["开户行"].ToString(),
+                        Remark = dr["备注"].ToString()
+                    };
+                    result.Add(bookSeller);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+        public IEnumerable getDicBookSellerArry(int index, int size)
+        {
+            List<DictionaryBookSeller> result = new List<DictionaryBookSeller>();
+            try
+            {
+                DataTable datatable = maintainaceDal.getDicBookSeller(index,size);
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    DictionaryBookSeller bookSeller = new DictionaryBookSeller()
+                    {
+                        Id = (int)dr["编号"],
+                        BookSeller = dr["书商名字"].ToString(),
+                        Location = dr["地址"].ToString(),
+                        Contact = dr["联系人"].ToString(),
+                        CallNumber = dr["电话"].ToString(),
+                        PostCodes = (int)dr["邮编"],
+                        BankName = dr["开户行"].ToString(),
+                        Remark = dr["备注"].ToString()
+                    };
+                    result.Add(bookSeller);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
         }
         /// <summary>
         /// 新增出版社用户操作
@@ -237,6 +297,65 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
+
+        public IEnumerable getAllDicPublishingHouseArray()
+        {
+            List<DictionaryPublishingHouse> result = new List<DictionaryPublishingHouse>();
+            try
+            {
+                DataTable datatable = maintainaceDal.getAllDicPublishingHouse();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    DictionaryPublishingHouse publishingHouse = new DictionaryPublishingHouse()
+                    {
+                        Id = (int)dr["编号"],
+                        PublishingHouse = dr["出版社名字"].ToString(),
+                        Location = dr["地址"].ToString(),
+                        PublishingLocation = dr["出版地"].ToString(),
+                        CallNumber = dr["电话"].ToString(),
+                        PostCodes = (int)dr["邮编"],
+                        BankName = dr["开户行"].ToString(),
+                        Remark = dr["备注"].ToString()
+                    };
+                    result.Add(publishingHouse);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+        public IEnumerable getDicPublishingHouseArray(int index,int size)
+        {
+            List<DictionaryPublishingHouse> result = new List<DictionaryPublishingHouse>();
+            try
+            {
+                DataTable datatable = maintainaceDal.getDicPublishingHouse(index,size);
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    DictionaryPublishingHouse publishingHouse = new DictionaryPublishingHouse()
+                    {
+                        Id = (int)dr["编号"],
+                        PublishingHouse = dr["出版社名字"].ToString(),
+                        Location = dr["地址"].ToString(),
+                        PublishingLocation = dr["出版地"].ToString(),
+                        CallNumber = dr["电话"].ToString(),
+                        PostCodes = (int)dr["邮编"],
+                        BankName = dr["开户行"].ToString(),
+                        Remark = dr["备注"].ToString()
+                    };
+                    result.Add(publishingHouse);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
         /// <summary>
         /// 增加时的名称查重
         /// </summary>
@@ -383,6 +502,31 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
+        public IEnumerable getAllStatisticalInfoArray()
+        {
+            List<StatisticalInfo> result = new List<StatisticalInfo>();
+            try
+            {
+                DataTable datatable = maintainaceDal.getStatisticInfo();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    StatisticalInfo statisticalInfo = new StatisticalInfo()
+                    {
+                        Id = (int)dr["编号"],
+                        TableName = dr["表名称"].ToString(),
+                        Operation = dr["操作"].ToString()
+                        
+                    };
+                    result.Add(statisticalInfo);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
         public bool AddStatisticalInfo(StatisticalInfo statisticalInfo, ref List<string> errorMsg)
         {
             bool result = false;
@@ -475,12 +619,12 @@ namespace LibraryManagement.Bll
                 return false;
             }
         }
-        public bool DeleteStatisticalInfo(StatisticalInfo statisticalInfo)
+        public bool DeleteStatisticalInfo(int id)
         {
             bool result = false;
             try
             {
-                result = maintainaceDal.DeleteStatisticalInfo(statisticalInfo);
+                result = maintainaceDal.DeleteStatisticalInfo(id);
             }
             catch (Exception e)
             {

@@ -2,7 +2,7 @@
 
 namespace LibraryManagement.Model
 {
-    class StatisticalInfo
+    public class StatisticalInfo
     {
         //编号
         public int Id;

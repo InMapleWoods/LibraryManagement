@@ -4,7 +4,7 @@ using System.Data;
 
 namespace LibraryManagement.Bll
 {
-    class StatisticalBll
+    public class StatisticalBll
     {
         StatisticalDal statisticalDal = new StatisticalDal();
         public DataTable getStatisticalInfo()
