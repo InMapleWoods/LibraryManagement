@@ -503,13 +503,13 @@ namespace LibraryManagement.Dal
                 return false;
             }
         }
-        public bool DeleteStatisticalInfo(StatisticalInfo statisticalInfo)
+        public bool DeleteStatisticalInfo(int Id)
         {
             string sqlStr = "DELETE FROM tb_StatisticalFormat " +
                 " WHERE Id= @Id ;";
             MySqlParameter[] para = new MySqlParameter[]
             {
-                new MySqlParameter("@Id",statisticalInfo.Id),
+                new MySqlParameter("@Id",Id),
             };
             int count = helper.ExecuteNonQuery(sqlStr, para, CommandType.Text);
             if (count > 0)

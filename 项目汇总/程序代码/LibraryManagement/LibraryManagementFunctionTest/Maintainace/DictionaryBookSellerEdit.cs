@@ -18,7 +18,7 @@ namespace LibraryManagementFunctionTest.Maintainace
         {
             InitializeComponent();
             parentForm = form;
-            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((DictionaryBookSellerEdit)form).parentForm).folderSrc + "\\Add_DictionaryBookSeller.xls");
+            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((MaitainanceForm)form).parentForm).folderSrc + "\\Add_DictionaryBookSeller.xls");
             comboBox_chooseType.SelectedIndex = 0;
         }
 
@@ -289,11 +289,11 @@ namespace LibraryManagementFunctionTest.Maintainace
         {
             if (comboBox_chooseType.SelectedIndex == 0)
             {
-                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((DictionaryBookSellerEdit)parentForm).parentForm).folderSrc + "\\Add_DictionaryBookSeller.xls");
+                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((MaitainanceForm)parentForm).parentForm).folderSrc + "\\Add_DictionaryBookSeller.xls");
             }
             else
             {
-                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((DictionaryBookSellerEdit)parentForm).parentForm).folderSrc + "\\Update_DictionaryBookSeller.xls");
+                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((MaitainanceForm)parentForm).parentForm).folderSrc + "\\Update_DictionaryBookSeller.xls");
             }
             DataBind();
         }
