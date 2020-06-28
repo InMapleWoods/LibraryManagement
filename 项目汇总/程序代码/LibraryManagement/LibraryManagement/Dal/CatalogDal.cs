@@ -169,19 +169,19 @@ namespace LibraryManagement.Dal
             string sqlstr = " SELECT " +
                 " tb_InterviewCatalog.Id AS 编号, " +
                 " tb_InterviewCatalog.InterviewId AS 采访验收编号, " +
-                " tb_DictionaryBookSeller.BookSeller AS 书商名, " +
-                " tb_DictionaryPublishingHouse.PublishingHouse AS 出版社, " +
-                " tb_AcceptanceList.OrdererId AS 订购人, " +
-                " tb_AcceptanceList.AcceptorId AS 验收人, " +
+                //" tb_DictionaryBookSeller.BookSeller AS 书商名, " +
+                //" tb_DictionaryPublishingHouse.PublishingHouse AS 出版社, " +
+                // " tb_AcceptanceList.OrdererId AS 订购人, " +
+                //" tb_AcceptanceList.AcceptorId AS 验收人, " +
                 " tb_InterviewCatalog.State AS 状态  " +
                 " FROM " +
-                " tb_InterviewCatalog " +
-                " INNER JOIN tb_AcceptanceList " +
-                " INNER JOIN tb_DictionaryPublishingHouse " +
-                " INNER JOIN tb_DictionaryBookSeller " +
-                " ON tb_InterviewCatalog.InterviewId = tb_AcceptanceList.Id" +
-                " AND tb_DictionaryBookSeller.Id = tb_AcceptanceList.BookSellerId" +
-                " AND tb_DictionaryPublishingHouse.Id = tb_AcceptanceList.PublishingHouseId;";
+                " tb_InterviewCatalog ;";//+
+                //" INNER JOIN tb_AcceptanceList " +
+                //" INNER JOIN tb_DictionaryPublishingHouse " +
+                //" INNER JOIN tb_DictionaryBookSeller " +
+                //" ON tb_InterviewCatalog.InterviewId = tb_AcceptanceList.Id;";// +
+                //" AND tb_DictionaryBookSeller.Id = tb_AcceptanceList.BookSellerId" +
+                //" AND tb_DictionaryPublishingHouse.Id = tb_AcceptanceList.PublishingHouse;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
