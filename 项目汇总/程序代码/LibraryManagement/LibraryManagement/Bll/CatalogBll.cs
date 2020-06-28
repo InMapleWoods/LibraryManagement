@@ -109,7 +109,43 @@ namespace LibraryManagement.Bll
                 throw ex;
             }
             return result;
+
         }
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public IEnumerable GetAllCreateCatalogArray()
+        {
+            List<CreateCatalogList> result = new List<CreateCatalogList>();
+            try
+            {
+                DataTable datatable = createDal.GetAllCatalogList();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    CreateCatalogList createCatalogList = new CreateCatalogList()
+                    {
+                        Id = (int)dr["编号"],
+                        FirstAuthor = dr["第一作者"].ToString(),
+                        ISBN = dr["ISBN号"].ToString(),
+                        PositiveTitle = dr["正题名"].ToString(),
+                        PrimaryLiability = dr["第一责任"].ToString(),
+                        DocumentType = dr["文献类型"].ToString(),
+                        CatalogingDate = (DateTime)dr["编目日期"],
+                        
+                    };
+                    result.Add(createCatalogList);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+
         #endregion
 
         #region 采访编目

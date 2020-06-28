@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalog\CatalogMoveUnitTest.cs" />
     <Compile Include="Catalog\CreateCatalogListTest.cs" />
     <Compile Include="Catalog\InterviewCatalogUnitTest.cs" />
     <Compile Include="Circulation\BookAppointUnitTest.cs" />
