@@ -81,7 +81,7 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("BookSellerId Error");
             }
-            Match matchCallNumber = Regex.Match(bookseller.CallNumber, @"^(\d{1,10})$");
+            Match matchCallNumber = Regex.Match(bookseller.CallNumber, @"^(\d{1,11})$");
             if (!matchCallNumber.Success)
             {
                 errorList.Add("CallNumber Error");
@@ -95,6 +95,7 @@ namespace LibraryManagement.Model
             {
                 return true;
             }
+            errorMsg = errorList;
             return false;
         }
     }

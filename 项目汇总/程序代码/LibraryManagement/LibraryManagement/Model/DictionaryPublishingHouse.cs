@@ -78,7 +78,7 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("BookSellerId Error");
             }
-            Match matchCallNumber = Regex.Match(publishingHouse.CallNumber, @"^(\d{1,10})$");
+            Match matchCallNumber = Regex.Match(publishingHouse.CallNumber, @"^(\d{1,11})$");
             if (!matchCallNumber.Success)
             {
                 errorList.Add("CallNumber Error");
@@ -86,12 +86,13 @@ namespace LibraryManagement.Model
             Match matchPostCodes = Regex.Match(publishingHouse.PostCodes.ToString(), @"^(\d{5,6})$");
             if (!matchPostCodes.Success)
             {
-                errorList.Add("CallNumber Error");
+                errorList.Add("PostCodes Error");
             }
             if (errorList.Count > 0)
             {
                 return true;
             }
+            errorMsg = errorList;
             return false;
         }
     }
