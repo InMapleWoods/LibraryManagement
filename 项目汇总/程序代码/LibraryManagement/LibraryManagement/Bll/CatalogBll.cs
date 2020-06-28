@@ -319,6 +319,29 @@ namespace LibraryManagement.Bll
             return result;
         }
 
+        public IEnumerable GetMoveCatalog()
+        {
+            List<CreateCatalogList> result = new List<CreateCatalogList>();
+            try
+            {
+                DataTable datatable = createDal.GetAllQueryCatalogForm("");
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    CreateCatalogList createCatalogList = new CreateCatalogList()
+                    {
+                        Id = (int)dr["编号"]                        
+                    };
+                    result.Add(createCatalogList);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
+
         #endregion
 
         #region 编目查询
