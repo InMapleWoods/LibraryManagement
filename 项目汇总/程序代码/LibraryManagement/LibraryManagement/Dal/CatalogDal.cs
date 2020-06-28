@@ -171,15 +171,15 @@ namespace LibraryManagement.Dal
             string sqlstr = " SELECT " +
                 " tb_InterviewCatalog.Id AS 编号, " +
                 " tb_InterviewCatalog.InterviewId AS 采访验收编号, " +
-                " tb_InterviewList.ISBN AS ISBN号, " +
-                " tb_InterviewList.BookName AS 正刊名, " +
-                " tb_InterviewList.Price AS 价格, " +
-                " tb_InterviewList.Author AS 作者, " +
+                " tb_AcceptanceList.BookSellerId AS 书商名, " +
+                " tb_AcceptanceList.PublishingHouseId AS 出版社, " +
+                " tb_AcceptanceList.OrdererId AS 订购人, " +
+                " tb_AcceptanceList.AcceptorId AS 验收人, " +
                 " tb_InterviewCatalog.State AS 状态  " +
                 " FROM " +
                 " tb_InterviewCatalog " +
-                " INNER JOIN tb_InterviewList " +
-                " ON tb_InterviewCatalog.InterviewId = tb_InterviewList.Id;";
+                " INNER JOIN tb_AcceptanceList " +
+                " ON tb_InterviewCatalog.InterviewId = tb_AcceptanceList.Id;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
