@@ -8,7 +8,7 @@ namespace LibraryManagement
     public partial class AdminForm : Form
     {
         Form parentForm;
-        UserManagementAdmin admin;
+        public static UserManagementAdmin admin;
         public AdminForm(Form form, UserManagementAdmin user)
         {
             InitializeComponent();

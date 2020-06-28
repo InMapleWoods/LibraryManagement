@@ -30,37 +30,45 @@ namespace LibraryManagement.UserManagement
         {
             try
             {
-                List<string> errorList = new List<string>();
-                UserManagementLogin login = GetAllLoginInformation();
-                UserManagementAdmin admin = new UserManagementAdmin();
-                int responseCode = userManagementBll.adminLogin(login, out admin, ref errorList);
-                if (responseCode == 200 && admin != null)
-                {
-                    MessageBox.Show("登陆成功");
-                    var form = new AdminForm(this, admin);
-                    form.Show();
-                    Hide();
-                }
-                else if (responseCode == 401)
-                {
-                    MessageBox.Show("密码不正确，请重新输入");
-                }
-                else if (responseCode == 403)
-                {
-                    MessageBox.Show("权限不足，禁止登陆");
-                }
-                else if (responseCode == 415)
-                {
-                    MessageBox.Show("输入格式有误，请重新输入");
-                }
-                else
-                {
-                    MessageBox.Show("登录失败");
-                }
+                Login();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 登录
+        /// </summary>
+        private void Login()
+        {
+            List<string> errorList = new List<string>();
+            UserManagementLogin login = GetAllLoginInformation();
+            UserManagementAdmin admin = new UserManagementAdmin();
+            int responseCode = userManagementBll.adminLogin(login, out admin, ref errorList);
+            if (responseCode == 200 && admin != null)
+            {
+                MessageBox.Show("登陆成功");
+                var form = new AdminForm(this, admin);
+                form.Show();
+                Hide();
+            }
+            else if (responseCode == 401)
+            {
+                MessageBox.Show("密码不正确，请重新输入");
+            }
+            else if (responseCode == 403)
+            {
+                MessageBox.Show("权限不足，禁止登陆");
+            }
+            else if (responseCode == 415)
+            {
+                MessageBox.Show("输入格式有误，请重新输入");
+            }
+            else
+            {
+                MessageBox.Show("登录失败");
             }
         }
 
@@ -85,6 +93,30 @@ namespace LibraryManagement.UserManagement
         {
             parentForm.Show();
             Hide();
+        }
+
+        /// <summary>
+        /// 账号输入栏键盘事件
+        /// </summary>
+        private void txb_Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)//如果按下回车键
+            {
+                e.Handled = true;
+                txb_Password.Focus();
+            }
+        }
+
+        /// <summary>
+        /// 密码输入栏键盘事件
+        /// </summary>
+        private void txb_Password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)//如果按下回车键
+            {
+                e.Handled = true;
+                Login();
+            }
         }
     }
 }

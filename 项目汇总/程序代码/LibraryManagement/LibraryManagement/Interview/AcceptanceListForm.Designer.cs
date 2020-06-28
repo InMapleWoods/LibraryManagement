@@ -61,6 +61,7 @@
             this.PurchaseDataGridView.RowTemplate.Height = 27;
             this.PurchaseDataGridView.Size = new System.Drawing.Size(872, 185);
             this.PurchaseDataGridView.TabIndex = 20;
+            this.PurchaseDataGridView.CurrentCellChanged += new System.EventHandler(this.PurchaseDataGridView_CurrentCellChanged);
             // 
             // AcceptanceDataGridView
             // 

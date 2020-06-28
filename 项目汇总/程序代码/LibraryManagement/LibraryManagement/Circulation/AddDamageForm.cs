@@ -38,5 +38,10 @@ namespace LibraryManagement.Circulation
             damageLog.CheckTime = DateTime.Now;
             DialogResult = DialogResult.Yes;
         }
+
+        private void AddDamageForm_Load(object sender, EventArgs e)
+        {
+            textBox_checkerNum.Text = AdminForm.admin.Number;
+        }
     }
 }

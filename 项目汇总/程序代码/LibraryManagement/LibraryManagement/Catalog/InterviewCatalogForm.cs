@@ -49,7 +49,7 @@ namespace LibraryManagement.Catalog
         private void DataBind()
         {
             // 上方窗体数据绑定
-            interviewDataGridView.DataSource = interviewBll.GetAllInterviewList();
+            interviewDataGridView.DataSource = interviewBll.GetAllAcceptanceList();
             // 下方窗体数据绑定
             catalogDataGridView.DataSource = createCatalogBll.GetAllInterviewCatalog();
             stateComboBox.SelectedIndex = 0;//状态
@@ -99,7 +99,7 @@ namespace LibraryManagement.Catalog
                 int id;
                 if (!int.TryParse(idTextBox.Text, out id))//将其转换为数字失败
                 {
-                    MessageBox.Show("采访编号错误");
+                    MessageBox.Show("采访验收编号错误");
                     return;
                 }
                 InterviewCatalog list = GetAllCatalogList(ref errorList);
@@ -167,7 +167,7 @@ namespace LibraryManagement.Catalog
         {
             List<string> errorList = new List<string>();//错误列表
             int interviewId;
-            //判断采访编号是否能被转换为浮点型
+            //判断采访验收编号是否能被转换为浮点型
             if (!int.TryParse(interviewIdTextBox.Text, out interviewId))
             {
                 errorList.Add("InterviewId Error");
@@ -190,7 +190,7 @@ namespace LibraryManagement.Catalog
             if (interviewDataGridView.CurrentRow != null)
             {
                 idTextBox.Text = "";//编号
-                interviewIdTextBox.Text = interviewDataGridView.CurrentRow.Cells[0].Value.ToString();//采访编号
+                interviewIdTextBox.Text = interviewDataGridView.CurrentRow.Cells[0].Value.ToString();//采访验收编号
                 stateComboBox.SelectedIndex = 0;//编目状态
             }
             SetEnable();//按钮启用
@@ -204,7 +204,7 @@ namespace LibraryManagement.Catalog
             if (interviewDataGridView.SelectedRows.Count > 0)
             {
                 idTextBox.Text = "";//编号
-                interviewIdTextBox.Text = interviewDataGridView.SelectedRows[0].Cells[0].Value.ToString();//采访编号
+                interviewIdTextBox.Text = interviewDataGridView.SelectedRows[0].Cells[0].Value.ToString();//采访验收编号
                 stateComboBox.SelectedIndex = 0;//编目状态
             }
             SetEnable();//按钮启用
@@ -242,7 +242,7 @@ namespace LibraryManagement.Catalog
         private void SetInterviewCatalog(DataGridViewRow row)
         {
             idTextBox.Text = row.Cells["编号"].Value.ToString();//编号
-            interviewIdTextBox.Text = row.Cells["采访编号"].Value.ToString();//采访编号
+            interviewIdTextBox.Text = row.Cells["采访验收编号"].Value.ToString();//采访验收编号
             stateComboBox.Text = row.Cells["状态"].Value.ToString();//采访状态
         }
 
@@ -262,7 +262,7 @@ namespace LibraryManagement.Catalog
             {
                 return;
             }
-            if ((idTextBox.Text == row.Cells["编号"].Value.ToString()) && (interviewIdTextBox.Text == row.Cells["采访编号"].Value.ToString()) && (stateComboBox.Text == row.Cells["状态"].Value.ToString()))
+            if ((idTextBox.Text == row.Cells["编号"].Value.ToString()) && (interviewIdTextBox.Text == row.Cells["采访验收编号"].Value.ToString()) && (stateComboBox.Text == row.Cells["状态"].Value.ToString()))
             {
                 changeStateBtn.Enabled = true;
                 cancelCatalogBtn.Enabled = true;
@@ -284,18 +284,18 @@ namespace LibraryManagement.Catalog
         {
             try
             {
-                DialogResult dialogResult = MessageBox.Show("是否全部入库", "入库确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
-                if (dialogResult == DialogResult.Yes)//如果选择确认按钮
-                {
-                    if (createCatalogBll.MoveInterviewCatalogToCirculate())//调用全部入库方法
-                    {
-                        MessageBox.Show("全部入库成功");
-                    }
-                    else
-                    {
-                        MessageBox.Show("全部入库失败");
-                    }
-                }
+            //    DialogResult dialogResult = MessageBox.Show("是否全部进入编目", "进入编目确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
+            //    if (dialogResult == DialogResult.Yes)//如果选择确认按钮
+            //    {
+            //        if (createCatalogBll.MoveInterviewCatalogToCirculate())//调用全部进入编目方法
+            //        {
+            //            MessageBox.Show("全部进入编目成功");
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("全部进入编目失败");
+            //        }
+            //    }
             }
             catch (Exception ex)
             {

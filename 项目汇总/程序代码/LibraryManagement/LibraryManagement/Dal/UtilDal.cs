@@ -36,6 +36,27 @@ namespace LibraryManagement.Dal
         }
 
         /// <summary>
+        /// 由用户Id获取用户账号
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>用户账号</returns>
+        public string GetUserNumberFormId(string id)
+        {
+            string sqlStr = "select UserNumber from tb_BasicInformation where UserId=@id;";//SQL执行字符串
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@id",id.Trim()),
+            };
+            DataTable dataTable = helper.ExecuteQuery(sqlStr, paras, CommandType.Text);
+            if (dataTable == null || dataTable.Rows.Count == 0)
+            {
+                return "";
+            }
+            string idResult = dataTable.Rows[0]["UserNumber"].ToString();
+            return idResult;
+        }
+
+        /// <summary>
         /// 获取书商名称
         /// </summary>
         /// <returns>书商名称</returns>

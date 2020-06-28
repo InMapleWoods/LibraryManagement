@@ -85,6 +85,7 @@
             this.ShowInTaskbar = false;
             this.Text = "书籍损坏";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddDamageForm_FormClosing);
+            this.Load += new System.EventHandler(this.AddDamageForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

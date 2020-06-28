@@ -323,6 +323,25 @@ namespace LibraryManagement.Dal
         #region 验收清单
 
         /// <summary>
+        /// 根据订单编号获取订购人编号
+        /// </summary>
+        /// <param name="id">订单编号</param>
+        /// <returns>订购人编号</returns>
+        public int GetOrdererIdByNum(string id)
+        {
+            string sqlStr = "select tb_InterviewPurchaseOrder.OrdererId as 订购人 from tb_InterviewPurchaseOrder where tb_InterviewPurchaseOrder.Id = @id;";
+            MySqlParameter[] paras = new MySqlParameter[]
+            {
+                 new MySqlParameter("@id", id),
+            };
+            DataTable dataTable = helper.ExecuteQuery(sqlStr, paras, CommandType.Text);
+            if (dataTable.Rows.Count <= 0)
+            {
+                return -1;
+            }
+            return (int)dataTable.Rows[0]["订购人"];
+        }
+        /// <summary>
         /// 增加一条验收清单记录
         /// </summary>
         /// <param name="list">验收清单</param>
@@ -431,21 +450,19 @@ namespace LibraryManagement.Dal
         /// <returns>全部清单</returns>
         public DataTable GetAllAcceptanceList()
         {
-            string sqlstr = "select " +
-                "tb_AcceptanceList.Id as 清单号," +
-                "tb_DictionaryBookSeller.BookSeller as 书商," +
-                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
-                "tb_AdminInformation.AdminRole as 订购人," +
-                "tb_AdminInformation.AdminRole as 验收人," +
-                "tb_AcceptanceList.DocumentType as 文献类型 " +
-                " from " +
-                "tb_AcceptanceList inner join " +
-                "tb_DictionaryBookSeller inner join " +
-                "tb_DictionaryPublishingHouse inner join " +
-                "tb_AdminInformation " +
-                "on tb_AcceptanceList.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
-                "and tb_AcceptanceList.BookSellerId=tb_DictionaryBookSeller.Id " +
-                "and tb_AcceptanceList.OrdererId=tb_AdminInformation.UserId ;";
+            string sqlstr = " SELECT " +
+                " tb_AcceptanceList.Id AS `清单号`, " +
+                " tb_DictionaryBookSeller.BookSeller AS `书商`, " +
+                " tb_DictionaryPublishingHouse.PublishingHouse AS `出版社`, " +
+                " t2.UserName AS 订购人, " +
+                " t1.UserName AS 验收人, " +
+                " tb_AcceptanceList.DocumentType AS `文献类型`  " +
+                " FROM " +
+                " tb_AcceptanceList " +
+                " INNER JOIN tb_DictionaryBookSeller ON tb_AcceptanceList.BookSellerId = tb_DictionaryBookSeller.Id " +
+                " INNER JOIN tb_DictionaryPublishingHouse ON tb_AcceptanceList.PublishingHouseId = tb_DictionaryPublishingHouse.Id " +
+                " INNER JOIN tb_BasicInformation AS t1 ON t1.UserId = tb_AcceptanceList.AcceptorId " +
+                " INNER JOIN tb_BasicInformation AS t2 ON t2.UserId = tb_AcceptanceList.OrdererId ;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;

@@ -170,7 +170,7 @@ namespace LibraryManagement.Dal
         {
             string sqlstr = " SELECT " +
                 " tb_InterviewCatalog.Id AS 编号, " +
-                " tb_InterviewCatalog.InterviewId AS 采访编号, " +
+                " tb_InterviewCatalog.InterviewId AS 采访验收编号, " +
                 " tb_InterviewList.ISBN AS ISBN号, " +
                 " tb_InterviewList.BookName AS 正刊名, " +
                 " tb_InterviewList.Price AS 价格, " +

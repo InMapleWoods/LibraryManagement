@@ -28,6 +28,25 @@ namespace LibraryManagement.Bll
         }
 
         /// <summary>
+        /// 由用户Id获取用户账号
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>用户账号</returns>
+        public string GetUserNumberFormId(string id)
+        {
+            string result = "";
+            try
+            {
+                result = utilDal.GetUserNumberFormId(id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message); throw e;
+            }
+            return result;
+        }
+
+        /// <summary>
         /// 获取书商名称
         /// </summary>
         /// <returns>书商名称</returns>

@@ -290,6 +290,10 @@ namespace LibraryManagement.Dal
         #endregion
 
         #region 读者权限管理
+        /// <summary>
+        /// 获取全部读者权限
+        /// </summary>
+        /// <returns>全部读者权限</returns>
         public DataTable GetAllReadersLevel()
         {
             string sql = "SELECT " +
@@ -499,9 +503,9 @@ namespace LibraryManagement.Dal
         }
 
         /// <summary>
-        /// 删除一条读者记录
+        /// 删除一条管理员记录
         /// </summary>
-        /// <param name="userNumber">读者编号</param>
+        /// <param name="info">管理员信息</param>
         /// <returns>删除成功与否</returns>
         public bool deleteAAdmin(UserManagementAdminInfo info)
         {

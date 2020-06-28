@@ -216,6 +216,27 @@ namespace LibraryManagement.Bll
         #endregion
 
         #region 验收清单
+
+        /// <summary>
+        /// 根据订单编号获取订购人编号
+        /// </summary>
+        /// <param name="id">订单编号</param>
+        /// <returns>订购人编号</returns>
+        public int GetOrdererIdByNum(string id)
+        {
+            int result = -1;
+            try
+            {
+                result = interviewDal.GetOrdererIdByNum(id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            return result;
+        }
+
         /// <summary>
         /// 增加一条验收清单记录
         /// </summary>

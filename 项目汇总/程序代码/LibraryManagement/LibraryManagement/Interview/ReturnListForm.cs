@@ -177,6 +177,8 @@ namespace LibraryManagement.Interview
             publishingHouseComboBox.DataSource = bs_PublishingHouse;
             publishingHouseComboBox.ValueMember = "Key";
             publishingHouseComboBox.DisplayMember = "Value";
+            
+            SubscriberTextBox.Text = AdminForm.admin.Number;
         }
 
         #region 关闭当前界面并返回
