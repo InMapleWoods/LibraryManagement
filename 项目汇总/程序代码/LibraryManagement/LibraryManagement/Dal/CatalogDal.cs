@@ -282,7 +282,7 @@ namespace LibraryManagement.Dal
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
-                new MySqlParameter("@result",MySqlDbType.Bit,1),
+                new MySqlParameter("@returnValue",MySqlDbType.Bit,1),
                 new MySqlParameter("@catalogId",id),
                 new MySqlParameter("@catalogDate",DateTime.Now),
             };
