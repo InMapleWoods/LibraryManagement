@@ -44,7 +44,6 @@
             this.documentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.OrderDataGridView = new System.Windows.Forms.DataGridView();
             this.subDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.publishingHouseComboBox = new System.Windows.Forms.ComboBox();
             this.currencyTypeComboBox = new System.Windows.Forms.ComboBox();
             this.currencyTypeLabel = new System.Windows.Forms.Label();
             this.remarkLabel = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@
             this.btn_removeCase = new System.Windows.Forms.Button();
             this.btn_addCase = new System.Windows.Forms.Button();
             this.comboBox_chooseType = new System.Windows.Forms.ComboBox();
+            this.PublishingHouseTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -202,17 +202,6 @@
             this.subDatePicker.Size = new System.Drawing.Size(149, 25);
             this.subDatePicker.TabIndex = 21;
             // 
-            // publishingHouseComboBox
-            // 
-            this.publishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.publishingHouseComboBox.FormattingEnabled = true;
-            this.publishingHouseComboBox.Items.AddRange(new object[] {
-            "出版社"});
-            this.publishingHouseComboBox.Location = new System.Drawing.Point(500, 180);
-            this.publishingHouseComboBox.Name = "publishingHouseComboBox";
-            this.publishingHouseComboBox.Size = new System.Drawing.Size(149, 23);
-            this.publishingHouseComboBox.TabIndex = 22;
-            // 
             // currencyTypeComboBox
             // 
             this.currencyTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -297,11 +286,19 @@
             this.comboBox_chooseType.TabIndex = 49;
             this.comboBox_chooseType.SelectedIndexChanged += new System.EventHandler(this.ComboBox_chooseType_SelectedIndexChanged);
             // 
+            // PublishingHouseTextBox
+            // 
+            this.PublishingHouseTextBox.Location = new System.Drawing.Point(500, 180);
+            this.PublishingHouseTextBox.Name = "PublishingHouseTextBox";
+            this.PublishingHouseTextBox.Size = new System.Drawing.Size(149, 25);
+            this.PublishingHouseTextBox.TabIndex = 55;
+            // 
             // BookOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 555);
+            this.Controls.Add(this.PublishingHouseTextBox);
             this.Controls.Add(this.comboBox_chooseType);
             this.Controls.Add(this.btn_reflashCase);
             this.Controls.Add(this.btn_removeCase);
@@ -310,7 +307,6 @@
             this.Controls.Add(this.remarkLabel);
             this.Controls.Add(this.currencyTypeComboBox);
             this.Controls.Add(this.currencyTypeLabel);
-            this.Controls.Add(this.publishingHouseComboBox);
             this.Controls.Add(this.subDatePicker);
             this.Controls.Add(this.OrderDataGridView);
             this.Controls.Add(this.documentTypeComboBox);
@@ -357,7 +353,6 @@
         private System.Windows.Forms.ComboBox documentTypeComboBox;
         private System.Windows.Forms.DataGridView OrderDataGridView;
         private System.Windows.Forms.DateTimePicker subDatePicker;
-        private System.Windows.Forms.ComboBox publishingHouseComboBox;
         private System.Windows.Forms.ComboBox currencyTypeComboBox;
         private System.Windows.Forms.Label currencyTypeLabel;
         private System.Windows.Forms.Label remarkLabel;
@@ -366,5 +361,6 @@
         private System.Windows.Forms.Button btn_removeCase;
         private System.Windows.Forms.Button btn_addCase;
         private System.Windows.Forms.ComboBox comboBox_chooseType;
+        private System.Windows.Forms.TextBox PublishingHouseTextBox;
     }
 }

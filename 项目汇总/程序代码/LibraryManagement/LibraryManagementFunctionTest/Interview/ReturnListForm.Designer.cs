@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.ReturnListDataGridView = new System.Windows.Forms.DataGridView();
-            this.publishingHouseComboBox = new System.Windows.Forms.ComboBox();
             this.subDatePicker = new System.Windows.Forms.DateTimePicker();
             this.documentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.literatureTypeLabel = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.btn_reflashCase = new System.Windows.Forms.Button();
             this.btn_removeCase = new System.Windows.Forms.Button();
             this.btn_addCase = new System.Windows.Forms.Button();
+            this.PublishingHouseTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ReturnListDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,22 +62,12 @@
             this.ReturnListDataGridView.Name = "ReturnListDataGridView";
             this.ReturnListDataGridView.ReadOnly = true;
             this.ReturnListDataGridView.RowHeadersVisible = false;
+            this.ReturnListDataGridView.RowHeadersWidth = 51;
             this.ReturnListDataGridView.RowTemplate.Height = 27;
             this.ReturnListDataGridView.Size = new System.Drawing.Size(813, 249);
             this.ReturnListDataGridView.TabIndex = 1;
             this.ReturnListDataGridView.CurrentCellChanged += new System.EventHandler(this.ReturnListDataGridView_CurrentCellChanged);
             this.ReturnListDataGridView.SelectionChanged += new System.EventHandler(this.ReturnListDataGridView_SelectionChanged);
-            // 
-            // publishingHouseComboBox
-            // 
-            this.publishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.publishingHouseComboBox.FormattingEnabled = true;
-            this.publishingHouseComboBox.Items.AddRange(new object[] {
-            "出版社"});
-            this.publishingHouseComboBox.Location = new System.Drawing.Point(583, 168);
-            this.publishingHouseComboBox.Name = "publishingHouseComboBox";
-            this.publishingHouseComboBox.Size = new System.Drawing.Size(149, 23);
-            this.publishingHouseComboBox.TabIndex = 38;
             // 
             // subDatePicker
             // 
@@ -255,16 +245,23 @@
             this.btn_addCase.UseVisualStyleBackColor = true;
             this.btn_addCase.Click += new System.EventHandler(this.Btn_addCase_Click);
             // 
+            // PublishingHouseTextBox
+            // 
+            this.PublishingHouseTextBox.Location = new System.Drawing.Point(583, 165);
+            this.PublishingHouseTextBox.Name = "PublishingHouseTextBox";
+            this.PublishingHouseTextBox.Size = new System.Drawing.Size(149, 25);
+            this.PublishingHouseTextBox.TabIndex = 55;
+            // 
             // ReturnListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 617);
+            this.Controls.Add(this.PublishingHouseTextBox);
             this.Controls.Add(this.comboBox_chooseType);
             this.Controls.Add(this.btn_reflashCase);
             this.Controls.Add(this.btn_removeCase);
             this.Controls.Add(this.btn_addCase);
-            this.Controls.Add(this.publishingHouseComboBox);
             this.Controls.Add(this.subDatePicker);
             this.Controls.Add(this.documentTypeComboBox);
             this.Controls.Add(this.literatureTypeLabel);
@@ -296,7 +293,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView ReturnListDataGridView;
-        private System.Windows.Forms.ComboBox publishingHouseComboBox;
         private System.Windows.Forms.ComboBox documentTypeComboBox;
         private System.Windows.Forms.Label literatureTypeLabel;
         private System.Windows.Forms.Label publisherLabel;
@@ -316,5 +312,6 @@
         private System.Windows.Forms.Button btn_reflashCase;
         private System.Windows.Forms.Button btn_removeCase;
         private System.Windows.Forms.Button btn_addCase;
+        private System.Windows.Forms.TextBox PublishingHouseTextBox;
     }
 }

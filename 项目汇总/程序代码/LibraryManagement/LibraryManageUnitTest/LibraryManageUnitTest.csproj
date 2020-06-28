@@ -47,6 +47,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Catalog\CatalogMoveUnitTest.cs" />
@@ -58,6 +60,10 @@
     <Compile Include="Circulation\BookDamageUnitTest.cs" />
     <Compile Include="Circulation\BookDishonesty.cs" />
     <Compile Include="Circulation\BookAutoMethod.cs" />
+    <Compile Include="Interview\PurchaseOrderUnitTest.cs" />
+    <Compile Include="Interview\AcceptanceListUnitTest.cs" />
+    <Compile Include="Interview\InterviewListUnitTest.cs" />
+    <Compile Include="Interview\ReturnListUnitTest.cs" />
     <Compile Include="Maintainace\DictionaryEditUnitTest.cs" />
     <Compile Include="Maintainace\StatisticalEditUnitTest.cs" />
     <Compile Include="Periodical\PeriodicalOrderUnitTest.cs" />
@@ -77,7 +83,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interview\" />
     <Folder Include="Statistical\" />
     <Folder Include="UserManagement\" />
   </ItemGroup>

@@ -34,7 +34,6 @@
             this.BookSellerLabel = new System.Windows.Forms.Label();
             this.BookSellerComboBox = new System.Windows.Forms.ComboBox();
             this.PublishingHouseLabel = new System.Windows.Forms.Label();
-            this.PublishingHouseComboBox = new System.Windows.Forms.ComboBox();
             this.OrdererLabel = new System.Windows.Forms.Label();
             this.OrdererTextBox = new System.Windows.Forms.TextBox();
             this.AcceptorLabel = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.btn_reflashCase = new System.Windows.Forms.Button();
             this.btn_removeCase = new System.Windows.Forms.Button();
             this.btn_addCase = new System.Windows.Forms.Button();
+            this.PublishingHouseTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AcceptanceDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,17 +110,6 @@
             this.PublishingHouseLabel.Size = new System.Drawing.Size(52, 15);
             this.PublishingHouseLabel.TabIndex = 26;
             this.PublishingHouseLabel.Text = "出版社";
-            // 
-            // PublishingHouseComboBox
-            // 
-            this.PublishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.PublishingHouseComboBox.FormattingEnabled = true;
-            this.PublishingHouseComboBox.Items.AddRange(new object[] {
-            "出版社"});
-            this.PublishingHouseComboBox.Location = new System.Drawing.Point(119, 359);
-            this.PublishingHouseComboBox.Name = "PublishingHouseComboBox";
-            this.PublishingHouseComboBox.Size = new System.Drawing.Size(121, 23);
-            this.PublishingHouseComboBox.TabIndex = 27;
             // 
             // OrdererLabel
             // 
@@ -225,11 +214,19 @@
             this.btn_addCase.UseVisualStyleBackColor = true;
             this.btn_addCase.Click += new System.EventHandler(this.Btn_addCase_Click);
             // 
+            // PublishingHouseTextBox
+            // 
+            this.PublishingHouseTextBox.Location = new System.Drawing.Point(119, 354);
+            this.PublishingHouseTextBox.Name = "PublishingHouseTextBox";
+            this.PublishingHouseTextBox.Size = new System.Drawing.Size(121, 25);
+            this.PublishingHouseTextBox.TabIndex = 58;
+            // 
             // AcceptanceListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 703);
+            this.Controls.Add(this.PublishingHouseTextBox);
             this.Controls.Add(this.comboBox_chooseType);
             this.Controls.Add(this.btn_reflashCase);
             this.Controls.Add(this.btn_removeCase);
@@ -240,7 +237,6 @@
             this.Controls.Add(this.AcceptorLabel);
             this.Controls.Add(this.OrdererTextBox);
             this.Controls.Add(this.OrdererLabel);
-            this.Controls.Add(this.PublishingHouseComboBox);
             this.Controls.Add(this.PublishingHouseLabel);
             this.Controls.Add(this.BookSellerComboBox);
             this.Controls.Add(this.BookSellerLabel);
@@ -267,7 +263,6 @@
         private System.Windows.Forms.Label BookSellerLabel;
         private System.Windows.Forms.ComboBox BookSellerComboBox;
         private System.Windows.Forms.Label PublishingHouseLabel;
-        private System.Windows.Forms.ComboBox PublishingHouseComboBox;
         private System.Windows.Forms.Label OrdererLabel;
         private System.Windows.Forms.TextBox OrdererTextBox;
         private System.Windows.Forms.Label AcceptorLabel;
@@ -278,5 +273,6 @@
         private System.Windows.Forms.Button btn_reflashCase;
         private System.Windows.Forms.Button btn_removeCase;
         private System.Windows.Forms.Button btn_addCase;
+        private System.Windows.Forms.TextBox PublishingHouseTextBox;
     }
 }

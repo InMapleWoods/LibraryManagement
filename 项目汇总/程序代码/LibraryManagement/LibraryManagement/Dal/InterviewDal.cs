@@ -24,7 +24,6 @@ namespace LibraryManagement.Dal
         public bool AddInterviewList(InterviewList list)
         {
             string sqlStr = "INSERT INTO tb_InterviewList (" +
-                "Id," +
                 "Author," +
                 "ISBN," +
                 "OrderStatus," +
@@ -36,7 +35,6 @@ namespace LibraryManagement.Dal
                 "DocumentType" +
                 ")" +
                 "VALUES(" +
-                "@id," +
                 "@author," +
                 "@iSBN," +
                 "@orderStatus," +
@@ -50,7 +48,6 @@ namespace LibraryManagement.Dal
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
-                new MySqlParameter("@id",list.Id),
                 new MySqlParameter("@author",list.Author),
                 new MySqlParameter("@iSBN",list.ISBN),
                 new MySqlParameter("@bookName",list.BookName),
@@ -295,7 +292,7 @@ namespace LibraryManagement.Dal
         /// 获取全部订单
         /// </summary>
         /// <returns>全部订单</returns>
-        public DataTable GerAllPurchaseOrders()
+        public DataTable GetAllPurchaseOrders()
         {
             string sqlstr = " SELECT " +
                 " tb_InterviewPurchaseOrder.Id AS `订单号`, " +
