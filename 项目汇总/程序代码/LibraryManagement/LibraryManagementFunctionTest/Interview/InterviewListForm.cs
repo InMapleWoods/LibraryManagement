@@ -24,7 +24,6 @@ namespace LibraryManagementFunctionTest.Interview
             parentForm = form;
             userCaseHandle = new Tools.UserCaseHandle(((MainForm)((InterviewForm)form).parentForm).folderSrc + "\\Add_InterviewList.xls");
             currencyTypeComboBox.SelectedIndex = 0;
-            PublishingHouseComboBox.SelectedIndex = 0;
             DocumentTypeComboBox.SelectedIndex = 0;
             OrderStatusComboBox.SelectedIndex = 0;
             comboBox_chooseType.SelectedIndex = 0;
@@ -40,7 +39,7 @@ namespace LibraryManagementFunctionTest.Interview
             List<string> errorList = new List<string>();//错误列表
 
             //出版社Id
-            int publisherId = ((KeyValuePair<int, string>)PublishingHouseComboBox.SelectedItem).Key;
+            int publisherId = int.Parse(PublishingHouseTextBox.Text);
 
             double price;
 

@@ -24,7 +24,6 @@ namespace LibraryManagementFunctionTest.Interview
             InitializeComponent();
             userCaseHandle = new Tools.UserCaseHandle(((MainForm)((InterviewForm)form).parentForm).folderSrc + "\\Add_ReturnList.xls");
             comboBox_chooseType.SelectedIndex = 0;
-            publishingHouseComboBox.SelectedIndex = 0;
             documentTypeComboBox.SelectedIndex = 0;
         }
 
@@ -37,15 +36,6 @@ namespace LibraryManagementFunctionTest.Interview
         {
             List<string> errorList = new List<string>();//错误列表
 
-            //出版社Id
-            int publisherId = ((KeyValuePair<int, string>)publishingHouseComboBox.SelectedItem).Key;
-
-            //判断订购人账号是否符合要求
-            Match matchOrderer = Regex.Match(SubscriberTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
-            if (!matchOrderer.Success)
-            {
-                errorList.Add("OrdererNumber Error");
-            }
 
             //通过订购人账号获取id
             int ordererId = int.Parse(SubscriberTextBox.Text);
@@ -66,7 +56,7 @@ namespace LibraryManagementFunctionTest.Interview
                 OrdererId = ordererId,
                 BookName = bookNameTextBox.Text,
                 Price = price,
-                PublishingHouseId = publisherId,
+                PublishingHouseId = int.Parse(PublishingHouseTextBox.Text),
                 DocumentType = documentTypeComboBox.Text,
             };
             error = errorList;//返回错误列表

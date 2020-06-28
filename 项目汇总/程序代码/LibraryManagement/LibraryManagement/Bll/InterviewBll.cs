@@ -1,6 +1,7 @@
 ﻿using LibraryManagement.Dal;
 using LibraryManagement.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 
@@ -113,6 +114,42 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public IEnumerable GetAllInterviewListArray()
+        {
+            List<InterviewList> result = new List<InterviewList>();
+            try
+            {
+                DataTable datatable = interviewDal.GetAllInterviewList();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    InterviewList interviewList = new InterviewList()
+                    {
+                        Id = (int)dr["清单号"],
+                        Author = dr["作者"].ToString(),
+                        ISBN = dr["ISBN号"].ToString(),
+                        CurrencyType = dr["货币种类"].ToString(),
+                        SubscriptionNum = (int)dr["征订册数"],
+                        OrderStatus = dr["订购状态"].ToString(),
+                        BookName = dr["书名"].ToString(),
+                        Price = double.Parse(dr["价格"].ToString()),
+                        PublishingHouseId = int.Parse(dr["出版社ID"].ToString()),
+                        DocumentType = dr["文献类型"].ToString(),
+                    };
+                    result.Add(interviewList);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
         #endregion
 
         #region 采购订单
@@ -204,7 +241,7 @@ namespace LibraryManagement.Bll
             DataTable result = null;
             try
             {
-                result = interviewDal.GerAllPurchaseOrders();
+                result = interviewDal.GetAllPurchaseOrders();
             }
             catch (Exception ex)
             {
@@ -212,6 +249,41 @@ namespace LibraryManagement.Bll
                 throw ex;
             }
             return result;
+        }
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public IEnumerable GetAllPurchaseOrdersArray()
+        {
+            List<InterviewPurchaseOrder> result = new List<InterviewPurchaseOrder>();
+            try
+            {
+                DataTable datatable = interviewDal.GetAllPurchaseOrders();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    InterviewPurchaseOrder interviewPurchaseOrder = new InterviewPurchaseOrder()
+                    {
+                        Id = (int)dr["订单号"],
+                        SubDate = (DateTime)dr["订单日期"],
+                        ISBN = dr["ISBN号"].ToString(),
+                        OrdererId = int.Parse(dr["订购人ID"].ToString()),
+                        BookName = dr["书名"].ToString(),
+                        DocumentType = dr["文献类型"].ToString(),
+                        Price = double.Parse(dr["价格"].ToString()),
+                        PublishingHouseId = int.Parse(dr["出版社ID"].ToString()),
+                        CurrencyType = dr["币种"].ToString(),
+                    };
+                    result.Add(interviewPurchaseOrder);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
         }
         #endregion
 
@@ -333,6 +405,37 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public IEnumerable GetAllAcceptanceListArray()
+        {
+            List<AcceptanceList> result = new List<AcceptanceList>();
+            try
+            {
+                DataTable datatable = interviewDal.GetAllAcceptanceList();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    AcceptanceList acceptanceList = new AcceptanceList()
+                    {
+                        Id = (int)dr["清单号"],
+                        OrderId = (int)dr["订单号"],
+                        AcceptorId = (int)dr["订单号"],
+                        State = dr["状态"].ToString(),
+
+                    };
+                    result.Add(acceptanceList);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+        }
         #endregion
 
         #region 退货清单
@@ -381,6 +484,40 @@ namespace LibraryManagement.Bll
                 throw ex;
             }
             return result;
+        }
+
+        /// <summary>
+        /// 获取全部订单
+        /// </summary>
+        /// <returns>全部订单</returns>
+        public IEnumerable GetAllReturnListArray()
+        {
+            List<InterviewReturnList> result = new List<InterviewReturnList>();
+            try
+            {
+                DataTable datatable = interviewDal.GetAllReturnList();
+                foreach (DataRow dr in datatable.Rows)
+                {
+                    InterviewReturnList interviewReturnList = new InterviewReturnList()
+                    {
+                        Id = (int)dr["清单号"],
+                        SubDate = (DateTime)dr["订单日期"],
+                        ISBN = dr["ISBN号"].ToString(),
+                        OrdererId = (int)dr["订购人ID"],
+                        BookName = dr["书名"].ToString(),
+                        Price = double.Parse(dr["价格"].ToString()),
+                        PublishingHouseId = int.Parse(dr["出版社ID"].ToString()),
+                        DocumentType = dr["文献类型"].ToString(),
+                    };
+                    result.Add(interviewReturnList);
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
         }
         #endregion
     }

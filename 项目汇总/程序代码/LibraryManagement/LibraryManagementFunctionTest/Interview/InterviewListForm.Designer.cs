@@ -42,7 +42,6 @@
             this.PriceTextBox = new System.Windows.Forms.TextBox();
             this.DocumentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.OrderStatusComboBox = new System.Windows.Forms.ComboBox();
-            this.PublishingHouseComboBox = new System.Windows.Forms.ComboBox();
             this.BookNameLabel = new System.Windows.Forms.Label();
             this.BookNameTextBox = new System.Windows.Forms.TextBox();
             this.currencyTypeLabel = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@
             this.btn_reflashCase = new System.Windows.Forms.Button();
             this.btn_removeCase = new System.Windows.Forms.Button();
             this.btn_addCase = new System.Windows.Forms.Button();
+            this.PublishingHouseTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.InterviewDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,17 +191,6 @@
             this.OrderStatusComboBox.Size = new System.Drawing.Size(100, 23);
             this.OrderStatusComboBox.TabIndex = 36;
             // 
-            // PublishingHouseComboBox
-            // 
-            this.PublishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.PublishingHouseComboBox.FormattingEnabled = true;
-            this.PublishingHouseComboBox.Items.AddRange(new object[] {
-            "出版社"});
-            this.PublishingHouseComboBox.Location = new System.Drawing.Point(503, 201);
-            this.PublishingHouseComboBox.Name = "PublishingHouseComboBox";
-            this.PublishingHouseComboBox.Size = new System.Drawing.Size(100, 23);
-            this.PublishingHouseComboBox.TabIndex = 33;
-            // 
             // BookNameLabel
             // 
             this.BookNameLabel.AutoSize = true;
@@ -302,11 +291,19 @@
             this.btn_addCase.UseVisualStyleBackColor = true;
             this.btn_addCase.Click += new System.EventHandler(this.Btn_addCase_Click);
             // 
+            // PublishingHouseTextBox
+            // 
+            this.PublishingHouseTextBox.Location = new System.Drawing.Point(503, 200);
+            this.PublishingHouseTextBox.Name = "PublishingHouseTextBox";
+            this.PublishingHouseTextBox.Size = new System.Drawing.Size(100, 25);
+            this.PublishingHouseTextBox.TabIndex = 54;
+            // 
             // InterviewListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 608);
+            this.Controls.Add(this.PublishingHouseTextBox);
             this.Controls.Add(this.comboBox_chooseType);
             this.Controls.Add(this.btn_reflashCase);
             this.Controls.Add(this.btn_removeCase);
@@ -317,7 +314,6 @@
             this.Controls.Add(this.currencyTypeLabel);
             this.Controls.Add(this.BookNameTextBox);
             this.Controls.Add(this.BookNameLabel);
-            this.Controls.Add(this.PublishingHouseComboBox);
             this.Controls.Add(this.OrderStatusComboBox);
             this.Controls.Add(this.DocumentTypeComboBox);
             this.Controls.Add(this.PriceTextBox);
@@ -361,7 +357,6 @@
         private System.Windows.Forms.TextBox PriceTextBox;
         private System.Windows.Forms.ComboBox DocumentTypeComboBox;
         private System.Windows.Forms.ComboBox OrderStatusComboBox;
-        private System.Windows.Forms.ComboBox PublishingHouseComboBox;
         private System.Windows.Forms.Label BookNameLabel;
         private System.Windows.Forms.TextBox BookNameTextBox;
         private System.Windows.Forms.Label currencyTypeLabel;
@@ -372,5 +367,6 @@
         private System.Windows.Forms.Button btn_reflashCase;
         private System.Windows.Forms.Button btn_removeCase;
         private System.Windows.Forms.Button btn_addCase;
+        private System.Windows.Forms.TextBox PublishingHouseTextBox;
     }
 }
