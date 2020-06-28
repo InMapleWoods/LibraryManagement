@@ -45,14 +45,12 @@
             this.idLabel = new System.Windows.Forms.Label();
             this.DocumentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.CatalogDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.PublishingHouseComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.printBtn = new System.Windows.Forms.Button();
-            this.previewBtn = new System.Windows.Forms.Button();
             this.btn_addCase = new System.Windows.Forms.Button();
             this.btn_removeCase = new System.Windows.Forms.Button();
             this.btn_reflashCase = new System.Windows.Forms.Button();
             this.comboBox_chooseType = new System.Windows.Forms.ComboBox();
+            this.publishingHouseTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,9 +134,9 @@
             this.publishingHouseLabel.AutoSize = true;
             this.publishingHouseLabel.Location = new System.Drawing.Point(60, 168);
             this.publishingHouseLabel.Name = "publishingHouseLabel";
-            this.publishingHouseLabel.Size = new System.Drawing.Size(52, 15);
+            this.publishingHouseLabel.Size = new System.Drawing.Size(82, 15);
             this.publishingHouseLabel.TabIndex = 19;
-            this.publishingHouseLabel.Text = "出版社";
+            this.publishingHouseLabel.Text = "出版社编号";
             // 
             // documentTypeLabel
             // 
@@ -206,16 +204,6 @@
             this.CatalogDateTimePicker.Size = new System.Drawing.Size(177, 25);
             this.CatalogDateTimePicker.TabIndex = 26;
             // 
-            // PublishingHouseComboBox
-            // 
-            this.PublishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.PublishingHouseComboBox.FormattingEnabled = true;
-            this.PublishingHouseComboBox.Location = new System.Drawing.Point(148, 166);
-            this.PublishingHouseComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PublishingHouseComboBox.Name = "PublishingHouseComboBox";
-            this.PublishingHouseComboBox.Size = new System.Drawing.Size(177, 23);
-            this.PublishingHouseComboBox.TabIndex = 27;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -233,24 +221,6 @@
             this.dataGridView1.TabIndex = 29;
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // printBtn
-            // 
-            this.printBtn.Location = new System.Drawing.Point(755, 114);
-            this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(92, 48);
-            this.printBtn.TabIndex = 30;
-            this.printBtn.Text = "打印";
-            this.printBtn.UseVisualStyleBackColor = true;
-            // 
-            // previewBtn
-            // 
-            this.previewBtn.Location = new System.Drawing.Point(755, 192);
-            this.previewBtn.Name = "previewBtn";
-            this.previewBtn.Size = new System.Drawing.Size(92, 49);
-            this.previewBtn.TabIndex = 31;
-            this.previewBtn.Text = "打印预览";
-            this.previewBtn.UseVisualStyleBackColor = true;
             // 
             // btn_addCase
             // 
@@ -295,19 +265,24 @@
             this.comboBox_chooseType.TabIndex = 36;
             this.comboBox_chooseType.SelectedIndexChanged += new System.EventHandler(this.comboBox_chooseType_SelectedIndexChanged);
             // 
+            // publishingHouseTextBox
+            // 
+            this.publishingHouseTextBox.Location = new System.Drawing.Point(148, 165);
+            this.publishingHouseTextBox.Name = "publishingHouseTextBox";
+            this.publishingHouseTextBox.Size = new System.Drawing.Size(177, 25);
+            this.publishingHouseTextBox.TabIndex = 37;
+            // 
             // CreateCatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 482);
+            this.Controls.Add(this.publishingHouseTextBox);
             this.Controls.Add(this.comboBox_chooseType);
             this.Controls.Add(this.btn_reflashCase);
             this.Controls.Add(this.btn_removeCase);
             this.Controls.Add(this.btn_addCase);
-            this.Controls.Add(this.previewBtn);
-            this.Controls.Add(this.printBtn);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.PublishingHouseComboBox);
             this.Controls.Add(this.CatalogDateTimePicker);
             this.Controls.Add(this.DocumentTypeComboBox);
             this.Controls.Add(this.idLabel);
@@ -355,14 +330,12 @@
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.ComboBox DocumentTypeComboBox;
         private System.Windows.Forms.DateTimePicker CatalogDateTimePicker;
-        private System.Windows.Forms.ComboBox PublishingHouseComboBox;
        // private Tools.MyUserControl.ScriptUserControl scriptUserControl1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button printBtn;
-        private System.Windows.Forms.Button previewBtn;
         private System.Windows.Forms.Button btn_addCase;
         private System.Windows.Forms.Button btn_removeCase;
         private System.Windows.Forms.Button btn_reflashCase;
         private System.Windows.Forms.ComboBox comboBox_chooseType;
+        private System.Windows.Forms.TextBox publishingHouseTextBox;
     }
 }

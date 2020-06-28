@@ -23,7 +23,6 @@ namespace LibraryManagement.Dal
         public bool AddCatalogList(CreateCatalogList list)
         {
             string sqlStr = "INSERT INTO tb_CatalogForm (" +
-             "Id," +
              "ISBN," +
              "PositiveTitle," +
              "FirstAuthor," +
@@ -34,7 +33,6 @@ namespace LibraryManagement.Dal
              "CatalogingDate" +
              ")" +
              "VALUES(" +
-             "@id," +
              "@iSBN," +
              "@positiveTitel," +
              "@firstAuther," +
@@ -47,7 +45,6 @@ namespace LibraryManagement.Dal
             //储存Datatable
             MySqlParameter[] para = new MySqlParameter[]//存储相应参数的容器
             {
-                new MySqlParameter("@id",list.Id),
                 new MySqlParameter("@iSBN",list.ISBN),
                 new MySqlParameter("@positiveTitel",list.PositiveTitle),
                 new MySqlParameter("@firstAuther",list.FirstAuthor),
@@ -139,7 +136,7 @@ namespace LibraryManagement.Dal
         public DataTable GetAllCatalogList()
         {
             string sqlstr = "select " +
-                "tb_CatalogForm.Id as ID," +
+                "tb_CatalogForm.Id as 编号," +
                 "tb_CatalogForm.FirstAuthor as 第一作者," +
                 "tb_CatalogForm.ISBN as ISBN号," +
                  "tb_CatalogForm.PositiveTitle as 正题名," +

@@ -74,7 +74,7 @@ namespace LibraryManageUnitTest.Catalog
                 Assert.AreEqual(false, createCatalogBll.UpdateCatalogList((CreateCatalogList)i, ref errorList));
             }
             int maxId = -1;
-            foreach (PeriodicalOrder i in createCatalogBll.GetAllCreateCatalogArray())
+            foreach (CreateCatalogList i in createCatalogBll.GetAllCreateCatalogArray())
             {
                 if (i.Id > maxId)
                 {
