@@ -20,7 +20,7 @@ namespace LibraryManagementFunctionTest.Catalog
         {
             InitializeComponent();
             parentForm = form;
-            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((CatalogForm)form).parentForm).folderSrc + "\\Add_CatalogFormList.xls");
+            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((CatalogForm)form).parentForm).folderSrc + "\\Add_CreateCatalogList.xls");
             comboBox_chooseType.SelectedIndex = 0;
         }
 
@@ -43,13 +43,14 @@ namespace LibraryManagementFunctionTest.Catalog
         private CreateCatalogList GetCatalogList(ref List<string> error)
         {
             List<string> errorList = new List<string>();//错误列表
-          
+
 
             //根据页面内容构造清单
             CreateCatalogList list = new CreateCatalogList()
             {
                 ISBN = ISBNTextBox.Text,
                 FirstAuthor = AuthorTextBox.Text,
+                PublishingHouseId = int.Parse(publishingHouseTextBox.Text),
                 PositiveTitle = BookNameTextBox.Text,
                 CatalogingDate = CatalogDateTimePicker.Value,
                 DocumentType = DocumentTypeComboBox.Text,
@@ -65,11 +66,10 @@ namespace LibraryManagementFunctionTest.Catalog
         /// </summary>
         private void DataBind()
         {
-            // DocumentTypeComboBox.SelectedIndex = 0;//文献类型
+            DocumentTypeComboBox.SelectedIndex = 0;//文献类型
             try
             {
                 dataGridView1.DataSource = userCaseHandle.GetUserCasesDataTable();
-               PublishingHouseComboBox.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -171,11 +171,11 @@ namespace LibraryManagementFunctionTest.Catalog
         {
             if (comboBox_chooseType.SelectedIndex == 0)
             {
-                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((CatalogForm)parentForm).parentForm).folderSrc + "\\Add_CatalogFormList.xls");
+                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((CatalogForm)parentForm).parentForm).folderSrc + "\\Add_CreateCatalogList.xls");
             }
             else
             {
-                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((CatalogForm)parentForm).parentForm).folderSrc + "\\Update_CatalogFormList.xls");
+                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((CatalogForm)parentForm).parentForm).folderSrc + "\\Update_CreateCatalogList.xls");
             }
             DataBind();
         }

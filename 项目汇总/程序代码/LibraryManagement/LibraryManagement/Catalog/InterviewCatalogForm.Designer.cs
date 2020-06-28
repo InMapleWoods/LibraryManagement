@@ -36,7 +36,6 @@
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.interviewIdLabel = new System.Windows.Forms.Label();
             this.interviewIdTextBox = new System.Windows.Forms.TextBox();
-            this.allCatalogBtn = new System.Windows.Forms.Button();
             this.stateLabel = new System.Windows.Forms.Label();
             this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.changeStateBtn = new System.Windows.Forms.Button();
@@ -84,7 +83,7 @@
             // 
             // catalogBtn
             // 
-            this.catalogBtn.Location = new System.Drawing.Point(542, 201);
+            this.catalogBtn.Location = new System.Drawing.Point(514, 205);
             this.catalogBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.catalogBtn.Name = "catalogBtn";
             this.catalogBtn.Size = new System.Drawing.Size(85, 55);
@@ -95,7 +94,7 @@
             // 
             // cancelCatalogBtn
             // 
-            this.cancelCatalogBtn.Location = new System.Drawing.Point(770, 201);
+            this.cancelCatalogBtn.Location = new System.Drawing.Point(742, 205);
             this.cancelCatalogBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelCatalogBtn.Name = "cancelCatalogBtn";
             this.cancelCatalogBtn.Size = new System.Drawing.Size(124, 55);
@@ -107,7 +106,7 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(232, 203);
+            this.idLabel.Location = new System.Drawing.Point(146, 207);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(23, 15);
             this.idLabel.TabIndex = 4;
@@ -115,7 +114,7 @@
             // 
             // idTextBox
             // 
-            this.idTextBox.Location = new System.Drawing.Point(283, 201);
+            this.idTextBox.Location = new System.Drawing.Point(197, 205);
             this.idTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(210, 25);
@@ -124,7 +123,7 @@
             // interviewIdLabel
             // 
             this.interviewIdLabel.AutoSize = true;
-            this.interviewIdLabel.Location = new System.Drawing.Point(180, 253);
+            this.interviewIdLabel.Location = new System.Drawing.Point(94, 257);
             this.interviewIdLabel.Name = "interviewIdLabel";
             this.interviewIdLabel.Size = new System.Drawing.Size(97, 15);
             this.interviewIdLabel.TabIndex = 6;
@@ -132,27 +131,16 @@
             // 
             // interviewIdTextBox
             // 
-            this.interviewIdTextBox.Location = new System.Drawing.Point(283, 243);
+            this.interviewIdTextBox.Location = new System.Drawing.Point(197, 247);
             this.interviewIdTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.interviewIdTextBox.Name = "interviewIdTextBox";
             this.interviewIdTextBox.Size = new System.Drawing.Size(210, 25);
             this.interviewIdTextBox.TabIndex = 7;
             // 
-            // allCatalogBtn
-            // 
-            this.allCatalogBtn.Location = new System.Drawing.Point(46, 219);
-            this.allCatalogBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.allCatalogBtn.Name = "allCatalogBtn";
-            this.allCatalogBtn.Size = new System.Drawing.Size(100, 68);
-            this.allCatalogBtn.TabIndex = 8;
-            this.allCatalogBtn.Text = "可编目书籍进入编目表";
-            this.allCatalogBtn.UseVisualStyleBackColor = true;
-            this.allCatalogBtn.Click += new System.EventHandler(this.allCatalogBtn_Click);
-            // 
             // stateLabel
             // 
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(224, 301);
+            this.stateLabel.Location = new System.Drawing.Point(138, 305);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(37, 15);
             this.stateLabel.TabIndex = 9;
@@ -165,7 +153,7 @@
             this.stateComboBox.Items.AddRange(new object[] {
             "可编目",
             "退回"});
-            this.stateComboBox.Location = new System.Drawing.Point(283, 298);
+            this.stateComboBox.Location = new System.Drawing.Point(197, 302);
             this.stateComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(210, 23);
@@ -173,7 +161,7 @@
             // 
             // changeStateBtn
             // 
-            this.changeStateBtn.Location = new System.Drawing.Point(656, 201);
+            this.changeStateBtn.Location = new System.Drawing.Point(628, 205);
             this.changeStateBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.changeStateBtn.Name = "changeStateBtn";
             this.changeStateBtn.Size = new System.Drawing.Size(86, 55);
@@ -184,7 +172,7 @@
             // 
             // printBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(601, 281);
+            this.printBtn.Location = new System.Drawing.Point(573, 285);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(79, 47);
             this.printBtn.TabIndex = 12;
@@ -194,7 +182,7 @@
             // 
             // previewBtn
             // 
-            this.previewBtn.Location = new System.Drawing.Point(718, 282);
+            this.previewBtn.Location = new System.Drawing.Point(690, 286);
             this.previewBtn.Name = "previewBtn";
             this.previewBtn.Size = new System.Drawing.Size(75, 46);
             this.previewBtn.TabIndex = 13;
@@ -212,7 +200,6 @@
             this.Controls.Add(this.changeStateBtn);
             this.Controls.Add(this.stateComboBox);
             this.Controls.Add(this.stateLabel);
-            this.Controls.Add(this.allCatalogBtn);
             this.Controls.Add(this.interviewIdTextBox);
             this.Controls.Add(this.interviewIdLabel);
             this.Controls.Add(this.idTextBox);
@@ -244,7 +231,6 @@
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Label interviewIdLabel;
         private System.Windows.Forms.TextBox interviewIdTextBox;
-        private System.Windows.Forms.Button allCatalogBtn;
         private System.Windows.Forms.Label stateLabel;
         private System.Windows.Forms.ComboBox stateComboBox;
         private System.Windows.Forms.Button changeStateBtn;

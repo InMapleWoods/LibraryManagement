@@ -67,7 +67,6 @@ namespace LibraryManagement.Catalog
         private int getMoveCatalogId()
         {
             int id = int.Parse(textBox1.Text);
-
             return id;
         }
 

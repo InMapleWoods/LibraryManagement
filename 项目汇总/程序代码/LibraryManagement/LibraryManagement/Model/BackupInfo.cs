@@ -2,7 +2,7 @@
 
 namespace LibraryManagement.Model
 {
-    class BackupInfo
+    public class BackupInfo
     {
         public int Id;
         public DateTime BackupTime;

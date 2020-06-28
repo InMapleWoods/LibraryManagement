@@ -143,7 +143,7 @@ namespace LibraryManagement.Maintainace
                 DialogResult dialogResult = MessageBox.Show("是否删除该条记录", "删除确认", MessageBoxButtons.YesNoCancel);//设置弹出窗体的格式
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (maintainaceBll.DeleteStatisticalInfo(statisticalInfo))
+                    if (maintainaceBll.DeleteStatisticalInfo(statisticalInfo.Id))
                     {
                         MessageBox.Show("删除成功");
                     }
