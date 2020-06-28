@@ -1,4 +1,4 @@
-﻿namespace LibraryManagement.Interview
+﻿namespace LibraryManagementFunctionTest.Interview
 {
     partial class InterviewListForm
     {
@@ -49,7 +49,10 @@
             this.currencyTypeComboBox = new System.Windows.Forms.ComboBox();
             this.subscriptionNumLabel = new System.Windows.Forms.Label();
             this.subscriptionNumTextBox = new System.Windows.Forms.TextBox();
-            this.PrintButton = new System.Windows.Forms.Button();
+            this.comboBox_chooseType = new System.Windows.Forms.ComboBox();
+            this.btn_reflashCase = new System.Windows.Forms.Button();
+            this.btn_removeCase = new System.Windows.Forms.Button();
+            this.btn_addCase = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.InterviewDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -192,6 +195,8 @@
             // 
             this.PublishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PublishingHouseComboBox.FormattingEnabled = true;
+            this.PublishingHouseComboBox.Items.AddRange(new object[] {
+            "出版社"});
             this.PublishingHouseComboBox.Location = new System.Drawing.Point(503, 201);
             this.PublishingHouseComboBox.Name = "PublishingHouseComboBox";
             this.PublishingHouseComboBox.Size = new System.Drawing.Size(100, 23);
@@ -250,22 +255,62 @@
             this.subscriptionNumTextBox.Size = new System.Drawing.Size(100, 25);
             this.subscriptionNumTextBox.TabIndex = 43;
             // 
-            // PrintButton
+            // comboBox_chooseType
             // 
-            this.PrintButton.Location = new System.Drawing.Point(689, 259);
-            this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(75, 75);
-            this.PrintButton.TabIndex = 44;
-            this.PrintButton.Text = "打印";
-            this.PrintButton.UseVisualStyleBackColor = true;
-            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
+            this.comboBox_chooseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_chooseType.FormattingEnabled = true;
+            this.comboBox_chooseType.Items.AddRange(new object[] {
+            "增加",
+            "修改"});
+            this.comboBox_chooseType.Location = new System.Drawing.Point(596, 39);
+            this.comboBox_chooseType.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_chooseType.Name = "comboBox_chooseType";
+            this.comboBox_chooseType.Size = new System.Drawing.Size(160, 23);
+            this.comboBox_chooseType.TabIndex = 53;
+            this.comboBox_chooseType.SelectedIndexChanged += new System.EventHandler(this.ComboBox_chooseType_SelectedIndexChanged);
+            // 
+            // btn_reflashCase
+            // 
+            this.btn_reflashCase.Location = new System.Drawing.Point(401, 11);
+            this.btn_reflashCase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_reflashCase.Name = "btn_reflashCase";
+            this.btn_reflashCase.Size = new System.Drawing.Size(160, 51);
+            this.btn_reflashCase.TabIndex = 52;
+            this.btn_reflashCase.Text = "刷新用例";
+            this.btn_reflashCase.UseVisualStyleBackColor = true;
+            this.btn_reflashCase.Click += new System.EventHandler(this.Btn_reflashCase_Click);
+            // 
+            // btn_removeCase
+            // 
+            this.btn_removeCase.Location = new System.Drawing.Point(216, 11);
+            this.btn_removeCase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_removeCase.Name = "btn_removeCase";
+            this.btn_removeCase.Size = new System.Drawing.Size(161, 51);
+            this.btn_removeCase.TabIndex = 51;
+            this.btn_removeCase.Text = "删除用例";
+            this.btn_removeCase.UseVisualStyleBackColor = true;
+            this.btn_removeCase.Click += new System.EventHandler(this.Btn_removeCase_Click);
+            // 
+            // btn_addCase
+            // 
+            this.btn_addCase.Location = new System.Drawing.Point(23, 11);
+            this.btn_addCase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_addCase.Name = "btn_addCase";
+            this.btn_addCase.Size = new System.Drawing.Size(169, 51);
+            this.btn_addCase.TabIndex = 50;
+            this.btn_addCase.Text = "增加用例";
+            this.btn_addCase.UseVisualStyleBackColor = true;
+            this.btn_addCase.Click += new System.EventHandler(this.Btn_addCase_Click);
             // 
             // InterviewListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 608);
-            this.Controls.Add(this.PrintButton);
+            this.Controls.Add(this.comboBox_chooseType);
+            this.Controls.Add(this.btn_reflashCase);
+            this.Controls.Add(this.btn_removeCase);
+            this.Controls.Add(this.btn_addCase);
             this.Controls.Add(this.subscriptionNumTextBox);
             this.Controls.Add(this.subscriptionNumLabel);
             this.Controls.Add(this.currencyTypeComboBox);
@@ -323,6 +368,9 @@
         private System.Windows.Forms.ComboBox currencyTypeComboBox;
         private System.Windows.Forms.Label subscriptionNumLabel;
         private System.Windows.Forms.TextBox subscriptionNumTextBox;
-        private System.Windows.Forms.Button PrintButton;
+        private System.Windows.Forms.ComboBox comboBox_chooseType;
+        private System.Windows.Forms.Button btn_reflashCase;
+        private System.Windows.Forms.Button btn_removeCase;
+        private System.Windows.Forms.Button btn_addCase;
     }
 }

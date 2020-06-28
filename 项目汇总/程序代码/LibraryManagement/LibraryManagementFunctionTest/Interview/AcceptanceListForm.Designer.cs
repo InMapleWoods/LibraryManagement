@@ -1,4 +1,4 @@
-﻿namespace LibraryManagement.Interview
+﻿namespace LibraryManagementFunctionTest.Interview
 {
     partial class AcceptanceListForm
     {
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.PurchaseDataGridView = new System.Windows.Forms.DataGridView();
             this.AcceptanceDataGridView = new System.Windows.Forms.DataGridView();
             this.IdLabel = new System.Windows.Forms.Label();
             this.IdTextBox = new System.Windows.Forms.TextBox();
@@ -42,24 +41,12 @@
             this.AcceptorTextBox = new System.Windows.Forms.TextBox();
             this.DocumentTypeLabel = new System.Windows.Forms.Label();
             this.DocumentTypeComboBox = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PurchaseDataGridView)).BeginInit();
+            this.comboBox_chooseType = new System.Windows.Forms.ComboBox();
+            this.btn_reflashCase = new System.Windows.Forms.Button();
+            this.btn_removeCase = new System.Windows.Forms.Button();
+            this.btn_addCase = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AcceptanceDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PurchaseDataGridView
-            // 
-            this.PurchaseDataGridView.AllowUserToAddRows = false;
-            this.PurchaseDataGridView.AllowUserToDeleteRows = false;
-            this.PurchaseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PurchaseDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PurchaseDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.PurchaseDataGridView.Name = "PurchaseDataGridView";
-            this.PurchaseDataGridView.ReadOnly = true;
-            this.PurchaseDataGridView.RowHeadersVisible = false;
-            this.PurchaseDataGridView.RowHeadersWidth = 51;
-            this.PurchaseDataGridView.RowTemplate.Height = 27;
-            this.PurchaseDataGridView.Size = new System.Drawing.Size(872, 185);
-            this.PurchaseDataGridView.TabIndex = 20;
             // 
             // AcceptanceDataGridView
             // 
@@ -67,13 +54,13 @@
             this.AcceptanceDataGridView.AllowUserToDeleteRows = false;
             this.AcceptanceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AcceptanceDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.AcceptanceDataGridView.Location = new System.Drawing.Point(0, 518);
+            this.AcceptanceDataGridView.Location = new System.Drawing.Point(0, 398);
             this.AcceptanceDataGridView.Name = "AcceptanceDataGridView";
             this.AcceptanceDataGridView.ReadOnly = true;
             this.AcceptanceDataGridView.RowHeadersVisible = false;
             this.AcceptanceDataGridView.RowHeadersWidth = 51;
             this.AcceptanceDataGridView.RowTemplate.Height = 27;
-            this.AcceptanceDataGridView.Size = new System.Drawing.Size(872, 185);
+            this.AcceptanceDataGridView.Size = new System.Drawing.Size(872, 305);
             this.AcceptanceDataGridView.TabIndex = 21;
             this.AcceptanceDataGridView.CurrentCellChanged += new System.EventHandler(this.AcceptanceDataGridView_CurrentCellChanged);
             this.AcceptanceDataGridView.SelectionChanged += new System.EventHandler(this.AcceptanceDataGridView_SelectionChanged);
@@ -108,6 +95,8 @@
             // 
             this.BookSellerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BookSellerComboBox.FormattingEnabled = true;
+            this.BookSellerComboBox.Items.AddRange(new object[] {
+            "书商"});
             this.BookSellerComboBox.Location = new System.Drawing.Point(119, 296);
             this.BookSellerComboBox.Name = "BookSellerComboBox";
             this.BookSellerComboBox.Size = new System.Drawing.Size(121, 23);
@@ -126,6 +115,8 @@
             // 
             this.PublishingHouseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PublishingHouseComboBox.FormattingEnabled = true;
+            this.PublishingHouseComboBox.Items.AddRange(new object[] {
+            "出版社"});
             this.PublishingHouseComboBox.Location = new System.Drawing.Point(119, 359);
             this.PublishingHouseComboBox.Name = "PublishingHouseComboBox";
             this.PublishingHouseComboBox.Size = new System.Drawing.Size(121, 23);
@@ -187,11 +178,62 @@
             this.DocumentTypeComboBox.Size = new System.Drawing.Size(121, 23);
             this.DocumentTypeComboBox.TabIndex = 33;
             // 
+            // comboBox_chooseType
+            // 
+            this.comboBox_chooseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_chooseType.FormattingEnabled = true;
+            this.comboBox_chooseType.Items.AddRange(new object[] {
+            "增加",
+            "修改"});
+            this.comboBox_chooseType.Location = new System.Drawing.Point(699, 102);
+            this.comboBox_chooseType.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_chooseType.Name = "comboBox_chooseType";
+            this.comboBox_chooseType.Size = new System.Drawing.Size(160, 23);
+            this.comboBox_chooseType.TabIndex = 57;
+            this.comboBox_chooseType.SelectedIndexChanged += new System.EventHandler(this.ComboBox_chooseType_SelectedIndexChanged);
+            // 
+            // btn_reflashCase
+            // 
+            this.btn_reflashCase.Location = new System.Drawing.Point(486, 74);
+            this.btn_reflashCase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_reflashCase.Name = "btn_reflashCase";
+            this.btn_reflashCase.Size = new System.Drawing.Size(160, 51);
+            this.btn_reflashCase.TabIndex = 56;
+            this.btn_reflashCase.Text = "刷新用例";
+            this.btn_reflashCase.UseVisualStyleBackColor = true;
+            this.btn_reflashCase.Click += new System.EventHandler(this.Btn_reflashCase_Click);
+            // 
+            // btn_removeCase
+            // 
+            this.btn_removeCase.Location = new System.Drawing.Point(265, 74);
+            this.btn_removeCase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_removeCase.Name = "btn_removeCase";
+            this.btn_removeCase.Size = new System.Drawing.Size(161, 51);
+            this.btn_removeCase.TabIndex = 55;
+            this.btn_removeCase.Text = "删除用例";
+            this.btn_removeCase.UseVisualStyleBackColor = true;
+            this.btn_removeCase.Click += new System.EventHandler(this.Btn_removeCase_Click);
+            // 
+            // btn_addCase
+            // 
+            this.btn_addCase.Location = new System.Drawing.Point(40, 74);
+            this.btn_addCase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_addCase.Name = "btn_addCase";
+            this.btn_addCase.Size = new System.Drawing.Size(169, 51);
+            this.btn_addCase.TabIndex = 54;
+            this.btn_addCase.Text = "增加用例";
+            this.btn_addCase.UseVisualStyleBackColor = true;
+            this.btn_addCase.Click += new System.EventHandler(this.Btn_addCase_Click);
+            // 
             // AcceptanceListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 703);
+            this.Controls.Add(this.comboBox_chooseType);
+            this.Controls.Add(this.btn_reflashCase);
+            this.Controls.Add(this.btn_removeCase);
+            this.Controls.Add(this.btn_addCase);
             this.Controls.Add(this.DocumentTypeComboBox);
             this.Controls.Add(this.DocumentTypeLabel);
             this.Controls.Add(this.AcceptorTextBox);
@@ -205,15 +247,13 @@
             this.Controls.Add(this.IdTextBox);
             this.Controls.Add(this.IdLabel);
             this.Controls.Add(this.AcceptanceDataGridView);
-            this.Controls.Add(this.PurchaseDataGridView);
             this.MaximizeBox = false;
             this.Name = "AcceptanceListForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AcceptanceListForm";
+            this.Text = "验收清单";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AcceptanceListForm_FormClosing);
             this.Load += new System.EventHandler(this.AcceptanceListForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PurchaseDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AcceptanceDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -221,8 +261,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView PurchaseDataGridView;
         private System.Windows.Forms.DataGridView AcceptanceDataGridView;
         private System.Windows.Forms.Label IdLabel;
         private System.Windows.Forms.TextBox IdTextBox;
@@ -236,5 +274,9 @@
         private System.Windows.Forms.TextBox AcceptorTextBox;
         private System.Windows.Forms.Label DocumentTypeLabel;
         private System.Windows.Forms.ComboBox DocumentTypeComboBox;
+        private System.Windows.Forms.ComboBox comboBox_chooseType;
+        private System.Windows.Forms.Button btn_reflashCase;
+        private System.Windows.Forms.Button btn_removeCase;
+        private System.Windows.Forms.Button btn_addCase;
     }
 }

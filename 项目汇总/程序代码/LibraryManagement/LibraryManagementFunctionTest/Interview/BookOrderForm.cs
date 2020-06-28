@@ -1,13 +1,14 @@
 ﻿using LibraryManagementFunctionTest.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace LibraryManagementFunctionTest.Interview
 {
-    public partial class AcceptanceListForm : Form
+    public partial class BookOrderForm : Form
     {
         Form parentForm;//父窗体
         Tools.UserCaseHandle userCaseHandle;
@@ -17,103 +18,71 @@ namespace LibraryManagementFunctionTest.Interview
         /// 构造函数
         /// </summary>
         /// <param name="form">父窗体</param>
-        public AcceptanceListForm(Form form)
+        public BookOrderForm(Form form)
         {
             InitializeComponent();
             parentForm = form;
-            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((InterviewForm)form).parentForm).folderSrc + "\\Add_AcceptanceList.xls");
-            BookSellerComboBox.SelectedIndex = 0;
-            PublishingHouseComboBox.SelectedIndex = 0;
-            DocumentTypeComboBox.SelectedIndex = 0;
+            userCaseHandle = new Tools.UserCaseHandle(((MainForm)((InterviewForm)form).parentForm).folderSrc + "\\Add_InterviewPurchaseOrder.xls");
             comboBox_chooseType.SelectedIndex = 0;
-
+            currencyTypeComboBox.SelectedIndex = 0;
+            publishingHouseComboBox.SelectedIndex = 0;
+            documentTypeComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
-        /// 获取当前窗体所表示的清单
+        /// 获取当前窗体所表示的订单
         /// </summary>
         /// <param name="error">错误列表</param>
-        /// <returns>验收清单</returns>
-        private AcceptanceList GetAcceptanceList(ref List<string> error)
+        /// <returns>采购订单</returns>
+        private InterviewPurchaseOrder GetPurchaseOrder(ref List<string> error)
         {
             List<string> errorList = new List<string>();//错误列表
 
-            //书商Id
-            int bookSellerId = ((KeyValuePair<int, string>)BookSellerComboBox.SelectedItem).Key;
-
             //出版社Id
-            int publisherId = ((KeyValuePair<int, string>)PublishingHouseComboBox.SelectedItem).Key;
+            int publisherId = ((KeyValuePair<int, string>)publishingHouseComboBox.SelectedItem).Key;
 
             //判断订购人账号是否符合要求
-            Match matchOrderer = Regex.Match(OrdererTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
+            Match matchOrderer = Regex.Match(SubscriberTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
             if (!matchOrderer.Success)
             {
-                errorList.Add("OrdererId Error");
+                errorList.Add("OrdererNumber Error");
             }
 
             //通过订购人账号获取id
-            int ordererId = int.Parse(OrdererTextBox.Text);
+            int ordererId = int.Parse(orderNumTextBox.Text);
 
-            //判断验收人账号是否符合要求
-            Match matchAcceptor = Regex.Match(AcceptorTextBox.Text, @"(^\d{8}$)|(^\d{10}$)|(^\d{12}$)");
-            if (!matchAcceptor.Success)
+            double price;
+
+            //判断价格是否能被转换为整型
+            if (!double.TryParse(pricetextBox.Text, out price))
             {
-                errorList.Add("AcceptorId Error");
+                errorList.Add("OrderPrice Error");
             }
 
-            //通过订购人账号获取id
-            int acceptorId = int.Parse(AcceptorTextBox.Text);
-
-            //根据页面内容构造清单
-            AcceptanceList list = new AcceptanceList()
+            //根据页面内容构造订单
+            InterviewPurchaseOrder order = new InterviewPurchaseOrder()
             {
-                BookSellerId = bookSellerId,
-                PublishingHouseId = publisherId,
+                SubDate = subDatePicker.Value,
+                ISBN = ISBNtextBox.Text,
                 OrdererId = ordererId,
-                AcceptorId = acceptorId,
-                DocumentType = DocumentTypeComboBox.Text,
+                BookName = bookNameTextBox.Text,
+                Price = price,
+                CurrencyType = currencyTypeComboBox.Text,
+                PublishingHouseId = publisherId,
+                DocumentType = documentTypeComboBox.Text,
+                Remark = RemarkTextBox.Text,
             };
             error = errorList;//返回错误列表
-            return list;//返回订单
+            return order;//返回订单
         }
 
         /// <summary>
         /// 关闭当前界面并返回
         /// </summary>
-        private void AcceptanceListForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void BookOrderForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentForm.Show();
             Hide();
-        }
-
-        /// <summary>
-        /// 选择行更改
-        /// </summary>
-        private void AcceptanceDataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            if (AcceptanceDataGridView.SelectedRows.Count > 0)
-            {
-                selectIndex = AcceptanceDataGridView.SelectedRows[0].Index;
-            }
-        }
-
-        /// <summary>
-        /// 当前行更改
-        /// </summary>
-        private void AcceptanceDataGridView_CurrentCellChanged(object sender, EventArgs e)
-        {
-            if (AcceptanceDataGridView.CurrentRow != null)
-            {
-                selectIndex = AcceptanceDataGridView.CurrentRow.Index;
-            }
-        }
-
-        /// <summary>
-        /// 窗体加载函数
-        /// </summary>
-        private void AcceptanceListForm_Load(object sender, EventArgs e)
-        {
-            DataBind();//数据绑定
         }
 
         /// <summary>
@@ -123,12 +92,42 @@ namespace LibraryManagementFunctionTest.Interview
         {
             try
             {
-                AcceptanceDataGridView.DataSource = userCaseHandle.GetUserCasesDataTable();
+                OrderDataGridView.DataSource = userCaseHandle.GetUserCasesDataTable();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        /// <summary>
+        /// 选择行更改
+        /// </summary>
+        private void OrderDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (OrderDataGridView.SelectedRows.Count > 0)
+            {
+                selectIndex = OrderDataGridView.SelectedRows[0].Index;
+            }
+        }
+
+        /// <summary>
+        /// 当前行更改
+        /// </summary>
+        private void OrderDataGridView_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (OrderDataGridView.CurrentRow != null)
+            {
+                selectIndex = OrderDataGridView.CurrentRow.Index;
+            }
+        }
+
+        /// <summary>
+        /// 窗体加载函数
+        /// </summary>
+        private void BookOrderForm_Load(object sender, EventArgs e)
+        {
+            DataBind();//数据绑定
         }
 
         private void Btn_addCase_Click(object sender, EventArgs e)
@@ -137,7 +136,7 @@ namespace LibraryManagementFunctionTest.Interview
             {
                 List<string> errorList = new List<string>();//创建一个错误列表
                 //获取根据当前页面内容生成的订单（若有错误会被添加到错误列表中）
-                var list = new AcceptanceList[] { GetAcceptanceList(ref errorList) };
+                var list = new InterviewPurchaseOrder[] { GetPurchaseOrder(ref errorList) };
                 if (errorList.Count == 0)
                 {
                     if (userCaseHandle.AddUserCases(list.ToList()))
@@ -201,11 +200,11 @@ namespace LibraryManagementFunctionTest.Interview
         {
             if (comboBox_chooseType.SelectedIndex == 0)
             {
-                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((InterviewForm)parentForm).parentForm).folderSrc + "\\Add_AcceptanceList.xls");
+                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((InterviewForm)parentForm).parentForm).folderSrc + "\\Add_InterviewPurchaseOrder.xls");
             }
             else
             {
-                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((InterviewForm)parentForm).parentForm).folderSrc + "\\Update_AcceptanceList.xls");
+                userCaseHandle = new Tools.UserCaseHandle(((MainForm)((InterviewForm)parentForm).parentForm).folderSrc + "\\Update_InterviewPurchaseOrder.xls");
             }
             DataBind();
         }
