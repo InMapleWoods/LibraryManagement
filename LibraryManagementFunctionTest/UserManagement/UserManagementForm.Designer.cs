@@ -136,8 +136,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txb_Login);
             this.Name = "UserManagementForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserManagementForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserManagementForm_FormClosing);
+            this.Load += new System.EventHandler(this.UserManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

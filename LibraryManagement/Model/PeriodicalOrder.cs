@@ -150,22 +150,22 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("ISBN Error");
             }
-            Match matchDocumentType = Regex.Match(order.DocumentType, @"\b(期刊|专著)\b");
+            Match matchDocumentType = Regex.Match(order.DocumentType,  @"^(期刊|专著)$");
             if (!matchDocumentType.Success)
             {
                 errorList.Add("DocumentType Error");
             }
-            Match matchPublishCycle = Regex.Match(order.PublishCycle, @"\b(周刊|半月刊|月刊|季刊|年刊)\b");
+            Match matchPublishCycle = Regex.Match(order.PublishCycle,  @"^(周刊|半月刊|月刊|季刊|年刊)$");
             if (!matchPublishCycle.Success)
             {
                 errorList.Add("PublishCycle Error");
             }
-            Match matchOfficialTitle = Regex.Match(order.OfficialTitle, @"(.*)");
+            Match matchOfficialTitle = Regex.Match(order.OfficialTitle,  @"^(.*)$");
             if (!matchOfficialTitle.Success)
             {
                 errorList.Add("OfficialTitle Error");
             }
-            Match matchSupplementTitle = Regex.Match(order.SupplementTitle, @"(.*)");
+            Match matchSupplementTitle = Regex.Match(order.SupplementTitle,  @"^(.*)$");
             if (!matchSupplementTitle.Success)
             {
                 errorList.Add("SupplementTitle Error");
@@ -178,12 +178,12 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("OrderPrice Error");
             }
-            Match matchCurrencyType = Regex.Match(order.CurrencyType, @"(人民币\(RMB\))|(美元\(USD\))");
+            Match matchCurrencyType = Regex.Match(order.CurrencyType,  @"^(人民币\(RMB\))|(美元\(USD\))$");
             if (!matchCurrencyType.Success)
             {
                 errorList.Add("CurrencyType Error");
             }
-            Match matchSize = Regex.Match(order.Size, @"\b(A4|A3|16开)\b");
+            Match matchSize = Regex.Match(order.Size,  @"^(A4|A3|16开)$");
             if (!matchSize.Success)
             {
                 errorList.Add("Size Error");

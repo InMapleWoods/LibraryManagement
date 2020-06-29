@@ -123,7 +123,7 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("PublishingHouseId Error");
             }
-            Match matchDocumentType = Regex.Match(order.DocumentType, @"\b(期刊|专著|论文|电子文献|专利)\b");
+            Match matchDocumentType = Regex.Match(order.DocumentType,  @"^(期刊|专著|论文|电子文献|专利)$");
             if (!matchDocumentType.Success)
             {
                 errorList.Add("DocumentType Error");

@@ -39,7 +39,7 @@ namespace LibraryManagement.Bll
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                throw e;
+                return false;
             }
             return result;
         }
@@ -296,7 +296,7 @@ namespace LibraryManagement.Bll
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                throw e;
+                return false;
             }
             return result;
         }

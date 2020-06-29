@@ -57,12 +57,12 @@ namespace LibraryManagement.Model
         public static bool isNormative(PeriodicalBinding binding, ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
-            Match matchBindingIdList = Regex.Match(binding.BindingIdList, @"((\d+\|)*)");
+            Match matchBindingIdList = Regex.Match(binding.BindingIdList,                  @"^((\d+)(\|\d+)+)$");
             if (!matchBindingIdList.Success)
             {
                 errorList.Add("BindingIdList Error");
             }
-            Match matchBindingName = Regex.Match(binding.BindingName, @"(.*)");
+            Match matchBindingName = Regex.Match(binding.BindingName,  @"^(.*)$");
             if (!matchBindingName.Success)
             {
                 errorList.Add("BindingName Error");

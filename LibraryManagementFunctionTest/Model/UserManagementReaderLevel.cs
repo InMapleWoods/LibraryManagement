@@ -111,52 +111,52 @@ namespace LibraryManagementFunctionTest.Model
         public static bool isNormative(UserManagementReaderLevel level, ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
-            Match matchUserName = Regex.Match(level.UserName, @"\S{2,20}");
+            Match matchUserName = Regex.Match(level.UserName,  @"^\S{2,20}$");
             if (!matchUserName.Success)
             {
                 errorList.Add("UserName Error");
             }
-            Match matchUserNumber = Regex.Match(level.UserNumber, @"(\d{12}|\d{10}|\d{8})");
+            Match matchUserNumber = Regex.Match(level.UserNumber,  @"^(\d{12}|\d{10}|\d{8})$");
             if (!matchUserNumber.Success)
             {
                 errorList.Add("UserNumber Error");
             }
-            Match matchContact = Regex.Match(level.Contact, @"\d{11}");
+            Match matchContact = Regex.Match(level.Contact,  @"^\d{11}$");
             if (!matchContact.Success)
             {
                 errorList.Add("Contact Error");
             }
-            Match matchReaderLevelName = Regex.Match(level.ReaderLevelName, @"\d{1}");
+            Match matchReaderLevelName = Regex.Match(level.ReaderLevelName,  @"^\d{1}$");
             if (!matchReaderLevelName.Success)
             {
                 errorList.Add("ReaderLevelName Error");
             }
-            Match matchBorrowBookNumber = Regex.Match(level.BorrowBookNumber, @"\d{1}");
+            Match matchBorrowBookNumber = Regex.Match(level.BorrowBookNumber,  @"^\d{1}$");
             if (!matchBorrowBookNumber.Success)
             {
                 errorList.Add("BorrowBookNumber Error");
             }
-            Match matchReserveBookNumber = Regex.Match(level.ReserveBookNumber, @"\d{1}");
+            Match matchReserveBookNumber = Regex.Match(level.ReserveBookNumber,  @"^\d{1}$");
             if (!matchReserveBookNumber.Success)
             {
                 errorList.Add("ReserveBookNumber Error");
             }
-            Match matchBorrowBookDays = Regex.Match(level.BorrowBookDays, @"\d{2}");
+            Match matchBorrowBookDays = Regex.Match(level.BorrowBookDays,  @"^\d{2}$");
             if (!matchBorrowBookDays.Success)
             {
                 errorList.Add("BorrowBookDays Error");
             }
-            Match matchRenewBookDays = Regex.Match(level.RenewBookDays, @"\d{2}");
+            Match matchRenewBookDays = Regex.Match(level.RenewBookDays,  @"^\d{2}$");
             if (!matchRenewBookDays.Success)
             {
                 errorList.Add("RenewBookDays Error");
             }
-            Match matchForfeitMultiples = Regex.Match(level.ForfeitMultiples, @"\d{1}");
+            Match matchForfeitMultiples = Regex.Match(level.ForfeitMultiples,  @"^\d{1}$");
             if (!matchForfeitMultiples.Success)
             {
                 errorList.Add("ForfeitMultiples Error");
             }
-            Match matchRenewBookNumber = Regex.Match(level.RenewBookNumber, @"\d{1}");
+            Match matchRenewBookNumber = Regex.Match(level.RenewBookNumber,  @"^\d{1}$");
             if (!matchRenewBookNumber.Success)
             {
                 errorList.Add("RenewBookNumber Error");

@@ -15,7 +15,7 @@ namespace LibraryManageUnitTest.UserManagement
         [TestMethod]
         public void TestAddANewAdmin()
         {
-            Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"C:\Users\pineapple126\Desktop\作业\软件工程\课程设计\测试用例\Add_UserManagementAdminInfo.xls");
+            Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"C:\Users\96464\Desktop\软件工程\测试用例\Add_UserManagementAdminInfo.xls");
             IEnumerable userManagementAdminInfo = userCaseHandle.GetUserCases();
             List<string> errorList = new List<string>();
             foreach (var i in userManagementAdminInfo)

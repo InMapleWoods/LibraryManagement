@@ -319,6 +319,7 @@
             this.Controls.Add(this.txb_LibraryCardNum);
             this.Controls.Add(this.label1);
             this.Name = "AdminOperationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminOperationForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminOperationForm_FormClosing);
             this.Load += new System.EventHandler(this.AdminOperationForm_Load);

@@ -34,7 +34,7 @@ namespace LibraryManagementFunctionTest.UserManagement
         {
             //var form = new AdminChangeReaderLevel(this);
             //form.Show();
-            Hide();
+            //Hide();
         }
 
         /// <summary>

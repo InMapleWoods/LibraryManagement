@@ -66,22 +66,22 @@ namespace LibraryManagement.Model
         public static bool isNormative(UserManagementAdminInfo info, ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
-            Match matchUserNumber = Regex.Match(info.UserNumber, @"(\d{12}|\d{10}|\d{8})");
+            Match matchUserNumber = Regex.Match(info.UserNumber,  @"^(\d{12}|\d{10}|\d{8})$");
             if (!matchUserNumber.Success)
             {
                 errorList.Add("UserNumber Error");
             }
-            //Match matchUserName = Regex.Match(info.UserName, @"\S{2,20}");
+            //Match matchUserName = Regex.Match(info.UserName,  @"^\S{2,20}$");
             //if (!matchUserName.Success)
             //{
                 //errorList.Add("UserName Error");
             //}
-            Match matchAdminDepartment = Regex.Match(info.AdminDepartment, @"\S{0,10}");
+            Match matchAdminDepartment = Regex.Match(info.AdminDepartment,  @"^\S{0,10}$");
             if (!matchAdminDepartment.Success)
             {
                 errorList.Add("AdminDepartment Error");
             }
-            Match matchAdminRole = Regex.Match(info.AdminRole, @"\S{0,20}");
+            Match matchAdminRole = Regex.Match(info.AdminRole,  @"^\S{0,20}$");
             if (!matchAdminRole.Success)
             {
                 errorList.Add("AdminRole Error");

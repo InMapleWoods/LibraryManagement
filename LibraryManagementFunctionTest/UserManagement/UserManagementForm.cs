@@ -142,5 +142,10 @@ namespace LibraryManagementFunctionTest.UserManagement
                 selectIndex = dataGridView1.SelectedRows[0].Index;
             }
         }
+
+        private void UserManagementForm_Load(object sender, EventArgs e)
+        {
+            DataBind();
+        }
     }
 }

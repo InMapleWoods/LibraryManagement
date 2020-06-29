@@ -73,7 +73,7 @@ namespace LibraryManagement.Model
             {
                 errorlog.Add("BookId Error");
             }
-            Match matchState = Regex.Match(log.State, @"(有效|失效)");
+            Match matchState = Regex.Match(log.State,  @"^(有效|失效)$");
             if (!matchState.Success)
             {
                 errorlog.Add("State Error");
@@ -161,7 +161,7 @@ namespace LibraryManagement.Model
             {
                 errorlog.Add("BookId Error");
             }
-            Match matchState = Regex.Match(log.State, @"(有效|失效)");
+            Match matchState = Regex.Match(log.State,  @"^(有效|失效)$");
             if (!matchState.Success)
             {
                 errorlog.Add("State Error");
@@ -250,12 +250,12 @@ namespace LibraryManagement.Model
             {
                 errorlog.Add("CheckerId Error");
             }
-            Match matchDamageDetail = Regex.Match(log.DamageDetail, @"(.*)");
+            Match matchDamageDetail = Regex.Match(log.DamageDetail,  @"^(.*)$");
             if (!matchDamageDetail.Success)
             {
                 errorlog.Add("DamageDetail Error");
             }
-            Match matchRepairState = Regex.Match(log.RepairState, @"(已修复|待修复|修复失败)");
+            Match matchRepairState = Regex.Match(log.RepairState,  @"^(已修复|待修复|修复失败)$");
             if (!matchRepairState.Success)
             {
                 errorlog.Add("RepairState Error");
@@ -348,7 +348,7 @@ namespace LibraryManagement.Model
             {
                 errorlog.Add("PenaltyMultiple Error");
             }
-            Match matchState = Regex.Match(log.State, @"(待处理|未交书|未缴费|已处理)");
+            Match matchState = Regex.Match(log.State,  @"^(待处理|未交书|未缴费|已处理)$");
             if (!matchState.Success)
             {
                 errorlog.Add("State Error");

@@ -71,7 +71,7 @@ namespace LibraryManagementFunctionTest.Model
             {
                 errorList.Add("AcceptorId Error");
             }
-            Match matchState = Regex.Match(list.State, @"(已编目|未处理)");
+            Match matchState = Regex.Match(list.State,  @"^(已编目|未处理)$");
             if (!matchState.Success)
             {
                 errorList.Add("State Error");

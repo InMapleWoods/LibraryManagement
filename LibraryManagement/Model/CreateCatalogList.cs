@@ -118,7 +118,7 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("PublishingHouseId Error");
             }
-            Match matchDocumentType = Regex.Match(list.DocumentType, @"\b(文献|专著)\b");
+            Match matchDocumentType = Regex.Match(list.DocumentType,  @"^(文献|专著)$");
             if (!matchDocumentType.Success)
             {
                 errorList.Add("DocumentType Error");

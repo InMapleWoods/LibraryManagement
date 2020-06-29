@@ -92,6 +92,7 @@ namespace LibraryManagement.UserManagement
                         MessageBox.Show(i);//逐条显示错误信息
                     }
                 }
+                DataBind();//数据绑定
             }
             catch (Exception ex)
             {

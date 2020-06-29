@@ -54,7 +54,7 @@ namespace LibraryManagementFunctionTest.Model
             {
                 errorList.Add("InterviewId Error");
             }
-            Match matchState = Regex.Match(list.State, @"(可编目|退回|待退)");
+            Match matchState = Regex.Match(list.State,  @"^(可编目|退回|待退)$");
             if (!matchState.Success)
             {
                 errorList.Add("State Error");
