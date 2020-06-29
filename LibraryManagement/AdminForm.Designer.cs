@@ -45,7 +45,6 @@
             this.userManagementSystemButton.TabIndex = 9;
             this.userManagementSystemButton.Text = "用户管理子系统";
             this.userManagementSystemButton.UseVisualStyleBackColor = true;
-            this.userManagementSystemButton.Visible = false;
             this.userManagementSystemButton.Click += new System.EventHandler(this.userManagementSystemButton_Click);
             // 
             // catalogSystemBtn
@@ -57,7 +56,6 @@
             this.catalogSystemBtn.TabIndex = 8;
             this.catalogSystemBtn.Text = "编目子系统";
             this.catalogSystemBtn.UseVisualStyleBackColor = true;
-            this.catalogSystemBtn.Visible = false;
             this.catalogSystemBtn.Click += new System.EventHandler(this.catalogSystemBtn_Click);
             // 
             // maintainaceSystemButton
@@ -68,7 +66,6 @@
             this.maintainaceSystemButton.TabIndex = 3;
             this.maintainaceSystemButton.Text = "系统维护子系统";
             this.maintainaceSystemButton.UseVisualStyleBackColor = true;
-            this.maintainaceSystemButton.Visible = false;
             this.maintainaceSystemButton.Click += new System.EventHandler(this.maintainaceSystemButton_Click);
             // 
             // statisticalSystemButton
@@ -79,7 +76,6 @@
             this.statisticalSystemButton.TabIndex = 4;
             this.statisticalSystemButton.Text = "统计子系统";
             this.statisticalSystemButton.UseVisualStyleBackColor = true;
-            this.statisticalSystemButton.Visible = false;
             this.statisticalSystemButton.Click += new System.EventHandler(this.statisticalSystemButton_Click);
             // 
             // interviewSystemButton
@@ -90,7 +86,6 @@
             this.interviewSystemButton.TabIndex = 5;
             this.interviewSystemButton.Text = "采访子系统";
             this.interviewSystemButton.UseVisualStyleBackColor = true;
-            this.interviewSystemButton.Visible = false;
             this.interviewSystemButton.Click += new System.EventHandler(this.interviewSystemButton_Click);
             // 
             // circulationSystemButton
@@ -101,7 +96,6 @@
             this.circulationSystemButton.TabIndex = 6;
             this.circulationSystemButton.Text = "流通子系统";
             this.circulationSystemButton.UseVisualStyleBackColor = true;
-            this.circulationSystemButton.Visible = false;
             this.circulationSystemButton.Click += new System.EventHandler(this.circulationSystemButton_Click);
             // 
             // periodicalSystemButton
@@ -112,7 +106,6 @@
             this.periodicalSystemButton.TabIndex = 7;
             this.periodicalSystemButton.Text = "期刊子系统";
             this.periodicalSystemButton.UseVisualStyleBackColor = true;
-            this.periodicalSystemButton.Visible = false;
             this.periodicalSystemButton.Click += new System.EventHandler(this.periodicalSystemButton_Click);
             // 
             // AdminForm
