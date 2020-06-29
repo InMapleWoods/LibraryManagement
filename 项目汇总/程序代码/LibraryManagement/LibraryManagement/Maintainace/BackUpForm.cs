@@ -108,7 +108,7 @@ namespace LibraryManagement.Maintainace
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     //调用mysqldump备份mysql数据库的语句
-                    string backupsql = string.Format("mysql --host={0} --default-character-set=gbk  --port={1} --user={2} --password={3} ", "152.136.73.240", "1733", "Lsa", "llfllf");
+                    string backupsql = string.Format("mysql --host={0} --default-character-set=utf8  --port={1} --user={2} --password={3} ", "152.136.73.240", "1733", "Lsa", "llfllf");
                     //mysql的路径
 
                     //需要备份的数据库名称
