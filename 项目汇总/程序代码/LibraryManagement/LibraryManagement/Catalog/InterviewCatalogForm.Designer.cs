@@ -50,6 +50,7 @@
             // 
             this.interviewDataGridView.AllowUserToAddRows = false;
             this.interviewDataGridView.AllowUserToDeleteRows = false;
+            this.interviewDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.interviewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.interviewDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.interviewDataGridView.Location = new System.Drawing.Point(0, 0);
@@ -68,6 +69,7 @@
             // 
             this.catalogDataGridView.AllowUserToAddRows = false;
             this.catalogDataGridView.AllowUserToDeleteRows = false;
+            this.catalogDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.catalogDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.catalogDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.catalogDataGridView.Location = new System.Drawing.Point(0, 356);
