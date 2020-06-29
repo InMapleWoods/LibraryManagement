@@ -49,7 +49,7 @@ namespace LibraryManagement.Catalog
         private void DataBind()
         {
             // 上方窗体数据绑定
-            interviewDataGridView.DataSource = interviewBll.GetAllAcceptanceList();
+            interviewDataGridView.DataSource = createCatalogBll.GetAllAcceptanceList();
             // 下方窗体数据绑定
             catalogDataGridView.DataSource = createCatalogBll.GetAllInterviewCatalog();
             stateComboBox.SelectedIndex = 0;//状态

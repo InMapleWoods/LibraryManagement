@@ -149,6 +149,25 @@ namespace LibraryManagement.Bll
         #endregion
 
         #region 采访编目
+
+        /// <summary>
+        /// 获取全部清单
+        /// </summary>
+        /// <returns>全部清单</returns>
+        public DataTable GetAllAcceptanceList()
+        {
+            DataTable result = null;
+            try
+            {
+                result = createDal.GetAllAcceptanceList();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+            return result;
+        }
         /// <summary>
         /// 获取全部采访清单
         /// </summary>
@@ -264,7 +283,7 @@ namespace LibraryManagement.Bll
                     InterviewCatalog interviewCatalog = new InterviewCatalog()
                     {
                         Id = (int)dr["编号"],
-                        InterviewId = (int)dr["订单编号"],
+                        InterviewId = (int)dr["采访验收编号"],
                         State = dr["状态"].ToString(),
                     };
                     result.Add(interviewCatalog);
@@ -324,7 +343,7 @@ namespace LibraryManagement.Bll
             List<CreateCatalogList> result = new List<CreateCatalogList>();
             try
             {
-                DataTable datatable = createDal.GetAllQueryCatalogForm("");
+                DataTable datatable = createDal.GetAllQueryCatalogForm();
                 foreach (DataRow dr in datatable.Rows)
                 {
                     CreateCatalogList createCatalogList = new CreateCatalogList()

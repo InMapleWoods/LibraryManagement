@@ -158,7 +158,23 @@ namespace LibraryManagement.Dal
         }
         #endregion
         #region 采访编目
-
+        /// <summary>
+        /// 获取全部清单
+        /// </summary>
+        /// <returns>全部清单</returns>
+        public DataTable GetAllAcceptanceList()
+        {
+            string sqlstr = " SELECT " +
+                " tb_AcceptanceList.Id AS `编号`, " +
+                " tb_BasicInformation.UserName AS `验收人`, " +
+                " tb_AcceptanceList.OrderId AS `订单编号` " +
+                " FROM " +
+                " tb_AcceptanceList " +
+                " INNER JOIN tb_BasicInformation ON tb_AcceptanceList.AcceptorId = tb_BasicInformation.UserId WHERE Not Exists (select * from tb_InterviewCatalog where tb_InterviewCatalog.InterviewId=tb_AcceptanceList.Id) AND tb_AcceptanceList.State<>'已编目';";
+            MySqlParameter[] paras = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
         /// <summary>
         /// 获取全部采访
         /// </summary>
@@ -175,13 +191,13 @@ namespace LibraryManagement.Dal
                 //" tb_AcceptanceList.AcceptorId AS 验收人, " +
                 " tb_InterviewCatalog.State AS 状态  " +
                 " FROM " +
-                " tb_InterviewCatalog ;";//+
-                //" INNER JOIN tb_AcceptanceList " +
-                //" INNER JOIN tb_DictionaryPublishingHouse " +
-                //" INNER JOIN tb_DictionaryBookSeller " +
-                //" ON tb_InterviewCatalog.InterviewId = tb_AcceptanceList.Id;";// +
-                //" AND tb_DictionaryBookSeller.Id = tb_AcceptanceList.BookSellerId" +
-                //" AND tb_DictionaryPublishingHouse.Id = tb_AcceptanceList.PublishingHouse;";
+                " tb_InterviewCatalog where tb_InterviewCatalog.State<>'已入表';";//+
+                                                                               //" INNER JOIN tb_AcceptanceList " +
+                                                                               //" INNER JOIN tb_DictionaryPublishingHouse " +
+                                                                               //" INNER JOIN tb_DictionaryBookSeller " +
+                                                                               //" ON tb_InterviewCatalog.InterviewId = tb_AcceptanceList.Id;";// +
+                                                                               //" AND tb_DictionaryBookSeller.Id = tb_AcceptanceList.BookSellerId" +
+                                                                               //" AND tb_DictionaryPublishingHouse.Id = tb_AcceptanceList.PublishingHouse;";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
@@ -293,17 +309,43 @@ namespace LibraryManagement.Dal
         #endregion
 
         #region 编目移送
-
+        /// <summary>
+        /// 获取全部编目
+        /// </summary>
+        /// <returns>全部编目</returns>
+        public DataTable GetAllQueryCatalogForm()
+        {
+            string sqlstr = "select " +
+                "tb_CatalogForm.Id as 编号," +
+                "tb_CatalogForm.ISBN as ISBN号," +
+                "tb_CatalogForm.DocumentType as 文献类型," +
+                "tb_CatalogForm.PositiveTitle as 正刊名," +
+                "tb_DictionaryPublishingHouse.PublishingHouse as 出版社," +
+                "tb_CatalogForm.PrimaryLiability as 第一责任," +
+                "tb_CatalogForm.FirstAuthor as 第一作者," +
+                "tb_CatalogForm.CatalogingDate as 编目日期," +
+                "tb_BasicInformation.UserName as 编目人员" +
+                " from " +
+                "tb_CatalogForm inner join " +
+                "tb_DictionaryPublishingHouse inner join " +
+                "tb_BasicInformation " +
+                "on tb_CatalogForm.CatalogerId=tb_BasicInformation.UserId " +
+                "and tb_CatalogForm.PublishingHouseId=tb_DictionaryPublishingHouse.Id " +
+                "and tb_CatalogForm.State='未处理';";
+            MySqlParameter[] paras = new MySqlParameter[] { };
+            DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
+            return dataTable;
+        }
         public bool MoveCatalog(int Id)
         {
             string sqlStr = " SELECT " +
-               " tb_CatalogForm.Id AS `图书编号`, " +
+               " tb_CatalogForm.Id AS `编目编号`, " +
                " tb_CatalogForm.ISBN AS ISBN, " +
                " tb_CatalogForm.PositiveTitle AS `题目名称`, " +
                " tb_CatalogForm.FirstAuthor AS `第一作者`, " +
                " tb_CatalogForm.PublishingHouseId AS `出版社编号`, " +
                " tb_CatalogForm.DocumentType AS `文献类型`, " +
-               " tb_CatalogForm.State AS `图书状态`  " +
+               " tb_CatalogForm.State AS `编目状态`  " +
                " FROM " +
                " tb_CatalogForm  " +
                " WHERE " +
@@ -319,15 +361,20 @@ namespace LibraryManagement.Dal
             DataRow row = dataTable.Rows[0];
             CreateCatalogList createCatalogList = new CreateCatalogList()
             {
-                Id = int.Parse(row["图书编号"].ToString()),
+                Id = int.Parse(row["编目编号"].ToString()),
                 ISBN = row["ISBN"].ToString(),
                 PositiveTitle = row["题目名称"].ToString(),
                 FirstAuthor = row["第一作者"].ToString(),
                 PublishingHouseId = int.Parse(row["出版社编号"].ToString()),
                 DocumentType = row["文献类型"].ToString(),
-                
+
             };
-            // return createCatalogList;
+            sqlStr = "UPDATE tb_CatalogForm SET tb_CatalogForm.State='已处理' where tb_CatalogForm.state='未处理' and tb_CatalogForm.Id=@id";
+            paras = new MySqlParameter[]
+            {
+                new MySqlParameter("@id",createCatalogList.Id),
+            };
+            int count = helper.ExecuteNonQuery(sqlStr, paras, CommandType.Text);
             sqlStr = "INSERT INTO tb_CirculateBooks (" +
                 " tb_CirculateBooks.ISBN," +
                 " tb_CirculateBooks.FirstAuthor," +
@@ -353,7 +400,7 @@ namespace LibraryManagement.Dal
                 new MySqlParameter("@officialTitle",createCatalogList.PositiveTitle),
                 new MySqlParameter("@publishingHouseId",createCatalogList.PublishingHouseId),
             };
-            int count = helper.ExecuteNonQuery(sqlStr, paras, CommandType.Text);
+            count = helper.ExecuteNonQuery(sqlStr, paras, CommandType.Text);
             if (count > 0)
             {
                 return true;
@@ -383,7 +430,6 @@ namespace LibraryManagement.Dal
                 "tb_CatalogForm.FirstAuthor as 第一作者," +
                 "tb_CatalogForm.CatalogingDate as 编目日期," +
                 "tb_BasicInformation.UserName as 编目人员" +
-
                 " from " +
                 "tb_CatalogForm inner join " +
                 "tb_DictionaryPublishingHouse inner join " +
@@ -398,10 +444,8 @@ namespace LibraryManagement.Dal
            };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;
-
-            #endregion
-
         }
+        #endregion
     }
 }
 
