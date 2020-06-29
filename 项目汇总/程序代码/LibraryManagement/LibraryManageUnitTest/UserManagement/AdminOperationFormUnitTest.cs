@@ -16,7 +16,7 @@ namespace LibraryManageUnitTest.UserManagement
         [TestMethod]
         public void TestAddANewReader()
         {
-            Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"C:\Users\pineapple126\Desktop\作业\软件工程\课程设计\测试用例\Add_PeriodicalOrder.xls");
+            Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"C:\Users\pineapple126\Desktop\作业\软件工程\课程设计\测试用例\Add_UserManagementReaderInfo.xls");
             IEnumerable userManagementReaderInfo = userCaseHandle.GetUserCases();
             List<string> errorList = new List<string>();
             foreach (var i in userManagementReaderInfo)
