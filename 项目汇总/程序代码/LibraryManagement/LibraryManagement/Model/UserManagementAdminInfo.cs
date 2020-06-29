@@ -43,10 +43,10 @@ namespace LibraryManagement.Model
             {
                 return true;
             }
-            if (info.UserName == "")
-            {
-                return true;
-            }
+            //if (info.UserName == "")
+            //{
+                //return true;
+            //}
             if (info.AdminDepartment == "")
             {
                 return true;
@@ -71,11 +71,11 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("UserNumber Error");
             }
-            Match matchUserName = Regex.Match(info.UserName, @"\S{2,20}");
-            if (!matchUserName.Success)
-            {
-                errorList.Add("UserName Error");
-            }
+            //Match matchUserName = Regex.Match(info.UserName, @"\S{2,20}");
+            //if (!matchUserName.Success)
+            //{
+                //errorList.Add("UserName Error");
+            //}
             Match matchAdminDepartment = Regex.Match(info.AdminDepartment, @"\S{0,10}");
             if (!matchAdminDepartment.Success)
             {
