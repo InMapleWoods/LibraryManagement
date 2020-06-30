@@ -95,7 +95,7 @@ namespace LibraryManagementFunctionTest.Model
             {
                 errorList.Add("ISBN Error");
             }
-            Match matchOfficialTitle = Regex.Match(book.OfficialTitle,  @"^(.*)$");
+            Match matchOfficialTitle = Regex.Match(book.OfficialTitle, @"^(.*)$");
             if (!matchOfficialTitle.Success)
             {
                 errorList.Add("OfficialTitle Error");
@@ -104,12 +104,12 @@ namespace LibraryManagementFunctionTest.Model
             {
                 errorList.Add("PublishingHouseId Error");
             }
-            Match matchDocumentType = Regex.Match(book.DocumentType,  @"^(期刊|专著)$");
+            Match matchDocumentType = Regex.Match(book.DocumentType, @"^(期刊|专著)$");
             if (!matchDocumentType.Success)
             {
                 errorList.Add("DocumentType Error");
             }
-            Match matchBookStatus = Regex.Match(book.BookStatus,  @"^(可借阅|已借出|已预约|已缺失|已合订)$");
+            Match matchBookStatus = Regex.Match(book.BookStatus, @"^(可借阅|已借出|已预约|已缺失|已合订)$");
             if (!matchBookStatus.Success)
             {
                 errorList.Add("BookStatus Error");

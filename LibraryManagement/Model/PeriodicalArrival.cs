@@ -54,7 +54,7 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("OrderId Error");
             }
-            Match matchState = Regex.Match(arrival.State,  @"^(完好|退回|待退)$");
+            Match matchState = Regex.Match(arrival.State, @"^(完好|退回|待退)$");
             if (!matchState.Success)
             {
                 errorList.Add("State Error");

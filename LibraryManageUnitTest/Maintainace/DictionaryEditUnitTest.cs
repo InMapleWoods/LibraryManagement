@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using LibraryManagement.Bll;
+﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace LibraryManageUnitTest.Maintainace
 {
@@ -41,7 +40,7 @@ namespace LibraryManageUnitTest.Maintainace
                 Remark = ""
 
             };
-            Assert.AreEqual(true,maintainaceBll.AddDicBookSeller(bookSeller,ref errorList));
+            Assert.AreEqual(true, maintainaceBll.AddDicBookSeller(bookSeller, ref errorList));
         }
         [TestMethod]
         public void TestUpdateBookSeller()
@@ -122,7 +121,7 @@ namespace LibraryManageUnitTest.Maintainace
                 Remark = ""
 
             };
-            Assert.AreEqual(true, maintainaceBll.AddDicPublishingHouse(publishingHouse,ref errorList));
+            Assert.AreEqual(true, maintainaceBll.AddDicPublishingHouse(publishingHouse, ref errorList));
         }
         [TestMethod]
         public void TestUpdatePublishingHouse()
@@ -132,7 +131,7 @@ namespace LibraryManageUnitTest.Maintainace
             List<string> errorList = new List<string>();
             foreach (var i in updatePublishingHouse)
             {
-                Assert.AreEqual(false,maintainaceBll.UpdateDicPublishingHouse((DictionaryPublishingHouse)i, ref errorList));
+                Assert.AreEqual(false, maintainaceBll.UpdateDicPublishingHouse((DictionaryPublishingHouse)i, ref errorList));
             }
             int maxId = -1;
             foreach (DictionaryPublishingHouse i in maintainaceBll.getAllDicPublishingHouseArray())
@@ -154,7 +153,7 @@ namespace LibraryManageUnitTest.Maintainace
                 Remark = ""
 
             };
-            Assert.AreEqual(true, maintainaceBll.UpdateDicPublishingHouse(publishingHouse,ref errorList));
+            Assert.AreEqual(true, maintainaceBll.UpdateDicPublishingHouse(publishingHouse, ref errorList));
         }
         [TestMethod]
         public void TestDeletePublishingHouse()

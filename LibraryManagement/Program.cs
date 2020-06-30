@@ -13,7 +13,7 @@ namespace LibraryManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminForm(new Form(),new Model.UserManagementAdmin() { Number="201709001013"}));
+            Application.Run(new AdminForm(new Form(), new Model.UserManagementAdmin() { Number = "201709001013" }));
         }
     }
 }

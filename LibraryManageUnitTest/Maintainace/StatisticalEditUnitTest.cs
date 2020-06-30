@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using LibraryManagement.Bll;
+﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace LibraryManageUnitTest.Maintainace
 {
@@ -34,10 +33,10 @@ namespace LibraryManageUnitTest.Maintainace
                 Id = -1,
                 TableName = "PeriodicalOrder",
                 Operation = "select * from tb_PeriodicalOrder;",
-                
+
 
             };
-            Assert.AreEqual(true, maintainaceBll.AddStatisticalInfo(statisticalInfo,ref errorList));
+            Assert.AreEqual(true, maintainaceBll.AddStatisticalInfo(statisticalInfo, ref errorList));
         }
         [TestMethod]
         public void TestUpdateStatisticalInfo()
@@ -65,7 +64,7 @@ namespace LibraryManageUnitTest.Maintainace
 
 
             };
-            Assert.AreEqual(true, maintainaceBll.UpdateStatisticalInfo(statisticalInfo,ref errorList));
+            Assert.AreEqual(true, maintainaceBll.UpdateStatisticalInfo(statisticalInfo, ref errorList));
         }
         [TestMethod]
         public void TestDeleteStatisticalInfo()

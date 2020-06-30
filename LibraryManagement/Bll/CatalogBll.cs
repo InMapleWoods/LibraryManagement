@@ -133,7 +133,7 @@ namespace LibraryManagement.Bll
                         PrimaryLiability = dr["第一责任"].ToString(),
                         DocumentType = dr["文献类型"].ToString(),
                         CatalogingDate = (DateTime)dr["编目日期"],
-                        
+
                     };
                     result.Add(createCatalogList);
                 }
@@ -348,7 +348,7 @@ namespace LibraryManagement.Bll
                 {
                     CreateCatalogList createCatalogList = new CreateCatalogList()
                     {
-                        Id = (int)dr["编号"]                        
+                        Id = (int)dr["编号"]
                     };
                     result.Add(createCatalogList);
                 }

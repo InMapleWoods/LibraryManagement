@@ -1,12 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LibraryManagement.Bll;
+﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
-using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManageUnitTest.Catalog
 {
@@ -22,15 +17,15 @@ namespace LibraryManageUnitTest.Catalog
             //Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"E:\大三课程文档汇总\软件工程\FunctionTest\Add_CatalogFormList.xls");
             //IEnumerable interviewCatalog = userCaseHandle.GetUserCases();
             List<string> errorList = new List<string>();
-            InterviewCatalog interview1= new InterviewCatalog()
+            InterviewCatalog interview1 = new InterviewCatalog()
             {
                 Id = 1,
                 InterviewId = 1,
                 State = "",
-               
+
             };
-          
-               Assert.AreEqual(false, createCatalogBll.AddInterviewCatalog(interview1, ref errorList));
+
+            Assert.AreEqual(false, createCatalogBll.AddInterviewCatalog(interview1, ref errorList));
 
             int maxId = -1;
             foreach (AcceptanceList i in interviewBll.GetAllAcceptanceListArray())
@@ -63,9 +58,9 @@ namespace LibraryManageUnitTest.Catalog
             }
             if (maxId != -1)
             {
-                Assert.AreEqual(true,createCatalogBll.DeleteInterviewCatalog(maxId));
+                Assert.AreEqual(true, createCatalogBll.DeleteInterviewCatalog(maxId));
             }
-            Assert.AreEqual(false,  createCatalogBll.DeleteInterviewCatalog(-1));
+            Assert.AreEqual(false, createCatalogBll.DeleteInterviewCatalog(-1));
         }
 
         //[TestMethod()]
@@ -73,7 +68,7 @@ namespace LibraryManageUnitTest.Catalog
         //{
         //    Tools.UserCaseHandle userCaseHandle = new Tools.UserCaseHandle(@"E:\大三课程文档汇总\软件工程\FunctionTest\Update_CatalogFormList.xls");
         //    IEnumerable  interviewCatalog = userCaseHandle.GetUserCases();
- 
+
         //    List<string> errorList = new List<string>();
         //    foreach (var i in interviewCatalog)
         //    {
@@ -107,7 +102,7 @@ namespace LibraryManageUnitTest.Catalog
         //    }
         //}
 
-        
+
 
     }
 }

@@ -310,7 +310,7 @@ namespace LibraryManagement.Dal
                 " INNER JOIN tb_DictionaryPublishingHouse ON tb_InterviewPurchaseOrder.PublishingHouseId = tb_DictionaryPublishingHouse.Id " +
                 " INNER JOIN tb_BasicInformation ON tb_InterviewPurchaseOrder.OrdererId = tb_BasicInformation.UserId  " +
                 " WHERE " +
-                " NOT EXISTS ( SELECT * FROM tb_AcceptanceList WHERE tb_AcceptanceList.OrderId = tb_InterviewPurchaseOrder.Id ); "; 
+                " NOT EXISTS ( SELECT * FROM tb_AcceptanceList WHERE tb_AcceptanceList.OrderId = tb_InterviewPurchaseOrder.Id ); ";
             MySqlParameter[] paras = new MySqlParameter[] { };
             DataTable dataTable = helper.ExecuteQuery(sqlstr, paras, CommandType.Text);
             return dataTable;

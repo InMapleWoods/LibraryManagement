@@ -1,12 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LibraryManagement.Bll;
+﻿using LibraryManagement.Bll;
 using LibraryManagement.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManageUnitTest.Catalog
 {
@@ -36,12 +33,12 @@ namespace LibraryManageUnitTest.Catalog
                 PrimaryLiability = "笑哈哈出版社" + DateTime.Now.Date.ToString("yy-MM-dd"),
                 CatalogerId = 1,
                 CatalogingDate = DateTime.Now,
-                DocumentType = "专著",                
+                DocumentType = "专著",
                 PublishingHouseId = 1,
-                
+
             };
             Assert.AreEqual(true, createCatalogBll.AddCatalogList(list, ref errorList));
-        } 
+        }
 
         [TestMethod()]
         public void DeleteCatalogListTest()

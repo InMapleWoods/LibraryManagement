@@ -134,12 +134,12 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("PublishingHouseId Error");
             }
-            Match matchDocumentType = Regex.Match(list.DocumentType,  @"^(期刊|专著|论文|电子文献|专利)$");
+            Match matchDocumentType = Regex.Match(list.DocumentType, @"^(期刊|专著|论文|电子文献|专利)$");
             if (!matchDocumentType.Success)
             {
                 errorList.Add("DocumentType Error");
             }
-            Match matchOrderStatus = Regex.Match(list.OrderStatus,  @"^(采访|验收)$");
+            Match matchOrderStatus = Regex.Match(list.OrderStatus, @"^(采访|验收)$");
             if (!matchOrderStatus.Success)
             {
                 errorList.Add("OrderStatus Error");

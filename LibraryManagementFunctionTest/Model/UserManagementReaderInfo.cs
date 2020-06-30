@@ -102,27 +102,27 @@ namespace LibraryManagementFunctionTest.Model
         public static bool isNormative(UserManagementReaderInfo info, ref List<string> errorMsg)
         {
             List<string> errorList = new List<string>();
-            Match matchLibraryCardNum = Regex.Match(info.LibraryCardNum,  @"^\d{11}$");
+            Match matchLibraryCardNum = Regex.Match(info.LibraryCardNum, @"^\d{11}$");
             if (!matchLibraryCardNum.Success)
             {
                 errorList.Add("LibraryCardNum Error");
             }
-            Match matchUserNumber = Regex.Match(info.UserNumber,  @"^(\d{12}|\d{10}|\d{8})$");
+            Match matchUserNumber = Regex.Match(info.UserNumber, @"^(\d{12}|\d{10}|\d{8})$");
             if (!matchUserNumber.Success)
             {
                 errorList.Add("UserNumber Error");
             }
-            Match matchUserName = Regex.Match(info.UserName,  @"^\S{2,20}$");
+            Match matchUserName = Regex.Match(info.UserName, @"^\S{2,20}$");
             if (!matchUserName.Success)
             {
                 errorList.Add("UserName Error");
             }
-            Match matchAddress = Regex.Match(info.Address,  @"^\d{2}\#\d{3}$");
+            Match matchAddress = Regex.Match(info.Address, @"^\d{2}\#\d{3}$");
             if (!matchAddress.Success)
             {
                 errorList.Add("Address Error");
             }
-            Match matchContact = Regex.Match(info.Contact,  @"^\d{11}$");
+            Match matchContact = Regex.Match(info.Contact, @"^\d{11}$");
             if (!matchContact.Success)
             {
                 errorList.Add("Contact Error");

@@ -6,7 +6,7 @@ namespace LibraryManagement.Model
     /// <summary>
     /// 采访编目记录
     /// </summary>
-    public class  InterviewCatalog 
+    public class InterviewCatalog
 
     {
         /// <summary>

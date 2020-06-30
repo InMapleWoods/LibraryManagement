@@ -18,7 +18,7 @@ namespace LibraryManagement
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-         //   SetVisible();
+            SetVisible();
         }
 
         private void SetVisible()

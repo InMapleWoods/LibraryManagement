@@ -81,7 +81,7 @@ namespace LibraryManagement.Bll
             }
             return result;
         }
-        
+
         public IEnumerable getAllDicBookSellerArry()
         {
             List<DictionaryBookSeller> result = new List<DictionaryBookSeller>();
@@ -116,7 +116,7 @@ namespace LibraryManagement.Bll
             List<DictionaryBookSeller> result = new List<DictionaryBookSeller>();
             try
             {
-                DataTable datatable = maintainaceDal.getDicBookSeller(index,size);
+                DataTable datatable = maintainaceDal.getDicBookSeller(index, size);
                 foreach (DataRow dr in datatable.Rows)
                 {
                     DictionaryBookSeller bookSeller = new DictionaryBookSeller()
@@ -327,12 +327,12 @@ namespace LibraryManagement.Bll
                 throw e;
             }
         }
-        public IEnumerable getDicPublishingHouseArray(int index,int size)
+        public IEnumerable getDicPublishingHouseArray(int index, int size)
         {
             List<DictionaryPublishingHouse> result = new List<DictionaryPublishingHouse>();
             try
             {
-                DataTable datatable = maintainaceDal.getDicPublishingHouse(index,size);
+                DataTable datatable = maintainaceDal.getDicPublishingHouse(index, size);
                 foreach (DataRow dr in datatable.Rows)
                 {
                     DictionaryPublishingHouse publishingHouse = new DictionaryPublishingHouse()
@@ -515,7 +515,7 @@ namespace LibraryManagement.Bll
                         Id = (int)dr["编号"],
                         TableName = dr["表名称"].ToString(),
                         Operation = dr["操作"].ToString()
-                        
+
                     };
                     result.Add(statisticalInfo);
                 }

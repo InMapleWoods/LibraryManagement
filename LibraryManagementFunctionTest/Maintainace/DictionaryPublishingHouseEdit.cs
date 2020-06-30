@@ -1,9 +1,8 @@
-﻿using LibraryManagementFunctionTest.Tools;
-using LibraryManagementFunctionTest.Model;
+﻿using LibraryManagementFunctionTest.Model;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace LibraryManagementFunctionTest.Maintainace
 {
@@ -130,7 +129,7 @@ namespace LibraryManagementFunctionTest.Maintainace
         {
             if (dataGV_DictionaryShow.SelectedRows.Count > 0)
             {
-               selectIndex = dataGV_DictionaryShow.SelectedRows[0].Index;
+                selectIndex = dataGV_DictionaryShow.SelectedRows[0].Index;
             }
 
         }

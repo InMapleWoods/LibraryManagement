@@ -36,29 +36,36 @@
             // 
             // dataGV_showStatisticalData
             // 
+            this.dataGV_showStatisticalData.AllowUserToAddRows = false;
+            this.dataGV_showStatisticalData.AllowUserToDeleteRows = false;
             this.dataGV_showStatisticalData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGV_showStatisticalData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGV_showStatisticalData.Location = new System.Drawing.Point(13, 42);
+            this.dataGV_showStatisticalData.Location = new System.Drawing.Point(17, 52);
+            this.dataGV_showStatisticalData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGV_showStatisticalData.Name = "dataGV_showStatisticalData";
+            this.dataGV_showStatisticalData.ReadOnly = true;
+            this.dataGV_showStatisticalData.RowHeadersVisible = false;
             this.dataGV_showStatisticalData.RowHeadersWidth = 51;
             this.dataGV_showStatisticalData.RowTemplate.Height = 23;
-            this.dataGV_showStatisticalData.Size = new System.Drawing.Size(775, 396);
+            this.dataGV_showStatisticalData.Size = new System.Drawing.Size(1033, 495);
             this.dataGV_showStatisticalData.TabIndex = 1;
             // 
             // comboBox_ChooseTable
             // 
             this.comboBox_ChooseTable.FormattingEnabled = true;
-            this.comboBox_ChooseTable.Location = new System.Drawing.Point(13, 12);
+            this.comboBox_ChooseTable.Location = new System.Drawing.Point(17, 15);
+            this.comboBox_ChooseTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_ChooseTable.Name = "comboBox_ChooseTable";
-            this.comboBox_ChooseTable.Size = new System.Drawing.Size(121, 20);
+            this.comboBox_ChooseTable.Size = new System.Drawing.Size(160, 23);
             this.comboBox_ChooseTable.TabIndex = 2;
             this.comboBox_ChooseTable.SelectedIndexChanged += new System.EventHandler(this.comboBox_ChooseTable_SelectedIndexChanged);
             // 
             // btn_Print
             // 
-            this.btn_Print.Location = new System.Drawing.Point(151, 9);
+            this.btn_Print.Location = new System.Drawing.Point(201, 11);
+            this.btn_Print.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Print.Name = "btn_Print";
-            this.btn_Print.Size = new System.Drawing.Size(75, 23);
+            this.btn_Print.Size = new System.Drawing.Size(100, 29);
             this.btn_Print.TabIndex = 3;
             this.btn_Print.Text = "打印";
             this.btn_Print.UseVisualStyleBackColor = true;
@@ -66,12 +73,13 @@
             // 
             // StatisticalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.btn_Print);
             this.Controls.Add(this.comboBox_ChooseTable);
             this.Controls.Add(this.dataGV_showStatisticalData);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "StatisticalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "统计报表";

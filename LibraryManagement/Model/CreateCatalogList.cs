@@ -56,7 +56,7 @@ namespace LibraryManagement.Model
         /// </summary>
         public string PrimaryLiability = "";
 
-       
+
         /// <summary>
         /// 判断列表是否有空项
         /// </summary>
@@ -92,7 +92,7 @@ namespace LibraryManagement.Model
             {
                 return true;
             }
-           
+
             return false;
         }
         /// <summary>
@@ -118,7 +118,7 @@ namespace LibraryManagement.Model
             {
                 errorList.Add("PublishingHouseId Error");
             }
-            Match matchDocumentType = Regex.Match(list.DocumentType,  @"^(文献|专著)$");
+            Match matchDocumentType = Regex.Match(list.DocumentType, @"^(文献|专著)$");
             if (!matchDocumentType.Success)
             {
                 errorList.Add("DocumentType Error");

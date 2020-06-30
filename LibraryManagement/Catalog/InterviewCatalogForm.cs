@@ -2,8 +2,8 @@
 using LibraryManagement.Model;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Data;
+using System.Windows.Forms;
 
 
 namespace LibraryManagement.Catalog
@@ -141,7 +141,7 @@ namespace LibraryManagement.Catalog
                         MessageBox.Show("编号错误");
                         return;
                     }
-                    if (createCatalogBll.DeleteInterviewCatalog (id))//调用登到删除方法
+                    if (createCatalogBll.DeleteInterviewCatalog(id))//调用登到删除方法
                     {
                         MessageBox.Show("删除成功");
                     }

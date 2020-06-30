@@ -488,7 +488,7 @@ namespace LibraryManagement.Bll
             List<Book> result = new List<Book>();
             try
             {
-                DataTable datatable =circulationDal.GetAllBooks("", "", "", "");
+                DataTable datatable = circulationDal.GetAllBooks("", "", "", "");
                 foreach (DataRow dr in datatable.Rows)
                 {
                     Book book = new Book()
@@ -505,7 +505,7 @@ namespace LibraryManagement.Bll
                 throw e;
             }
         }
-        
+
 
         /// <summary>
         /// 获取所有流通图书

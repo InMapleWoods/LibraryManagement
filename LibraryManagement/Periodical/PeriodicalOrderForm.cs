@@ -379,7 +379,7 @@ namespace LibraryManagement.Periodical
             cycleComboBox.SelectedIndex = 0;//出版周期
             sizeComboBox.SelectedIndex = 0;//尺寸
 
-            ordererTextBox.Text = AdminForm.admin.Number; 
+            ordererTextBox.Text = AdminForm.admin.Number;
         }
 
         /// <summary>
