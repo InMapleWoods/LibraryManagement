@@ -130,15 +130,15 @@ namespace LibraryManagement.Bll
                     InterviewList interviewList = new InterviewList()
                     {
                         Id = (int)dr["清单号"],
-                        Author = dr["作者"].ToString(),
                         ISBN = dr["ISBN号"].ToString(),
-                        CurrencyType = dr["货币种类"].ToString(),
-                        SubscriptionNum = (int)dr["征订册数"],
-                        OrderStatus = dr["订购状态"].ToString(),
+                        Author = dr["作者"].ToString(),
                         BookName = dr["书名"].ToString(),
                         Price = double.Parse(dr["价格"].ToString()),
-                        PublishingHouseId = int.Parse(dr["出版社ID"].ToString()),
+                        CurrencyType = dr["货币种类"].ToString(),
+                        SubscriptionNum = (int)dr["征订册数"],
+                        PublishingHouseId = int.Parse(dr["出版社"].ToString()),
                         DocumentType = dr["文献类型"].ToString(),
+                        OrderStatus = dr["订购状态"].ToString(),
                     };
                     result.Add(interviewList);
                 }
